@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import styles from './FAQ.module.css';
+import styles from './Faq.module.css';
 
 const FAQ = () => {
   const { t, i18n } = useTranslation();
