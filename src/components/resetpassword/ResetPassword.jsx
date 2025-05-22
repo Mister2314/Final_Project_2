@@ -25,7 +25,7 @@ export default function ResetPassword() {
       if (accessToken && refreshToken && type === 'recovery') {
         setIsValidToken(true);
         // Set the session with the tokens
-        import('../../SupabaseClient').then(({ supabase }) => {
+        import('../../supabaseClient').then(({ supabase }) => {
           supabase.auth.setSession({
             access_token: accessToken,
             refresh_token: refreshToken

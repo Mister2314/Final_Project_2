@@ -7,7 +7,7 @@ import { FiUser, FiMail, FiLock, FiCheckCircle, FiAlertCircle, FiEdit2 } from "r
 import { FaPaw } from "react-icons/fa";
 import toast from "react-hot-toast";
 import styles from "./ProfileSettings.module.css";
-import { supabase } from "../../SupabaseClient";
+import { supabase } from "../../supabaseClient";
 
 const ProfileSettings = () => {
   const { t } = useTranslation();

@@ -20,7 +20,7 @@
   /* Hero Section */
   .heroSection {
     position: relative;
-    background-image: url('/api/placeholder/1920/500');
+    background-image: url('');
     background-size: cover;
     background-position: center;
     padding: 120px 0 100px;

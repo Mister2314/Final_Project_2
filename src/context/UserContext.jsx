@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import { supabase } from "../SupabaseClient";
+import { supabase } from "../supabaseClient";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 
