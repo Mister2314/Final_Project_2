@@ -1,0 +1,112 @@
+/* Root CSS variables for theming */
+:root {
+  /* Light theme (default) */
+  --bg-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-color: #212529;
+  --text-secondary: #6c757d;
+  --input-bg: #ffffff;
+  --input-border: #ced4da;
+  --button-bg: #6c63ff;
+  --button-hover: #5a52d5;
+  --link-color: #6c63ff;
+  --error-bg: rgba(220, 53, 69, 0.1);
+  --error-color: #dc3545;
+  --input-placeholder: #6c757d;
+  --border-color: #e9ecef;
+  --header-bg: #ffffff;
+  --header-shadow: rgba(0, 0, 0, 0.08);
+  --badge-bg: #ff5a5f;
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+  --logo-color: #6c63ff;
+  --nav-link-color: #212529;
+  --nav-link-hover: #6c63ff;
+  --footer-bg: #f8f9fa;
+  --footer-text: #6c757d;
+  --divider-color: #e9ecef;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+  --bg-color: #212529;
+  --card-bg: #343a40;
+  --text-color: #f8f9fa;
+  --text-secondary: #adb5bd;
+  --input-bg: #495057;
+  --input-border: #6c757d;
+  --button-bg: #6c63ff;
+  --button-hover: #5a52d5;
+  --link-color: #6c63ff;
+  --error-bg: rgba(220, 53, 69, 0.1);
+  --error-color: #ff6b6b;
+  --input-placeholder: #adb5bd;
+  --border-color: #495057;
+  --header-bg: #343a40;
+  --header-shadow: rgba(0, 0, 0, 0.2);
+  --badge-bg: #ff5a5f;
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --logo-color: #6c63ff;
+  --nav-link-color: #f8f9fa;
+  --nav-link-hover: #6c63ff;
+  --footer-bg: #343a40;
+  --footer-text: #adb5bd;
+  --divider-color: #495057;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --success-color: #5cb85c;
+  --warning-color: #f0ad4e;
+  --info-color: #5bc0de;
+}
+
+/* Apply theme transitions */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* Common utility classes */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+}

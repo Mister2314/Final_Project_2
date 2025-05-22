@@ -1,0 +1,15 @@
+.headerContainer {
+    width: 100%;
+    min-height: 70px; 
+    position: relative;
+    z-index: 100;
+    background-color: rgb(12, 12, 39);
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1130px) {
+    .headerContainer {
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+    }
+  }

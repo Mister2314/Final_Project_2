@@ -1,0 +1,79 @@
+.languageSelector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  .languageSelect {
+    width: 100px;
+    border-radius: 8px;
+    background-color: transparent;
+  }
+  
+  .customSingleValue {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    gap: 6px;
+  }
+  
+  .customOption {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    gap: 6px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .customOption:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .flagImage {
+    width: 20px;
+    height: 15px;
+    border-radius: 3px;
+  }
+  
+  .languageCode {
+    font-size: 14px;
+    font-weight: normal;
+    color: #000;
+  }
+  
+  /* Override react-select default styles */
+  :global(.react-select__control) {
+    border: none !important;
+    box-shadow: none !important;
+    min-height: 30px !important;
+  }
+  
+  :global(.react-select__value-container) {
+    padding: 0 8px !important;
+  }
+  
+  :global(.react-select__indicator) {
+    padding: 4px !important;
+  }
+  
+  :global(.react-select__menu) {
+    width: 100px !important;
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .languageSelect {
+      width: 100px;
+    }
+  }
+  
+  @media screen and (max-width: 582px) {
+    .languageSelect {
+      width: 60px;
+    }
+  }

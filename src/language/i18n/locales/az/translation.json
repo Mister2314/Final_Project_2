@@ -1,0 +1,293 @@
+{
+  "navbar": {
+    "0": "Ana səhifə",
+    "1": "Haqqımızda",
+    "2": "Əlaqə",
+    "3": "Mağaza",
+    "4": "Bloq",
+    "5": "FAQ",
+    "profile": "Profil",
+    "orders": "Sifarişlər",
+    "settings": "Parametrlər",
+    "logout": "Çıxış",
+    "searchPlaceholder": "Məhsulları axtar..."
+  },
+  "auth": {
+    "loginTitle": "Hesabınıza daxil olun",
+    "email": "E-poçt",
+    "emailPlaceholder": "E-poçt ünvanınızı daxil edin",
+    "password": "Şifrə",
+    "passwordPlaceholder": "Şifrənizi daxil edin",
+    "forgotPassword": "Şifrəni unutmusunuz?",
+    "login": "Daxil ol",
+    "loggingIn": "Daxil olunur...",
+    "noAccount": "Hesabınız yoxdur?",
+    "signupNow": "İndi qeydiyyatdan keç"
+  },
+  "header": {
+    "title": "Woof - Ana səhifə"
+  },
+  "signup": {
+    "title": "Qeydiyyat",
+    "username": "İstifadəçi adı",
+    "usernamePlaceholder": "İstifadəçi adınızı daxil edin",
+    "email": "E-poçt",
+    "emailPlaceholder": "E-poçt ünvanınızı daxil edin",
+    "password": "Şifrə",
+    "passwordPlaceholder": "Şifrənizi daxil edin",
+    "signupButton": "Qeydiyyatdan keç",
+    "haveAccount": "Artıq hesabınız var?",
+    "loginLink": "Daxil ol",
+    "back": "Geri",
+    "successMessage": "Qeydiyyat uğurla tamamlandı! Giriş səhifəsinə yönləndirilirsiniz",
+    "errorFields": "Zəhmət olmasa bütün sahələri doldurun",
+    "errorGeneric": "Qeydiyyat zamanı xəta baş verdi."
+  },
+  "login": {
+    "title": "Giriş",
+    "email": "E-poçt",
+    "emailPlaceholder": "E-poçt ünvanınızı daxil edin",
+    "password": "Şifrə",
+    "passwordPlaceholder": "Şifrənizi daxil edin",
+    "forgotPassword": "Şifrəni unutmusunuz?",
+    "loginButton": "Daxil ol",
+    "noAccount": "Hesabınız yoxdur?",
+    "signupLink": "Qeydiyyatdan keç",
+    "errorFields": "Zəhmət olmasa e-poçt və şifrəni daxil edin",
+    "successMessage": "Giriş uğurlu oldu!",
+    "welcomeMessage": "Xoş gəlmisiniz, {{username}}!",
+    "errorGeneric": "Giriş zamanı xəta baş verdi"
+  },
+  "forgotPassword": {
+    "title": "Şifrəni unutmusunuz?",
+    "description": "Hesabınızla əlaqəli e-poçt ünvanını daxil edin və biz sizə şifrə sıfırlama linki göndərəcəyik.",
+    "email": "E-poçt",
+    "emailPlaceholder": "E-poçt ünvanınızı daxil edin",
+    "resetButton": "Şifrə sıfırlama linki göndər",
+    "back": "Geri",
+    "rememberPassword": "Şifrənizi xatırlayırsınız?",
+    "loginLink": "Daxil ol",
+    "emailSentTitle": "E-poçt göndərildi!",
+    "emailSentDescription": "Şifrə sıfırlama təlimatları göndərildi:",
+    "checkSpamNote": "E-poçtunuzu yoxlayın və spam qovluğuna da baxın.",
+    "resendButton": "Yenidən göndər",
+    "backToLogin": "Giriş səhifəsinə qayıt",
+    "errorEmail": "Zəhmət olmasa e-poçt ünvanını daxil edin",
+    "errorEmailInvalid": "Zəhmət olmasa düzgün e-poçt ünvanı daxil edin",
+    "successMessage": "Şifrə sıfırlama linki e-poçt ünvanınıza göndərildi!",
+    "resendSuccess": "E-poçt yenidən göndərildi!",
+    "errorGeneric": "Xəta baş verdi. Zəhmət olmasa yenidən cəhd edin."
+  },
+  "resetPassword": {
+    "title": "Şifrəni yenilə",
+    "newPassword": "Yeni şifrə",
+    "newPasswordPlaceholder": "Yeni şifrəni daxil edin",
+    "confirmPassword": "Şifrəni təsdiq edin",
+    "confirmPasswordPlaceholder": "Şifrənizi yenidən daxil edin",
+    "resetButton": "Şifrəni yenilə",
+    "backToLogin": "Giriş səhifəsinə qayıt",
+    "passwordMismatch": "Şifrələr uyğun gəlmir",
+    "invalidLink": "Yanlış və ya vaxtı keçmiş yeniləmə linki. Zəhmət olmasa yeni şifrə yeniləməsi tələb edin.",
+    "successMessage": "Şifrəniz uğurla yeniləndi!",
+    "redirectMessage": "İndi giriş səhifəsinə yönləndirilirsiniz...",
+    "genericError": "Gözlənilməz xəta baş verdi. Zəhmət olmasa yenidən cəhd edin."
+  },
+  "navigation": {
+    "home": "Ana səhifə",
+    "shop": "Mağaza",
+    "dogs": "İtlər",
+    "cats": "Pişiklər",
+    "allProducts": "Bütün məhsullar",
+    "newArrivals": "Yeni gələnlər",
+    "blog": "Bloq",
+    "aboutUs": "Haqqımızda",
+    "contact": "Əlaqə",
+    "search": "Məhsulları axtar...",
+    "profile": "Profil",
+    "orders": "Sifarişlər",
+    "settings": "Parametrlər",
+    "help": "Kömək",
+    "logout": "Çıxış"
+  },
+  "heroSection": {
+    "slides": {
+      "0": {
+        "title": "Ev heyvanlarınız üçün\nPremium Aksessuarlar",
+        "description": "Tüklü dostlarınıza xüsusi qayğı göstərin. Keyfiyyətli və rahat aksessuarlarla onları sevindirin!",
+        "buttonText": "İndi alış-veriş et"
+      },
+      "1": {
+        "title": "Pişikləriniz üçün\nRahat məhsullar",
+        "description": "Pişikləriniz üçün ən rahat yataqlar, oyuncaqlar və digər aksessuarlar indi mağazamızda!",
+        "buttonText": "Pişik məhsulları"
+      },
+      "2": {
+        "title": "Dostlarınızı\nSevindirin",
+        "description": "İt və pişiklər üçün xüsusi hazırlanmış məhsullar indi Woof-da!",
+        "buttonText": "Məhsulları kəşf et"
+      }
+    }
+  },
+  "footer": {
+    "about": "Heyvanlarınız üçün yüksək keyfiyyətli aksessuarlar təklif edirik. İt və pişiklər üçün yalnız ən yaxşı məhsullar.",
+    "quickLinks": "Sürətli linklər",
+    "categories": "Məhsul kateqoriyaları",
+    "contactInfo": "Əlaqə məlumatları",
+    "address": "Heydər Əliyev prospekti 123, Bakı, Azərbaycan",
+    "phone": "+994 50 123 45 67",
+    "email": "info@woof.az",
+    "newsletter": "Yeniliklərdən xəbərdar olun",
+    "newsletterText": "Yeni məhsullar və xüsusi təkliflər haqqında məlumat almaq üçün abunə olun.",
+    "emailPlaceholder": "E-poçt ünvanınız",
+    "subscribe": "Abunə ol",
+    "copyright": "Bütün hüquqlar qorunur.",
+    "privacyPolicy": "Məxfilik Siyasəti",
+    "terms": "İstifadə Şərtləri",
+    "shipping": "Çatdırılma",
+    "returnsPolicy": "Qaytarma Siyasəti",
+    "paymentMethods": "Ödəniş Üsulları",
+    "petCategories": {
+      "dogs": "İtlər",
+      "cats": "Pişiklər"
+    },
+    "productCategories": {
+      "collars": "Xaltalar və qayışlar",
+      "beds": "Yataqlar",
+      "toys": "Oyuncaqlar",
+      "foodBowls": "Qida qabları",
+      "clothes": "Geyimlər",
+      "grooming": "Qulluq məhsulları"
+    }
+  },
+  "common": {
+    "loading": "Yüklənir..."
+  },
+  "faq": {
+    "title": "Tez-tez soruşulan suallar",
+    "subtitle": "Məhsullarımız, xidmətlərimiz və siyasətlərimizlə bağlı ümumi suallara cavablar tapın.",
+    "searchPlaceholder": "Cavabları axtar...",
+    "noResults": "Heç bir nəticə tapılmadı",
+    "noResultsTitle": "Heç bir nəticə tapılmadı",
+    "noResultsText": "Fərqli axtarış sözü yoxlayın və ya aşağıdakı kateqoriyalara baxın.",
+    "tryDifferent": "Fərqli axtarış sözü yoxlayın və ya aşağıdakı kateqoriyalara baxın.",
+    "contactTitle": "Hələ də suallarınız var?",
+    "contactText": "Axtardığınız cavabı tapa bilmirsiniz? Zəhmət olmasa müştəri dəstək komandamızla əlaqə saxlayın.",
+    "contactUs": "Bizimlə əlaqə saxlayın",
+    "contactButton": "Dəstəklə əlaqə saxlayın",
+    "categories": {
+      "all": "Hamısı",
+      "orders": "Sifarişlər",
+      "shipping": "Çatdırılma",
+      "products": "Məhsullar",
+      "returns": "Qaytarmalar",
+      "account": "Hesab",
+      "general": "Ümumi"
+    },
+    "questions": {
+      "orderTracking": "Sifarişimi necə izləyə bilərəm?",
+      "deliveryTime": "Çatdırılma nə qədər vaxt aparır?",
+      "productQuality": "Heyvan məhsullarınızın keyfiyyəti necədir?",
+      "returnPolicy": "Qaytarma siyasətiniz necədir?",
+      "passwordReset": "Şifrəmi necə sıfırlaya bilərəm?",
+      "orderCancellation": "Sifarişimi ləğv edə bilərəm?",
+      "internationalShipping": "Beynəlxalq çatdırılma təklif edirsiniz?",
+      "petFoodIngredients": "Heyvan yemlərinizin tərkibində nələr var?",
+      "damagedProducts": "Zədələnmiş məhsul gələrsə nə etməliyəm?"
+    },
+    "answers": {
+      "orderTracking": "Sifarişinizi izləmək üçün hesabınıza daxil olun və 'Sifarişlər' bölməsinə keçin. Burada son alış-verişləriniz üçün izləmə məlumatlarını tapa bilərsiniz. Alternativ olaraq, göndərmə təsdiq e-poçtunuzda təqdim olunan izləmə nömrəsindən istifadə edə bilərsiniz.",
+      "deliveryTime": "Çatdırılma müddəti yerinizə görə dəyişir. Standart yerli çatdırılma adətən 3-5 iş günü çəkir. Ekspress çatdırılma 1-2 iş günü ərzində baş tutur. Beynəlxalq göndərmə təyinat ölkəsindən və gömrük prosedurlarından asılı olaraq 7-14 iş günü çəkə bilər.",
+      "productQuality": "Biz yalnız yüksək keyfiyyətli heyvan məhsulları təklif etməkdən qürur duyuruq. Bütün məhsullarımız ciddi keyfiyyət nəzarətindən keçir və etibarlı istehsalçılardan tədarük edilir. Biz davamlı, heyvanlar üçün təhlükəsiz materiallar seçirik və məhsullarımızı keyfiyyət, təhlükəsizlik və davamlılıq standartlarına uyğunluğunu təmin etmək üçün müntəzəm olaraq test edirik.",
+      "returnPolicy": "İstifadə edilməmiş məhsullar orijinal qablaşdırmada alındıqdan sonra 30 gün ərzində qaytarıla bilər. Əgər alışınızdan məmnun deyilsinizsə, tam geri ödəniş və ya dəyişdirmə üçün qaytara bilərsiniz. Nəzərə alın ki, qaytarılan məhsullar üçün çatdırılma xərcləri məhsul qüsurlu olmadığı və ya səhv göndərilmədiyi halda geri ödənilmir.",
+      "passwordReset": "Şifrənizi sıfırlamaq üçün giriş səhifəsindəki 'Şifrəni unutmusunuz?' linkinə klikləyin. Hesabınızla əlaqəli e-poçt ünvanını daxil edin və sizə şifrə sıfırlama linki göndərəcəyik. Yeni şifrə yaratmaq üçün e-poçtdakı təlimatlara əməl edin.",
+      "orderCancellation": "Bəli, sifarişiniz hələ göndərilməyibsə, ləğv edə bilərsiniz. Bunu etmək üçün hesabınıza daxil olun, 'Sifarişlər' bölməsində müvafiq sifarişi tapın və 'Sifarişi ləğv et' düyməsini klikləyin. Əgər sifariş artıq göndərilibsə, gəlməsini gözləməli və sonra qaytarma prosesini başlatmalı olacaqsınız.",
+      "internationalShipping": "Bəli, əksər ölkələrə beynəlxalq çatdırılma təklif edirik. Beynəlxalq göndərmə tarifleri təyinat, çəki və bağlama ölçülərinə əsasən hesablanır. Nəzərə alın ki, əlavə rüsumlar, vergilər və ya haqlar ölkənizin gömrük tələblərinə uyğun olaraq tətbiq edilə bilər və bunlar müştərinin məsuliyyətindədir.",
+      "petFoodIngredients": "Heyvan yemlərimiz yüksək keyfiyyətli, təbii inqrediyentlərlə hazırlanır və süni konservantlar, rənglər və ya dadlar ehtiva etmir. Biz yüksək keyfiyyətli zülallar, tam taxıllar və təzə tərəvəzlərdən istifadə edirik. Hər məhsul səhifəsində ətraflı tərkib məlumatı təqdim edilir. Əgər heyvanınızın allergiyası və ya xüsusi pəhriz ehtiyacları varsa, zəhmət olmasa tərkibi diqqətlə yoxlayın və ya bizimlə əlaqə saxlayın.",
+      "damagedProducts": "Əgər məhsulunuz zədələnmiş şəkildə gələrsə, zədənin şəkillərini çəkin və bağlamanı aldıqdan sonra 48 saat ərzində müştəri xidmətimizlə əlaqə saxlayın. Ən qısa zamanda sizə əvəzedici göndərəcəyik və ya geri ödəniş edəcəyik. Problem həll olunana qədər orijinal qablaşdırmanı saxlayın."
+    }
+  },
+  "contact": {
+    "title": "Bizimlə əlaqə",
+    "subtitle": "Hər hansı sualınız və ya təklifiniz varsa, bizimlə əlaqə saxlayın",
+    "phoneTitle": "Telefon",
+    "phonenumber": "+994-50-703-21-86",
+    "emailTitle": "E-poçt",
+    "email":"xeyalhuseynli06@gmail.com",
+    "addressTitle": "Ünvan",
+    "address" : "Unit 3, The Barn At Fenn Farm, Rowsham, Aylesbury HP22 4QP, Birləşmiş Krallıq",
+    "emailaddres1": "xeyalhuseynli06@gmail.com",
+    "emailaddres2": "xeyalhuseynli07@gmail.com",
+    "hoursTitle": "İş saatları",
+    "getInTouch": "Əlaqə saxlayın",
+    "formTitle": "Bizə mesaj göndərin",
+    "formSubtitle": "Bizimlə əlaqə saxlamaq üçün aşağıdakı formu doldurun və qısa müddətdə sizə cavab verəcəyik.",
+    "form": {
+      "name": "Ad",
+      "namePlaceholder": "Adınızı daxil edin",
+      "email": "E-poçt",
+      "emailPlaceholder": "E-poçt ünvanınızı daxil edin",
+      "subject": "Mövzu",
+      "subjectPlaceholder": "Mövzunu daxil edin",
+      "message": "Mesaj",
+      "messagePlaceholder": "Mesajınızı daxil edin",
+      "send": "Göndər",
+      "sending": "Göndərilir...",
+      "successMessage": "Mesajınız uğurla göndərildi! Tezliklə sizinlə əlaqə saxlayacağıq."
+    },
+    "findUs": "Bizi tapın",
+    "visitTitle": "Mağazamızı ziyarət edin",
+    "visitSubtitle": "Yüksək keyfiyyətli heyvan baxımı məhsullarımızı birbaşa mağazamızda kəşf edin.",
+    "loadingMap": "Xəritə yüklənir...",
+    "storeName": "Woof Heyvan Mağazası",
+    "getDirections": "İstiqamətləri əldə edin",
+    "faqTitle": "Tez-tez soruşulan suallar",
+    "faqHeading": "Sualınıza cavab tapa bilmədiniz?",
+    "faqSubtitle": "Tez-tez soruşulan suallar bölməmizi ziyarət edərək daha çox məlumat əldə edə bilərsiniz.",
+    "viewAllFaq": "Bütün sualları göstər",
+    "errors": {
+      "nameRequired": "Ad tələb olunur",
+      "emailRequired": "E-poçt tələb olunur",
+      "emailInvalid": "Düzgün e-poçt ünvanı daxil edin",
+      "messageRequired": "Mesaj tələb olunur"
+    }
+  },
+  "profileSettings": {
+    "title": "Profil parametrləri",
+    "usernameSection": "İstifadəçi adı",
+    "emailSection": "E-poçt ünvanı",
+    "passwordSection": "Şifrə",
+    "currentPassword": "Cari şifrə",
+    "currentPasswordPlaceholder": "Cari şifrənizi daxil edin",
+    "newPassword": "Yeni şifrə",
+    "newPasswordPlaceholder": "Yeni şifrənizi daxil edin",
+    "confirmPassword": "Şifrəni təsdiq edin",
+    "confirmPasswordPlaceholder": "Yeni şifrənizi təsdiq edin",
+    "changePassword": "Şifrəni dəyiş",
+    "save": "Dəyişiklikləri yadda saxla",
+    "cancel": "Ləğv et",
+    "back": "Geri",
+    "readOnly": "Yalnız oxuna bilən",
+    "noUsername": "İstifadəçi adı təyin edilməyib",
+    "updated": "Uğurla yeniləndi",
+    "passwordUpdateSuccess": "Şifrə uğurla yeniləndi",
+    "errors": {
+      "fetchFailed": "Profil məlumatları əldə edilə bilmədi",
+      "currentPasswordRequired": "Cari şifrə tələb olunur",
+      "newPasswordRequired": "Yeni şifrə tələb olunur",
+      "passwordMinLength": "Şifrə ən azı 6 simvol olmalıdır",
+      "confirmPasswordRequired": "Zəhmət olmasa şifrənizi təsdiq edin",
+      "passwordMismatch": "Şifrələr uyğun gəlmir",
+      "incorrectPassword": "Cari şifrə yanlışdır",
+      "passwordUpdateFailed": "Şifrə yenilənməsi uğursuz oldu"
+    }
+  },
+  "notFound": {
+    "title": "Oops! Deyəsən yolunuzu azmısınız",
+    "description": "Axradığınız səhifə mövcud deyil. Bəlkə dostumuz onu yeyib?",
+    "goHome": "Ana Səhifəyə Qayıt",
+    "goShop": "Mağazaya Keç",
+    "petInteraction": "Pişiyi sığalla! 🐾",
+    "speechBubbleHappy": "Meow! ♥",
+    "speechBubblePlaying": "Purr~"
+  }
+}
