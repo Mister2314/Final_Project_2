@@ -24,33 +24,17 @@ export default function SignUp() {
       toast.error(t('signup.errorFields'));
       return;
     }
-
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email.trim())) {
-      toast.error('Düzgün email daxil edin.');
-      return;
-    }
-
-    // Password validation
-    if (password.length < 6) {
-      toast.error('Şifrə ən azı 6 simvol olmalıdır.');
-      return;
-    }
     
     setLoading(true);
     
     try {
-      const result = await register({
+      const success = await register({
         email,
         password,
-        fullName: username,
-        skipNotification: false
+        fullName: username
       });
       
-      // Check if registration was successful
-      if (result && result.success) {
-        // Only navigate to login if registration was successful
+      if (success) {
         navigate('/login', { 
           state: { 
             from: '/',
@@ -58,25 +42,9 @@ export default function SignUp() {
             email: email 
           } 
         });
-      } else {
-        // Registration failed - error message should already be shown by UserContext
-        // But we can add specific handling for email already exists case
-        if (result && result.error && result.error.includes('email')) {
-          toast.error('Bu email artıq qeydiyyatdadır. Giriş etməyə çalışın.');
-        }
-        // Don't navigate - stay on signup page
       }
     } catch (error) {
       console.error("Signup error:", error);
-      
-      // Handle specific error cases
-      if (error.message && error.message.toLowerCase().includes('email')) {
-        toast.error('Bu email artıq qeydiyyatdadır. Giriş etməyə çalışın.');
-      } else {
-        toast.error(t('signup.errorGeneric'));
-      }
-      
-      // Don't navigate on error - stay on signup page
     } finally {
       setLoading(false);
     }
@@ -132,7 +100,6 @@ export default function SignUp() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder={t('signup.passwordPlaceholder')}
               required
-              minLength={6}
             />
           </div>
           <button className={styles.loginButton} type="submit" disabled={loading}>

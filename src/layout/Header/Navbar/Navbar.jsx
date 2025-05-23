@@ -9,7 +9,6 @@ import { FiUser, FiShoppingBag, FiSettings } from "react-icons/fi";
 import { useTheme } from "../../../context/ThemeContext";
 import { useUser } from "../../../context/UserContext";
 import LanguageSelector from "../components/LanguageSelector/LanguageSelector";
-import toast from 'react-hot-toast';
 
 import styles from "./Navbar.module.css";
 
@@ -28,7 +27,6 @@ const Navbar = () => {
   const [categoryMenuOpen, setCategoryMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
   
   const searchInputRef = useRef(null);
   const navbarRef = useRef(null);
@@ -169,37 +167,14 @@ const Navbar = () => {
     setUserMenuOpen(false);
   };
 
-  const handleLogout = async (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    if (isLoggingOut) return; // Prevent multiple logout attempts
-    
-    setIsLoggingOut(true);
-    
+  const handleLogout = async () => {
     try {
-      console.log("Starting logout process...");
-      
-      // Close user menu immediately
+      await logout();
+      navigate('/');
       setUserMenuOpen(false);
-      setMobileMenuOpen(false);
-      
-      // Call logout function
-      const result = await logout();
-      
-      console.log("Logout result:", result);
-      
-      // Show success message
-      toast.success("Uğurla çıxış edildi");
-      
-      // Navigate to home page
-      navigate('/', { replace: true });
-      
     } catch (error) {
       console.error("Logout failed:", error);
-      toast.error("Çıxış zamanı xəta baş verdi");
-    } finally {
-      setIsLoggingOut(false);
+      setUserMenuOpen(false);
     }
   };
 
@@ -355,11 +330,9 @@ const Navbar = () => {
                       <div className={styles.userMenuDivider}></div>
                       <button 
                         onClick={handleLogout} 
-                        className={`${styles.userMenuItem} ${isLoggingOut ? styles.loading : ""}`}
-                        disabled={isLoggingOut}
+                        className={styles.userMenuItem}
                       >
-                        <CgLogOut /> 
-                        {isLoggingOut ? "Çıxış edilir..." : t("navbar.logout")}
+                        <CgLogOut /> {t("navbar.logout")}
                       </button>
                     </div>
                   )}

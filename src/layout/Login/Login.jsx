@@ -16,14 +16,13 @@ export default function Login() {
   const previousPath = location.state?.from || '/';
   const newUser = location.state?.newUser || false;
   const registeredEmail = location.state?.email || '';
-
+  
   useEffect(() => {
     if (newUser && registeredEmail) {
       setEmail(registeredEmail);
-      // Show welcome message for new users only once
-      toast.success(t('signup.successMessage'));
+      toast.success(t('signup.pleaseLogin'));
     }
-  }, []); // Empty dependency array to run only once when component mounts
+  }, [newUser, registeredEmail, t]);
   
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -32,32 +31,22 @@ export default function Login() {
       toast.error(t('login.errorFields'));
       return;
     }
-
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email.trim())) {
-      toast.error('Düzgün email daxil edin.');
-      return;
-    }
     
     setLoading(true);
     
     try {
-      const result = await login({ 
-        email, 
-        password
-      });
+      const success = await login({ email, password });
       
-      // Only navigate if login was successful
-      if (result.success) {
-        // Navigate to previous path or home after successful login
-        navigate(previousPath);
+      if (success) {
+        // Remove the toast notification here to prevent duplication
+        // The login function in UserContext is likely already showing a notification
+        navigate('/');
+      } else {
+        toast.error(t('login.loginFailed'));
       }
-      // If login failed, stay on login page - error message already shown by UserContext
     } catch (error) {
       console.error('Login error details:', error);
-      // Error handling is now done in UserContext, but keep this as fallback
-      toast.error(t('login.errorGeneric'));
+      toast.error(t('login.errorOccurred'));
     } finally {
       setLoading(false);
     }
