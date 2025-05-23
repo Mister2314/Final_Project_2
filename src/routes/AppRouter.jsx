@@ -12,7 +12,9 @@ import FaqPage from "../pages/Faq/FaqPage";
 import ContactPage from "../pages/Contact/ContactPage";
 import ProfilePage from "../pages/Profile/ProfilePage";
 import ProfileSettings from "../components/ProfileSettings/ProfileSettings";
-import NotFound from "../pages/404/Page404"; // Import the NotFound component
+import ForgotPassword from "../components/ForgotPassword/ForgotPassword";
+import ResetPassword from "../components/resetpassword/ResetPassword";
+import NotFound from "../pages/404/Page404";
 
 const AppRouter = () => {
   return (
@@ -26,6 +28,10 @@ const AppRouter = () => {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/faq" element={<FaqPage />} />
           
+          {/* Password Reset Routes - Public */}
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          
           {/* Auth Routes - Only accessible when NOT logged in */}
           <Route element={<AuthRoute />}>
             <Route path="/login" element={<Login />} />
@@ -37,7 +43,7 @@ const AppRouter = () => {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/profile/settings" element={<ProfileSettings />} />
           </Route>
-
+          
           {/* 404 Not Found Route - Must be last */}
           <Route path="*" element={<NotFound />} />
         </Routes>

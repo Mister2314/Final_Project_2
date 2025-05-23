@@ -147,6 +147,50 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  // YENI EKLENEN FORGOT PASSWORD FONKSİYONU
+  const forgotPassword = async (email) => {
+    setLoading(true);
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      });
+
+      if (error) throw error;
+
+      return { success: true };
+    } catch (error) {
+      console.error("Forgot password error:", error);
+      return { 
+        success: false, 
+        error: error.message || t("forgotPassword.errorGeneric", "Failed to send reset email")
+      };
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // YENI EKLENEN UPDATE PASSWORD FONKSİYONU
+  const updatePassword = async (newPassword) => {
+    setLoading(true);
+    try {
+      const { error } = await supabase.auth.updateUser({
+        password: newPassword
+      });
+
+      if (error) throw error;
+
+      return { success: true };
+    } catch (error) {
+      console.error("Update password error:", error);
+      return { 
+        success: false, 
+        error: error.message || t("resetPassword.errorGeneric", "Failed to update password")
+      };
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleLogout = (showToast = true) => {
     setUser(null);
     setIsAuthenticated(false);
@@ -223,6 +267,8 @@ export const UserProvider = ({ children }) => {
     register,
     logout,
     updateUser,
+    forgotPassword, // YENI EKLENEN FONKSİYON
+    updatePassword, // YENI EKLENEN FONKSİYON
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

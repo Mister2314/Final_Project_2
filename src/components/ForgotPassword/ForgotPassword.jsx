@@ -1,124 +1,127 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
-import { supabase } from '../../SupabaseClient';
-import styles from './Login.module.css';
+import { useTranslation } from 'react-i18next';
+import toast from 'react-hot-toast';
+import styles from './ForgotPassword.module.css';
 
-export default function ResetPassword() {
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState(false);
-  const { updatePassword } = useUser();
+export default function ForgotPassword() {
+  const { t } = useTranslation();
+  const { forgotPassword, loading } = useUser();
+  const [email, setEmail] = useState('');
+  const [emailSent, setEmailSent] = useState(false);
   const navigate = useNavigate();
 
-  // Check if coming from a valid reset link
-  useEffect(() => {
-    const checkHashParams = async () => {
-      // The hash contains parameters like #access_token=xxx&refresh_token=yyy&...
-      const hash = window.location.hash.substring(1);
-      const params = new URLSearchParams(hash);
-      
-      if (!params.get('access_token')) {
-        setError('Invalid or expired reset link. Please request a new password reset.');
-      }
-    };
-    
-    checkHashParams();
-  }, []);
-
-  const handleResetPassword = async (e) => {
+  const handleForgotPassword = async (e) => {
     e.preventDefault();
     
-    if (newPassword !== confirmPassword) {
-      setError('Şifrələr uyğun gəlmir');
+    if (!email.trim()) {
+      toast.error(t('forgotPassword.errorEmail', 'Please enter your email address'));
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error(t('forgotPassword.errorEmailFormat', 'Please enter a valid email address'));
       return;
     }
     
-    setLoading(true);
-    setError('');
+    const result = await forgotPassword(email);
     
-    try {
-      const { success, error } = await updatePassword(newPassword);
-      
-      if (!success) {
-        setError(error);
-        return;
-      }
-      
-      setSuccess(true);
-      setTimeout(() => {
-        navigate('/login');
-      }, 3000);
-    } catch (err) {
-      setError('An unexpected error occurred. Please try again.');
-      console.error(err);
-    } finally {
-      setLoading(false);
+    if (result.success) {
+      setEmailSent(true);
+      toast.success(t('forgotPassword.successMessage', 'Password reset email sent!'));
+    } else {
+      toast.error(result.error || t('forgotPassword.errorGeneric', 'Failed to send reset email'));
     }
   };
+
+  if (emailSent) {
+    return (
+      <div className={styles.loginContainer}>
+        <div className={styles.loginCard}>
+          <div className={styles.successIcon}>
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="#10b981" strokeWidth="2"/>
+              <path d="m9 12 2 2 4-4" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <h2 className={styles.loginTitle}>
+            {t('forgotPassword.emailSentTitle', 'Check Your Email')}
+          </h2>
+          <p className={styles.description}>
+            {t('forgotPassword.emailSentDescription', 'We\'ve sent a password reset link to your email address. Please check your inbox and click the link to reset your password.')}
+          </p>
+          <button 
+            className={styles.loginButton}
+            onClick={() => navigate('/login')}
+          >
+            {t('forgotPassword.backToLogin', 'Back to Login')}
+          </button>
+          <div className={styles.authSwitch}>
+            {t('forgotPassword.didntReceive', 'Didn\'t receive the email?')} 
+            <button 
+              className={styles.authLink}
+              onClick={() => setEmailSent(false)}
+              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+            >
+              {t('forgotPassword.tryAgain', 'Try again')}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginCard}>
-        <h2 className={styles.loginTitle}>Şifrənin Yenilənməsi</h2>
+        <h2 className={styles.loginTitle}>
+          {t('forgotPassword.title', 'Forgot Password')}
+        </h2>
+        <p className={styles.description}>
+          {t('forgotPassword.description', 'Enter your email address and we\'ll send you a link to reset your password.')}
+        </p>
         
-        {error && <div className={styles.errorMessage}>{error}</div>}
-        
-        {success ? (
-          <div className={styles.successMessage}>
-            <p>Şifrəniz uğurla yeniləndi!</p>
-            <p>İndi daxil olma səhifəsinə yönləndirilirsiniz...</p>
+        <form className={styles.loginForm} onSubmit={handleForgotPassword}>
+          <div className={styles.formGroup}>
+            <label>{t('forgotPassword.emailLabel', 'Email Address')}</label>
+            <input
+              className={styles.formInput}
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={t('forgotPassword.emailPlaceholder', 'Enter your email address')}
+              required
+            />
           </div>
-        ) : (
-          <form className={styles.loginForm} onSubmit={handleResetPassword}>
-            <div className={styles.formGroup}>
-              <label>Yeni Şifrə</label>
-              <input
-                className={styles.formInput}
-                type="password"
-                value={newPassword}
-                onChange={(e) => setNewPassword(e.target.value)}
-                placeholder="Yeni şifrə daxil edin"
-                required
-                minLength="8"
-              />
-            </div>
-            
-            <div className={styles.formGroup}>
-              <label>Şifrəni Təsdiq Et</label>
-              <input
-                className={styles.formInput}
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                placeholder="Şifrəni təkrar daxil edin"
-                required
-                minLength="8"
-              />
-            </div>
-            
-            <button className={styles.loginButton} type="submit" disabled={loading}>
-              {loading ? (
-                <div className={styles.pawLoaderContainer}>
-                  <div className={styles.pawLoader}>
-                    <div className={styles.pawPrint}></div>
-                    <div className={styles.pawPrint}></div>
-                    <div className={styles.pawPrint}></div>
-                    <div className={styles.pawPrint}></div>
-                    <div className={styles.pawPrint}></div>
-                  </div>
+          
+          <button className={styles.loginButton} type="submit" disabled={loading}>
+            {loading ? (
+              <div className={styles.pawLoaderContainer}>
+                <div className={styles.pawLoader}>
+                  <div className={styles.pawPrint}></div>
+                  <div className={styles.pawPrint}></div>
+                  <div className={styles.pawPrint}></div>
+                  <div className={styles.pawPrint}></div>
+                  <div className={styles.pawPrint}></div>
                 </div>
-              ) : (
-                'Şifrəni Yenilə'
-              )}
-            </button>
-          </form>
-        )}
+              </div>
+            ) : (
+              t('forgotPassword.sendButton', 'Send Reset Link')
+            )}
+          </button>
+        </form>
         
         <div className={styles.authSwitch}>
-          <a href="/login" className={styles.authLink}>Daxil olma səhifəsinə qayıt</a>
+          {t('forgotPassword.rememberPassword', 'Remember your password?')} 
+          <button 
+            className={styles.authLink}
+            onClick={() => navigate('/login')}
+            style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+          >
+            {t('forgotPassword.loginLink', 'Sign in')}
+          </button>
         </div>
       </div>
     </div>
