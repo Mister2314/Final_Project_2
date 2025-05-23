@@ -412,8 +412,8 @@ export const UserProvider = ({ children }) => {
       console.log('Redirect URL:', redirectTo);
 
       const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo,
-        ...options
+          redirectTo: 'https://final-project-2-uk2w-7i75hshrg-morpheus2314s-projects.vercel.app/forgot-password',
+
       });
 
       if (error) {
