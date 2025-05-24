@@ -20,6 +20,7 @@ export default function Login() {
   useEffect(() => {
     if (newUser && registeredEmail) {
       setEmail(registeredEmail);
+      // Bu toast-u daha spesifik et və yalnız bu vəziyyətdə göstər
       toast.success(t('signup.pleaseLogin'));
     }
   }, [newUser, registeredEmail, t]);
@@ -38,14 +39,17 @@ export default function Login() {
       const success = await login({ email, password });
       
       if (success) {
-        // Remove the toast notification here to prevent duplication
-        // The login function in UserContext is likely already showing a notification
+        // UserContext-də artıq success notification göstərilir
+        // Burada əlavə toast göstərmə
         navigate('/');
       } else {
-        toast.error(t('login.loginFailed'));
+        // Login uğursuz olsa, UserContext-də error handle olunur
+        // Əlavə error toast göstərməyə ehtiyac yoxdur
+        console.log('Login failed - error handled in UserContext');
       }
     } catch (error) {
       console.error('Login error details:', error);
+      // Əlavə error handling - yalnız gözlənilməz error-lar üçün
       toast.error(t('login.errorOccurred'));
     } finally {
       setLoading(false);

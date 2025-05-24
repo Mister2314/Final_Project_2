@@ -35,6 +35,8 @@ export default function SignUp() {
       });
       
       if (success) {
+        // UserContext-də artıq success notification göstərilir
+        // Burada login səhifəsinə yönləndirmə zamanı əlavə mesaj göstərmə
         navigate('/login', { 
           state: { 
             from: '/',
@@ -42,9 +44,14 @@ export default function SignUp() {
             email: email 
           } 
         });
+      } else {
+        // Register uğursuz olsa, UserContext-də error handle olunur
+        console.log('Registration failed - error handled in UserContext');
       }
     } catch (error) {
       console.error("Signup error:", error);
+      // Əlavə error handling - yalnız gözlənilməz error-lar üçün
+      toast.error(t('signup.errorOccurred'));
     } finally {
       setLoading(false);
     }

@@ -19,17 +19,47 @@ export const UserProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const loginNotificationShown = useRef(false);
-  const registerNotificationShown = useRef(false);
-  const logoutNotificationShown = useRef(false);
+  // Notification tracking - daha sadə və effektiv sistem
+  const lastNotificationRef = useRef({
+    type: null,
+    timestamp: null,
+    language: null,
+  });
 
-  useEffect(() => {
-    return () => {
-      loginNotificationShown.current = false;
-      registerNotificationShown.current = false;
-      logoutNotificationShown.current = false;
+  // Minimum interval notifications arasında (milliseconds)
+  const NOTIFICATION_COOLDOWN = 2000;
+
+  // Notification göstərmə funksiyası - təkrarlanmaları önləyir
+  const showNotification = (type, message, isError = false) => {
+    const now = Date.now();
+    const currentLang = i18n.language;
+    const lastNotification = lastNotificationRef.current;
+
+    // Eyni tip notification çox yaxın vaxtda göstərilibsə və dil eynidir, skip et
+    if (
+      lastNotification.type === type && 
+      lastNotification.language === currentLang &&
+      lastNotification.timestamp &&
+      (now - lastNotification.timestamp) < NOTIFICATION_COOLDOWN
+    ) {
+      console.log(`Skipping duplicate ${type} notification`);
+      return;
+    }
+
+    // Notification göstər
+    if (isError) {
+      toast.error(message);
+    } else {
+      toast.success(message);
+    }
+
+    // Son notification məlumatlarını yenilə
+    lastNotificationRef.current = {
+      type,
+      timestamp: now,
+      language: currentLang,
     };
-  }, []);
+  };
 
   useEffect(() => {
     const checkAuthStatus = async () => {
@@ -68,6 +98,7 @@ export const UserProvider = ({ children }) => {
           if (hasExplicitlyLoggedIn) {
             setUser(session.user);
             setIsAuthenticated(true);
+            // Auth state change-də toast göstərmə - yalnız login funksiyasında
           }
         } else if (event === "SIGNED_OUT") {
           handleLogout(false);
@@ -99,14 +130,13 @@ export const UserProvider = ({ children }) => {
       setUser(data.user);
       setIsAuthenticated(true);
 
-      if (!loginNotificationShown.current) {
-        toast.success(t("login.successMessage"));
-        loginNotificationShown.current = true;
-      }
+      // Login uğurlu olduqda notification göstər
+      showNotification('login', t("login.successMessage"));
 
       return true;
     } catch (error) {
       console.error("Login error:", error);
+      // Error mesajları həmişə göstər (cooldown yoxdur)
       toast.error(error.message || t("login.errorGeneric"));
       return false;
     } finally {
@@ -128,18 +158,18 @@ export const UserProvider = ({ children }) => {
       });
 
       if (error) throw error;
+      
       localStorage.removeItem("userExplicitlyLoggedIn");
       setUser(null);
       setIsAuthenticated(false);
 
-      if (!registerNotificationShown.current) {
-        toast.success(t("signup.successMessage"));
-        registerNotificationShown.current = true;
-      }
+      // Register uğurlu olduqda notification göstər
+      showNotification('register', t("signup.successMessage"));
 
       return true;
     } catch (error) {
       console.error("Registration error:", error);
+      // Error mesajları həmişə göstər
       toast.error(error.message || t("signup.errorGeneric"));
       return false;
     } finally {
@@ -147,7 +177,6 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  // YENI EKLENEN FORGOT PASSWORD FONKSİYONU
   const forgotPassword = async (email) => {
     setLoading(true);
     try {
@@ -157,9 +186,12 @@ export const UserProvider = ({ children }) => {
 
       if (error) throw error;
 
+      showNotification('forgot-password', t("forgotPassword.successMessage") || "Password reset email sent!");
+
       return { success: true };
     } catch (error) {
       console.error("Forgot password error:", error);
+      toast.error(error.message || t("forgotPassword.errorGeneric", "Failed to send reset email"));
       return { 
         success: false, 
         error: error.message || t("forgotPassword.errorGeneric", "Failed to send reset email")
@@ -169,7 +201,6 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  // YENI EKLENEN UPDATE PASSWORD FONKSİYONU
   const updatePassword = async (newPassword) => {
     setLoading(true);
     try {
@@ -179,9 +210,12 @@ export const UserProvider = ({ children }) => {
 
       if (error) throw error;
 
+      showNotification('update-password', t("resetPassword.successMessage") || "Password updated successfully!");
+
       return { success: true };
     } catch (error) {
       console.error("Update password error:", error);
+      toast.error(error.message || t("resetPassword.errorGeneric", "Failed to update password"));
       return { 
         success: false, 
         error: error.message || t("resetPassword.errorGeneric", "Failed to update password")
@@ -197,15 +231,8 @@ export const UserProvider = ({ children }) => {
 
     localStorage.removeItem("userExplicitlyLoggedIn");
 
-    if (showToast && !logoutNotificationShown.current) {
-      toast.success(t("auth.logoutSuccess", "Successfully logged out!"));
-      logoutNotificationShown.current = true;
-
-      setTimeout(() => {
-        loginNotificationShown.current = false;
-        registerNotificationShown.current = false;
-        logoutNotificationShown.current = false;
-      }, 500);
+    if (showToast) {
+      showNotification('logout', t("auth.logoutSuccess", "Successfully logged out!"));
     }
   };
 
@@ -238,9 +265,8 @@ export const UserProvider = ({ children }) => {
       if (error) throw error;
 
       setUser(data.user);
-      toast.success(
-        t("profile.updateSuccess", "Profile updated successfully!")
-      );
+      showNotification('update-user', t("profile.updateSuccess", "Profile updated successfully!"));
+      
       return true;
     } catch (error) {
       console.error("Update profile error:", error);
@@ -253,12 +279,6 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    loginNotificationShown.current = false;
-    registerNotificationShown.current = false;
-    logoutNotificationShown.current = false;
-  }, [i18n.language]);
-
   const value = {
     user,
     loading,
@@ -267,8 +287,8 @@ export const UserProvider = ({ children }) => {
     register,
     logout,
     updateUser,
-    forgotPassword, // YENI EKLENEN FONKSİYON
-    updatePassword, // YENI EKLENEN FONKSİYON
+    forgotPassword, 
+    updatePassword,
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

@@ -264,79 +264,165 @@ const Navbar = () => {
             </ul>
             
             <div className={styles.actionButtons}>
-              <div className={styles.languageSelector}>
-                <LanguageSelector />
-              </div>
-              <button className={styles.actionButton} onClick={toggleSearch}>
-                <BsSearch />
-              </button>
-              <Link to="/wishlist" className={styles.actionButton}>
-                <BsHeart />
-              </Link>
-              {user && (
-                <Link to="/cart" className={styles.actionButton}>
-                  <IoBagHandleOutline />
-                </Link>
-              )}
-              <button onClick={toggleTheme} className={styles.actionButton}>
-                {theme === "light" ? <BsMoon /> : <BsSun />}
-              </button>
-              
-              {!user ? (
-                <Link to="/login" className={styles.loginButton}>
-                  <CgLogIn className={styles.loginIcon} />
-                  <span className={styles.loginText}>{t("auth.login")}</span>
-                </Link>
-              ) : (
-                <div className={styles.userMenuContainer}>
-                  <button 
-                    className={`${styles.userButton} ${userMenuOpen ? styles.active : ""}`} 
-                    onClick={toggleUserMenu}
-                  >
-                    <FiUser className={styles.userIcon} />
-                    <span className={styles.userName}>{userDisplayName}</span>
-                    <FaAngleDown className={`${styles.dropdownIcon} ${userMenuOpen ? styles.rotated : ""}`} />
-                  </button>
+              {/* Mobile view: Language selector above, action buttons in grid below */}
+              {isMobileView ? (
+                <>
+                  {/* Language Selector - Above action buttons */}
+                  <div className={styles.mobileLanguageContainer}>
+                    <LanguageSelector />
+                  </div>
                   
-                  {userMenuOpen && (
-                    <div className={styles.userMenu} ref={userMenuRef}>
-                      <div className={styles.userMenuHeader}>
-                        <FiUser className={styles.userMenuIcon} />
-                        <span className={styles.userMenuName}>{userDisplayName}</span>
-                      </div>
-                      <div className={styles.userMenuDivider}></div>
-                      <Link 
-                        to="/profile" 
-                        className={styles.userMenuItem} 
-                        onClick={() => setUserMenuOpen(false)}
-                      >
-                        <FiUser /> {t("navbar.profile")}
+                  {/* Action Buttons Grid - Below language selector */}
+                  <div className={styles.mobileActionGrid}>
+                    <button className={styles.actionButton} onClick={toggleSearch}>
+                      <BsSearch />
+                    </button>
+                    <Link to="/wishlist" className={styles.actionButton}>
+                      <BsHeart />
+                    </Link>
+                    <button onClick={toggleTheme} className={styles.actionButton}>
+                      {theme === "light" ? <BsMoon /> : <BsSun />}
+                    </button>
+                    {user && (
+                      <Link to="/cart" className={styles.actionButton}>
+                        <IoBagHandleOutline />
                       </Link>
-                      <Link 
-                        to="/orders" 
-                        className={styles.userMenuItem} 
-                        onClick={() => setUserMenuOpen(false)}
-                      >
-                        <FiShoppingBag /> {t("navbar.orders")}
-                      </Link>
-                      <Link 
-                        to="/settings" 
-                        className={styles.userMenuItem} 
-                        onClick={() => setUserMenuOpen(false)}
-                      >
-                        <FiSettings /> {t("navbar.settings")}
-                      </Link>
-                      
-                      <div className={styles.userMenuDivider}></div>
+                    )}
+                  </div>
+                  
+                  {/* Login/User section for mobile */}
+                  {!user ? (
+                    <Link to="/login" className={styles.loginButton}>
+                      <CgLogIn className={styles.loginIcon} />
+                      <span className={styles.loginText}>{t("auth.login")}</span>
+                    </Link>
+                  ) : (
+                    <div className={styles.userMenuContainer}>
                       <button 
-                        onClick={handleLogout} 
-                        className={styles.userMenuItem}
+                        className={`${styles.userButton} ${userMenuOpen ? styles.active : ""}`} 
+                        onClick={toggleUserMenu}
                       >
-                        <CgLogOut /> {t("navbar.logout")}
+                        <FiUser className={styles.userIcon} />
+                        <span className={styles.userName}>{userDisplayName}</span>
+                        <FaAngleDown className={`${styles.dropdownIcon} ${userMenuOpen ? styles.rotated : ""}`} />
                       </button>
+                      
+                      {userMenuOpen && (
+                        <div className={styles.userMenu} ref={userMenuRef}>
+                         
+                          <div className={styles.userMenuDivider}></div>
+                          <Link 
+                            to="/profile" 
+                            className={styles.userMenuItem} 
+                            onClick={() => setUserMenuOpen(false)}
+                          >
+                            <FiUser /> {t("navbar.profile")}
+                          </Link>
+                          <Link 
+                            to="/orders" 
+                            className={styles.userMenuItem} 
+                            onClick={() => setUserMenuOpen(false)}
+                          >
+                            <FiShoppingBag /> {t("navbar.orders")}
+                          </Link>
+                          <Link 
+                            to="/settings" 
+                            className={styles.userMenuItem} 
+                            onClick={() => setUserMenuOpen(false)}
+                          >
+                            <FiSettings /> {t("navbar.settings")}
+                          </Link>
+                          
+                          <div className={styles.userMenuDivider}></div>
+                          <button 
+                            onClick={handleLogout} 
+                            className={styles.userMenuItem}
+                          >
+                            <CgLogOut /> {t("navbar.logout")}
+                          </button>
+                        </div>
+                      )}
                     </div>
                   )}
-                </div>
+                </>
+              ) : (
+                /* Desktop view: Original horizontal layout */
+                <>
+                  <div className={styles.languageSelector}>
+                    <LanguageSelector />
+                  </div>
+                  <button className={styles.actionButton} onClick={toggleSearch}>
+                    <BsSearch />
+                  </button>
+                  <Link to="/wishlist" className={styles.actionButton}>
+                    <BsHeart />
+                  </Link>
+                  {user && (
+                    <Link to="/cart" className={styles.actionButton}>
+                      <IoBagHandleOutline />
+                    </Link>
+                  )}
+                  <button onClick={toggleTheme} className={styles.actionButton}>
+                    {theme === "light" ? <BsMoon /> : <BsSun />}
+                  </button>
+                  
+                  {!user ? (
+                    <Link to="/login" className={styles.loginButton}>
+                      <CgLogIn className={styles.loginIcon} />
+                      <span className={styles.loginText}>{t("auth.login")}</span>
+                    </Link>
+                  ) : (
+                    <div className={styles.userMenuContainer}>
+                      <button 
+                        className={`${styles.userButton} ${userMenuOpen ? styles.active : ""}`} 
+                        onClick={toggleUserMenu}
+                      >
+                        <FiUser className={styles.userIcon} />
+                        <span className={styles.userName}>{userDisplayName}</span>
+                        <FaAngleDown className={`${styles.dropdownIcon} ${userMenuOpen ? styles.rotated : ""}`} />
+                      </button>
+                      
+                      {userMenuOpen && (
+                        <div className={styles.userMenu} ref={userMenuRef}>
+                          <div className={styles.userMenuHeader}>
+                            <FiUser className={styles.userMenuIcon} />
+                            <span className={styles.userMenuName}>{userDisplayName}</span>
+                          </div>
+                          <div className={styles.userMenuDivider}></div>
+                          <Link 
+                            to="/profile" 
+                            className={styles.userMenuItem} 
+                            onClick={() => setUserMenuOpen(false)}
+                          >
+                            <FiUser /> {t("navbar.profile")}
+                          </Link>
+                          <Link 
+                            to="/orders" 
+                            className={styles.userMenuItem} 
+                            onClick={() => setUserMenuOpen(false)}
+                          >
+                            <FiShoppingBag /> {t("navbar.orders")}
+                          </Link>
+                          <Link 
+                            to="/settings" 
+                            className={styles.userMenuItem} 
+                            onClick={() => setUserMenuOpen(false)}
+                          >
+                            <FiSettings /> {t("navbar.settings")}
+                          </Link>
+                          
+                          <div className={styles.userMenuDivider}></div>
+                          <button 
+                            onClick={handleLogout} 
+                            className={styles.userMenuItem}
+                          >
+                            <CgLogOut /> {t("navbar.logout")}
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </div>

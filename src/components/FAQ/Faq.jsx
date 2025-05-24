@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import Spinner from '../../components/Spinner/Spinner'; // Import the Spinner component
 import styles from './Faq.module.css';
 
 const FAQ = () => {
@@ -225,7 +226,7 @@ const FAQ = () => {
       <div className={styles.faqItemsContainer}>
         {isLoading ? (
           <div className={styles.loadingState}>
-            <p>{t('common.loading') || 'Loading...'}</p>
+            <Spinner size="medium" />
           </div>
         ) : filteredFAQs.length > 0 ? (
           <div className={styles.faqItems}>
@@ -274,4 +275,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default FAQ

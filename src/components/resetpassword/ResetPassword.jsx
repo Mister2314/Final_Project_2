@@ -1,19 +1,19 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../../SupabaseClient';
-import toast from 'react-hot-toast';
 import styles from './ResetPassword.module.css';
 
 export default function ResetPassword() {
   const { t } = useTranslation();
-  const { updatePassword, loading } = useUser();
+  const { updatePassword, loading, showNotificationOnce, clearNotificationCache } = useUser();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isValidToken, setIsValidToken] = useState(false);
   const [isCheckingToken, setIsCheckingToken] = useState(true);
   const [tokenError, setTokenError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   
@@ -47,7 +47,7 @@ export default function ResetPassword() {
             
             if (error) {
               console.error('Session error:', error);
-              setTokenError(t('resetPassword.invalidToken', 'Invalid or expired reset link'));
+              setTokenError(t('resetPassword.invalidToken', 'Bərpa linki yanlış və ya vaxtı keçib'));
               setIsValidToken(false);
             } else {
               console.log('Session set successfully:', data);
@@ -55,16 +55,16 @@ export default function ResetPassword() {
             }
           } catch (sessionError) {
             console.error('Session setting failed:', sessionError);
-            setTokenError(t('resetPassword.invalidToken', 'Invalid or expired reset link'));
+            setTokenError(t('resetPassword.invalidToken', 'Bərpa linki yanlış və ya vaxtı keçib'));
             setIsValidToken(false);
           }
         } else {
-          setTokenError(t('resetPassword.invalidToken', 'Invalid or expired reset link'));
+          setTokenError(t('resetPassword.invalidToken', 'Bərpa linki yanlış və ya vaxtı keçib'));
           setIsValidToken(false);
         }
       } catch (error) {
         console.error('Token handling error:', error);
-        setTokenError(t('resetPassword.invalidToken', 'Invalid or expired reset link'));
+        setTokenError(t('resetPassword.invalidToken', 'Bərpa linki yanlış və ya vaxtı keçib'));
         setIsValidToken(false);
       } finally {
         setIsCheckingToken(false);
@@ -80,31 +80,53 @@ export default function ResetPassword() {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     
-    if (!password.trim()) {
-      toast.error(t('resetPassword.errorPassword', 'Please enter a password'));
-      return;
-    }
-
-    if (password.length < 8) {
-      toast.error(t('resetPassword.errorPasswordLength', 'Password must be at least 8 characters'));
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      toast.error(t('resetPassword.errorPasswordMismatch', 'Passwords do not match'));
-      return;
-    }
+    // Prevent multiple submissions
+    if (isSubmitting) return;
     
-    const result = await updatePassword(password);
+    setIsSubmitting(true);
     
-    if (result.success) {
-      toast.success(t('resetPassword.successMessage', 'Password updated successfully!'));
-      // Clear the hash to prevent reuse
-      window.location.hash = '';
-      setTimeout(() => navigate('/login'), 2000);
-    } else {
-      toast.error(result.error || t('resetPassword.errorGeneric', 'Failed to update password'));
+    try {
+      if (!password.trim()) {
+        showNotificationOnce(t('resetPassword.errorPassword', 'Parol daxil edin'));
+        return;
+      }
+
+      if (password.length < 8) {
+        showNotificationOnce(t('resetPassword.errorPasswordLength', 'Parol ən az 8 simvoldan ibarət olmalıdır'));
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        showNotificationOnce(t('resetPassword.errorPasswordMismatch', 'Parollar uyğun gəlmir'));
+        return;
+      }
+      
+      const result = await updatePassword(password);
+      
+      if (result.success) {
+        showNotificationOnce(t('resetPassword.successMessage', 'Parol uğurla yeniləndi!'), 'success');
+        // Clear the hash to prevent reuse
+        window.location.hash = '';
+        setTimeout(() => navigate('/login'), 2000);
+      } else {
+        showNotificationOnce(result.error || t('resetPassword.errorGeneric', 'Parol yenilənməsində xəta baş verdi'));
+      }
+    } catch (error) {
+      showNotificationOnce(t('resetPassword.errorGeneric', 'Parol yenilənməsində xəta baş verdi'));
+    } finally {
+      setIsSubmitting(false);
     }
+  };
+
+  // Clear cache when user types
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    clearNotificationCache();
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+    clearNotificationCache();
   };
 
   // Loading state while checking token
@@ -122,7 +144,7 @@ export default function ResetPassword() {
             </div>
           </div>
           <p className={styles.description}>
-            {t('resetPassword.verifying', 'Verifying reset link...')}
+            {t('resetPassword.verifying', 'Bərpa linki yoxlanılır...')}
           </p>
         </div>
       </div>
@@ -142,16 +164,16 @@ export default function ResetPassword() {
             </svg>
           </div>
           <h2 className={styles.loginTitle}>
-            {t('resetPassword.invalidTokenTitle', 'Invalid Reset Link')}
+            {t('resetPassword.invalidTokenTitle', 'Yanlış Bərpa Linki')}
           </h2>
           <p className={styles.description}>
-            {tokenError || t('resetPassword.invalidTokenDescription', 'This password reset link is invalid or has expired. Please request a new one.')}
+            {tokenError || t('resetPassword.invalidTokenDescription', 'Bu parol bərpası linki yanlışdır və ya vaxtı keçib. Yeni link tələb edin.')}
           </p>
           <button 
             className={styles.loginButton}
             onClick={() => navigate('/forgot-password')}
           >
-            {t('resetPassword.requestNewLink', 'Request New Reset Link')}
+            {t('resetPassword.requestNewLink', 'Yeni Bərpa Linki Tələb Et')}
           </button>
         </div>
       </div>
@@ -162,41 +184,47 @@ export default function ResetPassword() {
     <div className={styles.loginContainer}>
       <div className={styles.loginCard}>
         <h2 className={styles.loginTitle}>
-          {t('resetPassword.title', 'Reset Your Password')}
+          {t('resetPassword.title', 'Parolunuzu Yeniləyin')}
         </h2>
         <p className={styles.description}>
-          {t('resetPassword.description', 'Enter your new password below.')}
+          {t('resetPassword.description', 'Aşağıya yeni parolunuzu daxil edin.')}
         </p>
         
         <form className={styles.loginForm} onSubmit={handleResetPassword}>
           <div className={styles.formGroup}>
-            <label>{t('resetPassword.newPassword', 'New Password')}</label>
+            <label>{t('resetPassword.newPassword', 'Yeni Parol')}</label>
             <input
               className={styles.formInput}
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder={t('resetPassword.newPasswordPlaceholder', 'Enter new password')}
+              onChange={handlePasswordChange}
+              placeholder={t('resetPassword.newPasswordPlaceholder', 'Yeni parol daxil edin')}
               required
               minLength={8}
+              disabled={loading || isSubmitting}
             />
           </div>
           
           <div className={styles.formGroup}>
-            <label>{t('resetPassword.confirmPassword', 'Confirm Password')}</label>
+            <label>{t('resetPassword.confirmPassword', 'Parol Təkrarı')}</label>
             <input
               className={styles.formInput}
               type="password"
               value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder={t('resetPassword.confirmPasswordPlaceholder', 'Confirm new password')}
+              onChange={handleConfirmPasswordChange}
+              placeholder={t('resetPassword.confirmPasswordPlaceholder', 'Yeni parolu təkrar edin')}
               required
               minLength={8}
+              disabled={loading || isSubmitting}
             />
           </div>
           
-          <button className={styles.loginButton} type="submit" disabled={loading}>
-            {loading ? (
+          <button 
+            className={styles.loginButton} 
+            type="submit" 
+            disabled={loading || isSubmitting}
+          >
+            {(loading || isSubmitting) ? (
               <div className={styles.pawLoaderContainer}>
                 <div className={styles.pawLoader}>
                   <div className={styles.pawPrint}></div>
@@ -207,19 +235,19 @@ export default function ResetPassword() {
                 </div>
               </div>
             ) : (
-              t('resetPassword.updateButton', 'Update Password')
+              t('resetPassword.updateButton', 'Parolu Yenilə')
             )}
           </button>
         </form>
         
         <div className={styles.authSwitch}>
-          {t('resetPassword.rememberPassword', 'Remember your password?')} 
+          {t('resetPassword.rememberPassword', 'Parolunuzu xatırlayırsınız?')} 
           <button 
             className={styles.authLink}
             onClick={() => navigate('/login')}
             style={{ background: 'none', border: 'none', cursor: 'pointer' }}
           >
-            {t('resetPassword.loginLink', 'Sign in')}
+            {t('resetPassword.loginLink', 'Daxil ol')}
           </button>
         </div>
       </div>
