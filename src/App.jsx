@@ -1,16 +1,40 @@
-import React from "react";
-import AppRouter from "./routes/AppRouter";
-import { ThemeProvider } from "./context/ThemeContext";
-import { UserProvider } from "./context/UserContext";
-import "./index.css";
+import React, { useEffect } from 'react';
+import { Provider, useDispatch } from 'react-redux';
+import { store } from './redux/store';
+import { checkAuth } from './redux/slices/userSlice';
+import AppRouter from './routes/AppRouter';
+import { ThemeProvider } from './context/ThemeContext';
+import { WishlistProvider } from 'react-use-wishlist';
+import { CartProvider } from 'react-use-cart';
+import { BrowserRouter } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+
+const AuthInitializer = ({ children }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch]);
+
+  return children;
+};
 
 function App() {
   return (
-    <ThemeProvider>
-      <UserProvider>
-        <AppRouter />
-      </UserProvider>
-    </ThemeProvider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <AuthInitializer>
+          <ThemeProvider>
+            <WishlistProvider>
+              <CartProvider>
+                <AppRouter />
+                <ScrollToTop />
+              </CartProvider>
+            </WishlistProvider>
+          </ThemeProvider>
+        </AuthInitializer>
+      </Provider>
+    </BrowserRouter>
   );
 }
 

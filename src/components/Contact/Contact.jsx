@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { motion, useInView } from "framer-motion"; // Added useInView for more reliable animations
+import { motion, useInView } from "framer-motion"; 
 import { FiMail, FiPhone, FiMapPin, FiClock, FiSend } from "react-icons/fi";
 import { FaPaw, FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { useTheme } from "../../context/ThemeContext";
 import emailjs from "@emailjs/browser";
 
-import styles from "./Contact.module.css"; // Fixed to match the CSS file name
+import styles from "./Contact.module.css"; 
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -14,13 +14,11 @@ const Contact = () => {
   const formRef = useRef(null);
   const mapRef = useRef(null);
   
-  // Create refs for each section to use with useInView
   const heroRef = useRef(null);
   const formSectionRef = useRef(null);
   const mapSectionRef = useRef(null);
   const faqRef = useRef(null);
   
-  // Use Framer Motion's useInView hook for more reliable animation triggers
   const isHeroInView = useInView(heroRef, { once: false, amount: 0.2 });
   const isFormInView = useInView(formSectionRef, { once: false, amount: 0.2 });
   const isMapInView = useInView(mapSectionRef, { once: false, amount: 0.2 });
@@ -38,7 +36,6 @@ const Contact = () => {
   const [submitError, setSubmitError] = useState(null);
   const [mapLoaded, setMapLoaded] = useState(false);
 
-  // Initialize map with a more reliable approach
   useEffect(() => {
     const timer = setTimeout(() => {
       setMapLoaded(true);
@@ -47,17 +44,13 @@ const Contact = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Initialize EmailJS with environment variables from Vite
   useEffect(() => {
-    // Initialize with proper error handling
     try {
       emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
     } catch (error) {
-      console.error("EmailJS initialization error:", error);
     }
   }, []);
 
-  // Form validation
   const validateForm = () => {
     const errors = {};
     if (!formState.name.trim()) errors.name = t("contact.errors.nameRequired");
@@ -79,7 +72,6 @@ const Contact = () => {
       [name]: value,
     });
     
-    // Clear error for this field if it exists
     if (formErrors[name]) {
       setFormErrors({
         ...formErrors,
@@ -110,10 +102,9 @@ const Contact = () => {
           templateParams
         );
         
-        console.log("Email sent successfully:", response);
+        // console.log("Email sent successfully:", response);
         setSubmitSuccess(true);
         
-        // Reset form
         setFormState({
           name: "",
           email: "",
@@ -121,18 +112,15 @@ const Contact = () => {
           message: "",
         });
         
-        // Reset success message after 5 seconds
         setTimeout(() => {
           setSubmitSuccess(false);
         }, 5000);
       } catch (error) {
-        console.error("Email sending failed:", error);
         setSubmitError("Failed to send your message. Please try again later.");
       } finally {
         setIsSubmitting(false);
       }
     } else {
-      // Scroll to first error
       const firstErrorField = Object.keys(formErrors)[0];
       const errorElement = document.querySelector(`[name="${firstErrorField}"]`);
       if (errorElement) {
@@ -141,14 +129,13 @@ const Contact = () => {
     }
   };
 
-  // Animation variants - refined for better performance
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1, // Reduced from 0.2 for smoother animation
-        delayChildren: 0.1,   // Added small delay
+        staggerChildren: 0.1, 
+        delayChildren: 0.1,  
       },
     },
   };
@@ -159,15 +146,14 @@ const Contact = () => {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",  // Using spring for more natural animation
+        type: "spring",  
         stiffness: 90,
         damping: 15,
-        duration: 0.4,   // Slightly faster
+        duration: 0.4,  
       },
     },
   };
 
-  // Section animations with consistent configuration
   const sectionVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
@@ -182,7 +168,6 @@ const Contact = () => {
 
   return (
     <div className={styles.contactPage}>
-      {/* Hero Section */}
       <section className={styles.heroSection} ref={heroRef}>
         <div className={styles.heroOverlay}></div>
         <div className={styles.container}>
@@ -242,8 +227,8 @@ const Contact = () => {
                 </div>
                 <div className={styles.cardContent}>
                   <h3>{t("contact.hoursTitle")}</h3>
-                  <p>Mon-Fri: 9am - 6pm</p>
-                  <p>Sat: 10am - 4pm</p>
+                  <p>{t("contact.workHours.weekdays")}</p>
+                  <p>{t("contact.workHours.saturday")}</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -323,7 +308,6 @@ const Contact = () => {
         </div>
       </section>
       
-      {/* Contact Form Section */}
       <section className={styles.formSection} ref={formSectionRef}>
         <div className={styles.container}>
           <div className={styles.formWrapper}>
@@ -458,21 +442,21 @@ const Contact = () => {
                     <motion.a 
                       href="#twitter" 
                       aria-label="Twitter"
-                      whileHover={{ y: -5, backgroundColor: "#8247f5", color: "white" }}
+                      whileHover={{ y: -5, backgroundColor: "#8247f5",  color: "#ffffff"}}
                     >
                       <FaTwitter />
                     </motion.a>
                     <motion.a 
                       href="#facebook" 
                       aria-label="Facebook"
-                      whileHover={{ y: -5, backgroundColor: "#8247f5", color: "white" }}
+                      whileHover={{ y: -5, backgroundColor: "#8247f5",  color: "#ffffff"}}
                     >
                       <FaFacebookF />
                     </motion.a>
                     <motion.a 
                       href="#instagram" 
                       aria-label="Instagram"
-                      whileHover={{ y: -5, backgroundColor: "#8247f5", color: "white" }}
+                      whileHover={{ y: -5, backgroundColor: "#8247f5",  color: "#ffffff"}}
                     >
                       <FaInstagram />
                     </motion.a>
@@ -484,7 +468,6 @@ const Contact = () => {
         </div>
       </section>
       
-      {/* Map Section */}
       <section className={styles.mapSection} ref={mapSectionRef}>
         <div className={styles.container}>
           <motion.div 
@@ -559,7 +542,6 @@ const Contact = () => {
         </div>
       </section>
       
-      {/* FAQ Teaser */}
       <section className={styles.faqTeaser} ref={faqRef}>
         <div className={styles.container}>
           <motion.div 

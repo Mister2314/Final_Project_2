@@ -1,12 +1,10 @@
-/* ContactPage.module.css */
 
-/* Main container */
 .contactPage {
-    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+    overflow-x: hidden; 
     width: 100%;
     position: relative;
     font-family: 'Inter', system-ui, sans-serif;
-    will-change: transform, opacity; /* For better performance */
+    will-change: transform, opacity; /* performansı yaxşılaşdırırmış*/
   }
   
   .container {
@@ -14,10 +12,8 @@
     max-width: 1320px;
     margin: 0 auto;
     padding: 0 24px;
-    box-sizing: border-box;
   }
   
-  /* Hero Section */
   .heroSection {
     position: relative;
     background-image: url('');
@@ -76,7 +72,6 @@
     margin-right: auto;
   }
   
-  /* Contact Cards */
   .contactCards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -172,7 +167,6 @@
     color: #aaa;
   }
   
-  /* Decorative paw prints - Fixed animation issues */
   .pawPrints {
     position: absolute;
     top: 0;
@@ -188,7 +182,7 @@
     position: absolute;
     font-size: 60px;
     color: rgba(255, 255, 255, 0.1);
-    will-change: transform; /* Performance optimization */
+    will-change: transform; 
   }
   
   .paw1 {
@@ -221,7 +215,6 @@
     transform: rotate(30deg);
   }
   
-  /* Form Section */
   .formSection {
     padding: 100px 0;
     background-color: #f9f9f9;
@@ -286,11 +279,11 @@
     color: #666;
     max-width: 500px;
     line-height: 1.6;
-    text-align: center; /* Mətni ortada qoymaq */
-    display: flex; /* Flex container */
-    justify-content: center; /* Üfüqi mərkəzləşdirmə */
-    align-items: center; /* Dikey mərkəzləşdirmə */
-    margin: 0 auto; /* Avtomatik margin ilə mərkəzləşdirmək */
+    text-align: center; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin: 0 auto; 
   }  
   
   [data-theme='dark'] .sectionHeader p {
@@ -298,7 +291,6 @@
 
   }
   
-  /* Contact Form */
   .contactForm {
     margin-top: 30px;
   }
@@ -444,7 +436,6 @@
     font-size: 18px;
   }
   
-  /* Form Image */
   .formImageWrapper {
     position: relative;
   }
@@ -498,7 +489,6 @@
     text-decoration: none;
   }
   
-  /* Map Section */
   .mapSection {
     padding: 100px 0;
     background-color: white;
@@ -629,7 +619,6 @@
     text-decoration: none;
   }
   
-  /* FAQ Teaser */
   .faqTeaser {
     padding: 100px 0;
     background-color: #f9f9f9;
@@ -672,7 +661,6 @@
 
   }
   
-  /* Alternate Paw Prints */
   .pawPrintsAlt {
     position: absolute;
     top: 0;
@@ -713,7 +701,6 @@
     transform: rotate(30deg);
   }
   
-  /* Responsive Adjustments */
   @media (max-width: 1200px) {
     .contactCards {
       grid-template-columns: repeat(2, 1fr);

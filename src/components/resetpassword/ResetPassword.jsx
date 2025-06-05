@@ -1,219 +1,110 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useUser } from '../../context/UserContext';
 import { useTranslation } from 'react-i18next';
-import styles from './ResetPassword.module.css';
+import { useSelector } from 'react-redux';
+import { supabase } from '../../supabaseClient';
+import toast from 'react-hot-toast';
+import styles from '../ForgotPassword/ForgotPassword.module.css';
 
 export default function ResetPassword() {
   const { t } = useTranslation();
-  const { updatePassword, loading, showNotificationOnce, clearNotificationCache } = useUser();
+  const { loading } = useSelector((state) => state.user);
+  const [searchParams] = useSearchParams();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [isValidToken, setIsValidToken] = useState(false);
-  const [isCheckingToken, setIsCheckingToken] = useState(true);
-  const [tokenError, setTokenError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [accessToken, setAccessToken] = useState('');
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  
-  // Check and handle reset token
+
   useEffect(() => {
-    const handleResetToken = async () => {
-      try {
-        // Check URL parameters first
-        const accessToken = searchParams.get('access_token');
-        const refreshToken = searchParams.get('refresh_token');
-        const type = searchParams.get('type');
-        
-        // Check hash parameters as backup
-        const hash = window.location.hash.substring(1);
-        const hashParams = new URLSearchParams(hash);
-        const hashAccessToken = hashParams.get('access_token');
-        const hashRefreshToken = hashParams.get('refresh_token');
-        const hashType = hashParams.get('type');
-        
-        const finalAccessToken = accessToken || hashAccessToken;
-        const finalRefreshToken = refreshToken || hashRefreshToken;
-        const finalType = type || hashType;
-        
-        if (finalAccessToken && finalRefreshToken && finalType === 'recovery') {
-          try {
-            // Set the session with the tokens
-            const { data, error } = await supabase.auth.setSession({
-              access_token: finalAccessToken,
-              refresh_token: finalRefreshToken
-            });
-            
-            if (error) {
-              console.error('Session error:', error);
-              setTokenError(t('resetPassword.invalidToken', 'Bərpa linki yanlış və ya vaxtı keçib'));
-              setIsValidToken(false);
-            } else {
-              console.log('Session set successfully:', data);
-              setIsValidToken(true);
-            }
-          } catch (sessionError) {
-            console.error('Session setting failed:', sessionError);
-            setTokenError(t('resetPassword.invalidToken', 'Bərpa linki yanlış və ya vaxtı keçib'));
-            setIsValidToken(false);
-          }
-        } else {
-          setTokenError(t('resetPassword.invalidToken', 'Bərpa linki yanlış və ya vaxtı keçib'));
-          setIsValidToken(false);
-        }
-      } catch (error) {
-        console.error('Token handling error:', error);
-        setTokenError(t('resetPassword.invalidToken', 'Bərpa linki yanlış və ya vaxtı keçib'));
-        setIsValidToken(false);
-      } finally {
-        setIsCheckingToken(false);
-      }
-    };
-    
-    // Small delay to ensure everything is loaded
-    const timer = setTimeout(handleResetToken, 100);
-    
-    return () => clearTimeout(timer);
-  }, [searchParams, t]);
+    const token = searchParams.get('access_token');
+    if (token) {
+      setAccessToken(token);
+    } else {
+      toast.error('Yanlış və ya köhnə link');
+      navigate('/forgot-password');
+    }
+  }, [searchParams, navigate]);
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
     
-    // Prevent multiple submissions
     if (isSubmitting) return;
     
     setIsSubmitting(true);
     
     try {
       if (!password.trim()) {
-        showNotificationOnce(t('resetPassword.errorPassword', 'Parol daxil edin'));
+        toast.error(t('resetPassword.errorPassword', 'Yeni parol daxil edin'));
         return;
       }
 
-      if (password.length < 8) {
-        showNotificationOnce(t('resetPassword.errorPasswordLength', 'Parol ən az 8 simvoldan ibarət olmalıdır'));
+      if (password.length < 6) {
+        toast.error(t('resetPassword.errorPasswordLength', 'Parol ən azı 6 simvoldan ibarət olmalıdır'));
         return;
       }
 
       if (password !== confirmPassword) {
-        showNotificationOnce(t('resetPassword.errorPasswordMismatch', 'Parollar uyğun gəlmir'));
+        toast.error(t('resetPassword.errorPasswordMatch', 'Parollar uyğun gəlmir'));
         return;
       }
+
+      const { error: sessionError } = await supabase.auth.setSession({
+        access_token: accessToken,
+        refresh_token: searchParams.get('refresh_token') || ''
+      });
+
+      if (sessionError) throw sessionError;
+
+      const { error } = await supabase.auth.updateUser({
+        password: password
+      });
+
+      if (error) throw error;
+
+      toast.success(t('resetPassword.successMessage', 'Parol uğurla yeniləndi!'));
+      navigate('/login');
       
-      const result = await updatePassword(password);
-      
-      if (result.success) {
-        showNotificationOnce(t('resetPassword.successMessage', 'Parol uğurla yeniləndi!'), 'success');
-        // Clear the hash to prevent reuse
-        window.location.hash = '';
-        setTimeout(() => navigate('/login'), 2000);
-      } else {
-        showNotificationOnce(result.error || t('resetPassword.errorGeneric', 'Parol yenilənməsində xəta baş verdi'));
-      }
     } catch (error) {
-      showNotificationOnce(t('resetPassword.errorGeneric', 'Parol yenilənməsində xəta baş verdi'));
+      toast.error(error.message || t('resetPassword.errorGeneric', 'Parol yeniləmə zamanı xəta baş verdi'));
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  // Clear cache when user types
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-    clearNotificationCache();
-  };
-
-  const handleConfirmPasswordChange = (e) => {
-    setConfirmPassword(e.target.value);
-    clearNotificationCache();
-  };
-
-  // Loading state while checking token
-  if (isCheckingToken) {
-    return (
-      <div className={styles.loginContainer}>
-        <div className={styles.loginCard}>
-          <div className={styles.pawLoaderContainer}>
-            <div className={styles.pawLoader}>
-              <div className={styles.pawPrint}></div>
-              <div className={styles.pawPrint}></div>
-              <div className={styles.pawPrint}></div>
-              <div className={styles.pawPrint}></div>
-              <div className={styles.pawPrint}></div>
-            </div>
-          </div>
-          <p className={styles.description}>
-            {t('resetPassword.verifying', 'Bərpa linki yoxlanılır...')}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  // Invalid token state
-  if (!isValidToken) {
-    return (
-      <div className={styles.loginContainer}>
-        <div className={styles.loginCard}>
-          <div className={styles.errorIcon}>
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12" r="10" stroke="#ef4444" strokeWidth="2"/>
-              <path d="m15 9-6 6" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="m9 9 6 6" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-          <h2 className={styles.loginTitle}>
-            {t('resetPassword.invalidTokenTitle', 'Yanlış Bərpa Linki')}
-          </h2>
-          <p className={styles.description}>
-            {tokenError || t('resetPassword.invalidTokenDescription', 'Bu parol bərpası linki yanlışdır və ya vaxtı keçib. Yeni link tələb edin.')}
-          </p>
-          <button 
-            className={styles.loginButton}
-            onClick={() => navigate('/forgot-password')}
-          >
-            {t('resetPassword.requestNewLink', 'Yeni Bərpa Linki Tələb Et')}
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginCard}>
         <h2 className={styles.loginTitle}>
-          {t('resetPassword.title', 'Parolunuzu Yeniləyin')}
+          {t('resetPassword.title', 'Yeni Parol Təyin Edin')}
         </h2>
         <p className={styles.description}>
-          {t('resetPassword.description', 'Aşağıya yeni parolunuzu daxil edin.')}
+          {t('resetPassword.description', 'Zəhmət olmasa yeni parolunuzu daxil edin.')}
         </p>
         
         <form className={styles.loginForm} onSubmit={handleResetPassword}>
           <div className={styles.formGroup}>
-            <label>{t('resetPassword.newPassword', 'Yeni Parol')}</label>
+            <label>{t('resetPassword.passwordLabel', 'Yeni Parol')}</label>
             <input
               className={styles.formInput}
               type="password"
               value={password}
-              onChange={handlePasswordChange}
-              placeholder={t('resetPassword.newPasswordPlaceholder', 'Yeni parol daxil edin')}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder={t('resetPassword.passwordPlaceholder', 'Yeni parolunuzu daxil edin')}
               required
-              minLength={8}
               disabled={loading || isSubmitting}
             />
           </div>
-          
+
           <div className={styles.formGroup}>
-            <label>{t('resetPassword.confirmPassword', 'Parol Təkrarı')}</label>
+            <label>{t('resetPassword.confirmPasswordLabel', 'Parolu Təkrar Edin')}</label>
             <input
               className={styles.formInput}
               type="password"
               value={confirmPassword}
-              onChange={handleConfirmPasswordChange}
-              placeholder={t('resetPassword.confirmPasswordPlaceholder', 'Yeni parolu təkrar edin')}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder={t('resetPassword.confirmPasswordPlaceholder', 'Parolunuzu təkrar edin')}
               required
-              minLength={8}
               disabled={loading || isSubmitting}
             />
           </div>
@@ -240,7 +131,7 @@ export default function ResetPassword() {
         </form>
         
         <div className={styles.authSwitch}>
-          {t('resetPassword.rememberPassword', 'Parolunuzu xatırlayırsınız?')} 
+          {t('resetPassword.backToLogin', 'Girişə qayıt')} 
           <button 
             className={styles.authLink}
             onClick={() => navigate('/login')}

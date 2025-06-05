@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import CountryFlag from "react-country-flag";
 import styles from "./LanguageSelector.module.css";
 
-const options = [
+const allOptions = [
   { value: "en", label: "EN", code: "US", country: "United States" },
   { value: "az", label: "AZ", code: "AZ", country: "Azerbaijan" },
 ];
@@ -12,11 +12,16 @@ const options = [
 const LanguageSelector = () => {
   const { i18n } = useTranslation();
   const [selected, setSelected] = useState(
-    options.find((opt) => opt.value === i18n.language) || options[0]
+    allOptions.find((opt) => opt.value === i18n.language) || allOptions[0]
   );
 
+  // Filter out the currently selected language from options
+  const getFilteredOptions = () => {
+    return allOptions.filter((option) => option.value !== selected?.value);
+  };
+
   useEffect(() => {
-    const currentOption = options.find((opt) => opt.value === i18n.language);
+    const currentOption = allOptions.find((opt) => opt.value === i18n.language);
     if (currentOption && currentOption.value !== selected?.value) {
       setSelected(currentOption);
     }
@@ -79,7 +84,7 @@ const LanguageSelector = () => {
   return (
     <div className={styles.languageSelector}>
       <Select
-        options={options}
+        options={getFilteredOptions()}
         value={selected}
         onChange={handleChange}
         className={styles.languageSelect}

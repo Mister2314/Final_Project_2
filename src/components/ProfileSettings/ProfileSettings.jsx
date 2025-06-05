@@ -2,31 +2,43 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/ThemeContext";
-import { useUser } from "../../context/UserContext";
-import { FiUser, FiMail, FiLock, FiCheckCircle, FiAlertCircle, FiEdit2 } from "react-icons/fi";
+import { useAuth } from "../../redux/hooks/useAuth";
+import { useDispatch } from "react-redux";
+import { updateUserProfile } from "../../redux/slices/userSlice";
+import { FiUser, FiMail, FiLock, FiCheckCircle, FiAlertCircle, FiEdit2, FiSave, FiX } from "react-icons/fi";
 import { FaPaw } from "react-icons/fa";
-import toast from "react-hot-toast";
+import { errorToast, successToast } from '../../utils/toast';
+import { supabase } from "../../supabaseClient";
 import styles from "./ProfileSettings.module.css";
 
 const ProfileSettings = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
   const { theme } = useTheme();
-  const { user, updateUser } = useUser();
+  const { user, isAuthenticated, loading: authLoading } = useAuth();
   
   const previousPath = location.state?.from || '/';
+  
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   
-  const [changingPassword, setChangingPassword] = useState(false);
+  const [editingUsername, setEditingUsername] = useState(false);
+  const [editingEmail, setEditingEmail] = useState(false);
+  const [editingPassword, setEditingPassword] = useState(false);
+  
+  const [tempUsername, setTempUsername] = useState("");
+  const [tempEmail, setTempEmail] = useState("");
+  
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState({ password: false });
+  const [success, setSuccess] = useState({ username: false, email: false, password: false });
   const [errors, setErrors] = useState({
+    username: "",
+    email: "",
     currentPassword: "",
     newPassword: "",
     confirmPassword: "",
@@ -34,41 +46,124 @@ const ProfileSettings = () => {
 
   useEffect(() => {
     const fetchUserProfile = async () => {
+      if (!isAuthenticated) {
+        navigate("/login", { state: { from: "/profile-settings" } });
+        return;
+      }
+
       if (user) {
         try {
           setLoading(true);
-                    let usernameToSet = "";
-          if (user.user_metadata && user.user_metadata.username) {
+          let usernameToSet = "";
+          
+          if (user.username) {
+            usernameToSet = user.username;
+          } else if (user.user_metadata && user.user_metadata.username) {
             usernameToSet = user.user_metadata.username;
           } else if (user.user_metadata && user.user_metadata.full_name) {
             usernameToSet = user.user_metadata.full_name;
-          } else {
-            const { data, error } = await supabase
-              .from('profiles')
-              .select('username')
-              .eq('id', user.id)
-              .single();
-            
-            if (data && data.username) {
-              usernameToSet = data.username;
-            }
           }
           
           setUsername(usernameToSet || "");
+          setTempUsername(usernameToSet || "");
           setEmail(user.email || "");
+          setTempEmail(user.email || "");
         } catch (error) {
-          console.error("Error fetching user profile:", error);
-          toast.error(t("profileSettings.errors.fetchFailed"));
+          errorToast('profileSettings.errors.fetchFailed');
         } finally {
           setLoading(false);
         }
-      } else {
-        navigate("/login", { state: { from: "/profile-settings" } });
       }
     };
 
     fetchUserProfile();
-  }, [user, navigate, t]);
+  }, [user, isAuthenticated, navigate, t]);
+
+  const handleUsernameSubmit = async () => {
+    if (!tempUsername.trim()) {
+      setErrors({ ...errors, username: t("profileSettings.errors.usernameRequired") });
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const result = await dispatch(updateUserProfile({
+        id: user.id,
+        userData: { username: tempUsername.trim() }
+      }));
+
+      if (updateUserProfile.fulfilled.match(result)) {
+        setUsername(tempUsername);
+        setEditingUsername(false);
+        setSuccess({ ...success, username: true });
+        successToast('profileSettings.usernameUpdateSuccess');
+        
+        setTimeout(() => {
+          setSuccess({ ...success, username: false });
+        }, 3000);
+      } else {
+        throw new Error('Update failed');
+      }
+    } catch (error) {
+      setErrors({ ...errors, username: t("profileSettings.errors.usernameUpdateFailed") });
+      errorToast('profileSettings.errors.usernameUpdateFailed');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleEmailSubmit = async () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!tempEmail.trim()) {
+      setErrors({ ...errors, email: t("profileSettings.errors.emailRequired") });
+      return;
+    }
+    
+    if (!emailRegex.test(tempEmail)) {
+      setErrors({ ...errors, email: t("profileSettings.errors.emailInvalid") });
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const { data: existingUser } = await supabase
+        .from('users')
+        .select('id')
+        .eq('email', tempEmail.trim())
+        .neq('id', user.id)
+        .single();
+
+      if (existingUser) {
+        setErrors({ ...errors, email: t("profileSettings.errors.emailExists") });
+        setLoading(false);
+        return;
+      }
+
+      const result = await dispatch(updateUserProfile({
+        id: user.id,
+        userData: { email: tempEmail.trim() }
+      }));
+
+      if (updateUserProfile.fulfilled.match(result)) {
+        setEmail(tempEmail);
+        setEditingEmail(false);
+        setSuccess({ ...success, email: true });
+        successToast('profileSettings.emailUpdateSuccess');
+        
+        setTimeout(() => {
+          setSuccess({ ...success, email: false });
+        }, 3000);
+      } else {
+        throw new Error('Update failed');
+      }
+    } catch (error) {
+      setErrors({ ...errors, email: t("profileSettings.errors.emailUpdateFailed") });
+      errorToast('profileSettings.errors.emailUpdateFailed');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handlePasswordSubmit = async (e) => {
     e.preventDefault();
@@ -103,37 +198,63 @@ const ProfileSettings = () => {
     setLoading(true);
     
     try {
-      const { error } = await supabase.auth.updateUser({
-        password: newPassword
-      });
-      
-      if (error) throw error;
-      
-      setCurrentPassword("");
-      setNewPassword("");
-      setConfirmPassword("");
-      setChangingPassword(false);
-      
-      setSuccess({ ...success, password: true });
-      toast.success(t("profileSettings.passwordUpdateSuccess"));
-      
-      setTimeout(() => {
-        setSuccess({ ...success, password: false });
-      }, 3000);
+      const { data: userData, error: verifyError } = await supabase
+        .from('users')
+        .select('password')
+        .eq('id', user.id)
+        .eq('password', currentPassword)
+        .single();
+
+      if (verifyError || !userData) {
+        setErrors({
+          ...errors,
+          currentPassword: t("profileSettings.errors.incorrectPassword"),
+        });
+        setLoading(false);
+        return;
+      }
+
+      const result = await dispatch(updateUserProfile({
+        id: user.id,
+        userData: { password: newPassword }
+      }));
+
+      if (updateUserProfile.fulfilled.match(result)) {
+        setCurrentPassword("");
+        setNewPassword("");
+        setConfirmPassword("");
+        setEditingPassword(false);
+        
+        setSuccess({ ...success, password: true });
+        successToast('profileSettings.passwordUpdateSuccess');
+        
+        setTimeout(() => {
+          setSuccess({ ...success, password: false });
+        }, 3000);
+      } else {
+        throw new Error('Password update failed');
+      }
     } catch (error) {
-      console.error("Error updating password:", error);
-      setErrors({
-        ...errors,
-        currentPassword: t("profileSettings.errors.incorrectPassword"),
-      });
-      toast.error(t("profileSettings.errors.passwordUpdateFailed"));
+      errorToast('profileSettings.errors.passwordUpdateFailed');
     } finally {
       setLoading(false);
     }
   };
 
-  const handleCancelEdit = () => {
-    setChangingPassword(false);
+  const handleCancelUsernameEdit = () => {
+    setEditingUsername(false);
+    setTempUsername(username);
+    setErrors({ ...errors, username: "" });
+  };
+
+  const handleCancelEmailEdit = () => {
+    setEditingEmail(false);
+    setTempEmail(email);
+    setErrors({ ...errors, email: "" });
+  };
+
+  const handleCancelPasswordEdit = () => {
+    setEditingPassword(false);
     setCurrentPassword("");
     setNewPassword("");
     setConfirmPassword("");
@@ -149,7 +270,7 @@ const ProfileSettings = () => {
     navigate(previousPath);
   };
 
-  if (!user) {
+  if (authLoading || (!user && isAuthenticated)) {
     return (
       <div className={styles.loadingContainer}>
         <div className={styles.pawLoaderContainer}>
@@ -163,13 +284,17 @@ const ProfileSettings = () => {
     );
   }
 
+  if (!isAuthenticated) {
+    return null;
+  }
+
   return (
     <div className={styles.profileSettingsContainer}>
       <div className={styles.profileSettingsCard}>
         <div className={styles.backButtonContainer}>
           <button className={styles.backButton} onClick={handleBackButton}>
             <span className={styles.backIcon}>&#8592;</span>
-            <span>{t('profileSettings.back')}</span>
+            <span className={styles.backText}>{t('profileSettings.back')}</span>
           </button>
         </div>
         
@@ -185,11 +310,83 @@ const ProfileSettings = () => {
                 <FiUser className={styles.sectionIcon} />
                 <h2 className={styles.sectionTitle}>{t("profileSettings.usernameSection")}</h2>
               </div>
+              {!editingUsername && (
+                <button 
+                  className={styles.editButton} 
+                  onClick={() => setEditingUsername(true)}
+                  aria-label={t("profileSettings.editUsername")}
+                >
+                  <FiEdit2 />
+                </button>
+              )}
             </div>
-            <div className={styles.displayField}>
-              <span className={styles.fieldValue}>{username || t("profileSettings.noUsername")}</span>
-              <span className={styles.readOnlyBadge}>{t("profileSettings.readOnly")}</span>
-            </div>
+
+            {editingUsername ? (
+              <div className={styles.editForm}>
+                <div className={styles.formGroup}>
+                  <label>{t("profileSettings.username")}</label>
+                  <input
+                    type="text"
+                    value={tempUsername}
+                    onChange={(e) => {
+                      setTempUsername(e.target.value);
+                      if (errors.username) 
+                        setErrors({ ...errors, username: "" });
+                    }}
+                    className={`${styles.settingsInput} ${
+                      errors.username ? styles.inputError : ""
+                    }`}
+                    placeholder={t("profileSettings.usernamePlaceholder")}
+                    disabled={loading}
+                  />
+                  {errors.username && (
+                    <div className={styles.errorMessage}>
+                      <FiAlertCircle />
+                      {errors.username}
+                    </div>
+                  )}
+                </div>
+
+                <div className={styles.formActions}>
+                  <button
+                    type="button"
+                    className={styles.cancelButton}
+                    onClick={handleCancelUsernameEdit}
+                    disabled={loading}
+                  >
+                    <FiX />
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.saveButton}
+                    onClick={handleUsernameSubmit}
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <div className={styles.pawLoaderContainer}>
+                        <div className={styles.pawLoader}>
+                          <div className={styles.pawPrint}></div>
+                          <div className={styles.pawPrint}></div>
+                          <div className={styles.pawPrint}></div>
+                        </div>
+                      </div>
+                    ) : (
+                      <FiSave />
+                    )}
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className={styles.displayField}>
+                <span className={styles.fieldValue}>{username || t("profileSettings.noUsername")}</span>
+                {success.username && (
+                  <span className={styles.successMessage}>
+                    <FiCheckCircle />
+                    {t("profileSettings.updated")}
+                  </span>
+                )}
+              </div>
+            )}
           </div>
 
           <div className={styles.settingsSection}>
@@ -198,11 +395,83 @@ const ProfileSettings = () => {
                 <FiMail className={styles.sectionIcon} />
                 <h2 className={styles.sectionTitle}>{t("profileSettings.emailSection")}</h2>
               </div>
+              {!editingEmail && (
+                <button 
+                  className={styles.editButton} 
+                  onClick={() => setEditingEmail(true)}
+                  aria-label={t("profileSettings.editEmail")}
+                >
+                  <FiEdit2 />
+                </button>
+              )}
             </div>
-            <div className={styles.displayField}>
-              <span className={styles.fieldValue}>{email}</span>
-              <span className={styles.readOnlyBadge}>{t("profileSettings.readOnly")}</span>
-            </div>
+
+            {editingEmail ? (
+              <div className={styles.editForm}>
+                <div className={styles.formGroup}>
+                  <label>{t("profileSettings.email")}</label>
+                  <input
+                    type="email"
+                    value={tempEmail}
+                    onChange={(e) => {
+                      setTempEmail(e.target.value);
+                      if (errors.email) 
+                        setErrors({ ...errors, email: "" });
+                    }}
+                    className={`${styles.settingsInput} ${
+                      errors.email ? styles.inputError : ""
+                    }`}
+                    placeholder={t("profileSettings.emailPlaceholder")}
+                    disabled={loading}
+                  />
+                  {errors.email && (
+                    <div className={styles.errorMessage}>
+                      <FiAlertCircle />
+                      {errors.email}
+                    </div>
+                  )}
+                </div>
+
+                <div className={styles.formActions}>
+                  <button
+                    type="button"
+                    className={styles.cancelButton}
+                    onClick={handleCancelEmailEdit}
+                    disabled={loading}
+                  >
+                    <FiX />
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.saveButton}
+                    onClick={handleEmailSubmit}
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <div className={styles.pawLoaderContainer}>
+                        <div className={styles.pawLoader}>
+                          <div className={styles.pawPrint}></div>
+                          <div className={styles.pawPrint}></div>
+                          <div className={styles.pawPrint}></div>
+                        </div>
+                      </div>
+                    ) : (
+                      <FiSave />
+                    )}
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className={styles.displayField}>
+                <span className={styles.fieldValue}>{email}</span>
+                {success.email && (
+                  <span className={styles.successMessage}>
+                    <FiCheckCircle />
+                    {t("profileSettings.updated")}
+                  </span>
+                )}
+              </div>
+            )}
           </div>
 
           <div className={styles.settingsSection}>
@@ -211,10 +480,10 @@ const ProfileSettings = () => {
                 <FiLock className={styles.sectionIcon} />
                 <h2 className={styles.sectionTitle}>{t("profileSettings.passwordSection")}</h2>
               </div>
-              {!changingPassword && (
+              {!editingPassword && (
                 <button 
                   className={styles.editButton} 
-                  onClick={() => setChangingPassword(true)}
+                  onClick={() => setEditingPassword(true)}
                   aria-label={t("profileSettings.changePassword")}
                 >
                   <FiEdit2 />
@@ -222,7 +491,7 @@ const ProfileSettings = () => {
               )}
             </div>
 
-            {changingPassword ? (
+            {editingPassword ? (
               <form onSubmit={handlePasswordSubmit} className={styles.editForm}>
                 <div className={styles.formGroup}>
                   <label>{t("profileSettings.currentPassword")}</label>
@@ -300,7 +569,7 @@ const ProfileSettings = () => {
                   <button
                     type="button"
                     className={styles.cancelButton}
-                    onClick={handleCancelEdit}
+                    onClick={handleCancelPasswordEdit}
                     disabled={loading}
                   >
                     {t("profileSettings.cancel")}

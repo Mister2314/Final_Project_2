@@ -1,34 +1,49 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../../context/UserContext';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { supabase } from '../../supabaseClient';
+import { errorToast, successToast } from '../../utils/toast';
 import styles from './ForgotPassword.module.css';
 
 export default function ForgotPassword() {
   const { t } = useTranslation();
-  const { forgotPassword, loading, showNotificationOnce, clearNotificationCache } = useUser();
+  const { loading } = useSelector((state) => state.user);
   const [email, setEmail] = useState('');
   const [emailSent, setEmailSent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
+  const forgotPassword = async (email) => {
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      });
+
+      if (error) throw error;
+      
+      return { success: true };
+    } catch (error) {
+      return { success: false, error: error.message };
+    }
+  };
+
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     
-    // Prevent multiple submissions
     if (isSubmitting) return;
     
     setIsSubmitting(true);
     
     try {
       if (!email.trim()) {
-        showNotificationOnce(t('forgotPassword.errorEmail', 'Email ünvanınızı daxil edin'));
+        errorToast('forgotPassword.errorEmail');
         return;
       }
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
-        showNotificationOnce(t('forgotPassword.errorEmailFormat', 'Düzgün email ünvanı daxil edin'));
+        errorToast('forgotPassword.errorEmailFormat');
         return;
       }
       
@@ -36,27 +51,23 @@ export default function ForgotPassword() {
       
       if (result.success) {
         setEmailSent(true);
-        showNotificationOnce(t('forgotPassword.successMessage', 'Parol bərpası üçün email göndərildi!'), 'success');
+        successToast('forgotPassword.successMessage');
       } else {
-        showNotificationOnce(result.error || t('forgotPassword.errorGeneric', 'Email göndərilməsində xəta baş verdi'));
+        errorToast('forgotPassword.errorGeneric');
       }
     } catch (error) {
-      showNotificationOnce(t('forgotPassword.errorGeneric', 'Email göndərilməsində xəta baş verdi'));
+      errorToast('forgotPassword.errorGeneric');
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  // Clear cache when user types
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-    clearNotificationCache(); // Clear cache on input change
   };
 
-  // Clear cache when trying again
   const handleTryAgain = () => {
     setEmailSent(false);
-    clearNotificationCache();
   };
 
   if (emailSent) {

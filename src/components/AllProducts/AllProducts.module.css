@@ -1,0 +1,26 @@
+.allProductsContainer {
+  width: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.allProductsContainer > div {
+  width: 100%;
+  min-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .allProductsContainer {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .allProductsContainer {
+    padding: 0;
+  }
+}

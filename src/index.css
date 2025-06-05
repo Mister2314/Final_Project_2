@@ -1,7 +1,4 @@
-/* Root CSS variables for theming */
-
 :root {
-  /* Light theme (default) */
   --bg-color: #f8f9fa;
   --card-bg: #ffffff;
   --text-color: #212529;
@@ -29,9 +26,11 @@
   --success-color: #28a745;
   --warning-color: #ffc107;
   --info-color: #17a2b8;
+  --scroll-to-top-bg: #6c63ff;
+  --scroll-to-top-hover: #5a52d5;
+  --scroll-to-top-shadow: rgba(108, 99, 255, 0.25);
 }
 
-/* Dark theme variables */
 [data-theme="dark"] {
   --bg-color: #212529;
   --card-bg: #343a40;
@@ -60,14 +59,15 @@
   --success-color: #5cb85c;
   --warning-color: #f0ad4e;
   --info-color: #5bc0de;
+  --scroll-to-top-bg: #6c63ff;
+  --scroll-to-top-hover: #5a52d5;
+  --scroll-to-top-shadow: rgba(108, 99, 255, 0.35);
 }
 
-/* Apply theme transitions */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+     font-family: 'Inter', system-ui, sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-color);
@@ -77,7 +77,12 @@ body {
 
 * {
   box-sizing: border-box;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--button-bg) #212121 !important;
+}
+
+[data-theme="dark"] * {
+    scrollbar-color: var(--link-color) #212121 !important;
 }
 
 a {
@@ -97,7 +102,6 @@ input, textarea, select {
   font-family: inherit;
 }
 
-/* Common utility classes */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -105,9 +109,134 @@ input, textarea, select {
   padding: 0 1rem;
 }
 
-/* Responsive breakpoints */
 @media (max-width: 768px) {
   .container {
     padding: 0 0.75rem;
+  }
+}
+
+[data-theme="dark"] * {
+    scrollbar-color: var(--link-color) #212121 !important;
+}
+
+/* *::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--border-color) !important;
+    border-radius: 4px !important;
+}
+
+[data-theme="dark"] *::-webkit-scrollbar-track {
+    background: var(--card-bg) !important;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--button-bg) !important;
+    border-radius: 4px !important;
+    transition: background-color 0.3s ease !important;
+}
+
+[data-theme="dark"] *::-webkit-scrollbar-thumb {
+    background: var(--link-color) !important;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--button-hover) !important;
+}
+
+[data-theme="dark"] *::-webkit-scrollbar-thumb:hover {
+    background: var(--button-hover) !important;
+} */
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background-color: var(--scroll-to-top-bg);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px var(--scroll-to-top-shadow);
+  z-index: 1000;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background-color: var(--scroll-to-top-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px var(--scroll-to-top-shadow);
+}
+
+.scroll-to-top:active {
+  transform: translateY(0);
+}
+
+.scroll-to-top svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.2s ease;
+}
+
+.scroll-to-top:hover svg {
+  transform: translateY(-2px);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.scroll-to-top.visible:hover svg {
+  animation: bounce 1s ease infinite;
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .scroll-to-top svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-to-top {
+    bottom: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .scroll-to-top svg {
+    width: 16px;
+    height: 16px;
   }
 }

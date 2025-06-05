@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
   }
   
   .languageSelect {
@@ -47,7 +47,6 @@
     color: #000;
   }
   
-  /* Override react-select default styles */
   :global(.react-select__control) {
     border: none !important;
     box-shadow: none !important;
@@ -69,11 +68,15 @@
   @media screen and (max-width: 1200px) {
     .languageSelect {
       width: 100px;
+          width: 100%;
+
     }
   }
   
   @media screen and (max-width: 582px) {
     .languageSelect {
       width: 60px;
+          width: 100%;
+
     }
   }

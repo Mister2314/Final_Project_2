@@ -1,107 +1,135 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
-import { useUser } from '../../context/UserContext';
-import styles from './Login.module.css';
-import toast from 'react-hot-toast';
+import React, { useState } from 'react';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../../redux/slices/userSlice';
+import { PiEyeBold, PiEyeClosedBold } from 'react-icons/pi';
+import { errorToast } from '../../utils/toast';
+import styles from './Login.module.css';
 
 export default function Login() {
   const { t } = useTranslation();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const { login } = useUser();
+  const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
+  const { loading, error } = useSelector((state) => state.user);
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const previousPath = location.state?.from || '/';
-  const newUser = location.state?.newUser || false;
-  const registeredEmail = location.state?.email || '';
-  
-  useEffect(() => {
-    if (newUser && registeredEmail) {
-      setEmail(registeredEmail);
-      // Bu toast-u daha spesifik et və yalnız bu vəziyyətdə göstər
-      toast.success(t('signup.pleaseLogin'));
+
+  React.useEffect(() => {
+    if (error) {
+      errorToast(error);
     }
-  }, [newUser, registeredEmail, t]);
-  
+  }, [error]);
+
+  const from = location.state?.from?.pathname || '/';
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     
-    if (!email.trim() || !password.trim()) {
-      toast.error(t('login.errorFields'));
-      return;
-    }
+    if (isSubmitting) return;
     
-    setLoading(true);
+    setIsSubmitting(true);
     
     try {
-      const success = await login({ email, password });
-      
-      if (success) {
-        // UserContext-də artıq success notification göstərilir
-        // Burada əlavə toast göstərmə
-        navigate('/');
-      } else {
-        // Login uğursuz olsa, UserContext-də error handle olunur
-        // Əlavə error toast göstərməyə ehtiyac yoxdur
-        console.log('Login failed - error handled in UserContext');
+      if (!formData.email.trim()) {
+        errorToast('login.errorEmail');
+        setIsSubmitting(false);
+        return;
+      }
+
+      if (!formData.password.trim()) {
+        errorToast('login.errorPassword');
+        setIsSubmitting(false);
+        return;
+      }
+
+      const result = await dispatch(loginUser(formData)).unwrap();
+      if (result) {
+        navigate(from, { replace: true });
       }
     } catch (error) {
-      console.error('Login error details:', error);
-      // Əlavə error handling - yalnız gözlənilməz error-lar üçün
-      toast.error(t('login.errorOccurred'));
+      errorToast('login.errorGeneral');
     } finally {
-      setLoading(false);
+      setIsSubmitting(false);
     }
   };
-  
-  const handleBackButton = () => {
-    if (previousPath === '/signup') {
-      navigate('/');
-    } else {
-      navigate(previousPath);
-    }
+
+  const handleAdminLogin = () => {
+    navigate('/admin/login');
   };
-  
+
+  const isLoading = loading || isSubmitting;
+
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginCard}>
-        <div className={styles.backButtonContainer}>
-          <button className={styles.backButton} onClick={handleBackButton}>
-            <span className={styles.backIcon}>&#8592;</span>
-            <span>{t('signup.back')}</span>
-          </button>
-        </div>
-        <h2 className={styles.loginTitle}>{t('login.title')}</h2>
+        <h2 className={styles.loginTitle}>
+          {t('login.title', 'Hesaba Giriş')}
+        </h2>
+        
         <form className={styles.loginForm} onSubmit={handleLogin}>
           <div className={styles.formGroup}>
-            <label>{t('login.email')}</label>
+            <label>{t('login.emailLabel', 'Email Ünvanı')}</label>
             <input
               className={styles.formInput}
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder={t('login.emailPlaceholder')}
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder={t('login.emailPlaceholder', 'Email ünvanınızı daxil edin')}
               required
+              disabled={isLoading}
             />
           </div>
-          <div className={styles.formGroup}>
-            <label>{t('login.password')}</label>
-            <input
-              className={styles.formInput}
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder={t('login.passwordPlaceholder')}
-              required
-            />
-          </div>
-          <div className={styles.forgotPassword}>
-            <Link to="/forgot-password">{t('login.forgotPassword')}</Link>
-          </div>
-          <button className={styles.loginButton} type="submit" disabled={loading}>
-            {loading ? (
+
+    <div className={styles.formGroup}>
+  <label>{t('login.passwordLabel', 'Parol')}</label>
+  <div className={styles.passwordInputContainer}>
+    <input
+      className={styles.formInput}
+      type={showPassword ? "text" : "password"}
+      name="password"
+      value={formData.password}
+      onChange={handleInputChange}
+      placeholder={t('login.passwordPlaceholder', 'Parolunuzu daxil edin')}
+      required
+      disabled={isLoading}
+    />
+    <button
+      type="button"
+      className={styles.passwordToggle}
+      onClick={() => setShowPassword(!showPassword)}
+      disabled={isLoading}
+      title={showPassword ? "Parolu gizlə" : "Parolu göstər"}
+    >
+      {showPassword ? (
+        <PiEyeBold className={styles.toggleIcon} />
+      ) : (
+        <PiEyeClosedBold className={styles.toggleIcon} />
+      )}
+    </button>
+  </div>
+</div>
+          
+          <button 
+            className={styles.loginButton} 
+            type="submit" 
+            disabled={isLoading}
+          >
+            {isLoading ? (
               <div className={styles.pawLoaderContainer}>
                 <div className={styles.pawLoader}>
                   <div className={styles.pawPrint}></div>
@@ -112,12 +140,31 @@ export default function Login() {
                 </div>
               </div>
             ) : (
-              t('login.loginButton')
+              t('login.loginButton', 'Daxil Ol')
             )}
           </button>
+
+          <button 
+            type="button"
+            className={styles.adminButton} 
+            onClick={handleAdminLogin}
+            disabled={isLoading}
+          >
+            {t('login.adminLogin', 'Admin Girişi')}
+          </button>
         </form>
+
+        <div className={styles.forgotPassword}>
+          <Link to="/forgot-password">
+            {t('login.forgotPassword', 'Parolu unutmusunuz?')}
+          </Link>
+        </div>
+        
         <div className={styles.authSwitch}>
-          {t('login.noAccount')} <Link to="/signup" state={{ from: previousPath !== '/signup' ? previousPath : '/' }} className={styles.authLink}>{t('login.signupLink')}</Link>
+          {t('login.noAccount', 'Hesabınız yoxdur?')} 
+          <Link to="/signup" className={styles.authLink}>
+            {t('login.signupLink', 'Qeydiyyat')}
+          </Link>
         </div>
       </div>
     </div>

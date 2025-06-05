@@ -6,10 +6,8 @@ import useTitle from '../../UseTitle/UseTitle'
 
 const ContactPage = () => {
     useTitle();
-    
-    // For debugging purposes - verify component mounting
-    useEffect(() => {
-        console.log("ContactPage mounted");
+        useEffect(() => {
+        // console.log("ContactPage mounted");
     }, []);
     
     return (

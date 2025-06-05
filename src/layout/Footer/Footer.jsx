@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import emailjs from '@emailjs/browser';
+import toast from 'react-hot-toast';
 import styles from './Footer.module.css';
 import { FaLinkedin, FaInstagram, FaGithub, FaTelegram } from 'react-icons/fa';
 import { MdEmail, MdLocationOn, MdPhone } from 'react-icons/md';
@@ -9,17 +11,64 @@ import { FaPaw, FaDog, FaCat, FaChevronRight } from 'react-icons/fa';
 const Footer = () => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
-  
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+  }, []);
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    
+    if (!email) {
+      toast.error(t('footer.emailRequired'));
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error(t('footer.invalidEmail'));
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const templateParams = {
+        from_name: "Website Newsletter",
+        name_id: "", // Leave empty as requested
+        email_id: email, // This will now populate the email field
+        subject: "", // Leave empty as requested
+        message: "Yeni biri abunə oldu!"
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+
+      toast.success(t('toast.success.newsletter.subscribeSuccess'));
+      setEmail('');
+    } catch (error) {
+      console.error('Subscription error:', error);
+      toast.error(t('toast.error.newsletter.subscribeError'));
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
-        {/* Footer Top Section */}
         <div className={styles.footerTop}>
-          {/* Column 1: Logo and About */}
           <div className={styles.footerColumn}>
             <Link to="/" className={styles.footerLogo}>
               <FaPaw className={styles.footerLogoIcon} />
-              <span>Woof</span>
+              <span>Pawsome</span>
             </Link>
             <p className={styles.footerAbout}>
               {t('footer.about')}
@@ -50,7 +99,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
           <div className={styles.footerColumn}>
             <h3 className={styles.footerTitle}>{t('footer.quickLinks')}</h3>
             <div className={styles.footerLinks}>
@@ -76,12 +124,11 @@ const Footer = () => {
               </Link>
               <Link to="/FAQ" className={styles.footerLink}>
                 <FaChevronRight className={styles.footerLinkIcon} />
-                <span>FAQ</span>
+                <span>{t('navigation.faq')}</span>
               </Link>
             </div>
           </div>
 
-          {/* Column 3: Pet Accessories Categories */}
           <div className={styles.footerColumn}>
             <h3 className={styles.footerTitle}>{t('footer.categories')}</h3>
             <div className={styles.footerLinks}>
@@ -112,45 +159,49 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 4: Contact Info and Newsletter */}
           <div className={styles.footerColumn}>
             <h3 className={styles.footerTitle}>{t('footer.contactInfo')}</h3>
             <div className={styles.contactItem}>
               <MdLocationOn className={styles.contactIcon} />
-              <span>{t('contact.address')}</span>
+              <span>{t('contact.info.address')}</span>
             </div>
             <div className={styles.contactItem}>
               <MdPhone className={styles.contactIcon} />
-              <span>{t('footer.phone')}</span>
+              <span>{t('contact.info.phone')}</span>
             </div>
             <div className={styles.contactItem}>
               <MdEmail className={styles.contactIcon} />
-              <span>{t('contact.email')}</span>
+              <span>{t('contact.info.email')}</span>
             </div>
             <div className={styles.newsletter}>
               <h3 className={styles.footerTitle}>{t('footer.newsletter')}</h3>
               <p className={styles.newsletterText}>
                 {t('footer.newsletterText')}
               </p>
-              <form className={styles.newsletterForm}>
+              <form className={styles.newsletterForm} onSubmit={handleSubscribe}>
                 <input
                   type="email"
                   placeholder={t('footer.emailPlaceholder')}
                   className={styles.newsletterInput}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-                <button type="submit" className={styles.newsletterButton}>
-                  {t('footer.subscribe')}
+                <button 
+                  type="submit" 
+                  className={`${styles.newsletterButton} ${isSubmitting ? styles.submitting : ''}`}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? t('footer.subscribing') : t('footer.subscribe')}
                 </button>
               </form>
             </div>
           </div>
         </div>
 
-        {/* Footer Bottom Section */}
         <div className={styles.footerBottom}>
           <div className={styles.copyright}>
-            © {currentYear} Woof. {t('footer.copyright')}
+            © {currentYear} Pawsome. {t('footer.copyright')}
           </div>
           <div className={styles.footerNav}>
             <Link to="/privacy-policy" className={styles.footerNavLink}>
@@ -167,9 +218,9 @@ const Footer = () => {
             </Link>
           </div>
           <div className={styles.paymentMethods}>
-            <span className={styles.paymentMethod}>Visa</span>
-            <span className={styles.paymentMethod}>MasterCard</span>
-            <span className={styles.paymentMethod}>PayPal</span>
+            <span className={styles.paymentMethod}>{t('footer.paymentMethods.visa')}</span>
+            <span className={styles.paymentMethod}>{t('footer.paymentMethods.mastercard')}</span>
+            <span className={styles.paymentMethod}>{t('footer.paymentMethods.paypal')}</span>
           </div>
         </div>
       </div>

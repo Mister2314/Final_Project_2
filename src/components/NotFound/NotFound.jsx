@@ -35,16 +35,13 @@ const NotFound = () => {
   return (
     <div className={styles.container}>
       <div className={styles.mainContent}>
-        {/* Glass card */}
         <div className={styles.glassCard}>
           
-          {/* 404 Display */}
           <div className={styles.errorDisplay}>
             <span className={styles.errorNumber}>
               4
             </span>
             
-            {/* Interactive Pet */}
             <div
               className={styles.petContainer}
               onClick={handlePetClick}
@@ -53,14 +50,12 @@ const NotFound = () => {
                 {petEmoji}
               </div>
               
-              {/* Pet interaction effects */}
               {petMood === "happy" && (
                 <div className={styles.petSpeech}>
                   {t("notFound.speechBubbleHappy")}
                 </div>
               )}
               
-              {/* Floating hearts on click */}
               {clicks > 0 && clicks % 3 === 0 && (
                 <div className={styles.heartContainer}>
                   {[...Array(3)].map((_, i) => (
@@ -82,7 +77,6 @@ const NotFound = () => {
             </span>
           </div>
           
-          {/* Content */}
           <div className={styles.contentSection}>
             <h1 className={styles.title}>
               {t("notFound.title")}
@@ -92,7 +86,6 @@ const NotFound = () => {
               {t("notFound.description")}
             </p>
             
-            {/* Interactive hint */}
             {clicks === 0 && (
               <p className={styles.interactionHint}>
                 {t("notFound.petInteraction")}
@@ -100,7 +93,6 @@ const NotFound = () => {
             )}
           </div>
           
-          {/* Action buttons */}
           <div className={styles.buttonContainer}>
             <button className={styles.primaryButton} onClick={handleHomeClick}>
               <Home className={styles.buttonIcon} />
@@ -113,12 +105,8 @@ const NotFound = () => {
             </button>
           </div>
           
-          {/* Stats */}
-          {clicks > 0 && (
-            <div className={styles.stats}>
-              Pişik sevgisi: {clicks} ♥
-            </div>
-          )}
+        
+          
         </div>
       </div>
     </div>

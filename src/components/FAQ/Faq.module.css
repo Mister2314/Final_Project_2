@@ -1,4 +1,3 @@
-/* FAQ Module CSS with Animation Optimizations */
 .faqContainer {
   width: 100%;
   max-width: 1320px;
@@ -8,7 +7,7 @@
   padding-bottom: 80px;
   position: relative;
   overflow: hidden;
-  will-change: transform; /* Optimization for GPU rendering */
+  will-change: transform; /* gpu üçün performans faydasıydı */
 }
 
 .faqHeader {
@@ -92,7 +91,7 @@
   color: #333;
   transition: all 0.25s ease;
   box-shadow: 0 4px 12px rgba(130, 71, 245, 0.1);
-  backface-visibility: hidden; /* Prevent flickering during animations */
+  backface-visibility: hidden;
 }
 
 [data-theme='dark'] .searchInput {
@@ -138,7 +137,6 @@
   background: rgba(130, 71, 245, 0.1);
 }
 
-/* Static paw print decorations - using translate3d for GPU acceleration */
 .pawPrints {
   position: absolute;
   top: 0;
@@ -147,7 +145,7 @@
   height: 100%;
   overflow: hidden;
   z-index: 1;
-  pointer-events: none; /* Prevent interaction with decorative elements */
+  pointer-events: none; 
 }
 
 .pawPrint {
@@ -155,7 +153,7 @@
   font-size: 80px;
   color: #8247f5;
   opacity: 0.05;
-  transform-style: preserve-3d; /* For better performance */
+  transform-style: preserve-3d; 
 }
 
 .paw1 {
@@ -192,7 +190,7 @@
   display: flex;
   gap: 12px;
   min-width: max-content;
-  justify-content: center; /* Center the category buttons */
+  justify-content: center; 
 }
 
 .categoryButton {
@@ -206,7 +204,7 @@
   cursor: pointer;
   transition: all 0.25s ease;
   white-space: nowrap;
-  transform: translate3d(0, 0, 0); /* Force GPU acceleration */
+  transform: translate3d(0, 0, 0); 
 }
 
 [data-theme='dark'] .categoryButton {
@@ -234,7 +232,6 @@
 .faqItemsContainer {
   margin-bottom: 40px;
   min-height: 200px;
-  /* Set a specific height to prevent layout shifts when filtering */
   position: relative;
 }
 
@@ -244,7 +241,6 @@
   gap: 16px;
 }
 
-/* Optimizations for FAQ items rendering */
 .faqItem {
   margin-top: 10px;
   background: white;
@@ -253,8 +249,8 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.25s ease;
-  transform: translate3d(0, 0, 0); /* Force GPU acceleration */
-  contain: content; /* CSS containment for better performance */
+  transform: translate3d(0, 0, 0); 
+  contain: content;
 }
 
 [data-theme='dark'] .faqItem {
@@ -296,23 +292,20 @@
   color: #8247f5;
   margin-left: 16px;
   flex-shrink: 0;
-  transition: transform 0.3s ease; /* Add transition for icon rotation */
-  transform: translate3d(0, 0, 0); /* Force GPU acceleration for rotations */
+  transition: transform 0.3s ease;
+  transform: translate3d(0, 0, 0);
 }
 
-/* Rotate icon when expanded */
 .faqItem.expanded .faqIcon {
   transform: rotate(180deg);
 }
 
-/* New wrapper for animated dropdown */
 .faqAnswerWrapper {
   overflow: hidden;
   max-height: 0;
   opacity: 0;
   transition-property: max-height, opacity;
   transition-timing-function: ease-in-out;
-  /* Transitions defined inline for different open/close behaviors */
 }
 
 .faqAnswer {
@@ -330,12 +323,10 @@
   margin: 0;
 }
 
-/* Animated entry for newly filtered items */
 .faqItem {
   animation: fadeIn 0.4s ease forwards;
 }
 
-/* No Results */
 .noResults {
   display: flex;
   flex-direction: column;
@@ -380,14 +371,14 @@
   display: flex;
   align-items: center;
   position: relative;
-  transform: translate3d(0, 0, 0); /* Force GPU acceleration */
+  transform: translate3d(0, 0, 0);
 }
 
 .contactBoxContent {
   padding: 40px;
   flex: 1;
   color: white;
-  text-align: center; /* Center the contact box content */
+  text-align: center;
 }
 
 .contactBoxContent h3 {
@@ -415,7 +406,7 @@
   text-decoration: none;
   transition: all 0.25s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transform: translate3d(0, 0, 0); /* Force GPU acceleration */
+  transform: translate3d(0, 0, 0); 
 }
 
 .contactButton:hover {
@@ -442,7 +433,6 @@
   border: 4px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Optimize animations for performance */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -463,7 +453,6 @@
   }
 }
 
-/* Loading state */
 .loadingState {
   display: flex;
   justify-content: center;
@@ -472,7 +461,6 @@
   color: #8247f5;
 }
 
-/* Responsive adjustments */
 @media (max-width: 1024px) {
   .faqHeader {
     padding: 50px 30px;

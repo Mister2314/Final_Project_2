@@ -1,34 +1,44 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { BsSun, BsMoon, BsHeart, BsSearch } from "react-icons/bs";
+import { BsSun, BsMoon, BsHeart } from "react-icons/bs";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { FaAngleDown, FaPaw, FaDog, FaCat } from "react-icons/fa";
 import { CgLogIn, CgLogOut } from "react-icons/cg";
-import { FiUser, FiShoppingBag, FiSettings } from "react-icons/fi";
+import { FiUser, FiShoppingBag } from "react-icons/fi";
+import { MdDashboard } from "react-icons/md";
 import { useTheme } from "../../../context/ThemeContext";
-import { useUser } from "../../../context/UserContext";
+import { useAuth } from "../../../redux/hooks/useAuth";
 import LanguageSelector from "../components/LanguageSelector/LanguageSelector";
+import { useWishlist } from 'react-use-wishlist';
+import { toast } from 'react-hot-toast';
+import { useSelector } from "react-redux";
+import { useCart } from 'react-use-cart';
+
+
+
 
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
+ const { items: wishlistItems } = useWishlist();
+  const wishlistCount = wishlistItems.length
+    const { isAuthenticated } = useSelector((state) => state.user);
+    const { items: cartItems } = useCart(); 
+const cartCount = cartItems.length; 
+
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const { theme, toggleTheme } = useTheme();
-  const { user, logout } = useUser();
+  const { user, logout } = useAuth();
   
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 1024);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState("");
-  const [isMobileView, setIsMobileView] = useState(false);
-  const [searchVisible, setSearchVisible] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const [categoryMenuOpen, setCategoryMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   
-  const searchInputRef = useRef(null);
   const navbarRef = useRef(null);
   const categoryMenuRef = useRef(null);
   const userMenuRef = useRef(null);
@@ -36,15 +46,17 @@ const Navbar = () => {
   const getUserDisplayName = () => {
     if (!user) return "";
     
-    // Qeydiyyat zamanı təyin edilən tam ad
-    if (user.user_metadata && user.user_metadata.full_name) {
-      return user.user_metadata.full_name;
+    if (user.username) {
+      return user.username;
     }
+    
     return "İstifadəçi";
   };
+  
   const userDisplayName = getUserDisplayName();
 
-  // Set current page based on location pathname when component mounts or location changes
+  const isAdmin = user && user.role === "admin";
+
   useEffect(() => {
     const path = location.pathname;
     
@@ -67,16 +79,19 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobileView(window.innerWidth <= 1024);
-      if (window.innerWidth > 1024) {
+      const mobile = window.innerWidth <= 1024;
+      setIsMobileView(mobile);
+      if (!mobile) {
         setMobileMenuOpen(false);
-        setSearchVisible(false);
+        setCategoryMenuOpen(false);
       }
     };
 
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
 
     const handleClickOutside = (event) => {
       if (
@@ -105,44 +120,33 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleScroll);
     document.addEventListener("mousedown", handleClickOutside);
     
-    handleResize();
-    handleScroll();
     
     return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [mobileMenuOpen]);
 
-  useEffect(() => {
-    if (searchVisible && searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
-  }, [searchVisible]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
     if (!mobileMenuOpen) {
-      setSearchVisible(false);
       setCategoryMenuOpen(false);
       setUserMenuOpen(false);
     }
   };
 
-  const toggleSearch = () => {
-    setSearchVisible(!searchVisible);
-    if (searchVisible) setSearchTerm("");
-  };
 
   const toggleCategoryMenu = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    if (window.innerWidth <= 1024) {
+      setCategoryMenuOpen(!categoryMenuOpen);
+    } else {
+      setUserMenuOpen(false);
     setCategoryMenuOpen(!categoryMenuOpen);
+    }
   };
   
   const toggleUserMenu = (e) => {
@@ -151,36 +155,41 @@ const Navbar = () => {
     setUserMenuOpen(!userMenuOpen);
   };
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    if (searchTerm.trim()) {
-      navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
-      setSearchVisible(false);
-      setSearchTerm("");
-    }
-  };
 
   const handleNavigation = (page) => {
     setMobileMenuOpen(false);
+    if (window.innerWidth <= 1024) {
     setCategoryMenuOpen(false);
-    setSearchVisible(false);
+    }
     setUserMenuOpen(false);
   };
 
-  const handleLogout = async () => {
-    try {
-      await logout();
+
+const handleLogout = async () => {
+  try {
+    setUserMenuOpen(false); 
+    
+    const success = await logout();
+    
+    if (success) {
+
       navigate('/');
-      setUserMenuOpen(false);
-    } catch (error) {
-      console.error("Logout failed:", error);
-      setUserMenuOpen(false);
     }
+  } catch (error) {
+    // console.error("Logout failed:", error);
+    toast.error(t('Logout failed'));
+  }
+};
+
+  const handleDashboardClick = () => {
+    navigate('/admin');
+    setUserMenuOpen(false);
   };
 
   const navItems = [
     { path: "/", key: "home", label: t("navbar.0") },
-    { key: "shop", label: t("navbar.3"), hasDropdown: true },
+    { path: "/shop", key: "shop", label: t("navbar.store") },
+    { key: "categories", label: t("navbar.3"), hasDropdown: true },
     { path: "/blog", key: "blog", label: t("navbar.4") },
     { path: "/faq", key: "faq", label: t("navbar.5") },
     { path: "/about-us", key: "about-us", label: t("navbar.1") },
@@ -190,12 +199,19 @@ const Navbar = () => {
   const categoryItems = [
     { path: "/shop/dogs", icon: <FaDog />, label: "Dogs" },
     { path: "/shop/cats", icon: <FaCat />, label: "Cats" },
-    { path: "/shop", icon: null, label: "All Products" },
+    { path: "/shop/all-products", icon: null, label: "All Products" },
   ];
+
+  const isLinkActive = (key) => {
+    if (key === "shop" && location.pathname.startsWith("/shop")) {
+      return true;
+    }
+    return currentPage === key;
+  };
 
   return (
     <header className={styles.header}>
-      <nav ref={navbarRef} className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
+      <nav ref={navbarRef} className={styles.navbar}>
         <div className={styles.navbarContainer}>
           <div className={styles.logoContainer}>
             <Link to="/" onClick={() => handleNavigation("home")} className={styles.logo}>
@@ -232,7 +248,7 @@ const Navbar = () => {
                   ) : (
                     <Link 
                       to={item.path} 
-                      className={currentPage === item.key ? styles.active : ""} 
+                      className={`${styles.navLink} ${isLinkActive(item.key) ? styles.active : ""}`}
                       onClick={() => handleNavigation(item.key)}
                     >
                       {item.label}
@@ -264,33 +280,76 @@ const Navbar = () => {
             </ul>
             
             <div className={styles.actionButtons}>
-              {/* Mobile view: Language selector above, action buttons in grid below */}
-              {isMobileView ? (
+              {isMobileView && mobileMenuOpen ? (
                 <>
-                  {/* Language Selector - Above action buttons */}
                   <div className={styles.mobileLanguageContainer}>
                     <LanguageSelector />
                   </div>
                   
-                  {/* Action Buttons Grid - Below language selector */}
                   <div className={styles.mobileActionGrid}>
-                    <button className={styles.actionButton} onClick={toggleSearch}>
-                      <BsSearch />
-                    </button>
-                    <Link to="/wishlist" className={styles.actionButton}>
-                      <BsHeart />
-                    </Link>
+                    <Link 
+    to="/wishlist" 
+    className={styles.actionButton}
+    onClick={(e) => {
+      if (!isAuthenticated) {
+        e.preventDefault();
+        toast.error('Wishlist\'ə baxmaq üçün hesabınıza daxil olun!');
+      }
+    }}
+  >
+    <div className={styles.iconWithBadge}>
+      <BsHeart />
+      {wishlistCount > 0 && (
+        <span className={styles.badge}>{wishlistCount}</span>
+      )}
+    </div>
+  </Link>
                     <button onClick={toggleTheme} className={styles.actionButton}>
                       {theme === "light" ? <BsMoon /> : <BsSun />}
                     </button>
-                    {user && (
-                      <Link to="/cart" className={styles.actionButton}>
-                        <IoBagHandleOutline />
-                      </Link>
-                    )}
+                 {user && (
+  <Link to="/cart" className={styles.actionButton}>
+    <div className={styles.iconWithBadge}>
+      <IoBagHandleOutline />
+      {cartCount > 0 && (
+        <span className={styles.badge}>{cartCount}</span>
+      )}
+    </div>
+  </Link>
+)}
                   </div>
-                  
-                  {/* Login/User section for mobile */}
+                </>
+              ) : (
+                <>
+                  <div className={styles.languageSelector}>
+                    <LanguageSelector />
+                  </div>
+                  <Link to="/wishlist" className={styles.actionButton}>
+                    <div className={styles.iconWithBadge}>
+                      <BsHeart />
+                      {wishlistCount > 0 && (
+                        <span className={styles.badge}>{wishlistCount}</span>
+                      )}
+                    </div>
+                  </Link>
+                  {user && (
+                    <Link to="/cart" className={styles.actionButton}>
+                      <div className={styles.iconWithBadge}>
+                        <IoBagHandleOutline />
+                        {cartCount > 0 && (
+                          <span className={styles.badge}>{cartCount}</span>
+                        )}
+                      </div>
+                    </Link>
+                  )}
+                  <button onClick={toggleTheme} className={styles.actionButton}>
+                    {theme === "light" ? <BsMoon /> : <BsSun />}
+                  </button>
+                </>
+              )}
+              
+              {isMobileView ? (
+                <>
                   {!user ? (
                     <Link to="/login" className={styles.loginButton}>
                       <CgLogIn className={styles.loginIcon} />
@@ -325,13 +384,15 @@ const Navbar = () => {
                           >
                             <FiShoppingBag /> {t("navbar.orders")}
                           </Link>
-                          <Link 
-                            to="/settings" 
-                            className={styles.userMenuItem} 
-                            onClick={() => setUserMenuOpen(false)}
-                          >
-                            <FiSettings /> {t("navbar.settings")}
-                          </Link>
+                          
+                          {isAdmin && (
+                            <button 
+                              onClick={handleDashboardClick}
+                              className={styles.userMenuItem}
+                            >
+                              <MdDashboard /> Dashboard
+                            </button>
+                          )}
                           
                           <div className={styles.userMenuDivider}></div>
                           <button 
@@ -346,26 +407,7 @@ const Navbar = () => {
                   )}
                 </>
               ) : (
-                /* Desktop view: Original horizontal layout */
                 <>
-                  <div className={styles.languageSelector}>
-                    <LanguageSelector />
-                  </div>
-                  <button className={styles.actionButton} onClick={toggleSearch}>
-                    <BsSearch />
-                  </button>
-                  <Link to="/wishlist" className={styles.actionButton}>
-                    <BsHeart />
-                  </Link>
-                  {user && (
-                    <Link to="/cart" className={styles.actionButton}>
-                      <IoBagHandleOutline />
-                    </Link>
-                  )}
-                  <button onClick={toggleTheme} className={styles.actionButton}>
-                    {theme === "light" ? <BsMoon /> : <BsSun />}
-                  </button>
-                  
                   {!user ? (
                     <Link to="/login" className={styles.loginButton}>
                       <CgLogIn className={styles.loginIcon} />
@@ -403,13 +445,15 @@ const Navbar = () => {
                           >
                             <FiShoppingBag /> {t("navbar.orders")}
                           </Link>
-                          <Link 
-                            to="/settings" 
-                            className={styles.userMenuItem} 
-                            onClick={() => setUserMenuOpen(false)}
-                          >
-                            <FiSettings /> {t("navbar.settings")}
-                          </Link>
+                          
+                          {isAdmin && (
+                            <button 
+                              onClick={handleDashboardClick}
+                              className={styles.userMenuItem}
+                            >
+                              <MdDashboard /> Dashboard
+                            </button>
+                          )}
                           
                           <div className={styles.userMenuDivider}></div>
                           <button 
@@ -428,28 +472,7 @@ const Navbar = () => {
           </div>
         </div>
         
-        <div className={`${styles.searchOverlay} ${searchVisible ? styles.visible : ""}`}>
-          <div className={styles.searchContainer}>
-            <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
-              <BsSearch className={styles.searchIcon} />
-              <input
-                type="text"
-                placeholder={t("navbar.searchPlaceholder")}
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                ref={searchInputRef}
-                className={styles.searchInput}
-              />
-              <button 
-                type="button" 
-                className={styles.closeSearch} 
-                onClick={toggleSearch}
-              >
-                ×
-              </button>
-            </form>
-          </div>
-        </div>
+      
       </nav>
     </header>
   );

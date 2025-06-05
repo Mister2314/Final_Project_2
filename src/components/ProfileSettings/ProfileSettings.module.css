@@ -464,6 +464,11 @@
     margin-right: 0.5rem;
     font-size: 1rem;
   }
+
+  .backText{
+         font-family: 'Inter', system-ui, sans-serif;
+
+  }
   
   @media (max-width: 768px) {
     .profileSettingsContainer {
@@ -613,6 +618,7 @@
     
     .backButton span:not(.backIcon) {
       display: none;
+      
     }
     
     .backIcon {

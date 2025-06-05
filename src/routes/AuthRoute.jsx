@@ -1,15 +1,15 @@
-import { useUser } from "../context/UserContext";
-import { Navigate, Outlet } from "react-router-dom";
-import { Spinner } from "../components/Spinner";
+// import { useUser } from "../context/UserContext";
+// import { Navigate, Outlet } from "react-router-dom";
+// import { Spinner } from "../components/Spinner";
 
-const AuthRoute = () => {
-  const { isAuthenticated, loading } = useUser();
+// const AuthRoute = () => {
+//   const { isAuthenticated, loading } = useUser();
 
-  if (loading) {
-    return <Spinner />;
-  }
+//   if (loading) {
+//     return <Spinner />;
+//   }
 
-  return !isAuthenticated ? <Outlet /> : <Navigate to="/" />;
-};
+//   return !isAuthenticated ? <Outlet /> : <Navigate to="/" />;
+// };
 
-export default AuthRoute;
+// export default AuthRoute;
