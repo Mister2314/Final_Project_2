@@ -14,7 +14,7 @@ import Shop from "../components/Shop/Shop";
 import Login from "../layout/Login/Login";
 import AdminLogin from "../components/AdminLogin/AdminLogin";
 import Signup from "../layout/Signup/Signup";
-import FaqPage from "../pages/FAQ/FAQPage";
+import FaqPage from "../pages/Faq/FaqPage";
 import ContactPage from "../pages/Contact/ContactPage";
 import AboutUs from "../components/AboutUs/AboutUs";
 import ProfileSettings from "../components/ProfileSettings/ProfileSettings";
