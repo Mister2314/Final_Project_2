@@ -4,6 +4,12 @@
     position: relative;
     overflow: hidden;
     font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--bg-color, #f9f9fb);
+    /* padding: 4rem 0; */
+  }
+  
+  [data-theme='dark'] .heroSection {
+    background-color: var(--bg-color, #121212);
   }
   
   .heroContainer {

@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { fetchProducts } from '../../../redux/slices/productSlices';
 import ProductsTemplate from '../../ProductsTemplate/ProductsTemplate';
 import styles from '../Dogs.module.css';
 
 const DogToys = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const filters = {
@@ -17,31 +19,26 @@ const DogToys = () => {
 
   return (
     <ProductsTemplate
-      title="İt Oyuncaqları"
-      titleEn="Dog Toys"
-      description="İtiniz üçün əyləncəli və təhlükəsiz oyuncaqlar"
-      descriptionEn="Fun and safe toys for your dog"
-      icon="🎾"
+      pageConfig={{
+        title: {
+          az: t('dogs.categories.toys'),
+          en: t('dogs.categories.toys')
+        },
+        subtitle: {
+          az: t('dogs.categories.toysDescription', { defaultValue: 'İtiniz üçün əyləncəli və təhlükəsiz oyuncaqlar' }),
+          en: t('dogs.categories.toysDescription', { defaultValue: 'Fun and safe toys for your dog' })
+        },
+        icon: '🎾',
+        searchPlaceholder: {
+          az: t('dogs.searchPlaceholder'),
+          en: t('dogs.searchPlaceholder')
+        }
+      }}
       filterParams={{
         main_name: 'dog',
         main_category: 'toy'
       }}
       showStockFilter={true}
-      pageConfig={{
-        title: {
-          az: 'İt Oyuncaqları',
-          en: 'Dog Toys'
-        },
-        subtitle: {
-          az: 'İtiniz üçün əyləncəli və təhlükəsiz oyuncaqlar',
-          en: 'Fun and safe toys for your dog'
-        },
-        icon: '🎾',
-        searchPlaceholder: {
-          az: 'Oyuncaq axtar...',
-          en: 'Search toys...'
-        }
-      }}
       customStyles={styles}
     />
   );

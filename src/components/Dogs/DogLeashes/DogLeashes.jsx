@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { fetchProducts } from '../../../redux/slices/productSlices';
 import ProductsTemplate from '../../ProductsTemplate/ProductsTemplate';
 import styles from '../Dogs.module.css';
 
 const DogLeashes = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const filters = {
@@ -17,31 +19,26 @@ const DogLeashes = () => {
 
   return (
     <ProductsTemplate
-      title="İt Qayışları və Boyunduruqları"
-      titleEn="Dog Leashes and Collars"
-      description="İtiniz üçün rahat və davamlı qayışlar"
-      descriptionEn="Comfortable and durable leashes for your dog"
-      icon="🦮"
+      pageConfig={{
+        title: {
+          az: t('dogs.categories.leashes'),
+          en: t('dogs.categories.leashes')
+        },
+        subtitle: {
+          az: t('dogs.categories.leashesDescription', { defaultValue: 'İtiniz üçün rahat və davamlı qayışlar' }),
+          en: t('dogs.categories.leashesDescription', { defaultValue: 'Comfortable and durable leashes for your dog' })
+        },
+        icon: '🦮',
+        searchPlaceholder: {
+          az: t('dogs.searchPlaceholder'),
+          en: t('dogs.searchPlaceholder')
+        }
+      }}
       filterParams={{
         main_name: 'dog',
         main_category: 'leash'
       }}
       showStockFilter={true}
-      pageConfig={{
-        title: {
-          az: 'İt Qayışları və Boyunduruqları',
-          en: 'Dog Leashes and Collars'
-        },
-        subtitle: {
-          az: 'İtiniz üçün rahat və davamlı qayışlar',
-          en: 'Comfortable and durable leashes for your dog'
-        },
-        icon: '🦮',
-        searchPlaceholder: {
-          az: 'Qayış axtar...',
-          en: 'Search leashes...'
-        }
-      }}
       customStyles={styles}
     />
   );

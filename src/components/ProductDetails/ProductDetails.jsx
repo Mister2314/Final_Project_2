@@ -40,7 +40,7 @@ const ProductDetails = () => {
   const { products = [], loading = false, error } = useSelector((state) => state?.products || {});
   const { addItem } = useCart();
   const { addWishlistItem, removeWishlistItem, inWishlist } = useWishlist();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const currentLang = i18n?.language;
   const isAzerbaijani = currentLang === 'az';
 
@@ -689,17 +689,30 @@ const ProductDetails = () => {
             )}
 
             {activeTab === 'reviews' && (
-              <div className={styles.reviewsTab}>
-                {/* Review Form */}
-                <div className={styles.reviewFormSection}>
+              <div className={styles.reviewsSection}>
+                <div className={styles.reviewsHeader}>
+                  <h3 className={styles.reviewsTitle}>{t('reviews.title')}</h3>
+                  {totalReviews > 0 && (
+                    <div className={styles.reviewsSummary}>
+                      {renderStars(averageRating, false, null, 'large')}
+                      <span className={styles.reviewsCount}>
+                        ({totalReviews} {t('reviews.title').toLowerCase()})
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                <div className={styles.reviewsContent}>
+                  {/* Write Review Button/Message */}
+                  <div className={styles.writeReviewSection}>
                   {isAuthenticated && !userHasReviewed ? (
                     <div className={styles.writeReviewContainer}>
                       <button
-                        onClick={() => setShowReviewForm(!showReviewForm)}
                         className={styles.writeReviewButton}
+                          onClick={() => setShowReviewForm(true)}
                       >
                         <BsPersonCheck />
-                        {isAzerbaijani ? 'Rəy yaz' : 'Write Review'}
+                          {t('reviews.writeReview')}
                       </button>
 
                       {showReviewForm && (
@@ -724,12 +737,12 @@ const ProductDetails = () => {
                   ) : isAuthenticated && userHasReviewed ? (
                     <div className={styles.alreadyReviewedMessage}>
                       <BsCheckCircle />
-                      <span>{isAzerbaijani ? 'Bu məhsul üçün artıq rəy yazmısınız.' : 'You have already reviewed this product.'}</span>
+                        <span>{t('reviews.alreadyReviewed')}</span>
                     </div>
                   ) : (
                     <div className={styles.loginToReviewMessage}>
                       <BsPersonCheck />
-                      <span>{isAzerbaijani ? 'Rəy yazmaq üçün hesabınıza daxil olun.' : 'Please login to write a review.'}</span>
+                        <span>{t('reviews.loginRequired')}</span>
                     </div>
                   )}
                 </div>
@@ -739,12 +752,12 @@ const ProductDetails = () => {
                   {reviewsLoading ? (
                     <div className={styles.reviewsLoading}>
                       <div className={styles.loadingSpinner}></div>
-                      <p>{isAzerbaijani ? 'Rəylər yüklənir...' : 'Loading reviews...'}</p>
+                        <p>{t('common.loading')}</p>
                     </div>
                   ) : reviewsError ? (
                     <div className={styles.reviewsError}>
                       <BsXCircle />
-                      <p>{isAzerbaijani ? 'Rəyləri yükləməkdə xəta baş verdi.' : 'Error loading reviews.'}</p>
+                        <p>{t('common.error')}</p>
                     </div>
                   ) : productReviews && productReviews.length > 0 ? (
                     productReviews.map((review) => (
@@ -756,7 +769,7 @@ const ProductDetails = () => {
                             </div>
                             <div className={styles.reviewerDetails}>
                               <span className={styles.reviewerName}>
-                                {review.users?.username || (isAzerbaijani ? 'Anonim İstifadəçi' : 'Anonymous User')}
+                                  {review.users?.username || t('common.anonymousUser')}
                               </span>
                               <div className={styles.reviewRating}>
                                 {renderStars(review.rating, false, null, 'small')}
@@ -765,13 +778,13 @@ const ProductDetails = () => {
                           </div>
                           <div className={styles.reviewMetadata}>
                             <span className={styles.reviewDate}>
-                              {formatDate(review.created_at)}
+                                {t('reviews.by')} {review.users?.username || t('common.anonymousUser')} {t('reviews.on')} {formatDate(review.created_at)}
                             </span>
                             {review.user_id === user?.id && (
                               <button
                                 onClick={() => handleDeleteReview(review.id)}
                                 className={styles.deleteReviewButton}
-                                title={isAzerbaijani ? 'Rəyi sil' : 'Delete review'}
+                                  title={t('common.delete')}
                               >
                                 <BsXCircle />
                               </button>
@@ -785,7 +798,7 @@ const ProductDetails = () => {
                           <div className={styles.reviewActions}>
                             <span className={styles.myReviewBadge}>
                               <BsCheckCircle />
-                              {isAzerbaijani ? 'Mənim rəyim' : 'My Review'}
+                                {t('reviews.myReview')}
                             </span>
                           </div>
                         )}
@@ -795,24 +808,22 @@ const ProductDetails = () => {
                     <div className={styles.noReviews}>
                       <div className={styles.noReviewsIcon}>💬</div>
                       <h3 className={styles.noReviewsTitle}>
-                        {isAzerbaijani ? 'Hələ heç bir rəy yoxdur' : 'No reviews yet'}
+                          {t('reviews.noReviews')}
                       </h3>
                       <p className={styles.noReviewsText}>
-                        {isAzerbaijani 
-                          ? 'Bu məhsul haqqında ilk rəy yazan siz olun!' 
-                          : 'Be the first to share your thoughts about this product!'
-                        }
+                          {t('reviews.beFirst')}
                       </p>
                       {isAuthenticated && !userHasReviewed && (
                         <button
                           onClick={() => setShowReviewForm(true)}
                           className={styles.firstReviewButton}
                         >
-                          {isAzerbaijani ? 'İlk rəy yaz' : 'Write First Review'}
+                            {t('reviews.writeReview')}
                         </button>
                       )}
                     </div>
                   )}
+                  </div>
                 </div>
               </div>
             )}

@@ -31,17 +31,17 @@ const Blogs = () => {
 
       return matchesSearch;
     }).sort((a, b) => {
-      switch (sortBy) {
-        case 'oldest':
+    switch (sortBy) {
+      case 'oldest':
           return new Date(a.created_at) - new Date(b.created_at);
-        case 'az':
+      case 'az':
           return (a.blogTitle_en || '').localeCompare(b.blogTitle_en || '');
-        case 'za':
+      case 'za':
           return (b.blogTitle_en || '').localeCompare(a.blogTitle_en || '');
         case 'newest':
-        default:
+      default:
           return new Date(b.created_at) - new Date(a.created_at);
-      }
+    }
     });
   }, [blogs, searchQuery, sortBy]);
 
@@ -55,10 +55,10 @@ const Blogs = () => {
 
   return (
     <div className={styles.blogsContainer}>
-      <div className={styles.blogsHeader}>
+        <div className={styles.blogsHeader}>
         <h1 className={styles.blogsTitle}>
           {t('blogs.title')}
-        </h1>
+          </h1>
         <div className={styles.blogsControls}>
           <div className={styles.searchContainer}>
             <input
@@ -74,28 +74,28 @@ const Blogs = () => {
           </div>
 
           <div className={styles.filterContainer}>
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
               className={styles.filterSelect}
             >
               <option value="newest">{t('blogs.sort.latest')}</option>
               <option value="oldest">{t('blogs.sort.oldest')}</option>
               <option value="az">{t('blogs.sort.az')}</option>
               <option value="za">{t('blogs.sort.za')}</option>
-            </select>
+              </select>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className={styles.blogsGrid}>
+          <div className={styles.blogsGrid}>
         {filteredBlogs.length > 0 ? (
           filteredBlogs.map((blog) => (
-            <BlogCard 
-              key={blog.id} 
-              blog={blog} 
-              isAzerbaijani={isAzerbaijani}
-            />
+              <BlogCard
+                key={blog.id}
+                blog={blog}
+                isAzerbaijani={isAzerbaijani}
+              />
           ))
         ) : (
           <div className={styles.noBlogs}>

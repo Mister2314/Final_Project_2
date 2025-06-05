@@ -278,49 +278,33 @@
     }
   },
   "footer": {
-    "about": "Heyvanlarınız üçün yüksək keyfiyyətli aksessuarlar təklif edirik. İt və pişiklər üçün yalnız ən yaxşı məhsullar.",
-    "quickLinks": "Sürətli linklər",
-    "categories": "Məhsul kateqoriyaları",
-    "contactInfo": "Əlaqə məlumatları",
-    "address": "Heydər Əliyev prospekti 123, Bakı, Azərbaycan",
-    "phone": "+994 50 123 45 67",
-    "email": "xeyalhuseynli06@gmail.com",
-    "newsletter": "Yeniliklərdən xəbərdar olun",
+    "about": "Pawsome, heyvan dostlarınız üçün premium keyfiyyətli məhsullar təqdim edən onlayn pet-şopdur. Biz heyvanlarınızın sağlamlığı və xoşbəxtliyi üçün ən yaxşı məhsulları təklif edirik.",
+    "quickLinks": "Sürətli Keçidlər",
+    "categories": "Kateqoriyalar",
+    "contactInfo": "Əlaqə Məlumatları",
+    "newsletter": "Xəbər Bülleteni",
     "newsletterText": "Yeni məhsullar və xüsusi təkliflər haqqında məlumat almaq üçün abunə olun.",
     "emailPlaceholder": "E-poçt ünvanınız",
     "subscribe": "Abunə ol",
     "subscribing": "Abunə olunur...",
-    "subscribeSuccess": "Uğurla abunə oldunuz!",
-    "subscribeError": "Abunə olarkən xəta baş verdi",
-    "copyright": "Bütün hüquqlar qorunur.",
-    "privacyPolicy": "Məxfilik Siyasəti",
-    "terms": "İstifadə Şərtləri",
-    "shipping": "Çatdırılma",
-    "returnsPolicy": "Qaytarma Siyasəti",
-    "paymentMethods": {
-      "title": "Ödəniş Üsulları",
-      "visa": "Visa",
-      "mastercard": "MasterCard",
-      "paypal": "PayPal"
-    },
+    "emailRequired": "E-poçt ünvanı tələb olunur",
+    "invalidEmail": "Düzgün e-poçt ünvanı daxil edin",
     "petCategories": {
       "dogs": "İtlər",
       "cats": "Pişiklər"
     },
     "productCategories": {
-      "collars": "Xaltalar və qayışlar",
-      "beds": "Yataqlar",
-      "toys": "Oyuncaqlar",
-      "foodBowls": "Qida qabları",
-      "clothes": "Geyimlər",
-      "grooming": "Qulluq məhsulları"
-    },
-    "emailRequired": "E-poçt ünvanı tələb olunur",
-    "invalidEmail": "Düzgün e-poçt ünvanı daxil edin",
-    "subscriptionSuccess": "Uğurla abunə oldunuz!",
-    "subscriptionError": "Abunə olarkən xəta baş verdi",
-    "subscriptionMessage": "Woof-un yeniliklərinə abunə olduğunuz üçün təşəkkür edirik!",
-    "logoText": "Pawsome"
+      "dogFood": "İt Yemləri",
+      "dogToys": "İt Oyuncaqları",
+      "dogBeds": "İt Yataqları",
+      "dogCarriers": "İt Daşıma Çantaları",
+      "dogLeashes": "Qayışlar və Boyunduruqlar",
+      "catFood": "Pişik Yemləri",
+      "catLitter": "Pişik Qumları",
+      "catBeds": "Pişik Yataqları",
+      "catCarriers": "Pişik Daşıma Çantaları",
+      "catLeashes": "Pişik Qayışları"
+    }
   },
   "common": {
     "loading": "Yüklənir...",
@@ -335,7 +319,7 @@
     "remove": "Sil",
     "update": "Yenilə",
     "create": "Yarat",
-    "submit": "Göndər",
+    "submit": "Təsdiq et",
     "search": "Axtar",
     "filter": "Süz",
     "sort": "Sırala",
@@ -359,7 +343,9 @@
     "noCategory": "Kateqoriya yoxdur",
     "unknownStatus": "Naməlum status",
     "home": "Ana Səhifə",
-    "blogs": "Bloqlar"
+    "blogs": "Bloqlar",
+    "anonymousUser": "Anonim İstifadəçi",
+    "submitting": "Göndərilir..."
   },
   "faq": {
     "title": "Tez-tez soruşulan suallar",
@@ -455,10 +441,10 @@
       "success": "Mesaj uğurla göndərildi!",
       "error": "Mesaj göndərilmədi. Zəhmət olmasa yenidən cəhd edin.",
       "validation": {
-        "nameRequired": "Ad tələb olunur",
-        "emailRequired": "E-poçt tələb olunur",
-        "emailInvalid": "Düzgün e-poçt ünvanı daxil edin",
-        "messageRequired": "Mesaj tələb olunur",
+      "nameRequired": "Ad tələb olunur",
+      "emailRequired": "E-poçt tələb olunur",
+      "emailInvalid": "Düzgün e-poçt ünvanı daxil edin",
+      "messageRequired": "Mesaj tələb olunur",
         "messageMinLength": "Mesaj ən azı 10 simvoldan ibarət olmalıdır"
       }
     }
@@ -680,7 +666,7 @@
     "remove": "Sil",
     "update": "Yenilə",
     "create": "Yarat",
-    "submit": "Göndər",
+    "submit": "Təsdiq et",
     "confirm": "Təsdiq et",
     "close": "Bağla",
     "back": "Geri",
@@ -1170,25 +1156,42 @@
     }
   },
   "reviews": {
-    "rating": "Reytinq",
-    "comment": "Rəy",
-    "commentPlaceholder": "Rəyinizi buraya yazın...",
-    "submit": "Rəy əlavə et",
-    "submitting": "Göndərilir...",
-    "success": "Rəyiniz uğurla əlavə edildi",
-    "error": "Rəy əlavə edilərkən xəta baş verdi",
-    "noReviews": "Bu məhsula hələ rəy yazılmayıb",
+    "title": "Rəylər",
     "writeReview": "Rəy yazın",
-    "editReview": "Rəyi redaktə et",
-    "deleteReview": "Rəyi sil",
-    "confirmDelete": "Bu rəyi silmək istədiyinizə əminsiniz?",
-    "loginToReview": "Rəy yazmaq üçün daxil olun",
+    "noReviews": "Bu məhsula hələ rəy yazılmayıb",
+    "beFirst": "İlk rəy yazan siz olun!",
+    "rating": "Reytinq",
+    "comment": "Rəyiniz",
+    "commentPlaceholder": "Bu məhsul haqqında fikirlərinizi yazın...",
+    "submit": "Rəyi göndər",
+    "submitting": "Göndərilir...",
     "thankYou": "Rəyiniz üçün təşəkkür edirik!",
-    "ratingRequired": "Reytinq seçin",
-    "commentRequired": "Rəy yazın",
-    "invalidRating": "Düzgün reytinq seçin (1-5)",
-    "commentTooShort": "Rəy çox qısadır (minimum 10 simvol)",
-    "commentTooLong": "Rəy çox uzundur (maksimum 500 simvol)"
+    "deleteConfirm": "Bu rəyi silmək istədiyinizə əminsiniz?",
+    "deleteSuccess": "Rəy uğurla silindi",
+    "deleteError": "Rəy silinərkən xəta baş verdi",
+    "loginRequired": "Rəy yazmaq üçün daxil olmalısınız",
+    "verifiedPurchase": "Təsdiqlənmiş alış",
+    "helpful": "Faydalı",
+    "reportAbuse": "Şikayət et",
+    "edited": "Redaktə edilib",
+    "by": "Yazan",
+    "on": "Tarix",
+    "loadMore": "Daha çox rəy yüklə",
+    "filter": {
+      "all": "Bütün rəylər",
+      "positive": "Müsbət rəylər",
+      "negative": "Mənfi rəylər",
+      "verified": "Təsdiqlənmiş alışlar"
+    },
+    "sort": {
+      "newest": "Ən yeni",
+      "oldest": "Ən köhnə",
+      "highestRated": "Ən yüksək reytinq",
+      "lowestRated": "Ən aşağı reytinq",
+      "mostHelpful": "Ən faydalı"
+    },
+    "alreadyReviewed": "Bu məhsul üçün artıq rəy yazmısınız",
+    "myReview": "Mənim rəyim"
   },
   "adminLogin": {
     "title": "Admin Panelə Giriş",
@@ -1207,31 +1210,29 @@
     "notAuthorized": "Bu səhifəyə giriş icazəniz yoxdur"
   },
   "dogs": {
-    "pageTitle": "İtlər üçün Məhsullar",
-    "pageSubtitle": "Sevimli itləriniz üçün keyfiyyətli və təhlükəsiz məhsullar",
-    "categoriesTitle": "Kateqoriyalar",
+    "title": "İtlər üçün Məhsullar",
+    "subtitle": "Sevimli itləriniz üçün keyfiyyətli və təhlükəsiz məhsullar",
     "categories": {
-      "all": {
-        "name": "Bütün Məhsullar",
-        "badge": "{{count}} məhsul",
-        "select": "Seçin"
-      },
-      "food": {
-        "name": "İt Yemləri"
-      },
-      "toys": {
-        "name": "Oyuncaqlar"
-      },
-      "beds": {
-        "name": "Ev və Yataqlar"
-      },
-      "carriers": {
-        "name": "Daşıma Çantaları"
-      },
-      "leashes": {
-        "name": "Qayışlar və Boyunduruqlar"
-      }
-    }
+      "title": "Kateqoriyalar",
+      "all": "Bütün Məhsullar",
+      "food": "İt Yemləri",
+      "foodDescription": "İtiniz üçün keyfiyyətli və sağlam qidalar",
+      "toys": "Oyuncaqlar",
+      "toysDescription": "İtiniz üçün əyləncəli və təhlükəsiz oyuncaqlar",
+      "beds": "Ev və Yataqlar",
+      "bedsDescription": "Sevimli itiniz üçün rahat yataq və evlər",
+      "carriers": "Daşıma Çantaları",
+      "carriersDescription": "İtiniz üçün rahat və təhlükəsiz daşıma çantaları",
+      "leashes": "Qayışlar və Boyunduruqlar",
+      "leashesDescription": "İtiniz üçün rahat və davamlı qayışlar"
+    },
+    "categoryBadge": {
+      "selected": "Seçildi",
+      "select": "Seçin"
+    },
+    "loading": "Məhsullar yüklənir...",
+    "noProducts": "Bu kateqoriyada məhsul tapılmadı",
+    "searchPlaceholder": "İt məhsulları axtar..."
   },
   "checkout": {
     "coupon": {
@@ -1249,6 +1250,97 @@
     "error": {
       "title": "Bloq Tapılmadı",
       "message": "Axtardığınız bloq mövcud deyil və ya silinib."
+    }
+  },
+  "products": {
+    "title": "Bütün Məhsullar",
+    "allProducts": "Bütün Məhsullar",
+    "subtitle": "Heyvanlarınız üçün bütün məhsulları kəşf edin",
+    "searchPlaceholder": "Məhsulları axtar...",
+    "noProducts": {
+      "title": "Məhsul Tapılmadı",
+      "description": "Axtarış kriteriyalarınıza uyğun məhsul tapılmadı."
+    },
+    "filters": {
+      "all": "Hamısı",
+      "inStock": "Stokda var",
+      "outOfStock": "Stokda yoxdur"
+    },
+    "sort": {
+      "newest": "Ən yeni",
+      "oldest": "Ən köhnə",
+      "priceHighToLow": "Qiymət: Yüksəkdən aşağıya",
+      "priceLowToHigh": "Qiymət: Aşağıdan yuxarıya",
+      "nameAZ": "Ad: A-dan Z-yə",
+      "nameZA": "Ad: Z-dən A-ya"
+    }
+  },
+  "petCareTips": {
+    "title": "Mövsümi Ev Heyvanı ",
+    "titleAccent": "Qulluq Məsləhətləri",
+    "subtitle": "İl boyu ev heyvanlarınızı sağlam və xoşbəxt saxlamaq üçün ekspert məsləhətləri",
+    "readMore": "Daha Ətraflı",
+    "seasons": {
+      "summer": "Yay",
+      "winter": "Qış",
+      "spring": "Yaz",
+      "autumn": "Payız"
+    },
+    "summer": {
+      "tip1": {
+        "title": "İstidən Qorunma",
+        "description": "İsti yay günlərində heyvanlarınızı sərin və su ilə təmin edin"
+      },
+      "tip2": {
+        "title": "Yay Aktivlikləri",
+        "description": "Siz və heyvanınız üçün əyləncəli və təhlükəsiz açıq hava fəaliyyətləri"
+      },
+      "tip3": {
+        "title": "Yay Qidalanması",
+        "description": "Optimal sağlamlıq üçün mövsümi qidalanma məsləhətləri"
+      }
+    },
+    "winter": {
+      "tip1": {
+        "title": "Soyuqdan Qorunma",
+        "description": "Soyuq havada heyvanlarınızı isti və rahat saxlayın"
+      },
+      "tip2": {
+        "title": "Qış Məşqləri",
+        "description": "Heyvanınızı aktiv saxlamaq üçün qapalı məkan aktivlikləri"
+      },
+      "tip3": {
+        "title": "Qış Qulluğu",
+        "description": "Soyuq mövsüm üçün xüsusi qulluq tövsiyələri"
+      }
+    },
+    "spring": {
+      "tip1": {
+        "title": "Allergiyadan Qorunma",
+        "description": "Heyvanlarınızı mövsümi allergiyalardan qoruyun"
+      },
+      "tip2": {
+        "title": "Yaz Aktivlikləri",
+        "description": "Hava istiləşdikcə açıq hava fəaliyyətləri"
+      },
+      "tip3": {
+        "title": "Yaz Baxımı",
+        "description": "Mövsüm üçün vacib qulluq məsləhətləri"
+      }
+    },
+    "autumn": {
+      "tip1": {
+        "title": "Payız Təhlükəsizliyi",
+        "description": "Payız dəyişiklikləri zamanı heyvanlarınızı qoruyun"
+      },
+      "tip2": {
+        "title": "Payız Qidalanması",
+        "description": "Heyvanlarınız üçün mövsümi qida tənzimləmələri"
+      },
+      "tip3": {
+        "title": "Payız Aktivlikləri",
+        "description": "Sərin hava üçün əyləncəli fəaliyyətlər"
+      }
     }
   }
 }

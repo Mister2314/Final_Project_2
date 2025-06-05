@@ -216,15 +216,15 @@
     }
   },
   "footer": {
-    "about": "We offer high-quality accessories for your animals. Only the best products for dogs and cats.",
+    "about": "Pawsome is an online pet shop offering premium quality products for your animal friends. We provide the best products for your pets' health and happiness.",
     "quickLinks": "Quick Links",
-    "categories": "Product Categories",
-    "contactInfo": "Contact Information",
+    "categories": "Categories",
+    "contactInfo": "Contact Info",
     "address": "Heydar Aliyev Avenue 123, Baku, Azerbaijan",
     "phone": "+994 50 123 45 67",
     "email": "xeyalhuseynli06@gmail.com",
-    "newsletter": "Stay updated",
-    "newsletterText": "Subscribe to receive information about new products and special offers.",
+    "newsletter": "Newsletter",
+    "newsletterText": "Subscribe to receive updates about new products and special offers.",
     "emailPlaceholder": "Your email address",
     "subscribe": "Subscribe",
     "subscribing": "Subscribing...",
@@ -247,12 +247,16 @@
       "cats": "Cats"
     },
     "productCategories": {
-      "collars": "Collars & Leashes",
-      "beds": "Beds",
-      "toys": "Toys",
-      "foodBowls": "Food Bowls",
-      "clothes": "Clothing",
-      "grooming": "Grooming Products"
+      "dogFood": "Dog Food",
+      "dogToys": "Dog Toys",
+      "dogBeds": "Dog Beds",
+      "dogCarriers": "Dog Carriers",
+      "dogLeashes": "Leashes & Collars",
+      "catFood": "Cat Food",
+      "catLitter": "Cat Litter",
+      "catBeds": "Cat Beds",
+      "catCarriers": "Cat Carriers",
+      "catLeashes": "Cat Leashes"
     },
     "emailRequired": "Email address is required",
     "invalidEmail": "Please enter a valid email address",
@@ -293,7 +297,9 @@
     "unknownProduct": "Unknown Product",
     "noTitle": "No Title",
     "noCategory": "No Category",
-    "unknownStatus": "Unknown Status"
+    "unknownStatus": "Unknown Status",
+    "anonymousUser": "Anonymous User",
+    "submitting": "Submitting..."
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -1095,29 +1101,167 @@
     "readTime": "{{minutes}} min read"
   },
   "dogs": {
-    "pageTitle": "Products for Dogs",
-    "pageSubtitle": "Quality and safe products for your beloved dogs",
-    "categoriesTitle": "Categories",
+    "title": "Dog Products",
+    "subtitle": "Quality and safe products for your beloved dogs",
     "categories": {
-      "all": {
-        "name": "All Products",
-        "badge": "{{count}} products",
-        "select": "Select"
+      "title": "Categories",
+      "all": "All Products",
+      "food": "Dog Food",
+      "foodDescription": "Quality and healthy food for your dog",
+      "toys": "Toys",
+      "toysDescription": "Fun and safe toys for your dog",
+      "beds": "Beds & Houses",
+      "bedsDescription": "Comfortable beds and homes for your beloved dog",
+      "carriers": "Carriers",
+      "carriersDescription": "Comfortable and safe carriers for your dog",
+      "leashes": "Leashes & Collars",
+      "leashesDescription": "Comfortable and durable leashes for your dog"
+    },
+    "categoryBadge": {
+      "selected": "Selected",
+      "select": "Select"
+    },
+    "loading": "Loading products...",
+    "noProducts": "No products found in this category",
+    "searchPlaceholder": "Search dog products..."
+  },
+  "products": {
+    "title": "All Products",
+    "allProducts": "All Products",
+    "subtitle": "Discover our complete collection of premium pet products",
+    "searchPlaceholder": "Search products...",
+    "noProducts": {
+      "title": "No Products Found",
+      "description": "No products match your search criteria."
+    },
+    "filters": {
+      "all": "All",
+      "inStock": "In Stock",
+      "outOfStock": "Out of Stock"
+    },
+    "sort": {
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "priceHighToLow": "Price: High to Low",
+      "priceLowToHigh": "Price: Low to High",
+      "nameAZ": "Name: A to Z",
+      "nameZA": "Name: Z to A"
+    },
+    "loading": "Loading products...",
+    "errorTitle": "Failed to load products",
+    "errorDescription": "An error occurred while loading products. Please try again.",
+    "retryButton": "Try again",
+    "loadError": "Failed to load products. Please refresh the page."
+  },
+  "reviews": {
+    "title": "Reviews",
+    "writeReview": "Write a Review",
+    "noReviews": "No reviews yet for this product",
+    "beFirst": "Be the first to write a review!",
+    "rating": "Rating",
+    "comment": "Your Review",
+    "commentPlaceholder": "Share your thoughts about this product...",
+    "submit": "Submit Review",
+    "submitting": "Submitting...",
+    "thankYou": "Thank you for your review!",
+    "deleteConfirm": "Are you sure you want to delete this review?",
+    "deleteSuccess": "Review deleted successfully",
+    "deleteError": "Error deleting review",
+    "loginRequired": "You must be logged in to write a review",
+    "verifiedPurchase": "Verified Purchase",
+    "helpful": "Helpful",
+    "reportAbuse": "Report Abuse",
+    "edited": "Edited",
+    "by": "By",
+    "on": "on",
+    "loadMore": "Load More Reviews",
+    "filter": {
+      "all": "All Reviews",
+      "positive": "Positive Reviews",
+      "negative": "Negative Reviews",
+      "verified": "Verified Purchases"
+    },
+    "sort": {
+      "newest": "Newest First",
+      "oldest": "Oldest First",
+      "highestRated": "Highest Rated",
+      "lowestRated": "Lowest Rated",
+      "mostHelpful": "Most Helpful"
+    },
+    "alreadyReviewed": "You have already reviewed this product",
+    "myReview": "My Review"
+  },
+  "featuredBrands": {
+    "title": "Featured ",
+    "titleAccent": "Brands",
+    "subtitle": "Discover premium pet care products from trusted brands with exclusive discounts",
+    "shopNow": "Shop Now"
+  },
+  "petCareTips": {
+    "title": "Seasonal Pet ",
+    "titleAccent": "Care Tips",
+    "subtitle": "Expert advice to keep your pets healthy and happy throughout the year",
+    "readMore": "Read More",
+    "seasons": {
+      "summer": "Summer",
+      "winter": "Winter",
+      "spring": "Spring",
+      "autumn": "Autumn"
+    },
+    "summer": {
+      "tip1": {
+        "title": "Heat Protection",
+        "description": "Keep your pets cool and hydrated during hot summer days"
       },
-      "food": {
-        "name": "Dog Food"
+      "tip2": {
+        "title": "Summer Activities",
+        "description": "Fun and safe outdoor activities for you and your pet"
       },
-      "toys": {
-        "name": "Toys"
+      "tip3": {
+        "title": "Summer Diet",
+        "description": "Seasonal dietary tips for optimal health"
+      }
+    },
+    "winter": {
+      "tip1": {
+        "title": "Cold Protection",
+        "description": "Keep your pets warm and cozy in cold weather"
       },
-      "beds": {
-        "name": "Beds & Homes"
+      "tip2": {
+        "title": "Winter Exercise",
+        "description": "Indoor activities to keep your pet active"
       },
-      "carriers": {
-        "name": "Carriers"
+      "tip3": {
+        "title": "Winter Care",
+        "description": "Special care tips for the cold season"
+      }
+    },
+    "spring": {
+      "tip1": {
+        "title": "Allergy Protection",
+        "description": "Protect your pets from seasonal allergies"
       },
-      "leashes": {
-        "name": "Leashes & Collars"
+      "tip2": {
+        "title": "Spring Activities",
+        "description": "Outdoor activities as weather warms up"
+      },
+      "tip3": {
+        "title": "Spring Care",
+        "description": "Essential grooming tips for the season"
+      }
+    },
+    "autumn": {
+      "tip1": {
+        "title": "Autumn Safety",
+        "description": "Protect your pets during seasonal changes"
+      },
+      "tip2": {
+        "title": "Autumn Diet",
+        "description": "Seasonal diet adjustments for your pets"
+      },
+      "tip3": {
+        "title": "Autumn Activities",
+        "description": "Fun activities for cooler weather"
       }
     }
   }

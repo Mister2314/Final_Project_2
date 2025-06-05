@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { fetchProducts } from '../../../redux/slices/productSlices';
 import ProductsTemplate from '../../ProductsTemplate/ProductsTemplate';
 import styles from '../Dogs.module.css';
@@ -8,6 +9,7 @@ import styles from '../Dogs.module.css';
 const DogsAllProducts = () => {
   const dispatch = useDispatch();
   const { categoryId } = useParams();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const filters = {
@@ -19,31 +21,26 @@ const DogsAllProducts = () => {
 
   return (
     <ProductsTemplate
-      title="Bütün İt Məhsulları"
-      titleEn="All Dog Products"
-      description="İtiniz üçün bütün məhsullar bir yerdə"
-      descriptionEn="All products for your dog in one place"
-      icon="🐕"
+      pageConfig={{
+        title: {
+          az: t('dogs.categories.all'),
+          en: t('dogs.categories.all')
+        },
+        subtitle: {
+          az: t('dogs.subtitle'),
+          en: t('dogs.subtitle')
+        },
+        icon: '🐕',
+        searchPlaceholder: {
+          az: t('dogs.searchPlaceholder'),
+          en: t('dogs.searchPlaceholder')
+        }
+      }}
       filterParams={{
         main_name: 'dog'
       }}
       showStockFilter={true}
       showCategoryFilter={true}
-      pageConfig={{
-        title: {
-          az: 'Bütün İt Məhsulları',
-          en: 'All Dog Products'
-        },
-        subtitle: {
-          az: 'İtiniz üçün bütün məhsullar bir yerdə',
-          en: 'All products for your dog in one place'
-        },
-        icon: '🐕',
-        searchPlaceholder: {
-          az: 'İt məhsulları axtar...',
-          en: 'Search dog products...'
-        }
-      }}
       customStyles={styles}
     />
   );

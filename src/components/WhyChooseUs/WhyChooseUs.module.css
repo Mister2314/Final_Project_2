@@ -1,10 +1,10 @@
 .whyChooseUs {
   padding: 5rem 0;
-  background: linear-gradient(135deg, var(--bg-color, #f9f9fb) 0%, #fff 100%);
+  background-color: var(--bg-color, #f9f9fb);
 }
 
 [data-theme='dark'] .whyChooseUs {
-  background: linear-gradient(135deg, var(--bg-color, #121212) 0%, #1a1a1a 100%);
+  background-color: var(--bg-color, #121212);
 }
 
 .container {

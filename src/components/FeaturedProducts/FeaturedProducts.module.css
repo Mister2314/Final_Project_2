@@ -1,10 +1,10 @@
 .featuredSection {
   padding: 4rem 0;
-  background: linear-gradient(to bottom, var(--bg-color, #f9f9fb), #fff);
+  background-color: var(--bg-color, #f9f9fb);
 }
 
 [data-theme='dark'] .featuredSection {
-  background: linear-gradient(to bottom, var(--bg-color, #121212), #1a1a1a);
+  background-color: var(--bg-color, #121212);
 }
 
 .container {

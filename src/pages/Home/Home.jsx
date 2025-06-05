@@ -6,6 +6,8 @@ import HeroSection from '../../components/HeroSection/HeroSection';
 import FeaturedProducts from '../../components/FeaturedProducts/FeaturedProducts';
 import PetCategories from '../../components/PetCategories/PetCategories';
 import WhyChooseUs from '../../components/WhyChooseUs/WhyChooseUs';
+import FeaturedBrands from '../../components/FeaturedBrands/FeaturedBrands';
+import PetCareTips from '../../components/PetCareTips/PetCareTips';
 import styles from './Home.module.css';
 
 const Home = () => {
@@ -18,7 +20,9 @@ const Home = () => {
                 <HeroSection />
                 <PetCategories />
                 <FeaturedProducts />
-                <WhyChooseUs />
+                                <WhyChooseUs />
+
+                <PetCareTips />
             </main>
             <Footer />
         </div>

@@ -16,6 +16,7 @@ import { debounce } from 'lodash';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Disclosure, Transition, Listbox, Switch } from '@headlessui/react';
 import { ChevronUpIcon, CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
+import Spinner from '../Spinner/Spinner';
 
 const Slider = lazy(() => import('@mui/material/Slider'));
 
@@ -326,6 +327,9 @@ const ProductsTemplate = ({
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [allProducts, setAllProducts] = useState([]);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [hasAttemptedLoad, setHasAttemptedLoad] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
+  const maxRetries = 3;
   
   const [categoryFilters, setCategoryFilters] = useState([]);
   const [priceFilters, setPriceFilters] = useState([]);
@@ -507,10 +511,38 @@ const ProductsTemplate = ({
   }, [location.pathname]); 
 
   useEffect(() => {
-    if (Object.keys(filterParams).length > 0) {
-      dispatch(fetchProducts(filterParams));
+    const loadProducts = async () => {
+      try {
+        await dispatch(fetchProducts(filterParams)).unwrap();
+        setHasAttemptedLoad(true);
+        setIsInitialLoad(false);
+      } catch (error) {
+        console.error('Error loading products:', error);
+        if (retryCount < maxRetries) {
+          setTimeout(() => {
+            setRetryCount(prev => prev + 1);
+          }, 1000 * (retryCount + 1)); // Exponential backoff
+        } else {
+          setHasAttemptedLoad(true);
+          setIsInitialLoad(false);
+          errorToast('products.loadError');
+        }
+      }
+    };
+
+    if (isInitialLoad || retryCount > 0) {
+      loadProducts();
     }
-  }, [dispatch, JSON.stringify(filterParams)]);
+  }, [dispatch, filterParams, isInitialLoad, retryCount]);
+
+  useEffect(() => {
+    return () => {
+      dispatch(clearError());
+      setIsInitialLoad(true);
+      setHasAttemptedLoad(false);
+      setRetryCount(0);
+    };
+  }, [dispatch]);
 
   useEffect(() => {
     if (!loading && products) {
@@ -956,6 +988,36 @@ const ProductsTemplate = ({
     </div>
   );
 
+  if (loading || (!hasAttemptedLoad && isInitialLoad)) {
+    return (
+      <div className={styles.productsLoadingContainer}>
+        <Spinner size="large" />
+        <p>{t('products.loading')}</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={styles.errorContainer}>
+        <div className={styles.errorContent}>
+          <div className={styles.errorIcon}>❌</div>
+          <h2>{t('products.errorTitle')}</h2>
+          <p>{t('products.errorDescription')}</p>
+          <button 
+            className={styles.retryButton}
+            onClick={() => {
+              setIsInitialLoad(true);
+              setRetryCount(0);
+            }}
+          >
+            {t('products.retryButton')}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={customStyles ? customStyles.dogsPageContainer : styles.allProductsContainer}>
       <Header />
@@ -967,108 +1029,108 @@ const ProductsTemplate = ({
                 {pageConfig.icon}
               </span>
               {isAzerbaijani ? pageConfig.title.az : pageConfig.title.en}
-            </h1>
+          </h1>
             <p className={customStyles ? customStyles.heroSubtitle : styles.heroSubtitle}>
               {isAzerbaijani ? pageConfig.subtitle.az : pageConfig.subtitle.en}
-            </p>
-          </div>
+          </p>
         </div>
+      </div>
 
         <div className={customStyles ? customStyles.contentWrapper : styles.contentWrapper}>
-          <div className={styles.searchSection}>
-            <div className={styles.searchContainer}>
-              <input
-                type="text"
-                placeholder={isAzerbaijani ? config.searchPlaceholder.az : config.searchPlaceholder.en}
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className={styles.searchInput}
-              />
-              <span className={styles.searchIcon}>🔍</span>
-            </div>
+        <div className={styles.searchSection}>
+          <div className={styles.searchContainer}>
+            <input
+              type="text"
+              placeholder={isAzerbaijani ? config.searchPlaceholder.az : config.searchPlaceholder.en}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className={styles.searchInput}
+            />
+            <span className={styles.searchIcon}>🔍</span>
           </div>
+        </div>
 
           {loading ? (
             <div className={styles.loadingContainer}>
               <div className={styles.spinner} />
-              <p>{isAzerbaijani ? 'Məhsullar yüklənir...' : 'Loading products...'}</p>
-            </div>
-          ) : (
+            <p>{isAzerbaijani ? 'Məhsullar yüklənir...' : 'Loading products...'}</p>
+          </div>
+        ) : (
             <div className={styles.productsSection}>
-              <SmartFilters
-                showAllFilters={showAllFilters}
-                setShowAllFilters={setShowAllFilters}
-                sortedProducts={sortedProducts}
-                isAzerbaijani={isAzerbaijani}
+            <SmartFilters
+              showAllFilters={showAllFilters}
+              setShowAllFilters={setShowAllFilters}
+              sortedProducts={sortedProducts}
+              isAzerbaijani={isAzerbaijani}
+            >
+              <FilterSection 
+                title={isAzerbaijani ? 'Sıralama & Tez Filterlər' : 'Sort & Quick Filters'}
+                icon="🎯"
               >
-                <FilterSection 
-                  title={isAzerbaijani ? 'Sıralama & Tez Filterlər' : 'Sort & Quick Filters'}
-                  icon="🎯"
-                >
-                  {renderSortAndFilters()}
-                </FilterSection>
+                {renderSortAndFilters()}
+              </FilterSection>
 
-                {updatedSmartFilters.map((filter, index) => (
-                  <FilterSection
-                    key={index}
-                    title={filter.title}
-                    icon={filter.icon}
-                  >
-                    <div className={styles.checkboxGrid}>
-                      {filter.options.map((option) => (
-                        <CustomCheckbox
-                          key={option.value}
-                          checked={filter.value === option.value}
-                          onChange={() => filter.onChange(option.value)}
-                          label={option.label}
-                          count={option.count}
-                        />
-                      ))}
-                    </div>
-                  </FilterSection>
-                ))}
-
-                {showCategoryFilter && categoryStats.length > 0 && (
-                  <FilterSection
-                    title={isAzerbaijani ? 'Kateqoriyalar' : 'Categories'}
-                    icon="📂"
-                  >
-                    {renderCategoryFilters()}
-                  </FilterSection>
-                )}
-
+              {updatedSmartFilters.map((filter, index) => (
                 <FilterSection
-                  title={isAzerbaijani ? 'Qiymət Aralığı' : 'Price Range'}
-                  icon="💰"
+                  key={index}
+                  title={filter.title}
+                  icon={filter.icon}
                 >
-                  <PriceRangeSlider
-                    priceRange={priceRange}
-                    minMaxPrices={minMaxPrices}
-                    onPriceChange={handlePriceRangeChange}
-                    isAzerbaijani={isAzerbaijani}
-                  />
+                  <div className={styles.checkboxGrid}>
+                    {filter.options.map((option) => (
+                      <CustomCheckbox
+                        key={option.value}
+                        checked={filter.value === option.value}
+                        onChange={() => filter.onChange(option.value)}
+                        label={option.label}
+                        count={option.count}
+                      />
+                    ))}
+                  </div>
                 </FilterSection>
+              ))}
 
-                {showStockFilter && (
-                  <FilterSection
-                    title={isAzerbaijani ? 'Stok Vəziyyəti' : 'Stock Status'}
-                    icon="📦"
-                  >
-                    {renderStockFilters()}
-                  </FilterSection>
-                )}
-              </SmartFilters>
+              {showCategoryFilter && categoryStats.length > 0 && (
+                <FilterSection
+                  title={isAzerbaijani ? 'Kateqoriyalar' : 'Categories'}
+                  icon="📂"
+                >
+                  {renderCategoryFilters()}
+                </FilterSection>
+              )}
 
-              {error ? (
-                <div className={styles.errorMessage}>
-                  <span className={styles.errorIcon}>⚠️</span>
-                  {error}
-                </div>
-              ) : sortedProducts.length > 0 ? (
-                <div className={styles.productsGrid}>
-                  {sortedProducts.map((product) => (
+              <FilterSection
+                title={isAzerbaijani ? 'Qiymət Aralığı' : 'Price Range'}
+                icon="💰"
+              >
+                <PriceRangeSlider
+                  priceRange={priceRange}
+                  minMaxPrices={minMaxPrices}
+                  onPriceChange={handlePriceRangeChange}
+                  isAzerbaijani={isAzerbaijani}
+                />
+              </FilterSection>
+
+              {showStockFilter && (
+                <FilterSection
+                  title={isAzerbaijani ? 'Stok Vəziyyəti' : 'Stock Status'}
+                  icon="📦"
+                >
+                  {renderStockFilters()}
+                </FilterSection>
+              )}
+            </SmartFilters>
+
+            {error ? (
+              <div className={styles.errorMessage}>
+                <span className={styles.errorIcon}>⚠️</span>
+                {error}
+              </div>
+            ) : sortedProducts.length > 0 ? (
+              <div className={styles.productsGrid}>
+                {sortedProducts.map((product) => (
                     <div 
-                      key={product.id} 
+                    key={product.id}
                       className={styles.productCard}
                       onClick={() => handleProductClick(product)}
                       style={{ cursor: product.instock ? 'pointer' : 'not-allowed' }}
@@ -1157,31 +1219,31 @@ const ProductsTemplate = ({
                         </div>
                       </div>
                     </div>
-                  ))}
-                </div>
-              ) : (
-                <div className={styles.noProducts}>
-                  <div className={styles.noProductsIcon}>🔍</div>
-                  <h3 className={styles.noProductsTitle}>
-                    {isAzerbaijani ? 'Məhsul tapılmadı' : 'No Products Found'}
-                  </h3>
-                  <p className={styles.noProductsText}>
-                    {searchTerm 
-                      ? (isAzerbaijani 
-                          ? `"${searchTerm}" axtarışına uyğun məhsul tapılmadı`
-                          : `No products match your search "${searchTerm}"`
-                        )
-                      : (isAzerbaijani 
-                          ? 'Hazırda məhsul mövcud deyil'
-                          : 'No products available at the moment'
-                        )
+                ))}
+              </div>
+            ) : (
+              <div className={styles.noProducts}>
+                <div className={styles.noProductsIcon}>🔍</div>
+                <h3 className={styles.noProductsTitle}>
+                  {isAzerbaijani ? 'Məhsul tapılmadı' : 'No Products Found'}
+                </h3>
+                <p className={styles.noProductsText}>
+                  {searchTerm 
+                    ? (isAzerbaijani 
+                        ? `"${searchTerm}" axtarışına uyğun məhsul tapılmadı`
+                        : `No products match your search "${searchTerm}"`
+                      )
+                    : (isAzerbaijani 
+                        ? 'Hazırda məhsul mövcud deyil'
+                        : 'No products available at the moment'
+                      )
                   }
-                  </p>
-                </div>
-              )}
+                </p>
+              </div>
+            )}
             </div>
-          )}
-        </div>
+        )}
+      </div>
       </main>
       <Footer />
       

@@ -39,9 +39,9 @@ const Footer = () => {
     try {
       const templateParams = {
         from_name: "Website Newsletter",
-        name_id: "", // Leave empty as requested
-        email_id: email, // This will now populate the email field
-        subject: "", // Leave empty as requested
+        name_id: "",
+        email_id: email,
+        subject: "",
         message: "Yeni biri abunə oldu!"
       };
 
@@ -132,29 +132,29 @@ const Footer = () => {
           <div className={styles.footerColumn}>
             <h3 className={styles.footerTitle}>{t('footer.categories')}</h3>
             <div className={styles.footerLinks}>
-              <Link to="/shop/collars" className={styles.footerLink}>
+              <Link to="/shop/dogs/foods" className={styles.footerLink}>
                 <FaChevronRight className={styles.footerLinkIcon} />
-                <span>{t('footer.productCategories.collars')}</span>
+                <span>{t('footer.productCategories.dogFood')}</span>
               </Link>
-              <Link to="/shop/beds" className={styles.footerLink}>
+              <Link to="/shop/dogs/toys" className={styles.footerLink}>
                 <FaChevronRight className={styles.footerLinkIcon} />
-                <span>{t('footer.productCategories.beds')}</span>
+                <span>{t('footer.productCategories.dogToys')}</span>
               </Link>
-              <Link to="/shop/toys" className={styles.footerLink}>
+              <Link to="/shop/dogs/beds-and-home" className={styles.footerLink}>
                 <FaChevronRight className={styles.footerLinkIcon} />
-                <span>{t('footer.productCategories.toys')}</span>
+                <span>{t('footer.productCategories.dogBeds')}</span>
               </Link>
-              <Link to="/shop/food-bowls" className={styles.footerLink}>
+              <Link to="/shop/cats/foods" className={styles.footerLink}>
                 <FaChevronRight className={styles.footerLinkIcon} />
-                <span>{t('footer.productCategories.foodBowls')}</span>
+                <span>{t('footer.productCategories.catFood')}</span>
               </Link>
-              <Link to="/shop/clothes" className={styles.footerLink}>
+              <Link to="/shop/cats/litter" className={styles.footerLink}>
                 <FaChevronRight className={styles.footerLinkIcon} />
-                <span>{t('footer.productCategories.clothes')}</span>
+                <span>{t('footer.productCategories.catLitter')}</span>
               </Link>
-              <Link to="/shop/grooming" className={styles.footerLink}>
+              <Link to="/shop/cats/beds-and-home" className={styles.footerLink}>
                 <FaChevronRight className={styles.footerLinkIcon} />
-                <span>{t('footer.productCategories.grooming')}</span>
+                <span>{t('footer.productCategories.catBeds')}</span>
               </Link>
             </div>
           </div>
@@ -203,24 +203,21 @@ const Footer = () => {
           <div className={styles.copyright}>
             © {currentYear} Pawsome. {t('footer.copyright')}
           </div>
-          <div className={styles.footerNav}>
+          <nav className={styles.footerNav}>
             <Link to="/privacy-policy" className={styles.footerNavLink}>
               {t('footer.privacyPolicy')}
             </Link>
-            <Link to="/terms" className={styles.footerNavLink}>
-              {t('footer.terms')}
+            <Link to="/terms-of-service" className={styles.footerNavLink}>
+              {t('footer.termsOfService')}
             </Link>
-            <Link to="/shipping" className={styles.footerNavLink}>
-              {t('footer.shipping')}
+            <Link to="/shipping-policy" className={styles.footerNavLink}>
+              {t('footer.shippingPolicy')}
             </Link>
-            <Link to="/returns" className={styles.footerNavLink}>
-              {t('footer.returnsPolicy')}
-            </Link>
-          </div>
+          </nav>
           <div className={styles.paymentMethods}>
-            <span className={styles.paymentMethod}>{t('footer.paymentMethods.visa')}</span>
-            <span className={styles.paymentMethod}>{t('footer.paymentMethods.mastercard')}</span>
-            <span className={styles.paymentMethod}>{t('footer.paymentMethods.paypal')}</span>
+            <span className={styles.paymentMethod}>Visa</span>
+            <span className={styles.paymentMethod}>MasterCard</span>
+            <span className={styles.paymentMethod}>PayPal</span>
           </div>
         </div>
       </div>

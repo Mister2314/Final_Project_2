@@ -49,6 +49,7 @@ import Checkout from "../components/Checkout/Checkout";
 import OrdersPage from "../pages/OrdersPage/OrdersPage";
 import AllProducts from "../components/AllProducts/AllProducts";
 import OrderCompleted from '../components/OrderCompleted/OrderCompleted'
+
 const AppRouter = () => {
   return (
     <Provider store={store}>

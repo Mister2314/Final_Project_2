@@ -44,7 +44,7 @@ const BlogDetails = () => {
   }, [dispatch, id]);
 
   const handleBack = () => {
-    navigate(-1);
+    navigate(-1); 
   };
 
   const formatDate = (dateString) => {
@@ -181,14 +181,14 @@ const BlogDetails = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <header className={styles.blogHeader}>
-            <div className={styles.blogMeta}>
+        <header className={styles.blogHeader}>
+          <div className={styles.blogMeta}>
               {currentBlog.blogCategory && (
                 <motion.span 
                   className={styles.blogCategory}
                   whileHover={{ scale: 1.05 }}
                 >
-                  <span className={styles.categoryIcon}>
+              <span className={styles.categoryIcon}>
                     {getCategoryIcon(currentBlog.blogCategory)}
                   </span>
                   {formatCategory(currentBlog.blogCategory)}
@@ -199,7 +199,7 @@ const BlogDetails = () => {
                 {formatDate(currentBlog.created_at)}
               </span>
               <span className={styles.readTime}>
-                <span className={styles.readTimeIcon}>⏱️</span>
+              <span className={styles.readTimeIcon}>⏱️</span>
                 {getReadTime(currentBlog.content)} {t('blog.minuteRead')}
               </span>
             </div>
@@ -211,7 +211,7 @@ const BlogDetails = () => {
             >
               {currentBlog.title}
             </motion.h1>
-          </header>
+        </header>
 
           <motion.div 
             className={styles.blogContent}
@@ -237,7 +237,7 @@ const BlogDetails = () => {
             {t('common.back')}
           </motion.button>
         </motion.article>
-      </div>
+        </div>
     </motion.div>
   );
 };

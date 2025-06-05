@@ -5,6 +5,7 @@ import { checkAuth } from '../redux/slices/userSlice';
 import { toast } from 'react-hot-toast';
 import Spinner from "../components/Spinner/Spinner";
 import { useTranslation } from 'react-i18next';
+import AuthLayout from '../layout/AuthLayout';
 
 export const ProtectedRoute = () => {
   const dispatch = useDispatch();
@@ -69,7 +70,7 @@ export const AuthRoute = () => {
     return <Spinner />;
   }
 
-  return !isAuthenticated ? <Outlet /> : <Navigate to="/" replace />;
+  return !isAuthenticated ? <AuthLayout /> : <Navigate to="/" replace />;
 };
 
 export const AdminRoute = () => {
