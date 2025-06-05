@@ -105,39 +105,39 @@ const Checkout = () => {
     const newErrors = {};
     
     if (!formData.fullName.trim()) {
-      newErrors.fullName = 'Ad və soyad tələb olunur';
+      newErrors.fullName = 'fullNameRequired';
     } else if (formData.fullName.trim().length < 2) {
-      newErrors.fullName = 'Ad və soyad ən azı 2 hərf olmalıdır';
+      newErrors.fullName = 'fullNameTooShort';
     }
 
     if (!formData.address.trim()) {
-      newErrors.address = 'Ünvan tələb olunur';
+      newErrors.address = 'addressRequired';
     } else if (formData.address.trim().length < 5) {
-      newErrors.address = 'Ünvan çox qısa görünür';
+      newErrors.address = 'addressTooShort';
     }
 
     if (!formData.city.trim()) {
-      newErrors.city = 'Şəhər tələb olunur';
+      newErrors.city = 'cityRequired';
     } else if (formData.city.trim().length < 2) {
-      newErrors.city = 'Şəhər adı düzgün deyil';
+      newErrors.city = 'cityInvalid';
     }
 
     if (!formData.zipCode.trim()) {
-      newErrors.zipCode = 'Poçt indeksi tələb olunur';
+      newErrors.zipCode = 'zipRequired';
     } else if (!patterns.zipCode.test(formData.zipCode)) {
-      newErrors.zipCode = 'Düzgün poçt indeksi daxil edin (4-6 rəqəm)';
+      newErrors.zipCode = 'zipInvalid';
     }
 
     if (!formData.cardNumber.trim()) {
-      newErrors.cardNumber = 'Kart nömrəsi tələb olunur';
+      newErrors.cardNumber = 'cardNumberRequired';
     } else if (!patterns.cardNumber.test(formData.cardNumber.replace(/\s/g, ''))) {
-      newErrors.cardNumber = 'Düzgün kart nömrəsi daxil edin (13-19 rəqəm)';
+      newErrors.cardNumber = 'cardNumberInvalid';
     }
 
     if (!formData.expiryDate.trim()) {
-      newErrors.expiryDate = 'Bitmə tarixi tələb olunur';
+      newErrors.expiryDate = 'expiryRequired';
     } else if (!patterns.expiryDate.test(formData.expiryDate)) {
-      newErrors.expiryDate = 'Düzgün format: MM/YY';
+      newErrors.expiryDate = 'expiryInvalid';
     } else {
       const [month, year] = formData.expiryDate.split('/');
       const expiryDate = new Date(2000 + parseInt(year), parseInt(month) - 1);
@@ -145,24 +145,24 @@ const Checkout = () => {
       currentDate.setDate(1); 
       
       if (expiryDate < currentDate) {
-        newErrors.expiryDate = 'Kartın müddəti bitib';
+        newErrors.expiryDate = 'expiryPast';
       }
     }
 
     if (!formData.cvv.trim()) {
-      newErrors.cvv = 'CVV kodu tələb olunur';
+      newErrors.cvv = 'cvvRequired';
     } else if (!patterns.cvv.test(formData.cvv)) {
-      newErrors.cvv = 'Düzgün CVV kodu daxil edin (3-4 rəqəm)';
+      newErrors.cvv = 'cvvInvalid';
     }
 
     if (!formData.cardHolderName.trim()) {
-      newErrors.cardHolderName = 'Kart sahibinin adı tələb olunur';
+      newErrors.cardHolderName = 'cardHolderRequired';
     } else if (formData.cardHolderName.trim().length < 2) {
-      newErrors.cardHolderName = 'Kart sahibinin adı çox qısa';
+      newErrors.cardHolderName = 'cardHolderTooShort';
     }
     
     if (!formData.agreeToTerms) {
-      newErrors.agreeToTerms = 'Sifariş şərtlərini qəbul etməlisiniz';
+      newErrors.agreeToTerms = 'termsRequired';
     }
     
     setErrors(newErrors);
@@ -176,7 +176,7 @@ const Checkout = () => {
   const handleCouponApply = async () => {
     try {
       if (!formData.couponCode.trim()) {
-        toast.error('Kupon kodu daxil edin');
+        toast.error(t('checkout.coupon.enterCode'));
         return;
       }
 
@@ -193,7 +193,7 @@ const Checkout = () => {
         dispatch({ type: 'coupons/setCurrentCoupon', payload: welcomeCoupon });
         
         if (!defaultCouponApplied) {
-          toast.success(`Xoş gəldin kuponu tətbiq edildi! %10 endirim`);
+          toast.success(t('checkout.coupon.discountApplied', { percentage: 10 }));
         }
         return;
       }
@@ -203,16 +203,16 @@ const Checkout = () => {
       console.log('Coupon validation result:', result); // Debug log
 
       if (result && result.percentage) {
-        toast.success(`Kupon tətbiq edildi! %${result.percentage} endirim`);
+        toast.success(t('checkout.coupon.discountApplied', { percentage: result.percentage }));
       } else {
         console.error('Invalid coupon response:', result); // Debug log
-        toast.error('Yanlış kupon kodu');
+        toast.error(t('checkout.coupon.invalid'));
       }
     } catch (error) {
       // Welcome10 kodu deyilsə xəta göstər
       if (formData.couponCode.trim().toLowerCase() !== 'welcome10') {
         console.error('Coupon application error:', error); // Debug log
-        toast.error('Yanlış kupon kodu');
+        toast.error(t('checkout.coupon.invalid'));
       }
     }
   };
@@ -221,22 +221,28 @@ const Checkout = () => {
     dispatch(clearCurrentCoupon());
     setFormData(prev => ({ ...prev, couponCode: '' }));
     setDefaultCouponApplied(false);
-    toast.success('Kupon silindi');
+    toast.success(t('checkout.coupon.removed'));
   };
 
   const calculateTotal = () => {
+    // Calculate subtotal from cart items
     let subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    subtotal = Math.round(subtotal * 100) / 100; // Round to 2 decimal places
+    
+    // Calculate shipping cost
     const shippingCost = calculateShipping();
     
-    // Apply coupon discount if valid
+    // Calculate discount if coupon is applied
     let discount = 0;
     if (currentCoupon && currentCoupon.percentage) {
       discount = (subtotal * currentCoupon.percentage) / 100;
-      console.log('Calculating discount:', { subtotal, percentage: currentCoupon.percentage, discount }); // Debug log
+      discount = Math.round(discount * 100) / 100; // Round to 2 decimal places
+      console.log('Calculating discount:', { subtotal, percentage: currentCoupon.percentage, discount });
     }
     
-    const total = Math.max(0, subtotal - discount + shippingCost);
-    console.log('Final total calculation:', { subtotal, discount, shippingCost, total }); // Debug log
+    // Calculate final total (subtotal - discount + shipping)
+    const total = Math.round((subtotal - discount + shippingCost) * 100) / 100;
+    console.log('Final total calculation:', { subtotal, discount, shippingCost, total });
     
     return {
       subtotal,
@@ -249,24 +255,20 @@ const Checkout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (orderError) {
-      dispatch(clearError());
-    }
-    
     if (!isAuthenticated || !user) {
-      toast.error('Giriş etməlisiniz');
+      toast.error(t('toast.error.auth.loginRequired'));
       navigate('/login');
       return;
     }
 
     if (!cartItems || cartItems.length === 0) {
-      toast.error('Səbət boşdur');
+      toast.error(t('checkout.validation.emptyCart'));
       navigate('/cart');
       return;
     }
 
     if (!validateForm()) {
-      toast.error('Zəhmət olmasa tələb olunan sahələri doldurun');
+      toast.error(t('checkout.validation.fillRequired'));
       const firstErrorField = Object.keys(errors)[0];
       if (firstErrorField) {
         const errorElement = document.querySelector(`[name="${firstErrorField}"]`);
@@ -282,29 +284,73 @@ const Checkout = () => {
 
     try {
       const total = calculateTotal();
+      
+      // Validate total calculation
+      if (!total || typeof total.total !== 'number' || isNaN(total.total)) {
+        toast.error(t('checkout.validation.invalidTotal'));
+        return;
+      }
+
+      // Validate cart items
+      const invalidItems = cartItems.filter(item => 
+        !item.id || !item.name || typeof item.price !== 'number' || typeof item.quantity !== 'number'
+      );
+
+      if (invalidItems.length > 0) {
+        console.error('Invalid items found:', invalidItems);
+        toast.error(t('checkout.validation.invalidItems'));
+        return;
+      }
+
+      // Create minimal order data with only necessary fields
       const orderData = {
         user_id: user.id,
         products: cartItems.map(item => ({
           id: item.id,
           name: item.name,
-          price: item.price,
-          quantity: item.quantity,
-          image: item.image,
-          category: item.category
+          category: item.category,
+          price: parseFloat(item.price),
+          quantity: parseInt(item.quantity)
         })),
-        total_price: total.total,
+        total_price: parseFloat(total.total), // This is the discounted total
         full_name: formData.fullName.trim(),
         shipping_address: formData.address.trim(),
         shipping_city: formData.city.trim(),
-        shipping_zip: formData.zipCode.trim()
+        shipping_zip: formData.zipCode.trim(),
+        status: 'pending'
       };
 
-      await dispatch(createOrder({ orderData, coupon: currentCoupon })).unwrap();
+      // Additional validation before dispatch
+      if (isNaN(orderData.total_price)) {
+        console.error('Invalid total price:', total.total);
+        toast.error('Invalid total price');
+        return;
+      }
+
+      if (!orderData.products.every(p => p.id && !isNaN(p.price) && !isNaN(p.quantity))) {
+        console.error('Invalid product data:', orderData.products);
+        toast.error('Invalid product data');
+        return;
+      }
+
+      console.log('Submitting order with data:', orderData);
+
+      const result = await dispatch(createOrder({ orderData })).unwrap();
+      
+      if (!result) {
+        console.error('No result from createOrder');
+        toast.error(t('checkout.error.orderCreationFailed'));
+        return;
+      }
+
+      // Show success message only here
+      toast.success(t('checkout.success.orderCreated'));
       emptyCart();
       dispatch(clearCurrentCoupon());
       navigate('/order-completed');
     } catch (error) {
-      toast.error(error.message || 'Sifariş xətası baş verdi');
+      console.error('Error in handleSubmit:', error);
+      toast.error(t('checkout.error.orderCreationFailed'));
     } finally {
       setIsProcessing(false);
     }
@@ -319,9 +365,9 @@ const Checkout = () => {
   if (cartItems.length === 0) {
     return (
       <div className={styles.emptyCart}>
-        <h2>Səbətiniz boşdur</h2>
+        <h2>{t('checkout.emptyCart.title')}</h2>
         <button onClick={() => navigate('/shop')}>
-          Alış-verişə davam edin
+          {t('checkout.emptyCart.continueShopping')}
         </button>
       </div>
     );
@@ -336,9 +382,9 @@ const Checkout = () => {
           onClick={() => navigate('/cart')}
           className={styles.backButton}
         >
-          ← Geri
+          ← {t('checkout.back')}
         </button>
-        <h1 className={styles.title}>Ödəniş</h1>
+        <h1 className={styles.title}>{t('checkout.title')}</h1>
       </div>
 
       <div className={styles.layout}>
@@ -346,13 +392,13 @@ const Checkout = () => {
           
           <div className={styles.card}>
             <h3 className={styles.sectionTitle}>
-              📍 Çatdırılma Ünvanı
+              {t('checkout.shippingAddress.title')}
             </h3>
             
             <div className={styles.formGrid}>
               <div className={styles.inputGroup}>
                 <label className={styles.label}>
-                  Ad və Soyad *
+                  {t('checkout.shippingAddress.fullName')}
                 </label>
                 <input
                   type="text"
@@ -360,18 +406,18 @@ const Checkout = () => {
                   value={formData.fullName}
                   onChange={handleInputChange}
                   className={`${styles.input} ${errors.fullName ? styles.error : ''}`}
-                  placeholder="Ad və soyadınızı daxil edin"
+                  placeholder={t('checkout.shippingAddress.fullNamePlaceholder')}
                 />
                 {errors.fullName && (
                   <span className={styles.errorText}>
-                    {errors.fullName}
+                    {t(`checkout.validation.${errors.fullName}`)}
                   </span>
                 )}
               </div>
 
               <div className={styles.inputGroup}>
                 <label className={styles.label}>
-                  Ünvan *
+                  {t('checkout.shippingAddress.address')}
                 </label>
                 <input
                   type="text"
@@ -379,17 +425,19 @@ const Checkout = () => {
                   value={formData.address}
                   onChange={handleInputChange}
                   className={`${styles.input} ${errors.address ? styles.error : ''}`}
-                  placeholder="Tam ünvanınızı daxil edin"
+                  placeholder={t('checkout.shippingAddress.addressPlaceholder')}
                 />
                 {errors.address && (
-                  <span className={styles.errorText}>{errors.address}</span>
+                  <span className={styles.errorText}>
+                    {t(`checkout.validation.${errors.address}`)}
+                  </span>
                 )}
               </div>
 
               <div className={styles.formRow}>
                 <div className={styles.inputGroup}>
                   <label className={styles.label}>
-                    Şəhər *
+                    {t('checkout.shippingAddress.city')}
                   </label>
                   <input
                     type="text"
@@ -397,16 +445,18 @@ const Checkout = () => {
                     value={formData.city}
                     onChange={handleInputChange}
                     className={`${styles.input} ${errors.city ? styles.error : ''}`}
-                    placeholder="Şəhər"
+                    placeholder={t('checkout.shippingAddress.cityPlaceholder')}
                   />
                   {errors.city && (
-                    <span className={styles.errorText}>{errors.city}</span>
+                    <span className={styles.errorText}>
+                      {t(`checkout.validation.${errors.city}`)}
+                    </span>
                   )}
                 </div>
 
                 <div className={styles.inputGroup}>
                   <label className={styles.label}>
-                    Poçt İndeksi *
+                    {t('checkout.shippingAddress.zipCode')}
                   </label>
                   <input
                     type="text"
@@ -414,10 +464,12 @@ const Checkout = () => {
                     value={formData.zipCode}
                     onChange={handleInputChange}
                     className={`${styles.input} ${errors.zipCode ? styles.error : ''}`}
-                    placeholder="1234"
+                    placeholder={t('checkout.shippingAddress.zipCodePlaceholder')}
                   />
                   {errors.zipCode && (
-                    <span className={styles.errorText}>{errors.zipCode}</span>
+                    <span className={styles.errorText}>
+                      {t(`checkout.validation.${errors.zipCode}`)}
+                    </span>
                   )}
                 </div>
               </div>
@@ -450,7 +502,7 @@ const Checkout = () => {
                     cursor: 'pointer'
                   }}
                 >
-                  Profil məlumatlarını istifadə et
+                  {t('checkout.shippingAddress.useProfileData')}
                 </button>
               )}
             </div>
@@ -458,13 +510,13 @@ const Checkout = () => {
 
           <div className={styles.card}>
             <h3 className={styles.sectionTitle}>
-              💳 Ödəniş Məlumatları
+              {t('checkout.payment.title')}
             </h3>
 
             <div className={styles.formGrid}>
               <div className={styles.inputGroup}>
                 <label className={styles.label}>
-                  Kart Nömrəsi *
+                  {t('checkout.payment.cardNumber')}
                 </label>
                 <input
                   type="text"
@@ -472,17 +524,19 @@ const Checkout = () => {
                   value={formData.cardNumber}
                   onChange={handleInputChange}
                   className={`${styles.input} ${errors.cardNumber ? styles.error : ''}`}
-                  placeholder="1234 5678 9012 3456"
+                  placeholder={t('checkout.payment.cardNumberPlaceholder')}
                 />
                 {errors.cardNumber && (
-                  <span className={styles.errorText}>{errors.cardNumber}</span>
+                  <span className={styles.errorText}>
+                    {t(`checkout.validation.${errors.cardNumber}`)}
+                  </span>
                 )}
               </div>
 
               <div className={styles.formRow}>
                 <div className={styles.inputGroup}>
                   <label className={styles.label}>
-                    Bitmə Tarixi *
+                    {t('checkout.payment.expiryDate')}
                   </label>
                   <input
                     type="text"
@@ -490,16 +544,18 @@ const Checkout = () => {
                     value={formData.expiryDate}
                     onChange={handleInputChange}
                     className={`${styles.input} ${errors.expiryDate ? styles.error : ''}`}
-                    placeholder="MM/YY"
+                    placeholder={t('checkout.payment.expiryDatePlaceholder')}
                   />
                   {errors.expiryDate && (
-                    <span className={styles.errorText}>{errors.expiryDate}</span>
+                    <span className={styles.errorText}>
+                      {t(`checkout.validation.${errors.expiryDate}`)}
+                    </span>
                   )}
                 </div>
 
                 <div className={styles.inputGroup}>
                   <label className={styles.label}>
-                    CVV *
+                    {t('checkout.payment.cvv')}
                   </label>
                   <input
                     type="text"
@@ -507,17 +563,19 @@ const Checkout = () => {
                     value={formData.cvv}
                     onChange={handleInputChange}
                     className={`${styles.input} ${errors.cvv ? styles.error : ''}`}
-                    placeholder="123"
+                    placeholder={t('checkout.payment.cvvPlaceholder')}
                   />
                   {errors.cvv && (
-                    <span className={styles.errorText}>{errors.cvv}</span>
+                    <span className={styles.errorText}>
+                      {t(`checkout.validation.${errors.cvv}`)}
+                    </span>
                   )}
                 </div>
               </div>
 
               <div className={styles.inputGroup}>
                 <label className={styles.label}>
-                  Kart Sahibinin Adı *
+                  {t('checkout.payment.cardHolderName')}
                 </label>
                 <input
                   type="text"
@@ -525,24 +583,26 @@ const Checkout = () => {
                   value={formData.cardHolderName}
                   onChange={handleInputChange}
                   className={`${styles.input} ${errors.cardHolderName ? styles.error : ''}`}
-                  placeholder="Kartda yazılan ad"
+                  placeholder={t('checkout.payment.cardHolderNamePlaceholder')}
                 />
                 {errors.cardHolderName && (
-                  <span className={styles.errorText}>{errors.cardHolderName}</span>
+                  <span className={styles.errorText}>
+                    {t(`checkout.validation.${errors.cardHolderName}`)}
+                  </span>
                 )}
               </div>
             </div>
           </div>
 
           <div className={`${styles.card} ${styles.promoSection}`}>
-            <h3>🎫 Kupon Kodu</h3>
+            <h3>{t('checkout.coupon.title')}</h3>
             <div className={styles.promoInput}>
               <input
                 type="text"
                 name="couponCode"
                 value={formData.couponCode}
                 onChange={handleInputChange}
-                placeholder="Kupon kodunuzu daxil edin"
+                placeholder={t('checkout.coupon.placeholder')}
                 disabled={currentCoupon || couponLoading}
                 className={`${styles.input} ${currentCoupon ? styles.inputDisabled : ''}`}
               />
@@ -553,7 +613,7 @@ const Checkout = () => {
                   className={styles.removeButton}
                   disabled={couponLoading}
                 >
-                  Sil
+                  {t('checkout.coupon.remove')}
                 </button>
               ) : (
                 <button
@@ -562,16 +622,16 @@ const Checkout = () => {
                   className={styles.applyButton}
                   disabled={couponLoading || !formData.couponCode.trim()}
                 >
-                  {couponLoading ? '...' : 'Tətbiq et'}
+                  {couponLoading ? t('checkout.coupon.loading') : t('checkout.coupon.apply')}
                 </button>
               )}
             </div>
             {currentCoupon && (
               <div className={styles.discountInfo}>
-                ✅ %{currentCoupon.percentage} endirim tətbiq edildi!
+                {t('checkout.coupon.discountApplied', { percentage: currentCoupon.percentage })}
                 {currentCoupon.code === 'welcome10' && (
                   <span style={{ display: 'block', fontSize: '0.85em', color: '#666', marginTop: '0.25rem' }}>
-                    (Xoş gəldin kuponu)
+                    {t('checkout.coupon.welcomeDiscount')}
                   </span>
                 )}
               </div>
@@ -581,7 +641,7 @@ const Checkout = () => {
 
         <div className={styles.summaryColumn}>
           <div className={styles.orderSummary}>
-            <h3 className={styles.summaryTitle}>Sifariş Xülasəsi</h3>
+            <h3 className={styles.summaryTitle}>{t('checkout.summary.title')}</h3>
             
             {orderError && (
               <div style={{ 
@@ -592,7 +652,7 @@ const Checkout = () => {
                 borderRadius: '4px',
                 fontSize: '0.9rem'
               }}>
-                Xəta: {orderError}
+                {t('checkout.summary.error', { message: orderError })}
               </div>
             )}
             
@@ -601,7 +661,9 @@ const Checkout = () => {
                 <div key={item.id} className={styles.orderItem}>
                   <div className={styles.itemInfo}>
                     <div className={styles.itemName}>{item.name}</div>
-                    <div className={styles.itemQuantity}>Miqdar: {item.quantity}</div>
+                    <div className={styles.itemQuantity}>
+                      {t('checkout.summary.quantity', { count: item.quantity })}
+                    </div>
                   </div>
                   <div className={styles.itemPrice}>
                     ${(item.price * item.quantity).toFixed(2)}
@@ -611,24 +673,24 @@ const Checkout = () => {
             </div>
 
             <div className={styles.totalRow}>
-              <span>Məhsul qiyməti:</span>
+              <span>{t('checkout.summary.subtotal')}</span>
               <span>${totalCalculation.subtotal.toFixed(2)}</span>
             </div>
             
             {currentCoupon && totalCalculation.discount > 0 && (
               <div className={styles.totalRow} style={{ color: '#28a745' }}>
-                <span>Kupon endirimi (%{currentCoupon.percentage}):</span>
+                <span>{t('checkout.summary.discount', { percentage: currentCoupon.percentage })}</span>
                 <span>-${totalCalculation.discount.toFixed(2)}</span>
               </div>
             )}
             
             <div className={styles.totalRow}>
-              <span>Çatdırılma:</span>
-              <span>{totalCalculation.shipping === 0 ? 'Pulsuz' : `$${totalCalculation.shipping.toFixed(2)}`}</span>
+              <span>{t('checkout.summary.shipping')}</span>
+              <span>{totalCalculation.shipping === 0 ? t('checkout.summary.free') : `$${totalCalculation.shipping.toFixed(2)}`}</span>
             </div>
             
             <div className={styles.finalTotal}>
-              <span>Cəmi:</span>
+              <span>{t('checkout.summary.total')}</span>
               <span>${totalCalculation.total.toFixed(2)}</span>
             </div>
 
@@ -641,12 +703,12 @@ const Checkout = () => {
                   onChange={handleInputChange}
                 />
                 <span className={styles.termsText}>
-                  Sifariş şərtlərini qəbul edirəm
+                  {t('checkout.summary.terms')}
                 </span>
               </label>
               {errors.agreeToTerms && (
                 <div className={styles.errorText} style={{ marginTop: '0.5rem' }}>
-                  {errors.agreeToTerms}
+                  {t('checkout.validation.termsRequired')}
                 </div>
               )}
             </div>
@@ -656,11 +718,11 @@ const Checkout = () => {
               disabled={isProcessing || orderLoading || !isAuthenticated}
               className={styles.submitButton}
             >
-              🔒 {isProcessing || orderLoading ? 'Emal edilir...' : 'Sifarişi Tamamla'}
+              🔒 {isProcessing || orderLoading ? t('checkout.summary.processing') : t('checkout.summary.completeOrder')}
             </button>
 
             <div className={styles.securityNote}>
-              🔒 Ödənişiniz təhlükəsiz şəkildə işlənir
+              {t('checkout.summary.securityNote')}
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import { FiMail, FiPhone, FiMapPin, FiClock, FiSend } from "react-icons/fi";
 import { FaPaw, FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { useTheme } from "../../context/ThemeContext";
 import emailjs from "@emailjs/browser";
+import { toast } from "react-hot-toast";
 
 import styles from "./Contact.module.css"; 
 
@@ -104,6 +105,7 @@ const Contact = () => {
         
         // console.log("Email sent successfully:", response);
         setSubmitSuccess(true);
+        toast.success(t('contact.form.successMessage'));
         
         setFormState({
           name: "",

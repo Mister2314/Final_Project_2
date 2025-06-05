@@ -65,7 +65,7 @@ const Orders = () => {
   };
 
   const orderStatuses = useMemo(() => [
-    { key: 'Sifarişiniz hazırlanır', label: t('orders.status.preparing'), color: '#f39c12', icon: '��' },
+    { key: 'Sifarişiniz hazırlanır', label: t('orders.status.preparing'), color: '#f39c12', icon: '🔄' },
     { key: 'Təsdiq edildi', label: t('orders.status.confirmed'), color: '#3498db', icon: '✓' },
     { key: 'Yolda', label: t('orders.status.inTransit'), color: '#2ecc71', icon: '🚚' },
     { key: 'Çatdırıldı', label: t('orders.status.delivered'), color: '#27ae60', icon: '✅' },
@@ -135,13 +135,28 @@ const Orders = () => {
 
   const getStatusIcon = (status) => {
     const statusIcons = {
-      pending: '⏳',
-      processing: '🔄',
-      shipped: '🚚',
-      delivered: '✅',
-      cancelled: '❌'
+      'Sifarişiniz hazırlanır': '🔄',
+      'Təsdiq edildi': '✓',
+      'Yolda': '🚚',
+      'Çatdırıldı': '✅',
+      'Ləğv edildi': '❌',
+      'Geri qaytarıldı': '↩️',
+      'Ödəniş gözləyir': '💳'
     };
     return statusIcons[status] || '⏳';
+  };
+
+  const getStatusText = (status) => {
+    const statusMap = {
+      'Sifarişiniz hazırlanır': t('orders.status.preparing'),
+      'Təsdiq edildi': t('orders.status.confirmed'),
+      'Yolda': t('orders.status.inTransit'),
+      'Çatdırıldı': t('orders.status.delivered'),
+      'Ləğv edildi': t('orders.status.cancelled'),
+      'Geri qaytarıldı': t('orders.status.returned'),
+      'Ödəniş gözləyir': t('orders.status.waitingPayment')
+    };
+    return statusMap[status] || status;
   };
 
   const handleReorder = (order) => {
@@ -313,7 +328,7 @@ const Orders = () => {
                       className={styles.orderStatus}
                       style={{ backgroundColor: getStatusColor(order.status) }}
                     >
-                      {getStatusIcon(order.status)} {t(`orders.status.${order.status}`)}
+                      {getStatusIcon(order.status)} {getStatusText(order.status)}
                     </div>
                   </div>
                   <motion.div 

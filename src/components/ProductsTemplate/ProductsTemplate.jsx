@@ -1053,7 +1053,7 @@ const ProductsTemplate = ({
           {loading ? (
             <div className={styles.loadingContainer}>
               <div className={styles.spinner} />
-            <p>{isAzerbaijani ? 'Məhsullar yüklənir...' : 'Loading products...'}</p>
+            <p>{t('products.loading')}</p>
           </div>
         ) : (
             <div className={styles.productsSection}>

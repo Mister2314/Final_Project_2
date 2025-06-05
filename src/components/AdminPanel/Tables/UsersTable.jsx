@@ -21,6 +21,10 @@ const UsersTable = ({
     return new Date(dateString).toLocaleDateString();
   };
 
+  const getRoleTranslation = (role) => {
+    return t(`adminPanel.forms.user.roles.${role}`);
+  };
+
   return (
     <TableContainer component={Paper} className={styles.tableWrapper}>
       <Table aria-label={t('adminPanel.table.usersLabel')} className={styles.table}>
@@ -44,7 +48,7 @@ const UsersTable = ({
               </StyledTableCell>
               <StyledTableCell>
                 <span className={`${styles.roleBadge} ${styles[item.role]}`}>
-                  {t(`adminPanel.forms.user.${item.role}`)}
+                  {getRoleTranslation(item.role)}
                 </span>
               </StyledTableCell>
               <StyledTableCell>

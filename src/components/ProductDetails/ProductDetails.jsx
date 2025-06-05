@@ -92,11 +92,8 @@ const ProductDetails = () => {
   const [activeTab, setActiveTab] = useState('description');
   const [viewCount, setViewCount] = useState(Math.floor(Math.random() * 500) + 50);
   
-  // Review form states
+  // Review form state
   const [showReviewForm, setShowReviewForm] = useState(false);
-  const [reviewComment, setReviewComment] = useState('');
-  const [reviewRating, setReviewRating] = useState(5);
-  const [submittingReview, setSubmittingReview] = useState(false);
 
   const [confirmDialog, setConfirmDialog] = useState({
     isOpen: false,
@@ -192,6 +189,7 @@ const ProductDetails = () => {
   const handleAddToCart = () => {
     if (!isAuthenticated) {
       toast.error(t('toast.error.auth.loginRequired'));
+      navigate('/login');
       return;
     }
 
@@ -226,6 +224,7 @@ const ProductDetails = () => {
   const handleWishlistToggle = () => {
     if (!isAuthenticated) {
       toast.error(t('toast.error.auth.loginRequired'));
+      navigate('/login');
       return;
     }
 
@@ -280,44 +279,47 @@ const ProductDetails = () => {
   };
 
   // Review form handlers
-  const handleReviewSubmit = async (e) => {
-    e.preventDefault();
-    
+  const handleReviewSubmit = async (reviewData) => {
     if (!isAuthenticated) {
       toast.error(t('toast.error.auth.loginRequired'));
+      navigate('/login');
       return;
     }
 
-    if (!reviewComment.trim()) {
-      toast.error(t('toast.error.review.commentRequired'));
+    if (!reviewData.rating) {
+      toast.error(t('reviews.ratingRequired'));
       return;
     }
 
-    if (!reviewRating || reviewRating < 1 || reviewRating > 5) {
-      toast.error(t('toast.error.review.ratingInvalid'));
+    if (!reviewData.comment.trim()) {
+      toast.error(t('reviews.commentRequired'));
       return;
     }
 
-    setSubmittingReview(true);
-
-    const reviewData = {
-      product_id: product.id,
-      user_id: user?.id,
-      comment: reviewComment.trim(),
-      rating: reviewRating
-    };
-
-    const result = await addReview(reviewData);
-    
-    if (result.success) {
-      setReviewComment('');
-      setReviewRating(5);
-      setShowReviewForm(false);
-      await loadProductReviews();
-      await loadAverageRating();
+    try {
+      const result = await addReview({
+        product_id: product.id,
+        user_id: user.id,
+        rating: reviewData.rating,
+        comment: reviewData.comment
+      });
+      
+      if (result.success) {
+        toast.success(t('reviews.addSuccess'));
+        setShowReviewForm(false);
+        await loadProductReviews();
+        await loadAverageRating();
+      } else {
+        toast.error(result.error || t('reviews.submitError'));
+      }
+    } catch (error) {
+      console.error('Error submitting review:', error);
+      toast.error(t('reviews.submitError'));
     }
+  };
 
-    setSubmittingReview(false);
+  const handleReviewCancel = () => {
+    setShowReviewForm(false);
   };
 
   const renderStars = (rating, interactive = false, onStarClick = null, size = 'normal') => {
@@ -341,13 +343,11 @@ const ProductDetails = () => {
   };
 
   const formatDate = (dateString) => {
-    if (!dateString) return '';
     const date = new Date(dateString);
-    return date.toLocaleDateString(isAzerbaijani ? 'az-AZ' : 'en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear().toString().slice(-2);
+    return `${day}/${month}/${year}`;
   };
 
   const userHasReviewed = productReviews?.some(review => review.user_id === user?.id);
@@ -717,20 +717,8 @@ const ProductDetails = () => {
 
                       {showReviewForm && (
                         <ReviewForm 
-                          onSubmit={async (reviewData) => {
-                            const result = await addReview({
-                              product_id: product.id,
-                              user_id: user?.id,
-                              ...reviewData
-                            });
-                            
-                            if (result.success) {
-                              setShowReviewForm(false);
-                              await loadProductReviews();
-                              await loadAverageRating();
-                            }
-                          }}
-                          onCancel={() => setShowReviewForm(false)}
+                          onSubmit={handleReviewSubmit}
+                          onCancel={handleReviewCancel}
                         />
                       )}
                     </div>

@@ -122,18 +122,40 @@ const PetCareTips = () => {
   const { t } = useTranslation();
   const [selectedSeason, setSelectedSeason] = useState('summer');
   const [hoveredTip, setHoveredTip] = useState(null);
+  const [isChanging, setIsChanging] = useState(false);
+
+  const handleSeasonChange = (newSeason) => {
+    if (newSeason === selectedSeason) return;
+    setIsChanging(true);
+    setSelectedSeason(newSeason);
+    setTimeout(() => setIsChanging(false), 500);
+  };
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { 
+      opacity: 0,
+      scale: 0.95,
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut"
+      }
+    },
     visible: {
       opacity: 1,
+      scale: 1,
       transition: {
-        staggerChildren: 0.1
+        duration: 0.3,
+        ease: "easeOut",
+        staggerChildren: 0.1,
+        delayChildren: 0.1
       }
     },
     exit: {
       opacity: 0,
+      scale: 0.95,
       transition: {
+        duration: 0.3,
+        ease: "easeInOut",
         staggerChildren: 0.05,
         staggerDirection: -1
       }
@@ -144,44 +166,59 @@ const PetCareTips = () => {
     hidden: { 
       y: 20, 
       opacity: 0,
+      scale: 0.9,
       transition: {
-        type: "spring",
-        duration: 0.5
+        duration: 0.4,
+        ease: "easeInOut"
       }
     },
     visible: {
       y: 0,
       opacity: 1,
+      scale: 1,
       transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-        duration: 0.5
+        duration: 0.4,
+        ease: "easeOut"
       }
     },
     exit: {
       y: -20,
       opacity: 0,
+      scale: 0.9,
       transition: {
-        type: "spring",
-        duration: 0.3
+        duration: 0.3,
+        ease: "easeInOut"
       }
     },
     hover: {
       y: -5,
+      scale: 1.02,
       transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
+        duration: 0.3,
+        ease: "easeOut"
       }
     }
   };
 
   const iconVariants = {
+    hidden: {
+      scale: 0,
+      rotate: -180
+    },
+    visible: {
+      scale: 1,
+      rotate: 0,
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 15
+      }
+    },
     hover: {
       rotate: [0, -10, 10, -10, 0],
       transition: {
-        duration: 0.5
+        duration: 0.5,
+        ease: "easeInOut"
       }
     }
   };
@@ -213,12 +250,13 @@ const PetCareTips = () => {
                 className={`${styles.seasonButton} ${
                   selectedSeason === season.id ? styles.active : ''
                 }`}
-                onClick={() => setSelectedSeason(season.id)}
+                onClick={() => handleSeasonChange(season.id)}
                 style={{
                   '--season-color': season.color
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                disabled={isChanging}
               >
                 <SeasonIcon className={styles.seasonIcon} />
                 <span>{t(`petCareTips.seasons.${season.id}`)}</span>
@@ -227,43 +265,63 @@ const PetCareTips = () => {
           })}
         </div>
 
-        <AnimatePresence mode="sync">
-          <motion.div 
-            key={selectedSeason}
-            className={styles.tipsGrid}
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          >
-            {tips[selectedSeason].map((tip) => {
-              const TipIcon = tip.icon;
-              return (
-                <motion.div
-                  key={`${selectedSeason}-${tip.id}`}
-                  className={styles.tipCard}
-                  variants={tipVariants}
-                  whileHover="hover"
-                  onHoverStart={() => setHoveredTip(tip.id)}
-                  onHoverEnd={() => setHoveredTip(null)}
-                  layout
-                >
-                  <div className={styles.tipContent}>
-                    <motion.div
-                      className={styles.tipIcon}
-                      variants={iconVariants}
-                      animate={hoveredTip === tip.id ? "hover" : ""}
-                    >
-                      <TipIcon />
-                    </motion.div>
-                    <h3 className={styles.tipTitle}>{t(tip.titleKey)}</h3>
-                    <p className={styles.tipDescription}>{t(tip.descriptionKey)}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </AnimatePresence>
+        <div className={styles.tipsContainer}>
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={selectedSeason}
+              className={styles.tipsGrid}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              {tips[selectedSeason].map((tip) => {
+                const TipIcon = tip.icon;
+                return (
+                  <motion.div
+                    key={`${selectedSeason}-${tip.id}`}
+                    className={styles.tipCard}
+                    variants={tipVariants}
+                    whileHover="hover"
+                    onHoverStart={() => setHoveredTip(tip.id)}
+                    onHoverEnd={() => setHoveredTip(null)}
+                    layout
+                  >
+                    <div className={styles.tipContent}>
+                      <motion.div
+                        className={styles.tipIcon}
+                        variants={iconVariants}
+                        initial="hidden"
+                        animate="visible"
+                        whileHover="hover"
+                      >
+                        <TipIcon />
+                      </motion.div>
+                      <motion.h3 
+                        className={styles.tipTitle}
+                        variants={{
+                          hidden: { opacity: 0, y: 10 },
+                          visible: { opacity: 1, y: 0 }
+                        }}
+                      >
+                        {t(tip.titleKey)}
+                      </motion.h3>
+                      <motion.p 
+                        className={styles.tipDescription}
+                        variants={{
+                          hidden: { opacity: 0, y: 10 },
+                          visible: { opacity: 1, y: 0 }
+                        }}
+                      >
+                        {t(tip.descriptionKey)}
+                      </motion.p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );

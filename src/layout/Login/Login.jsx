@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../redux/slices/userSlice';
 import { PiEyeBold, PiEyeClosedBold } from 'react-icons/pi';
 import { errorToast } from '../../utils/toast';
+import toast from 'react-hot-toast';
 import styles from './Login.module.css';
 
 export default function Login() {
@@ -58,6 +59,7 @@ export default function Login() {
 
       const result = await dispatch(loginUser(formData)).unwrap();
       if (result) {
+        toast.success(t('toast.success.login'));
         navigate(from, { replace: true });
       }
     } catch (error) {

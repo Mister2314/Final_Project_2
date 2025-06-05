@@ -57,9 +57,16 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-.seasonButton:hover {
+.seasonButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.seasonButton:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -71,6 +78,17 @@
 
 .seasonIcon {
   font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.seasonButton:hover:not(:disabled) .seasonIcon {
+  transform: scale(1.1);
+}
+
+.tipsContainer {
+  position: relative;
+  min-height: 400px;
+  perspective: 1000px;
 }
 
 .tipsGrid {
@@ -79,7 +97,8 @@
   gap: 2rem;
   padding: 1rem;
   position: relative;
-  perspective: 1000px;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
 }
 
 .tipCard {
@@ -88,18 +107,32 @@
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(130, 71, 245, 0.1);
-  transition: all 0.3s ease;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  will-change: transform;
   transform-style: preserve-3d;
+  will-change: transform;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.tipCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+.tipCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(130, 71, 245, 0.1), rgba(160, 102, 255, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.tipCard:hover::before {
+  opacity: 1;
 }
 
 .tipContent {
@@ -110,6 +143,8 @@
   text-align: center;
   height: 100%;
   gap: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .tipIcon {
@@ -124,6 +159,8 @@
   color: white;
   font-size: 1.5rem;
   will-change: transform;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(130, 71, 245, 0.3);
 }
 
 .tipTitle {
@@ -131,12 +168,14 @@
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
+  will-change: transform, opacity;
 }
 
 .tipDescription {
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
+  will-change: transform, opacity;
 }
 
 @media (max-width: 768px) {
@@ -203,4 +242,15 @@
 
 [data-theme='dark'] .seasonButton.active {
   background-color: var(--season-color);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 } 

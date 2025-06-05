@@ -7,6 +7,7 @@ import styles from '../Login/Login.module.css'
 import { PiEyeBold, PiEyeClosedBold } from 'react-icons/pi';
 import { validateEmail, validatePassword, validateUsername, getValidationError } from '../../utils/validation';
 import { errorToast } from '../../utils/toast';
+import toast from 'react-hot-toast';
 
 export default function Signup() {
   const { t } = useTranslation();
@@ -92,6 +93,7 @@ export default function Signup() {
 
       const result = await dispatch(registerUser(formData)).unwrap();
       if (result) {
+        toast.success(t('toast.success.signup'));
         navigate('/login');
       }
     } catch (error) {

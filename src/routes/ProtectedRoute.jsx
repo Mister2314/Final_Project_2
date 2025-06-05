@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { checkAuth } from '../redux/slices/userSlice';
 import { toast } from 'react-hot-toast';
@@ -10,6 +10,7 @@ import AuthLayout from '../layout/AuthLayout';
 export const ProtectedRoute = () => {
   const dispatch = useDispatch();
   const location = useLocation();
+  const navigate = useNavigate();
   const { isAuthenticated, loading, user } = useSelector((state) => state.user);
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
   const [hasShownLoginToast, setHasShownLoginToast] = useState(false);
@@ -32,11 +33,11 @@ export const ProtectedRoute = () => {
   }, [dispatch, user]);
 
   useEffect(() => {
-    if (!isCheckingAuth && !loading && !isAuthenticated && !hasShownLoginToast) {
+    if (!isAuthenticated) {
       toast.error(t('toast.error.auth.loginRequired'));
-      setHasShownLoginToast(true);
+      navigate('/login', { state: { from: location } });
     }
-  }, [isCheckingAuth, loading, isAuthenticated, hasShownLoginToast]);
+  }, [isAuthenticated, navigate, location, t]);
 
   if (loading || isCheckingAuth) {
     return <Spinner />;

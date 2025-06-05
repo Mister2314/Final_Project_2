@@ -76,13 +76,6 @@ const BlogDetails = () => {
     return category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
   };
 
-  const getReadTime = (text) => {
-    if (!text) return 1;
-    const wordsPerMinute = 200;
-    const words = text.trim().split(/\s+/).length;
-    return Math.ceil(words / wordsPerMinute);
-  };
-
   const getBlogDescription = () => {
     if (!currentBlog) return '';
     
@@ -197,10 +190,6 @@ const BlogDetails = () => {
               <span className={styles.blogDate}>
                 <span className={styles.dateIcon}>📅</span>
                 {formatDate(currentBlog.created_at)}
-              </span>
-              <span className={styles.readTime}>
-              <span className={styles.readTimeIcon}>⏱️</span>
-                {getReadTime(currentBlog.content)} {t('blog.minuteRead')}
               </span>
             </div>
             <motion.h1 

@@ -58,7 +58,8 @@ const PopularProducts = () => {
 
   const handleAddToCart = (product) => {
     if (!isAuthenticated) {
-      toast.error(t('popularProducts.loginRequired'));
+      toast.error(t('toast.error.auth.loginRequired'));
+      navigate('/login');
       return;
     }
 
@@ -81,7 +82,8 @@ const PopularProducts = () => {
 
   const handleWishlistToggle = (product) => {
     if (!isAuthenticated) {
-      toast.error(t('popularProducts.loginRequired'));
+      toast.error(t('toast.error.auth.loginRequired'));
+      navigate('/login');
       return;
     }
 

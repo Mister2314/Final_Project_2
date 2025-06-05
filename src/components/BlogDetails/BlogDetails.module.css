@@ -148,8 +148,7 @@
 }
 
 .blogCategory,
-.blogDate,
-.readTime {
+.blogDate {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -171,16 +170,14 @@
   font-size: 1.2rem;
 }
 
-.blogDate,
-.readTime {
+.blogDate {
   padding: 0.5rem 1rem;
   background-color: var(--hover-bg);
   border-radius: 20px;
   transition: all 0.3s ease;
 }
 
-.dateIcon,
-.readTimeIcon {
+.dateIcon {
   font-size: 1.1rem;
 }
 
@@ -369,8 +366,7 @@
     font-size: 0.8rem;
   }
 
-  .blogDate,
-  .readTime {
+  .blogDate {
     font-size: 0.8rem;
   }
 }

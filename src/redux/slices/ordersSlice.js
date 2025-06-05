@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { supabase } from '../../supabaseClient';
 import toast from 'react-hot-toast';
-import { useTranslation } from 'react-i18next';
 
 const initialState = {
   orders: [],
@@ -172,41 +171,65 @@ export const createOrder = createAsyncThunk(
   'orders/createOrder',
   async ({ orderData, coupon }, { rejectWithValue }) => {
     try {
-      if (!orderData?.products?.length) {
-        throw new Error('Order must contain at least one product');
+      // Basic validation
+      if (!orderData?.user_id || !orderData?.products?.length) {
+        console.error('Invalid order data:', orderData);
+        throw new Error('Invalid order data');
       }
 
-      const normalizedProducts = await getProductsWithDetails(orderData.products);
-      
-      if (!normalizedProducts.every(p => p.main_name && p.main_category)) {
-        throw new Error('Some products are missing required data (main_name or main_category)');
-      }
-
-      const total_price = calculateOrderTotal(normalizedProducts, coupon);
-
-      const normalizedOrderData = {
-        ...orderData,
-        products: normalizedProducts,
-        total_price,
-        coupon_code: coupon?.code || null,
-        discount_percentage: coupon?.percentage || 0,
+      // Prepare the order data for Supabase
+      const orderForDb = {
+        user_id: orderData.user_id,
+        products: orderData.products.map(product => ({
+          id: product.id,
+          name: product.name,
+          category: product.category,
+          price: parseFloat(product.price),
+          quantity: parseInt(product.quantity)
+        })),
+        total_price: parseFloat(orderData.total_price),
+        full_name: orderData.full_name,
+        shipping_address: orderData.shipping_address,
+        shipping_city: orderData.shipping_city,
+        shipping_zip: orderData.shipping_zip,
+        status: 'pending',
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
-        status: orderData.status || 'pending',
-        expected_delivery_date: orderData.expected_delivery_date || generateDeliveryDate()
+        expected_delivery_date: generateDeliveryDate()
       };
+
+      // Validate the data before sending to Supabase
+      if (isNaN(orderForDb.total_price)) {
+        console.error('Invalid total price:', orderData.total_price);
+        throw new Error('Invalid total price');
+      }
+
+      if (!orderForDb.products.every(p => p.id && !isNaN(p.price) && !isNaN(p.quantity))) {
+        console.error('Invalid product data:', orderForDb.products);
+        throw new Error('Invalid product data');
+      }
+
+      console.log('Sending order to Supabase:', orderForDb);
 
       const { data, error } = await supabase
         .from('orders')
-        .insert([normalizedOrderData])
+        .insert([orderForDb])
         .select()
         .single();
 
-      if (error) throw error;
-      
-      return await normalizeOrderData(data);
+      if (error) {
+        console.error('Supabase error:', error);
+        throw new Error(`Database error: ${error.message}`);
+      }
+
+      if (!data) {
+        throw new Error('No data returned from order creation');
+      }
+
+      console.log('Order created successfully:', data);
+      return data;
     } catch (error) {
-      console.error('Error creating order:', error);
+      console.error('Error in createOrder:', error);
       return rejectWithValue(error.message || 'Failed to create order');
     }
   }
@@ -468,7 +491,7 @@ const ordersSlice = createSlice({
       .addCase(getAllOrders.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-        toast.error(t('toast.error.order.fetchError'));
+        toast.error('Failed to fetch orders');
       })
 
       .addCase(getUserOrders.pending, (state) => {
@@ -483,7 +506,7 @@ const ordersSlice = createSlice({
       .addCase(getUserOrders.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-        toast.error(t('toast.error.order.fetchError'));
+        toast.error('Failed to fetch user orders');
       })
 
       .addCase(createOrder.pending, (state) => {
@@ -496,12 +519,10 @@ const ordersSlice = createSlice({
           state.orders.unshift(action.payload);
         }
         state.error = null;
-        toast.success(t('toast.success.order.createSuccess'));
       })
       .addCase(createOrder.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-        toast.error(t('toast.error.order.createError'));
       })
 
       .addCase(updateOrderStatus.pending, (state) => {
@@ -517,12 +538,12 @@ const ordersSlice = createSlice({
           }
         }
         state.error = null;
-        toast.success(t('toast.success.order.updateSuccess'));
+        toast.success('Order updated successfully');
       })
       .addCase(updateOrderStatus.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-        toast.error(t('toast.error.order.updateError'));
+        toast.error('Failed to update order');
       })
 
       .addCase(deleteOrder.pending, (state) => {
@@ -533,12 +554,12 @@ const ordersSlice = createSlice({
         state.loading = false;
         state.orders = state.orders.filter(order => order && order.id !== action.payload);
         state.error = null;
-        toast.success(t('toast.success.order.deleteSuccess'));
+        toast.success('Order deleted successfully');
       })
       .addCase(deleteOrder.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-        toast.error(t('toast.error.order.deleteError'));
+        toast.error('Failed to delete order');
       })
 
       .addCase(calculateOrderStatistics.pending, (state) => {
@@ -553,7 +574,7 @@ const ordersSlice = createSlice({
       .addCase(calculateOrderStatistics.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-        toast.error(t('toast.error.order.statisticsError'));
+        toast.error('Failed to calculate statistics');
       });
   }
 });

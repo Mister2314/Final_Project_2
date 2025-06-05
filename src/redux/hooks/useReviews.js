@@ -103,7 +103,6 @@ export const useReviews = () => {
       }
 
       const result = await dispatch(createReview(reviewData)).unwrap();
-      successToast('reviews.addSuccess');
       return { success: true, data: result };
     } catch (error) {
       errorToast('reviews.addError');

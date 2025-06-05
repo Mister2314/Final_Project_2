@@ -41,13 +41,6 @@ const BlogCard = ({ blog, isAzerbaijani }) => {
     return category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
   };
 
-  const getReadTime = (text) => {
-    const wordsPerMinute = 200;
-    const words = text?.split(/\s+/)?.length || 0;
-    const minutes = Math.ceil(words / wordsPerMinute);
-    return t('blogs.readTime', { minutes });
-  };
-
   return (
     <Link to={`/blog/${blog.id}`} className={styles.blogCard}>
       <div className={styles.blogImageContainer}>
@@ -88,10 +81,6 @@ const BlogCard = ({ blog, isAzerbaijani }) => {
             <span className={styles.blogDate}>
               <span className={styles.dateIcon}>📅</span>
               {formatDate(blog.created_at)}
-            </span>
-            <span className={styles.readTime}>
-              <span className={styles.readTimeIcon}>⏱️</span>
-              {getReadTime(isAzerbaijani ? blog.blogDescription_az : blog.blogDescription_en)}
             </span>
           </div>
           <span className={styles.readMore}>

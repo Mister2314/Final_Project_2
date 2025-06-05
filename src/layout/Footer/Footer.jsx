@@ -88,13 +88,13 @@ const Footer = () => {
               </a>
             </div>
             <div className={styles.petCategories}>
-              <Link to="/shop/dogs" className={styles.petCategory}>
+              <Link to={t('petCategories.categories.dogs.route')} className={styles.petCategory}>
                 <FaDog className={styles.petCategoryIcon} />
-                <span>{t('footer.petCategories.dogs')}</span>
+                <span>{t('petCategories.categories.dogs.name')}</span>
               </Link>
-              <Link to="/shop/cats" className={styles.petCategory}>
+              <Link to={t('petCategories.categories.cats.route')} className={styles.petCategory}>
                 <FaCat className={styles.petCategoryIcon} />
-                <span>{t('footer.petCategories.cats')}</span>
+                <span>{t('petCategories.categories.cats.name')}</span>
               </Link>
             </div>
           </div>
@@ -130,31 +130,31 @@ const Footer = () => {
           </div>
 
           <div className={styles.footerColumn}>
-            <h3 className={styles.footerTitle}>{t('footer.categories')}</h3>
+            <h3 className={styles.footerTitle}>{t('footer.categories.title')}</h3>
             <div className={styles.footerLinks}>
-              <Link to="/shop/dogs/foods" className={styles.footerLink}>
+              <Link to={t('footer.categories.items.dogFood.route')} className={styles.footerLink}>
                 <FaChevronRight className={styles.footerLinkIcon} />
-                <span>{t('footer.productCategories.dogFood')}</span>
+                <span>{t('footer.categories.items.dogFood.name')}</span>
               </Link>
-              <Link to="/shop/dogs/toys" className={styles.footerLink}>
+              <Link to={t('footer.categories.items.dogToys.route')} className={styles.footerLink}>
                 <FaChevronRight className={styles.footerLinkIcon} />
-                <span>{t('footer.productCategories.dogToys')}</span>
+                <span>{t('footer.categories.items.dogToys.name')}</span>
               </Link>
-              <Link to="/shop/dogs/beds-and-home" className={styles.footerLink}>
+              <Link to={t('footer.categories.items.dogBeds.route')} className={styles.footerLink}>
                 <FaChevronRight className={styles.footerLinkIcon} />
-                <span>{t('footer.productCategories.dogBeds')}</span>
+                <span>{t('footer.categories.items.dogBeds.name')}</span>
               </Link>
-              <Link to="/shop/cats/foods" className={styles.footerLink}>
+              <Link to={t('footer.categories.items.catFood.route')} className={styles.footerLink}>
                 <FaChevronRight className={styles.footerLinkIcon} />
-                <span>{t('footer.productCategories.catFood')}</span>
+                <span>{t('footer.categories.items.catFood.name')}</span>
               </Link>
-              <Link to="/shop/cats/litter" className={styles.footerLink}>
+              <Link to={t('footer.categories.items.catLitter.route')} className={styles.footerLink}>
                 <FaChevronRight className={styles.footerLinkIcon} />
-                <span>{t('footer.productCategories.catLitter')}</span>
+                <span>{t('footer.categories.items.catLitter.name')}</span>
               </Link>
-              <Link to="/shop/cats/beds-and-home" className={styles.footerLink}>
+              <Link to={t('footer.categories.items.catBeds.route')} className={styles.footerLink}>
                 <FaChevronRight className={styles.footerLinkIcon} />
-                <span>{t('footer.productCategories.catBeds')}</span>
+                <span>{t('footer.categories.items.catBeds.name')}</span>
               </Link>
             </div>
           </div>

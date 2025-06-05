@@ -21,7 +21,6 @@ const Home = () => {
                 <PetCategories />
                 <FeaturedProducts />
                                 <WhyChooseUs />
-
                 <PetCareTips />
             </main>
             <Footer />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { checkAuth } from '../redux/slices/userSlice';
 import { toast } from 'react-hot-toast';
@@ -12,6 +12,8 @@ export const AdminRoute = () => {
   const { isAuthenticated, loading, user } = useSelector((state) => state.user);
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const isAdmin = user && user.role === "admin";
 
   useEffect(() => {
     const initializeAuth = async () => {
@@ -27,26 +29,23 @@ export const AdminRoute = () => {
     initializeAuth();
   }, [dispatch]);
 
+  useEffect(() => {
+    if (!isAuthenticated) {
+      toast.error(t('toast.error.auth.loginRequired'));
+      navigate('/login', { state: { from: location } });
+      return;
+    }
+    
+    if (!isAdmin) {
+      toast.error(t('toast.error.auth.unauthorized'));
+      navigate('/', { replace: true });
+    }
+  }, [isAuthenticated, isAdmin, navigate, location, t]);
+
   if (loading || isCheckingAuth) {
     return <Spinner />;
   }
-
-  if (!isAuthenticated) {
-    toast.error(t('toast.error.auth.loginRequired'));
-    return <Navigate 
-      to="/admin/login" 
-      state={{ from: location }} 
-      replace 
-    />;
-  }
-
-  const isAdmin = user && user.role === "admin";
   
-  if (!isAdmin) {
-    toast.error(t('toast.error.auth.unauthorized'));
-    return <Navigate to="/" replace />;
-  }
-
   return <Outlet />;
 };
 
