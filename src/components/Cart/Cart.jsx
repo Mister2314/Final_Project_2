@@ -10,6 +10,8 @@ import { useCart } from 'react-use-cart';
 import { clearError } from '../../redux/slices/ordersSlice';
 import { errorToast, successToast } from '../../utils/toast';
 import { useTranslation } from 'react-i18next';
+import Navbar from '../../layout/Header/Navbar/Navbar';
+import Footer from '../../layout/Footer/Footer';
 
 const Cart = () => {
   const { t } = useTranslation();
@@ -195,209 +197,177 @@ const Cart = () => {
   const total = calculateTotal();
 
   return (
-    <div className={styles.cartContainer}>
-      <div className={styles.cartHeader}>
-        <button onClick={() => navigate(-1)} className={styles.backButton}>
-          <FaArrowLeft />
-          <span>{t('buttons.back')}</span>
-        </button>
-        <h1 className={styles.cartTitle}>
-          <IoBagHandleOutline className={styles.titleIcon} />
-          {t('user.cart')} ({cartItems.length})
-        </h1>
-      </div>
-
-      {isEmpty ? (
-        <div className={styles.emptyCart}>
-          <div className={styles.emptyCartIcon}>
-            <FaShoppingBag />
-          </div>
-          <h2>{t('cart.empty.title')}</h2>
-          <p>{t('cart.empty.description')}</p>
-          <button 
-            onClick={() => navigate('/shop')}
-            className={styles.shopButton}
-          >
-            {t('cart.empty.shopButton')}
+    <>
+      <Navbar />
+      <div className={styles.cartContainer}>
+        <div className={styles.cartHeader}>
+          <button onClick={() => navigate(-1)} className={styles.backButton}>
+            <FaArrowLeft />
+            <span>{t('buttons.back')}</span>
           </button>
+          <h1 className={styles.cartTitle}>
+            <IoBagHandleOutline className={styles.titleIcon} />
+            {t('cart.title')} ({cartItems.length})
+          </h1>
         </div>
-      ) : (
-        <div className={styles.cartContent}>
-          <div className={styles.cartItems}>
-            {cartItems.map(item => (
-              <div key={item.id} className={`${styles.cartItem} ${
-                (!item.name || !item.price || item.price <= 0) ? styles.invalidItem : ''
-              }`}>
-                <div className={styles.itemImage}>
-                  <img src={item.image} alt={item.name} />
-                  {(!item.name || !item.price || item.price <= 0) && (
-                    <div className={styles.invalidBadge}>⚠️</div>
-                  )}
-                </div>
-                
-                <div className={styles.itemDetails}>
-                  <h3 className={styles.itemName}>
-                    {item.name || t('common.noProductName')}
-                  </h3>
-                  <div className={styles.itemPrice}>
-                    {item.price && item.price > 0 ? `$${item.price.toFixed(2)}` : t('cart.priceNotAvailable')}
-                  </div>
-                  
-                  {item.inStock === false && (
-                    <span className={styles.outOfStock}>{t('cart.outOfStock')}</span>
-                  )}
-                  
-                  {(!item.name || !item.price || item.price <= 0) && (
-                    <div className={styles.itemError}>
-                      ⚠️ {t('cart.invalidProductData')}
-                    </div>
-                  )}
-                </div>
-                
-                <div className={styles.itemControls}>
-                  <div className={styles.quantityControls}>
-                    <button
-                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className={styles.quantityButton}
-                      disabled={item.quantity <= 1}
-                    >
-                      <FaMinus />
-                    </button>
-                    <span className={styles.quantity}>{item.quantity}</span>
-                    <button
-                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className={styles.quantityButton}
-                      disabled={item.inStock === false}
-                    >
-                      <FaPlus />
-                    </button>
-                  </div>
-                  
-                  <div className={styles.itemActions}>
-                    <button
-                      onClick={() => addToWishlist(item)}
-                      className={`${styles.wishlistButton} ${
-                        isInWishlist(item.id) ? styles.wishlistButtonActive : ''
-                      }`}
-                      title={isInWishlist(item.id) ? t('cart.wishlist.inWishlist') : t('cart.wishlist.addToWishlist')}
-                    >
-                      {isInWishlist(item.id) ? <BsHeartFill /> : <BsHeart />}
-                    </button>
-                    <button
-                      onClick={() => handleRemoveItem(item.id)}
-                      className={styles.removeButton}
-                      title={t('cart.removeFromCart')}
-                    >
-                      <FaTrash />
-                    </button>
-                  </div>
-                </div>
-                
-                <div className={styles.itemTotal}>
-                  ${(item.price * item.quantity).toFixed(2)}
-                </div>
-              </div>
-            ))}
+
+        {isEmpty ? (
+          <div className={styles.emptyCart}>
+            <div className={styles.emptyCartIcon}>
+              <FaShoppingBag />
+            </div>
+            <h2>{t('cart.empty.title')}</h2>
+            <p>{t('cart.empty.description')}</p>
+            <button 
+              onClick={() => navigate('/shop')}
+              className={styles.shopButton}
+            >
+              {t('cart.empty.shopButton')}
+            </button>
           </div>
-          
-          <div className={styles.cartSummary}>
-            <div className={styles.summaryCard}>
-              <h3 className={styles.summaryTitle}>{t('cart.summary.title')}</h3>
-              
-              {hasInvalidItems() && (
-                <div className={styles.cartWarning}>
-                  ⚠️ {t('cart.invalidItemsWarning')}
+        ) : (
+          <div className={styles.cartContent}>
+            <div className={styles.cartItems}>
+              {cartItems.map(item => (
+                <div key={item.id} className={`${styles.cartItem} ${
+                  (!item.name || !item.price || item.price <= 0) ? styles.invalidItem : ''
+                }`}>
+                  <div className={styles.itemImage}>
+                    <img src={item.image} alt={item.name} />
+                    {(!item.name || !item.price || item.price <= 0) && (
+                      <div className={styles.invalidBadge}>⚠️</div>
+                    )}
+                  </div>
+                  
+                  <div className={styles.itemDetails}>
+                    <h3 className={styles.itemName}>
+                      {item.name || t('common.noProductName')}
+                    </h3>
+                    <div className={styles.itemPrice}>
+                      {item.price && item.price > 0 ? `$${item.price.toFixed(2)}` : t('cart.priceNotAvailable')}
+                    </div>
+                    
+                    {item.inStock === false && (
+                      <span className={styles.outOfStock}>{t('cart.outOfStock')}</span>
+                    )}
+                    
+                    {(!item.name || !item.price || item.price <= 0) && (
+                      <div className={styles.itemError}>
+                        {t('cart.invalidProduct')}
+                      </div>
+                    )}
+                    
+                    <div className={styles.itemControls}>
+                      <div className={styles.quantityControls}>
+                        <button 
+                          className={styles.quantityButton}
+                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                          disabled={item.quantity <= 1}
+                        >
+                          <FaMinus />
+                        </button>
+                        <span className={styles.quantity}>{item.quantity}</span>
+                        <button 
+                          className={styles.quantityButton}
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                        >
+                          <FaPlus />
+                        </button>
+                      </div>
+                      
+                      <div className={styles.itemActions}>
+                        <button 
+                          className={styles.wishlistButton}
+                          onClick={() => addToWishlist(item)}
+                          title={t('cart.moveToWishlist')}
+                        >
+                          {isInWishlist(item.id) ? <BsHeartFill /> : <BsHeart />}
+                        </button>
+                        <button 
+                          className={styles.removeButton}
+                          onClick={() => handleRemoveItem(item.id)}
+                          title={t('cart.remove')}
+                        >
+                          <FaTrash />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              )}
-              
-              <div className={styles.summaryRow}>
-                <span>{t('cart.summary.items', { count: cartItems.length })}</span>
-                <span>${subtotal.toFixed(2)}</span>
-              </div>
-              
-              <div className={styles.summaryRow}>
-                <span>{t('cart.summary.shipping')}</span>
-                <span>
-                  {shipping === 0 ? (
-                    <span className={styles.freeShipping}>{t('cart.summary.freeShipping')}</span>
-                  ) : (
-                    `$${shipping.toFixed(2)}`
-                  )}
-                </span>
-              </div>
-              
-              {subtotal < 50 && (
+              ))}
+            </div>
+            
+            <div className={styles.cartSummary}>
+              <div className={styles.summaryCard}>
+                <h2 className={styles.summaryTitle}>{t('cart.summary')}</h2>
+                
+                <div className={styles.summaryRow}>
+                  <span>{t('cart.subtotal')}</span>
+                  <span>${subtotal.toFixed(2)}</span>
+                </div>
+                
+                <div className={styles.summaryRow}>
+                  <span>{t('cart.shipping')}</span>
+                  <span>
+                    {shipping === 0 ? (
+                      <span className={styles.freeShipping}>{t('cart.freeShipping')}</span>
+                    ) : (
+                      `$${shipping.toFixed(2)}`
+                    )}
+                  </span>
+                </div>
+                
                 <div className={styles.shippingNote}>
-                  <p>{t('cart.summary.freeShippingNote', { amount: (50 - subtotal).toFixed(2) })}</p>
+                  <p>{t('cart.shippingNote')}</p>
                 </div>
-              )}
-              
-              <div className={styles.summaryDivider}></div>
-              
-              <div className={`${styles.summaryRow} ${styles.totalRow}`}>
-                <span>{t('cart.summary.total')}</span>
-                <span>${total.toFixed(2)}</span>
-              </div>
-
-              {orderError && (
-                <div className={styles.errorMessage}>
-                  <p>{t('cart.error', { error: orderError })}</p>
-                  <button 
-                    onClick={() => dispatch(clearError())}
-                    className={styles.clearErrorButton}
-                  >
-                    {t('buttons.clear')}
-                  </button>
+                
+                <div className={styles.totalRow}>
+                  <span>{t('cart.total')}</span>
+                  <span>${total.toFixed(2)}</span>
                 </div>
-              )}
-
-              {!isAuthenticated && (
-                <div className={styles.loginWarning}>
-                  <p>
-                    {t('cart.loginRequired')} 
-                    <button onClick={() => navigate('/login')} className={styles.loginLink}>
-                      {t('auth.login')}
+                
+                {!isAuthenticated && (
+                  <div className={styles.loginWarning}>
+                    <p>{t('cart.loginToCheckout')}</p>
+                    <button 
+                      onClick={() => navigate('/login')}
+                      className={styles.loginLink}
+                    >
+                      {t('buttons.login')}
                     </button>
-                  </p>
-                </div>
-              )}
-              
-              <button
-                onClick={handleCheckout}
-                className={`${styles.checkoutButton} ${
-                  hasInvalidItems() || !isAuthenticated ? styles.checkoutButtonDisabled : ''
-                }`}
-                disabled={
-                  loading || 
-                  orderLoading || 
-                  hasInvalidItems() ||
-                  !isAuthenticated ||
-                  isEmpty
-                }
-              >
-                {loading || orderLoading ? t('states.processing') : t('cart.proceedToCheckout')}
-              </button>
-              
-              <button
-                onClick={() => navigate('/shop')}
-                className={styles.continueShoppingButton}
-              >
-                {t('cart.continueShopping')}
-              </button>
-
-              {isAuthenticated && (
+                  </div>
+                )}
+                
                 <button
-                  onClick={() => navigate('/orders')}
-                  className={styles.viewOrdersButton}
+                  className={styles.checkoutButton}
+                  onClick={handleCheckout}
+                  disabled={isEmpty || hasInvalidItems() || !isAuthenticated}
                 >
-                  {t('cart.viewOrders')}
+                  {t('cart.checkout')}
                 </button>
-              )}
+                
+                <button
+                  className={styles.continueShoppingButton}
+                  onClick={() => navigate('/shop')}
+                >
+                  {t('cart.continue')}
+                </button>
+                
+                {isAuthenticated && (
+                  <button
+                    className={styles.viewOrdersButton}
+                    onClick={() => navigate('/orders')}
+                  >
+                    {t('cart.viewOrders')}
+                  </button>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+      <Footer />
+    </>
   );
 };
 

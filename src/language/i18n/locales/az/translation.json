@@ -240,6 +240,89 @@
     },
     "searchPlaceholder": "Sifarişləri axtar..."
   },
+  "adminPanel": {
+    "title": "Admin Panel",
+    "loading": "{{type}} yüklənir...",
+    "noData": "{{type}} tapılmadı",
+    "sections": {
+      "statistics": "Statistika",
+      "products": "Məhsullar",
+      "blogs": "Bloqlar",
+      "users": "İstifadəçilər",
+      "orders": "Sifarişlər"
+    },
+    "management": {
+      "products": "Məhsul İdarəetməsi",
+      "blogs": "Bloq İdarəetməsi",
+      "users": "İstifadəçi İdarəetməsi",
+      "orders": "Sifariş İdarəetməsi"
+    },
+    "table": {
+      "productsLabel": "Məhsullar cədvəli",
+      "blogsLabel": "Bloqlar cədvəli",
+      "usersLabel": "İstifadəçilər cədvəli",
+      "ordersLabel": "Sifarişlər cədvəli",
+      "image": "Şəkil",
+      "orderId": "Sifariş ID",
+      "customerName": "Müştəri",
+      "products": "Məhsullar",
+      "totalAmount": "Cəmi",
+      "status": "Status",
+      "orderDate": "Tarix",
+      "actions": "Əməliyyatlar",
+      "created": "Yaradılma Tarixi"
+    },
+    "forms": {
+      "product": {
+        "nameAz": "Ad (AZ)",
+        "nameEn": "Ad (EN)",
+        "category": "Kateqoriya",
+        "price": "Qiymət",
+        "hasDiscount": "Endirim",
+        "discountPercentage": "Endirim %",
+        "inStock": "Stokda"
+      },
+      "blog": {
+        "titleAz": "Başlıq (AZ)",
+        "titleEn": "Başlıq (EN)",
+        "category": "Kateqoriya"
+      },
+      "user": {
+        "username": "İstifadəçi adı",
+        "email": "E-poçt",
+        "password": "Şifrə",
+        "role": "Rol",
+        "roles": {
+          "default": "İstifadəçi",
+          "admin": "Admin"
+        },
+        "description": "Müştəri məmnuniyyəti bizim prioritetimizdir",
+        "imageUrl": "https://dt-petty.myshopify.com/cdn/shop/files/team02_800x.jpg?v=1653391375"
+      }
+    },
+    "actions": {
+      "add": "Yeni Əlavə Et",
+      "edit": "Redaktə Et",
+      "delete": "Sil",
+      "save": "Yadda Saxla",
+      "cancel": "Ləğv Et"
+    },
+    "confirmDelete": {
+      "title": "Silməyi Təsdiq Et",
+      "message": "Bu {{type}} silmək istədiyinizə əminsiniz?",
+      "confirm": "Sil",
+      "cancel": "Ləğv Et"
+    },
+    "toast": {
+      "createSuccess": "{{type}} uğurla yaradıldı",
+      "createError": "{{type}} yaradılarkən xəta baş verdi",
+      "updateSuccess": "{{type}} uğurla yeniləndi",
+      "updateError": "{{type}} yenilənərkən xəta baş verdi",
+      "deleteSuccess": "{{type}} uğurla silindi",
+      "deleteError": "{{type}} silinərkən xəta baş verdi"
+    }
+  },
+
   "navigation": {
     "home": "Ana səhifə",
     "shop": "Mağaza",
@@ -335,6 +418,13 @@
         "payPal": "PayPal",
         "bankTransfer": "Bank Transfer",
         "cashOnDelivery": "Ödəniş Əsasında"
+      }
+    },
+    "contact": {
+      "info": {
+        "address": "Heydər Əliyev prospekti 123, Bakı, Azərbaycan",
+        "phone": "+994 50 123 45 67",
+        "email": "info@pawsome.com"
       }
     }
   },
@@ -452,37 +542,26 @@
     "formTitle": "Mesaj Göndərin",
     "formSubtitle": "Suallarınız və ya təklifləriniz üçün bizə mesaj yazın",
     "getDirections": "Xəritədə göstər",
-    "loadingMap": "Xəritə yüklənir...",
-    "info": {
-      "title": "Əlaqə Məlumatları",
-      "address": "Heydər Əliyev prospekti 123, Bakı, Azərbaycan",
-      "phone": "+994 50 123 45 67",
-      "email": "xeyalhuseynli06@gmail.com",
-      "hours": "İş Saatları",
-      "hoursDetail": "Bazar ertəsi - Şənbə: 09:00 - 20:00"
-    },
     "form": {
       "name": "Ad",
       "namePlaceholder": "Adınızı daxil edin",
       "email": "E-poçt",
       "emailPlaceholder": "E-poçt ünvanınızı daxil edin",
       "subject": "Mövzu",
-      "subjectPlaceholder": "Nə barədədir?",
+      "subjectPlaceholder": "Nə haqqındadır?",
       "message": "Mesaj",
       "messagePlaceholder": "Mesajınızı buraya yazın...",
       "send": "Göndər",
       "sending": "Göndərilir...",
       "success": "Mesaj uğurla göndərildi!",
-      "error": "Mesaj göndərilmədi. Zəhmət olmasa yenidən cəhd edin.",
+      "error": "Mesaj göndərilə bilmədi. Zəhmət olmasa yenidən cəhd edin.",
       "validation": {
         "nameRequired": "Ad tələb olunur",
         "emailRequired": "E-poçt tələb olunur",
         "emailInvalid": "Düzgün e-poçt ünvanı daxil edin",
         "messageRequired": "Mesaj tələb olunur",
         "messageMinLength": "Mesaj ən azı 10 simvoldan ibarət olmalıdır"
-      }
-    },
-    "form": {
+      },
       "successMessage": "Mesajınız uğurla göndərildi! Tezliklə sizinlə əlaqə saxlayacağıq."
     }
   },
@@ -760,6 +839,8 @@
   "adminPanel": {
     "dashboard": "İdarəetmə Paneli",
     "title": "Admin Panel",
+    "loading": "{{type}} yüklənir...",
+    "noData": "{{type}} tapılmadı",
     "sections": {
       "statistics": "Statistika",
       "products": "Məhsullar",
@@ -768,139 +849,74 @@
       "orders": "Sifarişlər"
     },
     "management": {
-      "products": "Məhsulların İdarə Edilməsi",
-      "blogs": "Bloqların İdarə Edilməsi",
-      "users": "İstifadəçilərin İdarə Edilməsi",
-      "orders": "Sifarişlərin İdarə Edilməsi"
-    },
-    "actions": {
-      "add": "Əlavə et",
-      "edit": "Redaktə et",
-      "delete": "Sil",
-      "create": "Yarat",
-      "update": "Yenilə",
-      "cancel": "Ləğv et",
-      "confirm": "Təsdiq et",
-      "close": "Bağla",
-      "save": "Yadda saxla",
-      "search": "Axtar",
-      "filter": "Filtrlə",
-      "sort": "Sırala",
-      "export": "İxrac et",
-      "import": "İdxal et",
-      "print": "Çap et",
-      "download": "Yüklə"
+      "products": "Məhsul İdarəetməsi",
+      "blogs": "Bloq İdarəetməsi",
+      "users": "İstifadəçi İdarəetməsi",
+      "orders": "Sifariş İdarəetməsi"
     },
     "table": {
-      "image": "Şəkil",
-      "titleAz": "Başlıq (AZ)",
-      "titleEn": "Başlıq (EN)",
-      "category": "Kateqoriya",
-      "actions": "Əməliyyatlar",
-      "showing": "Göstərilir",
-      "to": "-",
-      "of": "dən",
-      "entries": "qeyd",
-      "previous": "← Əvvəlki",
-      "next": "Növbəti →",
       "productsLabel": "Məhsullar cədvəli",
       "blogsLabel": "Bloqlar cədvəli",
       "usersLabel": "İstifadəçilər cədvəli",
       "ordersLabel": "Sifarişlər cədvəli",
-      "orderId": "Sifariş №",
-      "customerName": "Müştəri adı",
+      "image": "Şəkil",
+      "orderId": "Sifariş ID",
+      "customerName": "Müştəri",
       "products": "Məhsullar",
-      "totalAmount": "Ümumi məbləğ",
+      "totalAmount": "Cəmi",
       "status": "Status",
-      "orderDate": "Sifariş tarixi",
-      "created": "Yaradılıb",
-      "moreItems": "+{{count}} daha çox məhsul",
-      "noData": "Məlumat tapılmadı",
-      "loading": "Yüklənir...",
-      "error": "Xəta baş verdi",
-      "search": "Axtar...",
-      "filter": "Filtrlə",
-      "sort": "Sırala",
-      "itemsPerPage": "Səhifə başına",
-      "selectAll": "Hamısını seç",
-      "selected": "{{count}} seçilib"
-    },
-    "filters": {
-      "status": "Status",
-      "category": "Kateqoriya",
-      "date": "Tarix",
-      "price": "Qiymət",
-      "stock": "Stok",
-      "apply": "Tətbiq et",
-      "clear": "Təmizlə",
-      "from": "Başlanğıc",
-      "to": "Son",
-      "all": "Hamısı",
-      "custom": "Xüsusi"
-    },
-    "sort": {
-      "ascending": "Artan",
-      "descending": "Azalan",
-      "newest": "Ən yeni",
-      "oldest": "Ən köhnə",
-      "priceHigh": "Qiymət (yuxarı)",
-      "priceLow": "Qiymət (aşağı)",
-      "nameAZ": "Ad (A-Z)",
-      "nameZA": "Ad (Z-A)"
-    },
-    "messages": {
-      "confirmDelete": "Bu elementi silmək istədiyinizə əminsiniz?",
-      "deleteSuccess": "Element uğurla silindi",
-      "deleteError": "Element silinərkən xəta baş verdi",
-      "updateSuccess": "Məlumatlar uğurla yeniləndi",
-      "updateError": "Məlumatlar yenilənərkən xəta baş verdi",
-      "createSuccess": "Element uğurla yaradıldı",
-      "createError": "Element yaradılarkən xəta baş verdi",
-      "invalidData": "Yanlış məlumatlar",
-      "requiredFields": "Bütün tələb olunan sahələri doldurun",
-      "confirmAction": "Bu əməliyyatı yerinə yetirmək istədiyinizə əminsiniz?"
-    },
-    "forms": {
-      "user": {
-        "username": "İstifadəçi adı",
-        "email": "E-poçt",
-        "role": "Rol",
-        "roles": {
-          "default": "👤 Sadə İstifadəçi",
-          "admin": "👑 Admin"
-        },
-        "password": "Şifrə",
-        "confirmPassword": "Şifrəni təsdiq et",
-        "passwordHint": "Yalnız dəyişdirmək istəyirsinizsə doldurun",
-        "validation": {
-          "usernameRequired": "İstifadəçi adı tələb olunur",
-          "emailRequired": "E-poçt tələb olunur",
-          "passwordRequired": "Yeni istifadəçilər üçün şifrə tələb olunur",
-          "passwordMinLength": "Şifrə ən azı 6 simvol olmalıdır",
-          "userIdMissing": "İstifadəçi ID-si çatışmır"
-        },
-        "messages": {
-          "createSuccess": "İstifadəçi uğurla yaradıldı",
-          "updateSuccess": "İstifadəçi uğurla yeniləndi",
-          "createError": "İstifadəçi yaradılarkən xəta baş verdi",
-          "updateError": "İstifadəçi yenilənərkən xəta baş verdi"
-        }
-      }
+      "orderDate": "Tarix",
+      "actions": "Əməliyyatlar",
+      "created": "Yaradılma Tarixi"
     },
     "forms": {
       "product": {
-        "discountLabel": "Endirim",
-        "discountPlaceholder": "0-100 arası bir rəqəm daxil edin (məs: 25 = 25% endirim)",
-        "discountError": "Endirim 0-100 arasında olmalıdır",
-        "isOnSale": "Endirimdədir",
-        "discountPercentage": "Endirim faizi",
-        "enterDiscountPercentage": "Endirim faizini daxil edin",
-        "discountHelp": "Endirim faizi 0-100 arasında olmalıdır",
-        "originalPrice": "Orijinal qiymət",
-        "discountedPrice": "Endirimli qiymət",
-        "saveAmount": "Qənaət: {{amount}}",
-        "invalidDiscount": "Endirim faizi düzgün deyil"
+        "nameAz": "Ad (AZ)",
+        "nameEn": "Ad (EN)",
+        "category": "Kateqoriya",
+        "price": "Qiymət",
+        "hasDiscount": "Endirim",
+        "discountPercentage": "Endirim %",
+        "inStock": "Stokda"
+      },
+      "blog": {
+        "titleAz": "Başlıq (AZ)",
+        "titleEn": "Başlıq (EN)",
+        "category": "Kateqoriya"
+      },
+      "user": {
+        "username": "İstifadəçi adı",
+        "email": "E-poçt",
+        "password": "Şifrə",
+        "role": "Rol",
+        "roles": {
+          "default": "İstifadəçi",
+          "admin": "Admin"
+        },
+        "description": "Müştəri məmnuniyyəti bizim prioritetimizdir",
+        "imageUrl": "https://dt-petty.myshopify.com/cdn/shop/files/team02_800x.jpg?v=1653391375"
       }
+    },
+    "actions": {
+      "add": "Yeni Əlavə Et",
+      "edit": "Redaktə Et",
+      "delete": "Sil",
+      "save": "Yadda Saxla",
+      "cancel": "Ləğv Et"
+    },
+    "confirmDelete": {
+      "title": "Silməyi Təsdiq Et",
+      "message": "Bu {{type}} silmək istədiyinizə əminsiniz?",
+      "confirm": "Sil",
+      "cancel": "Ləğv Et"
+    },
+    "toast": {
+      "createSuccess": "{{type}} uğurla yaradıldı",
+      "createError": "{{type}} yaradılarkən xəta baş verdi",
+      "updateSuccess": "{{type}} uğurla yeniləndi",
+      "updateError": "{{type}} yenilənərkən xəta baş verdi",
+      "deleteSuccess": "{{type}} uğurla silindi",
+      "deleteError": "{{type}} silinərkən xəta baş verdi"
     }
   },
   "orders": {
@@ -954,30 +970,26 @@
   "cart": {
     "empty": {
       "title": "Səbətiniz boşdur",
-      "description": "Səbətinizdə hələ heç bir məhsul yoxdur",
-      "shopButton": "Alış-verişə başla"
+      "description": "Hələ səbətinizə heç nə əlavə etməmisiniz",
+      "shopButton": "Alış-verişə başlayın"
     },
-    "priceNotAvailable": "Qiymət mövcud deyil",
+    "title": "Alış-veriş səbəti",
+    "summary": "Səbət xülasəsi",
+    "subtotal": "Ara cəm",
+    "shipping": "Çatdırılma",
+    "total": "Ümumi",
+    "checkout": "Sifarişi tamamla",
+    "continue": "Alış-verişə davam et",
+    "remove": "Sil",
+    "moveToWishlist": "İstək siyahısına əlavə et",
     "outOfStock": "Stokda yoxdur",
-    "invalidProductData": "Məhsul məlumatları çatışmır",
-    "removeFromCart": "Səbətdən sil",
-    "wishlist": {
-      "inWishlist": "İstək siyahısında",
-      "addToWishlist": "İstək siyahısına əlavə et"
-    },
-    "summary": {
-      "title": "Səbət Xülasəsi",
-      "items": "{{count}} məhsul",
-      "shipping": "Çatdırılma",
-      "freeShipping": "Pulsuz",
-      "freeShippingNote": "Pulsuz çatdırılma üçün daha ${{amount}} məbləğində alış-veriş edin",
-      "total": "Ümumi Məbləğ"
-    },
-    "error": "Xəta: {{error}}",
-    "loginRequired": "Sifariş vermək üçün daxil olun",
-    "proceedToCheckout": "Sifarişi Tamamla",
-    "continueShopping": "Alış-verişə Davam Et",
-    "viewOrders": "Sifarişlərim"
+    "priceNotAvailable": "Qiymət mövcud deyil",
+    "quantity": "Miqdar",
+    "freeShipping": "Pulsuz çatdırılma",
+    "shippingNote": "$50-dan yuxarı sifarişlərdə pulsuz çatdırılma",
+    "invalidProduct": "Yanlış məhsul",
+    "loginToCheckout": "Sifarişi tamamlamaq üçün daxil olun",
+    "viewOrders": "Sifarişlərə baxın"
   },
   "checkout": {
     "title": "Sifarişi Tamamla",
@@ -1044,25 +1056,25 @@
   "aboutUs": {
     "hero": {
       "tag": "Haqqımızda",
-      "title": "Pawsome Azərbaycan",
-      "description": "2018-ci ildən bəri sevimli ev heyvanlarınızın sağlamlığı və xoşbəxtliyi üçün çalışırıq"
+      "title": "Heyvanlarınıza Ailə Kimi Baxırıq",
+      "description": "Hekayəmizi və sevimli heyvanlarınız üçün ən yaxşı qulluq və məhsulları təmin etmək öhdəliyimizi kəşf edin."
     },
     "stats": {
       "happyCustomers": {
-        "number": "10K+",
+        "number": "10,000+",
         "label": "Məmnun Müştəri"
       },
       "products": {
-        "number": "500+",
-        "label": "Məhsul Çeşidi"
+        "number": "1,000+",
+        "label": "Məhsul"
       },
       "satisfaction": {
         "number": "98%",
-        "label": "Məmnuniyyət"
+        "label": "Məmnuniyyət Dərəcəsi"
       },
       "support": {
         "number": "24/7",
-        "label": "Dəstək"
+        "label": "Müştəri Dəstəyi"
       }
     },
     "values": {
@@ -1071,15 +1083,15 @@
       "items": {
         "petLove": {
           "title": "Heyvanlara Sevgi",
-          "description": "Qəbul etdiyimiz hər qərar heyvanlara olan sevgimizlə yönləndirilir"
+          "description": "Hər bir heyvana öz ailə üzvümüz kimi sevgi və qayğı ilə yanaşırıq."
         },
         "quality": {
-          "title": "Keyfiyyət Zəmanəti",
-          "description": "Məhsullarımızın keyfiyyətindən heç vaxt güzəştə getmirik"
+          "title": "Premium Keyfiyyət",
+          "description": "Heyvanlarınızın sağlamlığı və xoşbəxtliyi üçün yalnız ən yüksək keyfiyyətli məhsullar təklif edirik."
         },
         "satisfaction": {
           "title": "Müştəri Məmnuniyyəti",
-          "description": "Müştərilərimizlə uzunmüddətli əlaqələr qururuq"
+          "description": "Sizin məmnuniyyətiniz bizim əsas prioritetimizdir və gözləntilərinizi aşmağa çalışırıq."
         }
       }
     },
@@ -1094,17 +1106,25 @@
           "imageUrl": "https://dt-petty.myshopify.com/cdn/shop/files/team03_800x.jpg?v=1653391389"
         },
         "veterinary": {
-          "name": "Dr. Əli Məmmədov",
-          "role": "Baş Baytar",
-          "description": "10+ illik təcrübə ilə heyvanların sağlamlığı üçün çalışır",
-          "imageUrl": "https://dt-petty.myshopify.com/cdn/shop/files/team01_800x.jpg?v=1653391389"
+          "name": "Rəşad Məmmədov",
+          "role": "Baytarlıq Məsləhətçisi",
+          "description": "Heyvan sağlamlığında 15 illik təcrübə",
+          "imageUrl": "https://dt-petty.myshopify.com/cdn/shop/files/team01_800x.jpg?v=1653391363"
         },
         "customerService": {
-          "name": "Aynur Hüseynova",
-          "role": "Müştəri Xidmətləri Rəhbəri",
-          "description": "Müştəri məmnuniyyətini təmin etmək üçün daim çalışır",
-          "imageUrl": "https://dt-petty.myshopify.com/cdn/shop/files/team02_800x.jpg?v=1653391389"
+          "name": "Günəl Həsənova",
+          "role": "Müştəri Xidmətləri",
+          "description": "Müştəri məmnuniyyəti bizim prioritetimizdir",
+          "imageUrl": "https://dt-petty.myshopify.com/cdn/shop/files/team02_800x.jpg?v=1653391375"
         }
+      }
+    },
+    "contact": {
+      "title": "Bizimlə Əlaqə Saxlayın",
+      "description": "Suallarınız var? Komandamız sizə kömək etməyə hazırdır",
+      "buttons": {
+        "contact": "Əlaqə",
+        "moreInfo": "Ətraflı Məlumat"
       }
     }
   },
@@ -1154,6 +1174,15 @@
     "noResults": {
       "title": "Blog tapılmadı",
       "description": "Axtarış kriteriyalarınıza uyğun blog tapılmadı. Zəhmət olmasa başqa açar sözlərlə yenidən cəhd edin."
+    },
+    "categories": {
+      "health": "Sağlamlıq",
+      "nutrition": "Qidalanma",
+      "training": "Təlim",
+      "grooming": "Qulluq",
+      "behavior": "Davranış",
+      "lifestyle": "Həyat tərzi",
+      "uncategorized": "Kateqoriyasız"
     }
   },
   "productDetail": {
@@ -1331,10 +1360,10 @@
     }
   },
   "blog": {
-    "minuteRead": "dəqiqə oxuma",
+    "minuteRead": "dəqiqəlik oxuma",
     "error": {
       "title": "Xəta baş verdi",
-      "message": "Bloq məlumatları yüklənərkən xəta baş verdi."
+      "message": "Bloq məzmunu yüklənərkən xəta baş verdi."
     }
   },
   "products": {
@@ -1427,5 +1456,27 @@
         "description": "Sərin hava üçün əyləncəli fəaliyyətlər"
       }
     }
+  },
+  "cats": {
+    "hero": {
+      "title": "Pişiklər üçün Məhsullar",
+      "subtitle": "Sevimli pişikləriniz üçün keyfiyyətli və təhlükəsiz məhsullar"
+    },
+    "categories": {
+      "title": "Kateqoriyalar",
+      "all": "Bütün Məhsullar",
+      "food": "Pişik Yemləri",
+      "litter": "Pişik Qumları",
+      "beds": "Ev və Yataqlar",
+      "carriers": "Daşıma Çantaları",
+      "leashes": "Qayışlar",
+      "badge": {
+        "select": "Seçin",
+        "products": "{{count}} məhsul"
+      }
+    },
+    "loading": "Pişik məhsulları yüklənir...",
+    "error": "Məhsulları yükləmək mümkün olmadı",
+    "noProducts": "Bu kateqoriyada məhsul tapılmadı"
   }
 }

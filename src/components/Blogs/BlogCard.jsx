@@ -8,13 +8,10 @@ const BlogCard = ({ blog, isAzerbaijani }) => {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const options = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    };
-    
-    return new Intl.DateTimeFormat(isAzerbaijani ? 'az-AZ' : 'en-US', options).format(date);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear().toString().slice(-2);
+    return `${day}/${month}/${year}`;
   };
 
   const truncateText = (text, maxLength) => {
@@ -37,8 +34,8 @@ const BlogCard = ({ blog, isAzerbaijani }) => {
   };
 
   const formatCategory = (category) => {
-    if (!category) return t('blog.uncategorized');
-    return category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+    if (!category) return t('blog.categories.uncategorized');
+    return t(`blog.categories.${category.toLowerCase()}`);
   };
 
   return (
@@ -47,31 +44,31 @@ const BlogCard = ({ blog, isAzerbaijani }) => {
         {blog.image ? (
           <img 
             src={blog.image} 
-            alt={isAzerbaijani ? blog.blogTitle_az : blog.blogTitle_en}
+            alt={isAzerbaijani ? blog.title_az : blog.title_en}
             className={styles.blogImage}
             loading="lazy"
           />
         ) : (
           <div className={styles.placeholderImage}>
-            <span>{getCategoryIcon(blog.blogCategory)}</span>
+            <span>{getCategoryIcon(blog.category)}</span>
           </div>
         )}
         <div className={styles.categoryBadge}>
           <span className={styles.categoryIcon}>
-            {getCategoryIcon(blog.blogCategory)}
+            {getCategoryIcon(blog.category)}
           </span>
-          {formatCategory(blog.blogCategory)}
+          {formatCategory(blog.category)}
         </div>
       </div>
 
       <div className={styles.blogContent}>
         <h3 className={styles.blogTitle}>
-          {truncateText(isAzerbaijani ? blog.blogTitle_az : blog.blogTitle_en, 80)}
+          {truncateText(isAzerbaijani ? blog.title_az : blog.title_en, 80)}
         </h3>
         
         <p className={styles.blogDescription}>
           {truncateText(
-            isAzerbaijani ? blog.blogDescription_az : blog.blogDescription_en,
+            isAzerbaijani ? blog.description_az : blog.description_en,
             150
           )}
         </p>

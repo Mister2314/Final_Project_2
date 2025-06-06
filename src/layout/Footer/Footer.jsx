@@ -163,15 +163,15 @@ const Footer = () => {
             <h3 className={styles.footerTitle}>{t('footer.contactInfo')}</h3>
             <div className={styles.contactItem}>
               <MdLocationOn className={styles.contactIcon} />
-              <span>{t('contact.info.address')}</span>
+              <span>{t('footer.contact.info.address')}</span>
             </div>
             <div className={styles.contactItem}>
               <MdPhone className={styles.contactIcon} />
-              <span>{t('contact.info.phone')}</span>
+              <span>{t('footer.contact.info.phone')}</span>
             </div>
             <div className={styles.contactItem}>
               <MdEmail className={styles.contactIcon} />
-              <span>{t('contact.info.email')}</span>
+              <span>{t('footer.contact.info.email')}</span>
             </div>
             <div className={styles.newsletter}>
               <h3 className={styles.footerTitle}>{t('footer.newsletter')}</h3>

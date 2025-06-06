@@ -54,13 +54,19 @@ const Contact = () => {
 
   const validateForm = () => {
     const errors = {};
-    if (!formState.name.trim()) errors.name = t("contact.errors.nameRequired");
-    if (!formState.email.trim()) {
-      errors.email = t("contact.errors.emailRequired");
-    } else if (!/\S+@\S+\.\S+/.test(formState.email)) {
-      errors.email = t("contact.errors.emailInvalid");
+    if (!formState.name.trim()) {
+      errors.name = t("contact.form.validation.nameRequired");
     }
-    if (!formState.message.trim()) errors.message = t("contact.errors.messageRequired");
+    if (!formState.email.trim()) {
+      errors.email = t("contact.form.validation.emailRequired");
+    } else if (!/\S+@\S+\.\S+/.test(formState.email)) {
+      errors.email = t("contact.form.validation.emailInvalid");
+    }
+    if (!formState.message.trim()) {
+      errors.message = t("contact.form.validation.messageRequired");
+    } else if (formState.message.trim().length < 10) {
+      errors.message = t("contact.form.validation.messageMinLength");
+    }
     
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
@@ -424,7 +430,7 @@ const Contact = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
                   >
-                    {submitError}
+                    {t("contact.form.error")}
                   </motion.div>
                 )}
               </form>

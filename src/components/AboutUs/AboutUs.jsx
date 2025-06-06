@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { FiUsers, FiPackage, FiStar, FiClock, FiHeart, FiShield, FiSmile } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
 import Header from '../../layout/Header/Header';
@@ -8,6 +9,7 @@ import styles from './AboutUs.module.css';
 
 const AboutUs = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -182,6 +184,7 @@ const AboutUs = () => {
                 className={styles.primaryButton}
                 whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(130, 71, 245, 0.3)" }}
                 whileTap={{ y: -2 }}
+                onClick={() => navigate('/contact')}
               >
                 {t('aboutUs.contact.buttons.contact')}
               </motion.button>
@@ -189,6 +192,7 @@ const AboutUs = () => {
                 className={styles.secondaryButton}
                 whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)" }}
                 whileTap={{ y: -2 }}
+                onClick={() => navigate('/faq')}
               >
                 {t('aboutUs.contact.buttons.moreInfo')}
               </motion.button>
