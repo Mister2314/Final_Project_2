@@ -14,7 +14,7 @@ const CatLeashes = () => {
       az: 'Pişikləriniz üçün rahat və təhlükəsiz tasmaları kəşf edin',
       en: 'Discover comfortable and safe leashes for your cats'
     },
-    icon: '🦮', 
+    icon: '🐈', 
     searchPlaceholder: {
       az: 'Pişik tasması axtar...',
       en: 'Search cat leashes...'
@@ -23,15 +23,12 @@ const CatLeashes = () => {
 
   const filterParams = { 
     main_name: 'cat',
-    main_category: 'leashes'
+    main_category: 'leash'
   };
 
   const customFilters = [
     (product) => {
-      return product.main_name === 'cat' && 
-             (product.main_category?.toLowerCase() === 'leashes' || 
-              product.categoryAz?.toLowerCase().includes('tasma') ||
-              product.categoryEn?.toLowerCase().includes('leash'));
+      return product.main_name === 'cat' && product.main_category === 'leash';
     }
   ];
 

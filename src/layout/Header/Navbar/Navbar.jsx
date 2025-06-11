@@ -196,11 +196,11 @@ const handleLogout = async () => {
     { path: "/contact", key: "contact", label: t("navbar.2") },
   ];
 
-  const categoryItems = [
-    { path: "/shop/dogs", icon: <FaDog />, label: "Dogs" },
-    { path: "/shop/cats", icon: <FaCat />, label: "Cats" },
-    { path: "/shop/all-products", icon: null, label: "All Products" },
-  ];
+      const categoryItems = [
+      { path: "/shop/dogs", icon: <FaDog />, label: t("navbar.categories.dogs") },
+      { path: "/shop/cats", icon: <FaCat />, label: t("navbar.categories.cats") },
+      { path: "/shop/all-products", icon: null, label: t("navbar.categories.allProducts") },
+    ];
 
   const isLinkActive = (key) => {
     if (key === "shop" && location.pathname.startsWith("/shop")) {

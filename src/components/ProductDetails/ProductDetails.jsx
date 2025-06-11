@@ -31,7 +31,7 @@ import styles from './ProductDetails.module.css';
 import { deleteReview } from '../../redux/slices/reviewsSlice';
 import ConfirmDialog from '../ConfirmDialog/ConfirmDialog';
 import ReviewForm from '../ReviewForm/ReviewForm';
-
+import Spinner from '../Spinner/Spinner';
 const ProductDetails = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -409,15 +409,7 @@ const ProductDetails = () => {
       <div className={styles.pageContainer}>
         <Header />
         <div className={styles.loadingContainer}>
-          <div className={styles.loadingSpinner}></div>
-          <div className={styles.loadingContent}>
-            <div className={styles.loadingText}>
-              {isAzerbaijani ? 'Məhsul yüklənir...' : 'Loading product...'}
-            </div>
-            <div className={styles.loadingSubtext}>
-              {isAzerbaijani ? 'Zəhmət olmasa gözləyin' : 'Please wait'}
-            </div>
-          </div>
+          <Spinner size="large" />
         </div>
         <Footer />
       </div>

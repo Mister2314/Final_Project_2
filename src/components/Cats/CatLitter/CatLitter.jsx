@@ -14,7 +14,7 @@ const CatLitter = () => {
       az: 'Pişikləriniz üçün ən keyfiyyətli qumları tapın',
       en: 'Find the highest quality litter for your cats'
     },
-    icon: '🏺',
+    icon: '🏠',
     searchPlaceholder: {
       az: 'Pişik qumu axtar...',
       en: 'Search cat litter...'
@@ -23,15 +23,12 @@ const CatLitter = () => {
 
   const filterParams = { 
     main_name: 'cat',
-    main_category: 'cat litter'
+    main_category: 'litter'
   };
 
   const customFilters = [
     (product) => {
-      return product.main_name === 'cat' && 
-             (product.main_category === 'cat litter' || 
-              product.categoryAz?.toLowerCase().includes('qum') ||
-              product.categoryEn?.toLowerCase().includes('litter'));
+      return product.main_name === 'cat' && product.main_category === 'litter';
     }
   ];
 

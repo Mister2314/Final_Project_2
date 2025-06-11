@@ -13,7 +13,12 @@
     "logout": "Çıxış",
     "logoutSuccess": "Uğurla çıxış etdiniz!",
     "logoutError": "Çıxış zamanı xəta baş verdi",
-    "searchPlaceholder": "Məhsulları axtar..."
+    "searchPlaceholder": "Məhsulları axtar...",
+    "categories": {
+      "dogs": "İtlər",
+      "cats": "Pişiklər",
+      "allProducts": "Bütün Məhsullar"
+    }
   },
   "allProducts": {
     "title": "Bütün Məhsullar",
@@ -23,8 +28,8 @@
       "petType": {
         "title": "Heyvan Növü",
         "all": "Bütün Heyvanlar",
-        "cats": "Pişiklər",
-        "dogs": "İtlər"
+        "cats": "Yalnız Pişiklər",
+        "dogs": "Yalnız İtlər"
       },
       "categories": {
         "food": "Qida",
@@ -46,6 +51,11 @@
       "cats": {
         "name": "Pişiklər",
         "route": "/shop/cats"
+      },
+      "all": {
+        "name": "Bütün Məhsullar",
+        "subtitle": "Bütün heyvanlar üçün məhsullar",
+        "description": "Mağazamızda olan bütün məhsulları kəşf edin"
       }
     }
   },
@@ -241,7 +251,9 @@
     "searchPlaceholder": "Sifarişləri axtar..."
   },
   "adminPanel": {
-    "title": "Admin Panel",
+    "addNew": "Yeni əlavə et",
+    "dashboard": "İdarə paneli",
+    "title": "Admin Paneli",
     "loading": "{{type}} yüklənir...",
     "noData": "{{type}} tapılmadı",
     "sections": {
@@ -257,72 +269,168 @@
       "users": "İstifadəçi İdarəetməsi",
       "orders": "Sifariş İdarəetməsi"
     },
-    "table": {
-      "productsLabel": "Məhsullar cədvəli",
-      "blogsLabel": "Bloqlar cədvəli",
-      "usersLabel": "İstifadəçilər cədvəli",
-      "ordersLabel": "Sifarişlər cədvəli",
-      "image": "Şəkil",
-      "orderId": "Sifariş ID",
-      "customerName": "Müştəri",
-      "products": "Məhsullar",
-      "totalAmount": "Cəmi",
-      "status": "Status",
-      "orderDate": "Tarix",
-      "actions": "Əməliyyatlar",
-      "created": "Yaradılma Tarixi"
+    "actions": {
+      "create": "Yarat",
+      "edit": "Düzəliş et",
+      "update": "Yenilə",
+      "delete": "Sil",
+      "cancel": "Ləğv et",
+      "add": "Yeni əlavə et"
+    },
+    "delete": {
+      "title": "Silməyi təsdiq et",
+      "message": "Bu elementi silmək istədiyinizə əminsiniz? Bu əməliyyat geri alına bilməz.",
+      "confirmButton": "Bəli, sil",
+      "cancelButton": "Ləğv et"
     },
     "forms": {
       "product": {
+        "mainName": "Heyvan Növü",
+        "mainNameHint": "'cat' və ya 'dog' daxil edin",
         "nameAz": "Ad (AZ)",
         "nameEn": "Ad (EN)",
+        "descriptionAz": "Təsvir (AZ)",
+        "descriptionEn": "Təsvir (EN)",
+        "image": "Şəkil URL",
         "category": "Kateqoriya",
+        "categoryHint": "Mövcud kateqoriyalar:",
         "price": "Qiymət",
-        "hasDiscount": "Endirim",
+        "priceHint": "Qiyməti AZN ilə daxil edin",
+        "hasDiscount": "Endirimi var",
         "discountPercentage": "Endirim %",
-        "inStock": "Stokda"
+        "inStock": "Stokda var",
+        "outOfStock": "Stokda yoxdur",
+        "isDiscount": "Endirimi var",
+        "discountLabel": "Endirim faizi",
+        "discountPlaceholder": "Endirim faizini daxil edin",
+        "discountHelp": "0 ilə 100 arasında bir dəyər daxil edin",
+        "instock": "Stokda var",
+        "instockHint": "Məhsulun stokda olub-olmadığını qeyd edin",
+        "inStockDefault": "(Standart: Stokda var)",
+        "isDiscountHint": "Məhsulun endirimi varsa aktiv edin",
+        "validation": {
+          "mainNameRequired": "Heyvan növü tələb olunur",
+          "nameAzRequired": "Ad (AZ) tələb olunur",
+          "nameEnRequired": "Ad (EN) tələb olunur",
+          "categoryRequired": "Kateqoriya tələb olunur",
+          "priceRequired": "Qiymət 0-dan böyük olmalıdır",
+          "discountRequired": "Endirim aktiv olduqda endirim faizi tələb olunur",
+          "discountInvalid": "Endirim 0 ilə 100 arasında bir rəqəm olmalıdır"
+        }
       },
       "blog": {
         "titleAz": "Başlıq (AZ)",
         "titleEn": "Başlıq (EN)",
-        "category": "Kateqoriya"
+        "descriptionAz": "Təsvir (AZ)",
+        "descriptionEn": "Təsvir (EN)",
+        "category": "Kateqoriya",
+        "categoryHint": "Mövcud kateqoriyalar:",
+        "image": "Şəkil URL",
+        "validation": {
+          "titleAzRequired": "Başlıq (AZ) tələb olunur",
+          "titleEnRequired": "Başlıq (EN) tələb olunur",
+          "descriptionAzRequired": "Təsvir (AZ) tələb olunur",
+          "descriptionEnRequired": "Təsvir (EN) tələb olunur",
+          "categoryRequired": "Kateqoriya tələb olunur"
+        }
       },
       "user": {
         "username": "İstifadəçi adı",
         "email": "E-poçt",
         "password": "Şifrə",
+        "passwordHint": "Cari şifrəni saxlamaq üçün boş buraxın",
         "role": "Rol",
-        "roles": {
-          "default": "İstifadəçi",
-          "admin": "Admin"
+        "default": "Sadə İstifadəçi",
+        "admin": "Administrator",
+        "validation": {
+          "usernameRequired": "İstifadəçi adı tələb olunur",
+          "emailRequired": "E-poçt tələb olunur",
+          "passwordRequired": "Şifrə tələb olunur",
+          "passwordMinLength": "Şifrə ən azı 6 simvol olmalıdır",
+          "userIdMissing": "İstifadəçi ID-si yoxdur"
         },
-        "description": "Müştəri məmnuniyyəti bizim prioritetimizdir",
-        "imageUrl": "https://dt-petty.myshopify.com/cdn/shop/files/team02_800x.jpg?v=1653391375"
+        "messages": {
+          "createSuccess": "İstifadəçi uğurla yaradıldı",
+          "updateSuccess": "İstifadəçi uğurla yeniləndi"
+        },
+        "roles": {
+          "regular": "Sadə İstifadəçi",
+          "admin": "Administrator",
+          "label": "İstifadəçi Rolu",
+          "hint": "İstifadəçi rolunu seçin"
+        }
+      },
+      "order": {
+        "customerInfo": "Müştəri Məlumatları",
+        "customer": "Müştəri",
+        "selectCustomer": "Müştəri seçin",
+        "fullName": "Tam Ad",
+        "dates": "Tarixlər",
+        "orderDate": "Sifariş Tarixi",
+        "selectOrderDate": "Sifariş tarixini seçin",
+        "expectedDeliveryDate": "Gözlənilən Çatdırılma Tarixi",
+        "selectExpectedDate": "Gözlənilən çatdırılma tarixini seçin",
+        "actualDeliveryDate": "Faktiki Çatdırılma Tarixi",
+        "selectActualDate": "Faktiki çatdırılma tarixini seçin",
+        "shippingDetails": "Çatdırılma Məlumatları",
+        "shippingAddress": "Çatdırılma Ünvanı",
+        "city": "Şəhər",
+        "zipCode": "Poçt İndeksi",
+        "products": "Məhsullar",
+        "searchProducts": "Məhsulları Axtar",
+        "allCategories": "Bütün Kateqoriyalar",
+        "allStock": "Bütün Stok",
+        "outOfStock": "Stokda Yoxdur",
+        "sortNameAsc": "Ad (A-Z)",
+        "minPrice": "Min Qiymət",
+        "maxPrice": "Max Qiymət",
+        "orderStatus": "Sifariş Statusu",
+        "selectedProducts": "Seçilmiş Məhsullar",
+        "noProductsSelected": "Məhsul seçilməyib",
+        "orderTotal": "Sifariş Cəmi",
+        "productFilters": {
+          "title": "Məhsulları Filterlə",
+          "category": {
+            "label": "Kateqoriya",
+            "all": "Bütün Kateqoriyalar",
+            "food": "Qida",
+            "toys": "Oyuncaqlar",
+            "beds": "Yataqlar",
+            "carriers": "Daşıyıcılar",
+            "leashes": "Qayışlar",
+            "litter": "Qum"
+          },
+          "stock": {
+            "label": "Stok Vəziyyəti",
+            "all": "Bütün Stok",
+            "inStock": "Stokda Var",
+            "outOfStock": "Stokda Yoxdur"
+          },
+          "sort": {
+            "label": "Sırala",
+            "nameAsc": "Ad (A-Z)",
+            "nameDesc": "Ad (Z-A)",
+            "priceAsc": "Qiymət (Aşağıdan Yuxarı)",
+            "priceDesc": "Qiymət (Yuxarıdan Aşağı)"
+          },
+          "price": {
+            "label": "Qiymət Aralığı",
+            "min": "Min Qiymət",
+            "max": "Max Qiymət"
+          }
+        }
       }
     },
-    "actions": {
-      "add": "Yeni Əlavə Et",
-      "edit": "Redaktə Et",
-      "delete": "Sil",
-      "save": "Yadda Saxla",
-      "cancel": "Ləğv Et"
-    },
-    "confirmDelete": {
-      "title": "Silməyi Təsdiq Et",
-      "message": "Bu {{type}} silmək istədiyinizə əminsiniz?",
-      "confirm": "Sil",
-      "cancel": "Ləğv Et"
-    },
-    "toast": {
-      "createSuccess": "{{type}} uğurla yaradıldı",
-      "createError": "{{type}} yaradılarkən xəta baş verdi",
-      "updateSuccess": "{{type}} uğurla yeniləndi",
-      "updateError": "{{type}} yenilənərkən xəta baş verdi",
-      "deleteSuccess": "{{type}} uğurla silindi",
-      "deleteError": "{{type}} silinərkən xəta baş verdi"
+    "orderStatus": {
+      "preparing": "Sifarişiniz hazırlanır",
+      "confirmed": "Təsdiq edildi",
+      "inTransit": "Yolda",
+      "delivered": "Çatdırıldı",
+      "cancelled": "Ləğv edildi",
+      "returned": "Geri qaytarıldı",
+      "waitingPayment": "Ödəniş gözləyir"
     }
   },
-
   "navigation": {
     "home": "Ana səhifə",
     "shop": "Mağaza",
@@ -424,7 +532,7 @@
       "info": {
         "address": "Heydər Əliyev prospekti 123, Bakı, Azərbaycan",
         "phone": "+994 50 123 45 67",
-        "email": "info@pawsome.com"
+        "email": "xeyalhuseynli06@gmail.com"
       }
     }
   },
@@ -507,7 +615,7 @@
       "deliveryTime": "Çatdırılma müddəti yerinizə görə dəyişir. Standart yerli çatdırılma adətən 3-5 iş günü çəkir. Ekspress çatdırılma 1-2 iş günü ərzində baş tutur. Beynəlxalq göndərmə təyinat ölkəsindən və gömrük prosedurlarından asılı olaraq 7-14 iş günü çəkə bilər.",
       "productQuality": "Biz yalnız yüksək keyfiyyətli heyvan məhsulları təklif etməkdən qürur duyuruq. Bütün məhsullarımız ciddi keyfiyyət nəzarətindən keçir və etibarlı istehsalçılardan tədarük edilir. Biz davamlı, heyvanlar üçün təhlükəsiz materiallar seçirik və məhsullarımızı keyfiyyət, təhlükəsizlik və davamlılıq standartlarına uyğunluğunu təmin etmək üçün müntəzəm olaraq test edirik.",
       "returnPolicy": "İstifadə edilməmiş məhsullar orijinal qablaşdırmada alındıqdan sonra 30 gün ərzində qaytarıla bilər. Əgər alışınızdan məmnun deyilsinizsə, tam geri ödəniş və ya dəyişdirmə üçün qaytara bilərsiniz. Nəzərə alın ki, qaytarılan məhsullar üçün çatdırılma xərcləri məhsul qüsurlu olmadığı və ya səhv göndərilmədiyi halda geri ödənilmir.",
-      "passwordReset": "Şifrənizi sıfırlamaq üçün giriş səhifəsindəki 'Şifrəni unutmusunuz?' linkinə klikləyin. Hesabınızla əlaqəli e-poçt ünvanını daxil edin və sizə şifrə sıfırlama linki göndərəcəyik. Yeni şifrə yaratmaq üçün e-poçtdakı təlimatlara əməl edin.",
+      "passwordReset": "Şifrənizi sıfırlamaq üçün giriş səhifəsindəki 'Şifrəni unutmusunuz?' linkinə klikləyin. Hesabınıza əlaqəli e-poçt ünvanını daxil edin və sizə şifrə sıfırlama linki göndərəcəyik. Yeni şifrə yaratmaq üçün e-poçtdakı təlimatlara əməl edin.",
       "orderCancellation": "Bəli, sifarişiniz hələ göndərilməyibsə, ləğv edə bilərsiniz. Bunu etmək üçün hesabınıza daxil olun, 'Sifarişlər' bölməsində müvafiq sifarişi tapın və 'Sifarişi ləğv et' düyməsini klikləyin. Əgər sifariş artıq göndərilibsə, gəlməsini gözləməli və sonra qaytarma prosesini başlatmalı olacaqsınız.",
       "internationalShipping": "Bəli, əksər ölkələrə beynəlxalq çatdırılma təklif edirik. Beynəlxalq göndərmə tarifleri təyinat, çəki və bağlama ölçülərinə əsasən hesablanır. Nəzərə alın ki, əlavə rüsumlar, vergilər və ya haqlar ölkənizin gömrük tələblərinə uyğun olaraq tətbiq edilə bilər və bunlar müştərinin məsuliyyətindədir.",
       "petFoodIngredients": "Heyvan yemlərimiz yüksək keyfiyyətli, təbii inqrediyentlərlə hazırlanır və süni konservantlar, rənqlər və ya dadlar ehtiva etmir. Biz yüksək keyfiyyətli zülallar, tam taxıllar və təzə tərəvəzlərdən istifadə edirik. Hər məhsul səhifəsində ətraflı tərkib məlumatı təqdim edilir. Əgər heyvanınızın allergiyası və ya xüsusi pəhriz ehtiyacları varsa, zəhmət olmasa tərkibi diqqətlə yoxlayın və ya bizimlə əlaqə saxlayın.",
@@ -835,89 +943,6 @@
     "topSellingCategories": "Ən Çox Satılan Məhsul Kateqoriyaları",
     "items": "ədəd",
     "topSellingProducts": "Ən Çox Satılan Məhsullar"
-  },
-  "adminPanel": {
-    "dashboard": "İdarəetmə Paneli",
-    "title": "Admin Panel",
-    "loading": "{{type}} yüklənir...",
-    "noData": "{{type}} tapılmadı",
-    "sections": {
-      "statistics": "Statistika",
-      "products": "Məhsullar",
-      "blogs": "Bloqlar",
-      "users": "İstifadəçilər",
-      "orders": "Sifarişlər"
-    },
-    "management": {
-      "products": "Məhsul İdarəetməsi",
-      "blogs": "Bloq İdarəetməsi",
-      "users": "İstifadəçi İdarəetməsi",
-      "orders": "Sifariş İdarəetməsi"
-    },
-    "table": {
-      "productsLabel": "Məhsullar cədvəli",
-      "blogsLabel": "Bloqlar cədvəli",
-      "usersLabel": "İstifadəçilər cədvəli",
-      "ordersLabel": "Sifarişlər cədvəli",
-      "image": "Şəkil",
-      "orderId": "Sifariş ID",
-      "customerName": "Müştəri",
-      "products": "Məhsullar",
-      "totalAmount": "Cəmi",
-      "status": "Status",
-      "orderDate": "Tarix",
-      "actions": "Əməliyyatlar",
-      "created": "Yaradılma Tarixi"
-    },
-    "forms": {
-      "product": {
-        "nameAz": "Ad (AZ)",
-        "nameEn": "Ad (EN)",
-        "category": "Kateqoriya",
-        "price": "Qiymət",
-        "hasDiscount": "Endirim",
-        "discountPercentage": "Endirim %",
-        "inStock": "Stokda"
-      },
-      "blog": {
-        "titleAz": "Başlıq (AZ)",
-        "titleEn": "Başlıq (EN)",
-        "category": "Kateqoriya"
-      },
-      "user": {
-        "username": "İstifadəçi adı",
-        "email": "E-poçt",
-        "password": "Şifrə",
-        "role": "Rol",
-        "roles": {
-          "default": "İstifadəçi",
-          "admin": "Admin"
-        },
-        "description": "Müştəri məmnuniyyəti bizim prioritetimizdir",
-        "imageUrl": "https://dt-petty.myshopify.com/cdn/shop/files/team02_800x.jpg?v=1653391375"
-      }
-    },
-    "actions": {
-      "add": "Yeni Əlavə Et",
-      "edit": "Redaktə Et",
-      "delete": "Sil",
-      "save": "Yadda Saxla",
-      "cancel": "Ləğv Et"
-    },
-    "confirmDelete": {
-      "title": "Silməyi Təsdiq Et",
-      "message": "Bu {{type}} silmək istədiyinizə əminsiniz?",
-      "confirm": "Sil",
-      "cancel": "Ləğv Et"
-    },
-    "toast": {
-      "createSuccess": "{{type}} uğurla yaradıldı",
-      "createError": "{{type}} yaradılarkən xəta baş verdi",
-      "updateSuccess": "{{type}} uğurla yeniləndi",
-      "updateError": "{{type}} yenilənərkən xəta baş verdi",
-      "deleteSuccess": "{{type}} uğurla silindi",
-      "deleteError": "{{type}} silinərkən xəta baş verdi"
-    }
   },
   "orders": {
     "title": "Sifarişlərim",

@@ -6,6 +6,8 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { getBlogById, clearCurrentBlog } from '../../redux/slices/blogSlice';
 import styles from './BlogDetails.module.css';
 import Spinner from '../Spinner/Spinner';
+import Header from '../../layout/Header/Header';
+import Footer from '../../layout/Footer/Footer';
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -85,147 +87,136 @@ const BlogDetails = () => {
 
   if (loading) {
     return (
-      <div className={styles.spinnerContainer}>
-        <Spinner size="large" />
-      </div>
+      <>
+        <Header />
+        <div className={styles.spinnerContainer}>
+          <Spinner size="large" />
+        </div>
+        <Footer />
+      </>
     );
   }
 
   if (error || !currentBlog) {
     return (
-      <motion.div 
-        className={styles.errorContainer}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <h2>{t('blog.error.title')}</h2>
-        <p>{t('blog.error.message')}</p>
-        <motion.button
-          className={styles.backButton}
-          onClick={handleBack}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+      <>
+        <Header />
+        <motion.div 
+          className={styles.errorContainer}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <span>←</span> {t('common.back')}
-        </motion.button>
-      </motion.div>
+          <h2>{t('blog.error.title')}</h2>
+          <p>{t('blog.error.message')}</p>
+          <motion.button
+            className={styles.backButton}
+            onClick={handleBack}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span>←</span> {t('common.back')}
+          </motion.button>
+        </motion.div>
+        <Footer />
+      </>
     );
   }
 
   return (
-    <motion.div 
-      className={styles.blogDetailsContainer}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <nav className={styles.breadcrumbs}>
-        <Link to="/" className={styles.breadcrumbLink}>
-          <span className={styles.breadcrumbIcon}>🏠</span>
-          {t('common.home')}
-        </Link>
-        <span className={styles.breadcrumbSeparator}>/</span>
-        <Link to="/blogs" className={styles.breadcrumbLink}>
-          <span className={styles.breadcrumbIcon}>📚</span>
-          {t('common.blogs')}
-        </Link>
-        <span className={styles.breadcrumbSeparator}>/</span>
-        <span className={styles.breadcrumbCurrent}>{currentBlog.title}</span>
-      </nav>
-
-      <div className={styles.blogLayout}>
-        <motion.div 
-          className={styles.blogImageSection}
-          style={{ opacity, scale }}
-          ref={imageRef}
-        >
-          <div className={styles.stickyImageContainer}>
-            <motion.img
-              src={currentBlog.image}
-              alt={currentBlog.title}
-              className={styles.blogImage}
-              initial={{ opacity: 0, filter: 'blur(10px)' }}
-              animate={{ 
-                opacity: isImageLoaded ? 1 : 0,
-                filter: isImageLoaded ? 'blur(0px)' : 'blur(10px)'
-              }}
-              transition={{ duration: 0.5 }}
-              onLoad={() => setIsImageLoaded(true)}
-            />
-            {!isImageLoaded && (
-              <motion.div 
-                className={styles.imagePlaceholder}
-                initial={{ opacity: 0.5 }}
-                animate={{ opacity: 0 }}
-                exit={{ opacity: 0 }}
-              />
-            )}
-          </div>
-        </motion.div>
-
-        <motion.article 
-          className={styles.blogArticle}
-          ref={articleRef}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-        <header className={styles.blogHeader}>
-          <div className={styles.blogMeta}>
-              {currentBlog.blogCategory && (
-                <motion.span 
-                  className={styles.blogCategory}
-                  whileHover={{ scale: 1.05 }}
-                >
-              <span className={styles.categoryIcon}>
-                    {getCategoryIcon(currentBlog.blogCategory)}
-                  </span>
-                  {formatCategory(currentBlog.blogCategory)}
-                </motion.span>
-              )}
-              <span className={styles.blogDate}>
-                <span className={styles.dateIcon}>📅</span>
-                {formatDate(currentBlog.created_at)}
-              </span>
-            </div>
-            <motion.h1 
-              className={styles.blogTitle}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              {currentBlog.title}
-            </motion.h1>
-        </header>
-
+    <>
+      <Header />
+      <motion.div 
+        className={styles.blogDetailsContainer}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className={styles.blogLayout}>
           <motion.div 
-            className={styles.blogContent}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            className={styles.blogImageSection}
+            style={{ opacity, scale }}
+            ref={imageRef}
           >
-            <p className={styles.blogDescription}>{getBlogDescription()}</p>
+            <div className={styles.stickyImageContainer}>
+              <motion.img
+                src={currentBlog.image}
+                alt={currentBlog.title}
+                className={styles.blogImage}
+                initial={{ opacity: 0, filter: 'blur(10px)' }}
+                animate={{ 
+                  opacity: isImageLoaded ? 1 : 0,
+                  filter: isImageLoaded ? 'blur(0px)' : 'blur(10px)'
+                }}
+                transition={{ duration: 0.5 }}
+                onLoad={() => setIsImageLoaded(true)}
+              />
+              {!isImageLoaded && (
+                <motion.div 
+                  className={styles.imagePlaceholder}
+                  initial={{ opacity: 0.5 }}
+                  animate={{ opacity: 0 }}
+                  exit={{ opacity: 0 }}
+                />
+              )}
+            </div>
           </motion.div>
 
-          <motion.button
-            className={styles.backButton}
-            onClick={handleBack}
-            whileHover={{ scale: 1.05, x: -5 }}
-            whileTap={{ scale: 0.95 }}
+          <motion.article 
+            className={styles.blogArticle}
+            ref={articleRef}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <motion.span
-              animate={{ x: [-5, 0, -5] }}
-              transition={{ duration: 1, repeat: Infinity }}
+            <header className={styles.blogHeader}>
+              <div className={styles.blogMeta}>
+                {currentBlog.blogCategory && (
+                  <motion.span 
+                    className={styles.blogCategory}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <span className={styles.categoryIcon}>
+                      {getCategoryIcon(currentBlog.blogCategory)}
+                    </span>
+                    {formatCategory(currentBlog.blogCategory)}
+                  </motion.span>
+                )}
+                <span className={styles.blogDate}>
+                  <span className={styles.dateIcon}>📅</span>
+                  {formatDate(currentBlog.created_at)}
+                </span>
+              </div>
+              <motion.h1 
+                className={styles.blogTitle}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                {currentBlog.title}
+              </motion.h1>
+            </header>
+
+            <div className={styles.blogContent}>
+              <p className={styles.blogDescription}>
+                {getBlogDescription()}
+              </p>
+            </div>
+
+            <motion.button
+              className={styles.backButton}
+              onClick={handleBack}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              ←
-            </motion.span>
-            {t('common.back')}
-          </motion.button>
-        </motion.article>
+              <span>←</span> {t('common.back')}
+            </motion.button>
+          </motion.article>
         </div>
-    </motion.div>
+      </motion.div>
+      <Footer />
+    </>
   );
 };
 

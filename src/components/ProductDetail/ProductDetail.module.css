@@ -576,4 +576,12 @@
 
 [data-theme='dark'] .savingsTag {
   background: rgba(46, 213, 115, 0.15);
+}
+
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  width: 100%;
 } 

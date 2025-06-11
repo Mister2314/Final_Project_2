@@ -24,22 +24,28 @@ const OrderForm = ({
   const getFilteredProducts = () => {
     if (!products) return [];
     
-    return products.filter(product => {
+    let filteredProducts = products.filter(product => {
+      // Search filter
       const matchesSearch = product.nameEn.toLowerCase().includes(productFilter.toLowerCase()) ||
-                          product.nameAz.toLowerCase().includes(productFilter.toLowerCase()) ||
-                          product.main_name.toLowerCase().includes(productFilter.toLowerCase());
+                          product.nameAz.toLowerCase().includes(productFilter.toLowerCase());
       
+      // Category filter
       const matchesCategory = selectedCategory === "all" || product.main_category === selectedCategory;
       
+      // Price range filter
       const matchesPrice = (!priceRange.min || product.price >= parseFloat(priceRange.min)) &&
                           (!priceRange.max || product.price <= parseFloat(priceRange.max));
       
+      // Stock filter
       const matchesStock = stockFilter === 'all' || 
                           (stockFilter === 'inStock' && product.instock) ||
                           (stockFilter === 'outOfStock' && !product.instock);
       
       return matchesSearch && matchesCategory && matchesPrice && matchesStock;
-    }).sort((a, b) => {
+    });
+
+    // Sort products
+    filteredProducts.sort((a, b) => {
       switch (sortBy) {
         case 'nameAsc':
           return a.nameEn.localeCompare(b.nameEn);
@@ -53,6 +59,8 @@ const OrderForm = ({
           return 0;
       }
     });
+
+    return filteredProducts;
   };
 
   const handleDateChange = (date, field) => {
@@ -183,6 +191,7 @@ const OrderForm = ({
         <h3 className={styles.sectionTitle}>{t('adminPanel.forms.order.products')}</h3>
         
         <div className={styles.filterSection}>
+          <h4>{t('adminPanel.forms.order.productFilters.title')}</h4>
           <div className={styles.filterGrid}>
             <div className={styles.filterGroup}>
               <input
@@ -200,10 +209,10 @@ const OrderForm = ({
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className={styles.categorySelect}
               >
-                <option value="all">{t('adminPanel.forms.order.allCategories')}</option>
+                <option value="all">{t('adminPanel.forms.order.productFilters.category.all')}</option>
                 {productCategories.map((category) => (
                   <option key={category} value={category}>
-                    {category}
+                    {t(`adminPanel.forms.order.productFilters.category.${category.toLowerCase()}`) || category}
                   </option>
                 ))}
               </select>
@@ -215,9 +224,9 @@ const OrderForm = ({
                 onChange={(e) => setStockFilter(e.target.value)}
                 className={styles.filterSelect}
               >
-                <option value="all">{t('adminPanel.forms.order.allStock')}</option>
-                <option value="inStock">{t('adminPanel.forms.order.inStock')}</option>
-                <option value="outOfStock">{t('adminPanel.forms.order.outOfStock')}</option>
+                <option value="all">{t('adminPanel.forms.order.productFilters.stock.all')}</option>
+                <option value="inStock">{t('adminPanel.forms.order.productFilters.stock.inStock')}</option>
+                <option value="outOfStock">{t('adminPanel.forms.order.productFilters.stock.outOfStock')}</option>
               </select>
             </div>
 
@@ -227,10 +236,10 @@ const OrderForm = ({
                 onChange={(e) => setSortBy(e.target.value)}
                 className={styles.filterSelect}
               >
-                <option value="nameAsc">{t('adminPanel.forms.order.sortNameAsc')}</option>
-                <option value="nameDesc">{t('adminPanel.forms.order.sortNameDesc')}</option>
-                <option value="priceAsc">{t('adminPanel.forms.order.sortPriceAsc')}</option>
-                <option value="priceDesc">{t('adminPanel.forms.order.sortPriceDesc')}</option>
+                <option value="nameAsc">{t('adminPanel.forms.order.productFilters.sort.nameAsc')}</option>
+                <option value="nameDesc">{t('adminPanel.forms.order.productFilters.sort.nameDesc')}</option>
+                <option value="priceAsc">{t('adminPanel.forms.order.productFilters.sort.priceAsc')}</option>
+                <option value="priceDesc">{t('adminPanel.forms.order.productFilters.sort.priceDesc')}</option>
               </select>
             </div>
           </div>
@@ -238,7 +247,7 @@ const OrderForm = ({
           <div className={styles.priceFilterGroup}>
             <input
               type="number"
-              placeholder={t('adminPanel.forms.order.minPrice')}
+              placeholder={t('adminPanel.forms.order.productFilters.price.min')}
               value={priceRange.min}
               onChange={(e) => setPriceRange(prev => ({ ...prev, min: e.target.value }))}
               className={styles.priceInput}
@@ -246,7 +255,7 @@ const OrderForm = ({
             <span className={styles.priceSeparator}>-</span>
             <input
               type="number"
-              placeholder={t('adminPanel.forms.order.maxPrice')}
+              placeholder={t('adminPanel.forms.order.productFilters.price.max')}
               value={priceRange.max}
               onChange={(e) => setPriceRange(prev => ({ ...prev, max: e.target.value }))}
               className={styles.priceInput}
@@ -268,7 +277,9 @@ const OrderForm = ({
                   <div className={styles.productCategory}>{product.main_category}</div>
                   <div className={styles.productPrice}>₼{Number(product.price).toFixed(2)}</div>
                   {!product.instock && (
-                    <div className={styles.outOfStock}>{t('adminPanel.forms.order.outOfStock')}</div>
+                    <div className={styles.outOfStock}>
+                      {t('adminPanel.forms.order.productFilters.stock.outOfStock')}
+                    </div>
                   )}
                 </div>
               </div>
@@ -300,28 +311,29 @@ const OrderForm = ({
         <div className={styles.selectedProductsSummary}>
           <h4 className={styles.summaryTitle}>{t('adminPanel.forms.order.selectedProducts')}</h4>
           <div className={styles.selectedProducts}>
-            {orderForm.products.map((product) => {
-              const productInfo = products.find(p => p.id === product.id);
-              const price = productInfo?.price || 0;
-              const subtotal = price * product.quantity;
-              
-              return (
-                <div key={product.id} className={styles.selectedProductItem}>
-                  <div className={styles.selectedProductInfo}>
-                    <span className={styles.selectedProductName}>
-                      {productInfo?.nameEn || product.name || t('common.unknownProduct')}
-                    </span>
-                    <span className={styles.selectedProductQuantity}>
-                      {product.quantity} × ₼{price.toFixed(2)}
-                    </span>
+            {orderForm.products.length > 0 ? (
+              orderForm.products.map((product) => {
+                const productInfo = products.find(p => p.id === product.id);
+                const price = productInfo?.price || 0;
+                const subtotal = price * product.quantity;
+                
+                return (
+                  <div key={product.id} className={styles.selectedProductItem}>
+                    <div className={styles.selectedProductInfo}>
+                      <span className={styles.selectedProductName}>
+                        {productInfo?.nameEn || product.name}
+                      </span>
+                      <span className={styles.selectedProductQuantity}>
+                        {product.quantity} × ₼{price.toFixed(2)}
+                      </span>
+                    </div>
+                    <div className={styles.selectedProductTotal}>
+                      ₼{subtotal.toFixed(2)}
+                    </div>
                   </div>
-                  <div className={styles.selectedProductTotal}>
-                    ₼{subtotal.toFixed(2)}
-                  </div>
-                </div>
-              );
-            })}
-            {orderForm.products.length === 0 && (
+                );
+              })
+            ) : (
               <div className={styles.emptySelection}>
                 {t('adminPanel.forms.order.noProductsSelected')}
               </div>

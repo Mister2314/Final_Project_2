@@ -15,7 +15,6 @@ const LanguageSelector = () => {
     allOptions.find((opt) => opt.value === i18n.language) || allOptions[0]
   );
 
-  // Filter out the currently selected language from options
   const getFilteredOptions = () => {
     return allOptions.filter((option) => option.value !== selected?.value);
   };

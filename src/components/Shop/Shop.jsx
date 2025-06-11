@@ -12,7 +12,7 @@ const Shop = () => {
   const petCategories = [
     {
       id: 'cats',
-      name: t('navigation.cats'),
+      name: t('petCategories.categories.cats.name'),
       subtitle: t('shop.categories.cats.subtitle'),
       icon: '🐱',
       route: '/shop/cats',
@@ -20,11 +20,19 @@ const Shop = () => {
     },
     {
       id: 'dogs',
-      name: t('navigation.dogs'),
+      name: t('petCategories.categories.dogs.name'),
       subtitle: t('shop.categories.dogs.subtitle'),
       icon: '🐕',
       route: '/shop/dogs',
       description: t('shop.categories.dogs.description')
+    },
+    {
+      id: 'all',
+      name: t('petCategories.categories.all.name'),
+      subtitle: t('petCategories.categories.all.subtitle'),
+      icon: '🛍️',
+      route: '/shop/all-products',
+      description: t('petCategories.categories.all.description')
     }
   ];
 

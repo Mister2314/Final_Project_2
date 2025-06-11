@@ -6,7 +6,6 @@ import { store } from "../redux/store";
 import { ProtectedRoute, AuthRoute } from "./ProtectedRoute";
 import { AdminRoute } from "./AdminRoute";
 import LoadingScreen from "../components/Loading/LoadingScreen";
-import ScrollRestoration from '../components/ScrollRestoration';
 // import OrderCompletedRoute from './OrderCompletedRoute';
 
 import Home from "../pages/Home/Home";
@@ -53,7 +52,6 @@ import OrderCompleted from '../components/OrderCompleted/OrderCompleted'
 const AppRouter = () => {
   return (
     <Provider store={store}>
-      <ScrollRestoration />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<AboutUs />} />
@@ -113,7 +111,19 @@ const AppRouter = () => {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Toaster position="bottom-right" />
+      <Toaster 
+        position="bottom-right"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: 'var(--card-bg)',
+            color: 'var(--text-color)',
+            border: '1px solid var(--border-color)',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+          },
+        }}
+      />
       <LoadingScreen />
     </Provider>
   );

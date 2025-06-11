@@ -25,12 +25,12 @@ function App() {
       <Provider store={store}>
         <AuthInitializer>
           <ThemeProvider>
-            <WishlistProvider>
-              <CartProvider>
-                <AppRouter />
+            <CartProvider>
+              <WishlistProvider>
                 <ScrollToTop />
-              </CartProvider>
-            </WishlistProvider>
+                <AppRouter />
+              </WishlistProvider>
+            </CartProvider>
           </ThemeProvider>
         </AuthInitializer>
       </Provider>

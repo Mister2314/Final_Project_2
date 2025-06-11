@@ -23,19 +23,13 @@ const CatBedsAndHomes = () => {
 
   const filterParams = {
     main_name: 'cat',
-    main_category: ['cat bed', 'cat house']
+    main_category: ['bed', 'house']
   };
 
   const customFilters = [
     (product) => {
       return product.main_name === 'cat' && 
-             (product.main_category === 'cat bed' || 
-              product.main_category === 'cat house' ||
-              product.categoryAz?.toLowerCase().includes('yataq') ||
-              product.categoryAz?.toLowerCase().includes('ev') ||
-              product.categoryEn?.toLowerCase().includes('bed') ||
-              product.categoryEn?.toLowerCase().includes('house') ||
-              product.categoryEn?.toLowerCase().includes('home'));
+             (product.main_category === 'bed' || product.main_category === 'house');
     }
   ];
 

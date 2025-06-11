@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import useScrollToTop from '../../hooks/useScrollToTop';
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,6 +29,8 @@ const ScrollToTop = () => {
       behavior: 'smooth',
     });
   };
+
+  useScrollToTop();
 
   return (
     <AnimatePresence>

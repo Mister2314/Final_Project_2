@@ -22,7 +22,10 @@ const UsersTable = ({
   };
 
   const getRoleTranslation = (role) => {
-    return t(`adminPanel.forms.user.roles.${role}`);
+    if (role === 'admin') {
+      return t('adminPanel.forms.user.admin');
+    }
+    return t('adminPanel.table.regularUser');
   };
 
   return (
@@ -30,10 +33,10 @@ const UsersTable = ({
       <Table aria-label={t('adminPanel.table.usersLabel')} className={styles.table}>
         <TableHead>
           <TableRow>
-            <StyledTableCell>{t('adminPanel.forms.user.username')}</StyledTableCell>
-            <StyledTableCell>{t('adminPanel.forms.user.email')}</StyledTableCell>
-            <StyledTableCell>{t('adminPanel.forms.user.role')}</StyledTableCell>
-            <StyledTableCell>{t('adminPanel.table.created')}</StyledTableCell>
+            <StyledTableCell>{t('adminPanel.table.username')}</StyledTableCell>
+            <StyledTableCell>{t('adminPanel.table.email')}</StyledTableCell>
+            <StyledTableCell>{t('adminPanel.table.userRole')}</StyledTableCell>
+            <StyledTableCell>{t('adminPanel.table.createdAt')}</StyledTableCell>
             <StyledTableCell align="center">{t('adminPanel.table.actions')}</StyledTableCell>
           </TableRow>
         </TableHead>
@@ -47,7 +50,7 @@ const UsersTable = ({
                 {item.email || t('common.noEmail')}
               </StyledTableCell>
               <StyledTableCell>
-                <span className={`${styles.roleBadge} ${styles[item.role]}`}>
+                <span className={`${styles.roleBadge} ${styles[`role${item.role.charAt(0).toUpperCase() + item.role.slice(1)}`]}`}>
                   {getRoleTranslation(item.role)}
                 </span>
               </StyledTableCell>

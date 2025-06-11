@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-hot-toast';
 import { loginAdmin } from '../../redux/slices/userSlice';
-import styles from '../../layout/Login/Login.module.css';
+import styles from './AdminLogin.module.css';
+import Header from '../../layout/Header/Header';
+import Footer from '../../layout/Footer/Footer';
 
 export default function AdminLogin() {
   const { t } = useTranslation();
@@ -91,77 +93,81 @@ export default function AdminLogin() {
   const isLoading = loading || isSubmitting;
 
   return (
-    <div className={styles.loginContainer}>
-      <div className={styles.loginCard}>
-        <h2 className={styles.loginTitle}>
-          {t('admin.loginTitle', 'Admin Girişi')}
-        </h2>
-        
-        <form className={styles.loginForm} onSubmit={handleAdminLogin}>
-          <div className={styles.formGroup}>
-            <label>{t('login.emailLabel', 'Email Ünvanı')}</label>
-            <input
-              className={styles.formInput}
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder={t('admin.emailPlaceholder', 'Admin email ünvanınızı daxil edin')}
-              required
-              disabled={isLoading}
-            />
-          </div>
-
-          <div className={styles.formGroup}>
-            <label>{t('login.passwordLabel', 'Parol')}</label>
-            <input
-              className={styles.formInput}
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              placeholder={t('admin.passwordPlaceholder', 'Admin parolunuzu daxil edin')}
-              required
-              disabled={isLoading}
-            />
-          </div>
+    <>
+      <Header />
+      <div className={styles.loginContainer}>
+        <div className={styles.loginCard}>
+          <h2 className={styles.loginTitle}>
+            {t('admin.loginTitle', 'Admin Girişi')}
+          </h2>
           
-          <button 
-            className={styles.loginButton} 
-            type="submit" 
-            disabled={isLoading}
-          >
-            {isLoading ? (
-              <div className={styles.pawLoaderContainer}>
-                <div className={styles.pawLoader}>
-                  <div className={styles.pawPrint}></div>
-                  <div className={styles.pawPrint}></div>
-                  <div className={styles.pawPrint}></div>
-                  <div className={styles.pawPrint}></div>
-                  <div className={styles.pawPrint}></div>
-                </div>
-              </div>
-            ) : (
-              t('admin.loginButton', 'Admin Girişi')
-            )}
-          </button>
+          <form className={styles.loginForm} onSubmit={handleAdminLogin}>
+            <div className={styles.formGroup}>
+              <label>{t('login.emailLabel', 'Email Ünvanı')}</label>
+              <input
+                className={styles.formInput}
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder={t('admin.emailPlaceholder', 'Admin email ünvanınızı daxil edin')}
+                required
+                disabled={isLoading}
+              />
+            </div>
 
-          <button 
-            type="button"
-            className={styles.adminButton} 
-            onClick={handleBackToRegularLogin}
-            disabled={isLoading}
-          >
-            {t('admin.backToLogin', 'Geri')}
-          </button>
-        </form>
-        
-        <div className={styles.authSwitch}>
-          <p style={{ fontSize: '14px', color: '#666', textAlign: 'center' }}>
-            {t('admin.loginNote', 'Bu səhifə yalnız admin istifadəçiləri üçündür')}
-          </p>
+            <div className={styles.formGroup}>
+              <label>{t('login.passwordLabel', 'Parol')}</label>
+              <input
+                className={styles.formInput}
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                placeholder={t('admin.passwordPlaceholder', 'Admin parolunuzu daxil edin')}
+                required
+                disabled={isLoading}
+              />
+            </div>
+            
+            <button 
+              className={styles.loginButton} 
+              type="submit" 
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <div className={styles.pawLoaderContainer}>
+                  <div className={styles.pawLoader}>
+                    <div className={styles.pawPrint}></div>
+                    <div className={styles.pawPrint}></div>
+                    <div className={styles.pawPrint}></div>
+                    <div className={styles.pawPrint}></div>
+                    <div className={styles.pawPrint}></div>
+                  </div>
+                </div>
+              ) : (
+                t('admin.loginButton', 'Admin Girişi')
+              )}
+            </button>
+
+            <button 
+              type="button"
+              className={styles.adminButton} 
+              onClick={handleBackToRegularLogin}
+              disabled={isLoading}
+            >
+              {t('admin.backToLogin', 'Geri')}
+            </button>
+          </form>
+          
+          <div className={styles.authSwitch}>
+            <p style={{ fontSize: '14px', color: '#666', textAlign: 'center' }}>
+              {t('admin.loginNote', 'Bu səhifə yalnız admin istifadəçiləri üçündür')}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }

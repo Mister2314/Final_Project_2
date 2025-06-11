@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import ProductsTemplate from '../../ProductsTemplate/ProductsTemplate';
+
 const CatFoods = () => {
   const location = useLocation();
   
@@ -27,12 +28,7 @@ const CatFoods = () => {
 
   const customFilters = [
     (product) => {
-      return product.main_name === 'cat' && 
-             (product.main_category === 'food' || 
-              product.categoryAz?.toLowerCase().includes('yemək') ||
-              product.categoryAz?.toLowerCase().includes('qida') ||
-              product.categoryEn?.toLowerCase().includes('food') ||
-              product.categoryEn?.toLowerCase().includes('nutrition'));
+      return product.main_name === 'cat' && product.main_category === 'food';
     }
   ];
 

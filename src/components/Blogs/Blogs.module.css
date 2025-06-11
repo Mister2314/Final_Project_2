@@ -132,52 +132,56 @@
 }
 
 .filterSelect {
-  padding: 0.8rem 2rem 0.8rem 1rem;
-  border: 2px solid var(--border-color);
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+  border: 1px solid rgba(130, 71, 245, 0.2);
   border-radius: 12px;
-  font-size: 1rem;
-  background: var(--bg-secondary);
-  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.9375rem;
+  color: #333;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
   appearance: none;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 0.7rem center;
   background-size: 1em;
   min-width: 180px;
-  transition: all 0.3s ease;
-}
-
-.filterSelect:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px var(--primary-color-light);
-  outline: none;
 }
 
 .filterSelect:hover {
-  border-color: var(--primary-color);
-  background-color: var(--bg-hover);
+  border-color: #8247f5;
+  background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(130, 71, 245, 0.1);
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: #8247f5;
+  box-shadow: 0 0 0 3px rgba(130, 71, 245, 0.15);
 }
 
 [data-theme='dark'] .filterSelect {
-  background-color: var(--bg-secondary-dark);
-  border-color: var(--border-color-dark);
-  color: var(--text-color-dark);
+  background: linear-gradient(to bottom, #2a2a2a, #222);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e9e9e9;
 }
 
 [data-theme='dark'] .filterSelect:hover {
-  border-color: var(--primary-color);
-  background-color: var(--bg-hover-dark);
-}
-
-[data-theme='dark'] .filterSelect:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px var(--primary-color-dark);
+  background: linear-gradient(to bottom, #333, #2a2a2a);
+  border-color: #8247f5;
 }
 
 [data-theme='dark'] .filterSelect option {
-  background-color: var(--bg-secondary-dark);
-  color: var(--text-color-dark);
+  background-color: #2a2a2a;
+  color: #e9e9e9;
 }
 
 .blogsGrid {
@@ -310,7 +314,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 60vh;
+  min-height: 400px;
+  width: 100%;
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  margin-top: 2rem;
 }
 
 .noBlogs {
@@ -356,6 +364,11 @@
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
 /* Responsive styles */

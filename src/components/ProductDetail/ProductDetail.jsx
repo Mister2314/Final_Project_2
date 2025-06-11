@@ -13,6 +13,7 @@ import ConfirmDialog from '../ConfirmDialog/ConfirmDialog';
 import styles from './ProductDetail.module.css';
 import { errorToast, successToast } from '../../utils/toast';
 import { deleteReview } from '../../features/reviews/reviewsSlice';
+import Spinner from '../../components/Spinner/Spinner';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -47,8 +48,7 @@ const ProductDetail = () => {
   if (loading) {
     return (
       <div className={styles.loadingContainer}>
-        <div className={styles.spinner}></div>
-        <p>{t('productDetail.loading')}</p>
+        <Spinner size="large" />
       </div>
     );
   }

@@ -741,6 +741,14 @@ const ProductsTemplate = ({
 
   const filteredProducts = useMemo(() => {
     return products.filter(product => {
+      // Pet type filter from smart filters
+      const petTypeFilter = smartFilters.find(filter => filter.field === 'main_name');
+      if (petTypeFilter && petTypeFilter.value !== 'all') {
+        if (product.main_name !== petTypeFilter.value) {
+          return false;
+        }
+      }
+
       // Category filter
       if (categoryFilter !== 'all') {
         if (!product.main_category || product.main_category.toLowerCase() !== categoryFilter.toLowerCase()) {
@@ -805,22 +813,9 @@ const ProductsTemplate = ({
           break;
       }
 
-      // Custom smart filters
-      if (smartFilters && smartFilters.length > 0) {
-        const passesCustomFilters = smartFilters.every(filterFn => {
-          if (typeof filterFn === 'function') {
-            return filterFn(product);
-          }
-          return true; 
-        });
-        if (!passesCustomFilters) {
-          return false;
-        }
-      }
-
       return true;
     });
-  }, [products, categoryFilter, categoryFilters, searchTerm, priceRange, stockFilters, smartFilters, filterBy]);
+  }, [products, categoryFilter, categoryFilters, searchTerm, priceRange, stockFilters, filterBy, smartFilters]);
 
   const sortedProducts = useMemo(() => {
     let sorted = [...filteredProducts];
@@ -992,7 +987,6 @@ const ProductsTemplate = ({
     return (
       <div className={styles.productsLoadingContainer}>
         <Spinner size="large" />
-        <p>{t('products.loading')}</p>
       </div>
     );
   }
@@ -1053,9 +1047,8 @@ const ProductsTemplate = ({
           {loading ? (
             <div className={styles.loadingContainer}>
               <div className={styles.spinner} />
-            <p>{t('products.loading')}</p>
-          </div>
-        ) : (
+            </div>
+          ) : (
             <div className={styles.productsSection}>
             <SmartFilters
               showAllFilters={showAllFilters}

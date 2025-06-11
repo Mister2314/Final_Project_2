@@ -984,7 +984,7 @@ const handleSubmit = async (e) => {
                         htmlFor="isDiscount"
                         className={styles.checkboxLabel}
                       >
-                        {t('adminPanel.forms.product.isDiscount')}
+                        {t('adminPanel.forms.product.hasDiscount')}
                         <span className={styles.optionalText}> ({t('adminPanel.forms.product.isDiscountHint')})</span>
                       </label>
                     </div>
@@ -995,11 +995,11 @@ const handleSubmit = async (e) => {
                     </div>
                   </div>
 
-                  {/* Discount input - only show when isDiscount is true */}
+                  {/* Discount Percentage Input */}
                   {productForm.isDiscount && (
                     <div className={styles.formGroup}>
                       <label className={styles.formLabel}>
-                        {t('adminPanel.forms.product.discountLabel')} *
+                        {t('adminPanel.forms.product.discountPercentage')} *
                       </label>
                       <input
                         type="number"
@@ -1013,7 +1013,7 @@ const handleSubmit = async (e) => {
                       />
                       <small className={styles.formHelp}>
                         {t('adminPanel.forms.product.discountHelp')}
-                        </small>
+                      </small>
                     </div>
                   )}
 
@@ -1036,7 +1036,7 @@ const handleSubmit = async (e) => {
                         htmlFor="instock"
                         className={styles.checkboxLabel}
                       >
-                        {t('adminPanel.forms.product.instock')}
+                        {t('adminPanel.forms.product.inStock')}
                         <span className={styles.optionalText}> {t('adminPanel.forms.product.inStockDefault')}</span>
                       </label>
                     </div>
@@ -1200,7 +1200,7 @@ const handleSubmit = async (e) => {
                   </div>
 
                   <div className={styles.formGroup}>
-                    <label className={styles.formLabel}>{t('adminPanel.forms.user.role')}</label>
+                    <label className={styles.formLabel}>{t('adminPanel.forms.user.roles.label')}</label>
                     <select
                       className={styles.formSelect}
                       value={userForm.role}
@@ -1209,9 +1209,12 @@ const handleSubmit = async (e) => {
                       }
                       required
                     >
-                      <option value="default">{t('adminPanel.forms.user.default')}</option>
-                      <option value="admin">{t('adminPanel.forms.user.admin')}</option>
+                      <option value="default">{t('adminPanel.forms.user.roles.regular')}</option>
+                      <option value="admin">{t('adminPanel.forms.user.roles.admin')}</option>
                     </select>
+                    <small className={styles.fieldHint}>
+                      {t('adminPanel.forms.user.roles.hint')}
+                    </small>
                   </div>
                 </>
               ) : null}

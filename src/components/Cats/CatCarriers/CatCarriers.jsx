@@ -14,7 +14,7 @@ const CatCarriers = () => {
       az: 'Pişiklərinizi təhlükəsiz daşımaq üçün keyfiyyətli daşıyıcılar',
       en: 'Quality carriers for safe transportation of your cats'
     },
-    icon: '🧳', 
+    icon: '👜', 
     searchPlaceholder: {
       az: 'Pişik daşıyıcısı axtar...',
       en: 'Search cat carriers...'
@@ -28,12 +28,7 @@ const CatCarriers = () => {
 
   const customFilters = [
     (product) => {
-      return product.main_name === 'cat' &&
-             (product.main_category === 'carrier' ||
-              product.categoryAz?.toLowerCase().includes('daşıyıcı') ||
-              product.categoryAz?.toLowerCase().includes('çanta') ||
-              product.categoryEn?.toLowerCase().includes('carrier') ||
-              product.categoryEn?.toLowerCase().includes('transport'));
+      return product.main_name === 'cat' && product.main_category === 'carrier';
     }
   ];
 
