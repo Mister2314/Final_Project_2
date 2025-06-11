@@ -1,11 +1,12 @@
 import React from 'react';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import { ProtectedRoute, AuthRoute } from "./ProtectedRoute";
 import { AdminRoute } from "./AdminRoute";
 import LoadingScreen from "../components/Loading/LoadingScreen";
+import useTitle from "../UseTitle/UseTitle";
 // import OrderCompletedRoute from './OrderCompletedRoute';
 
 import Home from "../pages/Home/Home";
@@ -50,6 +51,9 @@ import AllProducts from "../components/AllProducts/AllProducts";
 import OrderCompleted from '../components/OrderCompleted/OrderCompleted'
 
 const AppRouter = () => {
+  // Use the hook at the router level
+  useTitle();
+
   return (
     <Provider store={store}>
       <Routes>
