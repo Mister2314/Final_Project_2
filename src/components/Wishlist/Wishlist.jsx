@@ -53,10 +53,10 @@ const Wishlist = () => {
   const handleRemoveFromWishlist = (itemId) => {
     try {
       removeWishlistItem(itemId);
-      successToast(t('toast.success.wishlist.removeSuccess'));
+      successToast('toast.success.wishlist.remove');
     } catch (error) {
       console.error('Error removing from wishlist:', error);
-      errorToast(t('toast.error.wishlist.removeError'));
+      errorToast('toast.error.wishlist.remove');
     }
   };
 
@@ -71,23 +71,23 @@ const Wishlist = () => {
   const handleClearWishlist = () => {
     try {
       emptyWishlist();
-      successToast(t('toast.success.wishlist.clearSuccess'));
+      successToast('toast.success.wishlist.clear');
     } catch (error) {
       console.error('Error clearing wishlist:', error);
-      errorToast(t('toast.error.wishlist.clearError'));
+      errorToast('toast.error.wishlist.clear');
     }
   };
 
   const handleAddToCart = (item) => {
     try {
       if (items.some(cartItem => cartItem.id === item.id)) {
-        errorToast(t('toast.error.wishlist.cart.alreadyExists'));
+        errorToast('toast.error.wishlist.cart.alreadyExists');
         return;
       }
 
       const name = isAzerbaijani ? item.nameAz : item.nameEn;
       if (!item.id || !name || !item.price || item.price <= 0) {
-        errorToast(t('toast.error.wishlist.cart.invalidProduct'));
+        errorToast('toast.error.wishlist.invalidProduct');
         return;
       }
 
@@ -112,9 +112,9 @@ const Wishlist = () => {
 
       addItem(cartItem);
       removeWishlistItem(item.id);
-      successToast(t('toast.success.wishlist.cart.addSuccess'));
+      successToast('toast.success.wishlist.moveToCart');
     } catch (error) {
-      errorToast(t('toast.error.wishlist.cart.addError'));
+      errorToast('toast.error.wishlist.moveToCart');
     }
   };
 

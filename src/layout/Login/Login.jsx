@@ -23,7 +23,7 @@ export default function Login() {
 
   React.useEffect(() => {
     if (error) {
-      errorToast(error);
+      errorToast('toast.error.auth.invalidCredentials');
     }
   }, [error]);
 
@@ -46,13 +46,13 @@ export default function Login() {
     
     try {
       if (!formData.email.trim()) {
-        errorToast('login.errorEmail');
+        errorToast('toast.error.validation.email');
         setIsSubmitting(false);
         return;
       }
 
       if (!formData.password.trim()) {
-        errorToast('login.errorPassword');
+        errorToast('toast.error.validation.password');
         setIsSubmitting(false);
         return;
       }
@@ -63,7 +63,7 @@ export default function Login() {
         navigate(from, { replace: true });
       }
     } catch (error) {
-      errorToast('login.errorGeneral');
+      errorToast('toast.error.auth.invalidCredentials');
     } finally {
       setIsSubmitting(false);
     }

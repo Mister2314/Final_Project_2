@@ -44,11 +44,11 @@
     "title": "Sign Up",
     "username": "Username",
     "usernamePlaceholder": "Enter your username",
-    "email": "Email",
+    "email": "Email Address",
     "emailPlaceholder": "Enter your email address",
     "password": "Password",
     "passwordPlaceholder": "Enter your password",
-    "confirmPassword": "Confirm password",
+    "confirmPassword": "Confirm Password",
     "confirmPasswordPlaceholder": "Re-enter your password",
     "signupButton": "Sign Up",
     "signingUp": "Signing up...",
@@ -66,16 +66,17 @@
   },
   "login": {
     "title": "Sign In",
-    "email": "Email",
+    "email": "Email Address",
     "emailPlaceholder": "Enter your email address",
     "password": "Password",
     "passwordPlaceholder": "Enter your password",
+    "adminLogin": "Admin Login",
     "forgotPassword": "Forgot your password?",
     "loginButton": "Sign In",
     "loggingIn": "Signing in...",
     "noAccount": "Don't have an account?",
     "signupLink": "Sign Up",
-    "errorFields": "Please enter email and password",
+    "errorFields": "Please fill in all fields",
     "successMessage": "Successfully signed in!",
     "welcomeMessage": "Welcome, {{username}}!",
     "errorInvalid": "Email or password is incorrect",
@@ -763,110 +764,116 @@
   },
   "toast": {
     "success": {
-      "login": "Successfully logged in! Welcome back!",
-      "signup": "Account created successfully! You can now log in.",
+      "login": "Successfully logged in!",
+      "signup": "Account created successfully!",
+      "admin": {
+        "login": "Successfully logged in to admin panel!",
+        "createProduct": "Product created successfully",
+        "updateProduct": "Product updated successfully",
+        "deleteProduct": "Product deleted successfully",
+        "createBlog": "Blog created successfully",
+        "updateBlog": "Blog updated successfully",
+        "deleteBlog": "Blog deleted successfully",
+        "createUser": "User created successfully",
+        "updateUser": "User updated successfully",
+        "deleteUser": "User deleted successfully"
+      },
       "forgotPassword": {
-        "successMessage": "Password reset email has been sent!"
+        "emailSent": "Password reset link has been sent!"
       },
-      "profileSettings": {
-        "usernameUpdateSuccess": "Username updated successfully!",
-        "emailUpdateSuccess": "Email updated successfully!",
-        "passwordUpdateSuccess": "Password updated successfully!"
+      "resetPassword": "Password reset successfully!",
+      "profile": {
+        "update": "Profile updated successfully!",
+        "passwordChange": "Password changed successfully!"
       },
-      "orderStatus": "Order status updated successfully!",
-      "orderDelete": "Order deleted successfully!",
+      "order": {
+        "create": "Order created successfully!",
+        "update": "Order updated successfully!",
+        "delete": "Order deleted successfully!",
+        "status": "Order status updated!"
+      },
       "cart": {
-        "addSuccess": "Product added to cart successfully!",
-        "removeSuccess": "Product removed from cart successfully!",
-        "updateSuccess": "Cart updated successfully!",
-        "clearSuccess": "Cart cleared successfully!"
+        "add": "Product added to cart!",
+        "remove": "Product removed from cart!",
+        "update": "Cart updated!",
+        "clear": "Cart cleared!"
       },
       "wishlist": {
-        "addSuccess": "Product added to wishlist successfully!",
-        "removeSuccess": "Product removed from wishlist successfully!",
-        "clearSuccess": "Wishlist cleared successfully!",
+        "add": "Product added to wishlist!",
+        "remove": "Product removed from wishlist!",
+        "clear": "Wishlist cleared!",
+        "moveToCart": "Product moved to cart!",
         "cart": {
-          "addSuccess": "Product added to cart successfully!",
+          "addSuccess": "Product added to cart!",
           "alreadyExists": "Product is already in cart!"
         }
       },
-      "newsletter": {
-        "subscribeSuccess": "Successfully subscribed!"
+      "contact": {
+        "sent": "Your message has been sent successfully!"
+      },
+      "link": {
+        "copied": "Link copied!"
       },
       "review": {
-        "addSuccess": "Your review has been added successfully!",
+        "addSuccess": "Your review was added successfully!",
         "deleteSuccess": "Review deleted successfully!"
       }
     },
     "error": {
       "auth": {
-        "loginRequired": "You need to be logged in to perform this action",
-        "unauthorized": "You are not authorized to perform this action"
+        "loginRequired": "You must be logged in to perform this action",
+        "unauthorized": "You are not authorized to perform this action",
+        "invalidCredentials": "Invalid email or password"
       },
-      "login": {
-        "errorEmail": "Please enter your email address",
-        "errorPassword": "Please enter your password",
-        "errorGeneral": "Login failed. Please try again."
+      "admin": {
+        "createProduct": "Error creating product",
+        "updateProduct": "Error updating product",
+        "deleteProduct": "Error deleting product",
+        "createBlog": "Error creating blog",
+        "updateBlog": "Error updating blog",
+        "deleteBlog": "Error deleting blog",
+        "createUser": "Error creating user",
+        "updateUser": "Error updating user",
+        "deleteUser": "Error deleting user"
       },
-      "signup": {
-        "errorUsername": "Please enter a username",
-        "errorUsernameFormat": "Username must be at least 3 characters long",
-        "errorEmail": "Please enter your email address",
-        "errorEmailFormat": "Please enter a valid email address",
-        "errorPassword": "Please enter a password",
-        "errorPasswordFormat": "Password must be at least 8 characters long",
-        "errorPasswordMatch": "Passwords do not match",
-        "errorGeneral": "Registration failed. Please try again."
+      "validation": {
+        "required": "Please fill in all fields",
+        "email": "Please enter a valid email address",
+        "password": "Password must be at least 6 characters",
+        "passwordMatch": "Passwords do not match"
       },
-      "forgotPassword": {
-        "errorEmail": "Please enter your email address",
-        "errorEmailFormat": "Please enter a valid email address",
-        "errorGeneric": "Failed to send password reset email"
+      "order": {
+        "create": "Error creating order",
+        "update": "Error updating order",
+        "delete": "Error deleting order",
+        "fetch": "Error fetching orders"
       },
-      "profileSettings": {
-        "fetchFailed": "Failed to fetch user profile",
-        "usernameUpdateFailed": "Failed to update username",
-        "emailUpdateFailed": "Failed to update email",
-        "passwordUpdateFailed": "Failed to update password"
-      },
-      "orderStatus": "Failed to update order status",
-      "orderDelete": "Failed to delete order",
       "cart": {
-        "addError": "Failed to add product to cart!",
-        "removeError": "Failed to remove product from cart!",
-        "updateError": "Failed to update cart!",
-        "clearError": "Failed to clear cart!",
-        "quantity": {
-          "invalid": "Invalid quantity!"
-        }
+        "add": "Error adding product to cart",
+        "remove": "Error removing product from cart",
+        "update": "Error updating cart"
       },
       "wishlist": {
-        "addError": "Failed to add product to wishlist!",
-        "removeError": "Failed to remove product from wishlist!",
-        "clearError": "Failed to clear wishlist!",
-        "cart": {
-          "addError": "Failed to add product to cart!",
-          "alreadyExists": "Product is already in cart!",
-          "invalidProduct": "Invalid product data!"
-        }
+        "add": "Error adding product to wishlist",
+        "remove": "Error removing product from wishlist",
+        "moveToCart": "Error moving product to cart",
+        "alreadyExists": "This product is already in your wishlist"
       },
-      "newsletter": {
-        "subscribeError": "Error occurred while subscribing"
+      "contact": {
+        "send": "Error sending message"
+      },
+      "product": {
+        "notFound": "Product not found"
+      },
+      "review": {
+        "addError": "Error adding review",
+        "deleteError": "Error deleting review",
+        "fetchError": "Error fetching reviews"
       }
     },
-    "warning": {
-      "default": "Warning!",
-      "unsavedChanges": "You have unsaved changes",
-      "sessionExpiring": "Your session is expiring",
-      "lowStock": "Low stock remaining"
-    },
     "info": {
-      "default": "Information",
       "loading": "Loading...",
-      "processing": "Processing...",
-      "saving": "Saving...",
-      "sending": "Sending...",
-      "updating": "Updating..."
+      "processing": "Processing..."
     }
   },
   "pagination": {

@@ -186,7 +186,6 @@
   .footerLink {
     color: rgba(255, 255, 255, 0.9);
     text-decoration: none !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 15px;
     display: flex;
     align-items: center;
@@ -195,39 +194,23 @@
     position: relative;
     border-radius: 8px;
     background: transparent;
-    overflow: hidden;
-  }
-  
-  .footerLink::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, 
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.1) 50%,
-      rgba(255, 255, 255, 0) 100%);
-    transform: translateX(-100%);
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    transform: translateX(0);
+    transition: transform 0.2s ease, color 0.2s ease;
   }
   
   .footerLink:hover {
     color: white;
     text-decoration: none !important;
     transform: translateX(5px);
-    background: rgba(255, 255, 255, 0.1);
-  }
-  
-  .footerLink:hover::before {
-    transform: translateX(100%);
   }
   
   .footerLinkIcon {
     font-size: 14px;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: rgba(255, 255, 255, 0.7);
+    will-change: transform;
+    transform: translateX(0);
+    transition: transform 0.2s ease, color 0.2s ease;
   }
   
   .footerLink:hover .footerLinkIcon {
@@ -451,7 +434,6 @@
     border-radius: 25px;
     padding: 8px 16px;
     font-size: 14px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: white;
     text-decoration: none;
     display: flex;
@@ -459,44 +441,28 @@
     gap: 8px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
-    overflow: hidden;
-  }
-  
-  .petCategory::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.2) 50%,
-      rgba(255, 255, 255, 0) 100%);
-    transform: translateX(-100%) rotate(45deg);
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    transform: translateY(0);
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   }
   
   .petCategory:hover {
     background: white;
     color: #8247f5;
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    border-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-decoration: none;
-  }
-  
-  .petCategory:hover::before {
-    transform: translateX(100%) rotate(45deg);
   }
   
   .petCategoryIcon {
     font-size: 14px;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    transform: scale(1);
+    transition: transform 0.2s ease;
   }
   
   .petCategory:hover .petCategoryIcon {
-    transform: scale(1.2) rotate(10deg);
+    transform: scale(1.1);
   }
   
   [data-theme='dark'] .footer {

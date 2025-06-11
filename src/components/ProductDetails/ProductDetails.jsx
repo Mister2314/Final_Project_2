@@ -38,7 +38,7 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const { isAuthenticated, user } = useSelector((state) => state?.user || {});
   const { products = [], loading = false, error } = useSelector((state) => state?.products || {});
-  const { addItem } = useCart();
+  const { addItem, items } = useCart();
   const { addWishlistItem, removeWishlistItem, inWishlist } = useWishlist();
   const { t, i18n } = useTranslation();
   const currentLang = i18n?.language;
@@ -187,37 +187,32 @@ const ProductDetails = () => {
   };
 
   const handleAddToCart = () => {
-    if (!isAuthenticated) {
-      toast.error(t('toast.error.auth.loginRequired'));
-      navigate('/login');
-      return;
-    }
-
-    if (!product) {
-      toast.error(t('toast.error.product.notFound'));
-      return;
-    }
-
     try {
-    const cartItem = {
-      id: product.id,
-      name: isAzerbaijani ? (product?.nameAz || product?.nameEn || 'Unnamed Product') : (product?.nameEn || product?.nameAz || 'Unnamed Product'),
-      price: product?.isDiscount 
-        ? getDiscountedPrice(product?.price, product?.discount)
-        : (product?.price || 0),
-      image: product?.image || '',
-      category: isAzerbaijani ? (product?.categoryAz || product?.categoryEn || product?.main_category || 'Uncategorized') : (product?.categoryEn || product?.categoryAz || product?.main_category || 'Uncategorized'),
-      originalPrice: product?.price || 0,
-      isDiscount: product?.isDiscount || false,
-      discount: product?.discount || 0,
-      quantity: quantity,
-      inStock: product?.inStock !== false
-    };
+      if (!isAuthenticated) {
+        toast.error(t('toast.error.auth.loginRequired'));
+        navigate('/login');
+        return;
+      }
 
-      addItem(cartItem, quantity);
-      toast.success(t('toast.success.cart.addSuccess'));
+      if (!product) {
+        toast.error(t('toast.error.product.notFound'));
+        return;
+      }
+
+      if (items.some(item => item.id === product.id)) {
+        toast.error(t('toast.error.cart.alreadyExists'));
+        return;
+      }
+
+      const cartItem = {
+        ...product,
+        quantity: quantity
+      };
+
+      addItem(cartItem);
+      toast.success(t('toast.success.cart.add'));
     } catch (error) {
-      toast.error(t('toast.error.cart.addError'));
+      toast.error(t('toast.error.cart.add'));
     }
   };
 
@@ -236,13 +231,13 @@ const ProductDetails = () => {
     try {
       if (inWishlist(product.id)) {
         removeWishlistItem(product.id);
-        toast.success(t('toast.success.wishlist.removeSuccess'));
+        toast.success(t('toast.success.wishlist.remove'));
       } else {
         addWishlistItem(product);
-        toast.success(t('toast.success.wishlist.addSuccess'));
+        toast.success(t('toast.success.wishlist.add'));
       }
     } catch (error) {
-      toast.error(t('toast.error.wishlist.addError'));
+      toast.error(t('toast.error.wishlist.add'));
     }
   };
 

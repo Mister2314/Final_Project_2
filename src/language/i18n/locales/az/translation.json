@@ -109,20 +109,20 @@
   },
   "signup": {
     "title": "Qeydiyyat",
-    "username": "İstifadəçi adı",
+    "username": "İstifadəçi Adı",
     "usernamePlaceholder": "İstifadəçi adınızı daxil edin",
-    "email": "E-poçt",
-    "emailPlaceholder": "E-poçt ünvanınızı daxil edin",
-    "password": "Şifrə",
-    "passwordPlaceholder": "Şifrənizi daxil edin",
-    "confirmPassword": "Şifrəni təsdiq edin",
-    "confirmPasswordPlaceholder": "Şifrənizi təkrar daxil edin",
+    "email": "Email Ünvanı",
+    "emailPlaceholder": "Email ünvanınızı daxil edin",
+    "password": "Parol",
+    "passwordPlaceholder": "Parolunuzu daxil edin",
+    "confirmPassword": "Parolu Təkrar Edin",
+    "confirmPasswordPlaceholder": "Parolunuzu təkrar daxil edin",
     "signupButton": "Qeydiyyatdan keç",
     "signingUp": "Qeydiyyat aparılır...",
     "haveAccount": "Artıq hesabınız var?",
     "loginLink": "Daxil ol",
     "back": "Geri",
-    "successMessage": "Qeydiyyat uğurla tamamlandı! İndi daxil ola bilərsiniz.",
+    "successMessage": "Qeydiyyat uğurla tamamlandı!",
     "errorFields": "Zəhmət olmasa bütün sahələri doldurun",  
     "errorGeneral": "Qeydiyyat zamanı xəta baş verdi",
     "errorUserExists": "Bu email ünvanı ilə artıq hesab mövcuddur",
@@ -133,24 +133,21 @@
   },
   "login": {
     "title": "Giriş",
-    "email": "E-poçt",
-    "emailPlaceholder": "E-poçt ünvanınızı daxil edin",
-    "password": "Şifrə",
-    "passwordPlaceholder": "Şifrənizi daxil edin",
-    "forgotPassword": "Şifrəni unutmusunuz?",
+    "email": "Email Ünvanı",
+    "emailPlaceholder": "Email ünvanınızı daxil edin",
+    "password": "Parol",
+    "passwordPlaceholder": "Parolunuzu daxil edin",
+    "adminLogin": "Admin Girişi",
+    "forgotPassword": "Parolu unutmusunuz?",
     "loginButton": "Daxil ol",
     "loggingIn": "Daxil olunur...",
     "noAccount": "Hesabınız yoxdur?",
     "signupLink": "Qeydiyyatdan keç",
-    "errorFields": "Zəhmət olmasa e-poçt və şifrəni daxil edin",
+    "errorFields": "Zəhmət olmasa bütün sahələri doldurun",
     "successMessage": "Uğurla daxil oldunuz!",
     "welcomeMessage": "Xoş gəlmisiniz, {{username}}!",
     "errorInvalid": "Email və ya parol yanlışdır",
-    "errorGeneral": "Giriş zamanı xəta baş verdi",
-    "errorEmailFormat": "Düzgün email ünvanı daxil edin",
-    "errorPasswordLength": "Şifrə ən azı 6 simvoldan ibarət olmalıdır",
-    "errorNetworkError": "İnternet bağlantısı problemi. Yenidən cəhd edin",
-    "errorServerError": "Server xətası. Bir az sonra yenidən cəhd edin"
+    "errorGeneral": "Giriş zamanı xəta baş verdi"
   },
   "forgotPassword": {
     "title": "Parolu Unutmusunuz?",
@@ -753,35 +750,55 @@
   },
   "toast": {
     "success": {
-      "login": "Uğurla daxil oldunuz! Xoş gəlmisiniz!",
-      "signup": "Hesab uğurla yaradıldı! İndi daxil ola bilərsiniz.",
+      "login": "Uğurla daxil oldunuz!",
+      "signup": "Hesab uğurla yaradıldı!",
+      "admin": {
+        "login": "Admin panelinə uğurla daxil oldunuz!",
+        "createProduct": "Məhsul uğurla yaradıldı",
+        "updateProduct": "Məhsul uğurla yeniləndi",
+        "deleteProduct": "Məhsul uğurla silindi",
+        "createBlog": "Bloq uğurla yaradıldı",
+        "updateBlog": "Bloq uğurla yeniləndi",
+        "deleteBlog": "Bloq uğurla silindi",
+        "createUser": "İstifadəçi uğurla yaradıldı",
+        "updateUser": "İstifadəçi uğurla yeniləndi",
+        "deleteUser": "İstifadəçi uğurla silindi"
+      },
       "forgotPassword": {
-        "successMessage": "Şifrə yeniləmə linki göndərildi!"
+        "emailSent": "Şifrə yeniləmə linki göndərildi!"
       },
-      "profileSettings": {
-        "usernameUpdateSuccess": "İstifadəçi adı uğurla yeniləndi!",
-        "emailUpdateSuccess": "E-poçt uğurla yeniləndi!",
-        "passwordUpdateSuccess": "Şifrə uğurla yeniləndi!"
+      "resetPassword": "Şifrə uğurla yeniləndi!",
+      "profile": {
+        "update": "Profil uğurla yeniləndi!",
+        "passwordChange": "Şifrə uğurla dəyişdirildi!"
       },
-      "orderStatus": "Sifariş statusu uğurla yeniləndi!",
-      "orderDelete": "Sifariş uğurla silindi!",
+      "order": {
+        "create": "Sifariş uğurla yaradıldı!",
+        "update": "Sifariş uğurla yeniləndi!",
+        "delete": "Sifariş uğurla silindi!",
+        "status": "Sifariş statusu yeniləndi!"
+      },
       "cart": {
-        "addSuccess": "Məhsul səbətə əlavə edildi!",
-        "removeSuccess": "Məhsul səbətdən silindi!",
-        "updateSuccess": "Səbət yeniləndi!",
-        "clearSuccess": "Səbət təmizləndi!"
+        "add": "Məhsul səbətə əlavə edildi!",
+        "remove": "Məhsul səbətdən silindi!",
+        "update": "Səbət yeniləndi!",
+        "clear": "Səbət təmizləndi!"
       },
       "wishlist": {
-        "addSuccess": "Məhsul istək siyahısına əlavə edildi!",
-        "removeSuccess": "Məhsul istək siyahısından silindi!",
-        "clearSuccess": "İstək siyahısı təmizləndi!",
+        "add": "Məhsul istək siyahısına əlavə edildi!",
+        "remove": "Məhsul istək siyahısından silindi!",
+        "clear": "İstək siyahısı təmizləndi!",
+        "moveToCart": "Məhsul səbətə əlavə edildi!",
         "cart": {
           "addSuccess": "Məhsul səbətə əlavə edildi!",
           "alreadyExists": "Məhsul artıq səbətdədir!"
         }
       },
-      "newsletter": {
-        "subscribeSuccess": "Uğurla abunə oldunuz!"
+      "contact": {
+        "sent": "Mesajınız uğurla göndərildi!"
+      },
+      "link": {
+        "copied": "Link kopyalandı!"
       },
       "review": {
         "addSuccess": "Rəyiniz uğurla əlavə edildi!",
@@ -791,13 +808,58 @@
     "error": {
       "auth": {
         "loginRequired": "Bu əməliyyat üçün daxil olmalısınız",
-        "unauthorized": "Bu əməliyyat üçün icazəniz yoxdur"
+        "unauthorized": "Bu əməliyyata icazəniz yoxdur",
+        "invalidCredentials": "Email və ya parol yanlışdır"
       },
-      "login": {
-        "errorEmail": "E-poçt ünvanınızı daxil edin",
-        "errorPassword": "Şifrənizi daxil edin",
-        "errorGeneral": "Giriş zamanı xəta baş verdi. Yenidən cəhd edin."
+      "admin": {
+        "createProduct": "Məhsul yaradılarkən xəta baş verdi",
+        "updateProduct": "Məhsul yenilənərkən xəta baş verdi",
+        "deleteProduct": "Məhsul silinərkən xəta baş verdi",
+        "createBlog": "Bloq yaradılarkən xəta baş verdi",
+        "updateBlog": "Bloq yenilənərkən xəta baş verdi",
+        "deleteBlog": "Bloq silinərkən xəta baş verdi",
+        "createUser": "İstifadəçi yaradılarkən xəta baş verdi",
+        "updateUser": "İstifadəçi yenilənərkən xəta baş verdi",
+        "deleteUser": "İstifadəçi silinərkən xəta baş verdi"
+      },
+      "validation": {
+        "required": "Bütün sahələri doldurun",
+        "email": "Düzgün email ünvanı daxil edin",
+        "password": "Şifrə ən azı 6 simvoldan ibarət olmalıdır",
+        "passwordMatch": "Şifrələr uyğun gəlmir"
+      },
+      "order": {
+        "create": "Sifariş yaradılarkən xəta baş verdi",
+        "update": "Sifariş yenilənərkən xəta baş verdi",
+        "delete": "Sifariş silinərkən xəta baş verdi",
+        "fetch": "Sifarişlər yüklənərkən xəta baş verdi"
+      },
+      "cart": {
+        "add": "Məhsul səbətə əlavə edilərkən xəta baş verdi",
+        "remove": "Məhsul səbətdən silinərkən xəta baş verdi",
+        "update": "Səbət yenilənərkən xəta baş verdi"
+      },
+      "wishlist": {
+        "add": "Məhsul istək siyahısına əlavə edilərkən xəta baş verdi",
+        "remove": "Məhsul istək siyahısından silinərkən xəta baş verdi",
+        "moveToCart": "Məhsul səbətə əlavə edilərkən xəta baş verdi",
+        "alreadyExists": "Bu məhsul artıq istək siyahısındadır"
+      },
+      "contact": {
+        "send": "Mesaj göndərilməsində xəta baş verdi"
+      },
+      "product": {
+        "notFound": "Məhsul tapılmadı"
+      },
+      "review": {
+        "addError": "Rəy əlavə edilərkən xəta baş verdi",
+        "deleteError": "Rəy silinərkən xəta baş verdi",
+        "fetchError": "Rəylər yüklənərkən xəta baş verdi"
       }
+    },
+    "info": {
+      "loading": "Yüklənir...",
+      "processing": "Əməliyyat icra olunur..."
     }
   },
   "pagination": {

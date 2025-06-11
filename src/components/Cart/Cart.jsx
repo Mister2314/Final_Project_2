@@ -101,45 +101,40 @@ const Cart = () => {
 
       addWishlistItem(wishlistItem);
       removeItem(item.id);
-      successToast('toast.success.wishlist.addSuccess');
+      successToast('toast.success.wishlist.add');
     } catch (error) {
       console.error('Error adding to wishlist:', error);
-      errorToast('toast.error.wishlist.addError');
+      errorToast('toast.error.wishlist.add');
     }
   };
 
-  const updateQuantity = (id, newQuantity) => {
+  const handleRemoveItem = (itemId) => {
     try {
-      if (newQuantity < 1) {
-        errorToast('toast.error.cart.quantity.invalid');
-        return;
-      }
-
-      updateItemQuantity(id, newQuantity);
-      successToast('toast.success.cart.updateSuccess');
-
-      const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
-      const itemIndex = existingCart.findIndex(item => item.id === id);
-      
-      if (itemIndex > -1) {
-        existingCart[itemIndex].quantity = newQuantity;
-        localStorage.setItem('cart', JSON.stringify(existingCart));
-      }
+      removeItem(itemId);
+      successToast('toast.success.cart.remove');
     } catch (error) {
-      errorToast('toast.error.cart.updateError');
+      console.error('Error removing item:', error);
+      errorToast('toast.error.cart.remove');
     }
   };
 
-  const handleRemoveItem = (id) => {
+  const handleUpdateQuantity = (itemId, newQuantity) => {
     try {
-      removeItem(id);
-      successToast('toast.success.cart.removeSuccess');
-
-      const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
-      const updatedCart = existingCart.filter(item => item.id !== id);
-      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      updateItemQuantity(itemId, newQuantity);
+      successToast('toast.success.cart.update');
     } catch (error) {
-      errorToast('toast.error.cart.removeError');
+      console.error('Error updating quantity:', error);
+      errorToast('toast.error.cart.update');
+    }
+  };
+
+  const handleClearCart = () => {
+    try {
+      emptyCart();
+      successToast('toast.success.cart.clear');
+    } catch (error) {
+      console.error('Error clearing cart:', error);
+      errorToast('toast.error.cart.update');
     }
   };
 
@@ -261,7 +256,7 @@ const Cart = () => {
                       <div className={styles.quantityControls}>
                         <button 
                           className={styles.quantityButton}
-                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                          onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}
                           disabled={item.quantity <= 1}
                         >
                           <FaMinus />
@@ -269,7 +264,7 @@ const Cart = () => {
                         <span className={styles.quantity}>{item.quantity}</span>
                         <button 
                           className={styles.quantityButton}
-                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                          onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}
                         >
                           <FaPlus />
                         </button>

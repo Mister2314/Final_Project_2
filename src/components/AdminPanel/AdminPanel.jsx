@@ -362,79 +362,79 @@ const handleSubmit = async (e) => {
       
       if (modalAction === "create") {
         await dispatch(createProduct(productData)).unwrap();
-        toast.success("Product created successfully");
+        toast.success(t('toast.success.admin.createProduct'));
       } else {
         if (!selectedItem || !selectedItem.id) {
-          toast.error("Product ID is missing", { id: 'product-validation' });
+          toast.error(t('toast.error.admin.productIdMissing'));
           return;
         }
         
         await dispatch(updateProduct({ id: selectedItem.id, productData })).unwrap();
-        toast.success("Product updated successfully");
+        toast.success(t('toast.success.admin.updateProduct'));
       }
 
       await dispatch(getAllProducts());
       
     } else if (modalType === "blog") {
       if (!blogForm.blogTitle_az.trim()) {
-        toast.error("Blog title (AZ) is required", { id: 'blog-validation' });
+        toast.error(t('toast.error.validation.required'));
         return;
       }
 
       if (!blogForm.blogTitle_en.trim()) {
-        toast.error("Blog title (EN) is required", { id: 'blog-validation' });
+        toast.error(t('toast.error.validation.required'));
         return;
       }
 
       if (!blogForm.blogDescription_az.trim()) {
-        toast.error("Blog description (AZ) is required", { id: 'blog-validation' });
+        toast.error(t('toast.error.validation.required'));
         return;
       }
 
       if (!blogForm.blogDescription_en.trim()) {
-        toast.error("Blog description (EN) is required", { id: 'blog-validation' });
+        toast.error(t('toast.error.validation.required'));
         return;
       }
 
       if (!blogForm.blogCategory.trim()) {
-        toast.error("Blog category is required", { id: 'blog-validation' });
+        toast.error(t('toast.error.validation.required'));
         return;
       }
 
       if (modalAction === "create") {
         await dispatch(createBlog(blogForm)).unwrap();
-        toast.success("Blog created successfully");
+        toast.success(t('toast.success.admin.createBlog'));
       } else {
         if (!selectedItem || !selectedItem.id) {
-          toast.error("Blog ID is missing", { id: 'blog-validation' });
+          toast.error(t('toast.error.admin.blogIdMissing'));
           return;
         }
         
         await dispatch(updateBlog({ id: selectedItem.id, blogData: blogForm })).unwrap();
-        toast.success("Blog updated successfully");
+        toast.success(t('toast.success.admin.updateBlog'));
       }
 
       await dispatch(fetchBlogs());
       
     } else if (modalType === "user") {
       if (!userForm.username.trim()) {
-        toast.error(t('adminPanel.forms.user.validation.usernameRequired'), { id: 'user-validation' });
+        toast.error(t('toast.error.validation.required'));
         return;
       }
 
       if (!userForm.email.trim()) {
-        toast.error(t('adminPanel.forms.user.validation.emailRequired'), { id: 'user-validation' });
+        toast.error(t('toast.error.validation.email'));
         return;
       }
 
       if (modalAction === "create") {
         if (!userForm.password.trim()) {
-          toast.error(t('adminPanel.forms.user.validation.passwordRequired'), { id: 'user-validation' });
+          toast.error(t('toast.error.validation.password'));
           return;
         }
 
         if (userForm.password.length < 6) {
-          toast.error(t('adminPanel.forms.user.validation.passwordMinLength'), { id: 'user-validation' });
+          toast.error(t('toast.error.validation.password'));
           return;
         }
 
@@ -450,11 +450,11 @@ const handleSubmit = async (e) => {
           .single();
 
         if (error) throw error;
-        toast.success(t('adminPanel.forms.user.messages.createSuccess'));
+        toast.success(t('toast.success.admin.createUser'));
         fetchUsers();
       } else {
         if (!selectedItem || !selectedItem.id) {
-          toast.error(t('adminPanel.forms.user.validation.userIdMissing'), { id: 'user-validation' });
+          toast.error(t('toast.error.admin.userIdMissing'));
           return;
         }
 
@@ -466,7 +466,7 @@ const handleSubmit = async (e) => {
 
         if (userForm.password.trim()) {
           if (userForm.password.length < 6) {
-            toast.error(t('adminPanel.forms.user.validation.passwordMinLength'), { id: 'user-validation' });
+            toast.error(t('toast.error.validation.password'));
             return;
           }
           updateData.password = userForm.password;
@@ -480,7 +480,7 @@ const handleSubmit = async (e) => {
           .single();
 
         if (error) throw error;
-        toast.success(t('adminPanel.forms.user.messages.updateSuccess'));
+        toast.success(t('toast.success.admin.updateUser'));
         fetchUsers();
       }
     } else if (modalType === "order") {

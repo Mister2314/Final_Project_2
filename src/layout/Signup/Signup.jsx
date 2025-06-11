@@ -14,7 +14,7 @@ export default function Signup() {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const { loading, error } = useSelector((state) => state.user);
+  const { loading } = useSelector((state) => state.user);
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -23,12 +23,6 @@ export default function Signup() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
-
-  React.useEffect(() => {
-    if (error) {
-      errorToast(error);
-    }
-  }, [error]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -47,46 +41,46 @@ export default function Signup() {
       
     try {
       if (!formData.username.trim()) {
-        errorToast('signup.errorUsername');
+        errorToast('toast.error.validation.required');
         setIsSubmitting(false);
         return;
       }
 
       const usernameError = getValidationError('username', formData.username);
       if (usernameError) {
-        errorToast('signup.errorUsernameFormat');
+        errorToast('toast.error.validation.required');
         setIsSubmitting(false);
         return;
       }
 
       if (!formData.email.trim()) {
-        errorToast('signup.errorEmail');
+        errorToast('toast.error.validation.email');
         setIsSubmitting(false);
         return;
       }
 
       const emailError = getValidationError('email', formData.email);
       if (emailError) {
-        errorToast('signup.errorEmailFormat');
+        errorToast('toast.error.validation.email');
         setIsSubmitting(false);
         return;
       }
 
       if (!formData.password.trim()) {
-        errorToast('signup.errorPassword');
+        errorToast('toast.error.validation.password');
         setIsSubmitting(false);
         return;
       }
 
       const passwordError = getValidationError('password', formData.password);
       if (passwordError) {
-        errorToast('signup.errorPasswordFormat');
+        errorToast('toast.error.validation.password');
         setIsSubmitting(false);
         return;
       }
 
       if (formData.password !== formData.confirmPassword) {
-        errorToast('signup.errorPasswordMatch');
+        errorToast('toast.error.validation.passwordMatch');
         setIsSubmitting(false);
         return;
       }
@@ -97,7 +91,7 @@ export default function Signup() {
         navigate('/login');
       }
     } catch (error) {
-      errorToast('signup.errorGeneral');
+      errorToast('toast.error.auth.invalidCredentials');
     } finally {
       setIsSubmitting(false);
     }
