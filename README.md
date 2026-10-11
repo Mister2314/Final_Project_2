@@ -1,17 +1,23 @@
-# Pawsoome — Pet Shop E-Commerce
+<h1 align="center">Pawsoome — Pet Shop E-Commerce</h1>
 
-**A full pet-supply storefront — catalogue, cart, wishlist, checkout, blog and an admin dashboard — built on React with Redux Toolkit and Supabase.**
+<p align="center"><b>A full pet-supply storefront — catalogue, cart, wishlist, checkout, blog and an admin dashboard — built on React with Redux Toolkit and Supabase.</b></p>
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-pawsoome.netlify.app-2ea44f?style=flat-square&logo=vercel&logoColor=white)](https://pawsoome.netlify.app/)
+<p align="center">
+[![Live Demo](https://img.shields.io/badge/Live_Demo-▶-2ea44f?style=for-the-badge&logo=vercel&logoColor=white)](https://pawsoome.netlify.app/)
 ![React 19](https://img.shields.io/badge/React_19-61dafb?style=flat-square&logoColor=white)
 ![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-764abc?style=flat-square&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ecf8e?style=flat-square&logoColor=white)
+</p>
+
+<p align="center">[**Live demo**](https://pawsoome.netlify.app/) · [Quick start](#quick-start) · [Features](#features) · [Architecture](#architecture) · [FAQ](#faq)</p>
 
 <p align="center">
   <a href="https://pawsoome.netlify.app/">
-    <img src="docs/preview.png" alt="Pawsoome — Pet Shop E-Commerce — desktop preview" width="100%">
+    <img src="docs/demo.gif" alt="Pawsoome — Pet Shop E-Commerce — animated demo" width="88%">
   </a>
 </p>
+
+<p align="center"><sub>Live capture of the real build — 1752 KB, loops forever.</sub></p>
 
 ## Overview
 
@@ -20,6 +26,15 @@ Pawsoome is the largest app I have built end to end: a multi-page e-commerce fro
 The product side is split by animal (dogs / cats) and then by category — food, toys, beds, carriers, leashes, litter — so every listing route resolves through a nested router structure. Authenticated users get a persisted cart and wishlist, and an admin role unlocks a dashboard where products, orders, users and blog posts can be created, edited and deleted.
 
 State lives in Redux Toolkit, server data and authentication in Supabase, and the whole interface is translated through i18next.
+
+## At a glance
+
+| Field | Detail |
+| --- | --- |
+| **Type** | Single-page application — Vite build |
+| **Primary language** | JavaScript |
+| **Live demo** | [pawsoome.netlify.app](https://pawsoome.netlify.app/) |
+| **Repository** | [Mister2314/Final_Project_2](https://github.com/Mister2314/Final_Project_2) |
 
 ## Features
 
@@ -46,13 +61,26 @@ State lives in Redux Toolkit, server data and authentication in Supabase, and th
 | i18n | i18next, react-i18next, browser language detector |
 | Build | Vite, ESLint |
 
+## Architecture
+
+```mermaid
+flowchart LR
+  U["Browser"] --> R["React Router 7<br/>nested routes"]
+  R --> C["Feature components<br/>Cart · Wishlist · Admin"]
+  C --> S["Redux Toolkit<br/>user session"]
+  C --> DB[("Supabase<br/>products · orders · auth")]
+  C --> M["EmailJS<br/>contact form"]
+  C --> I["i18next<br/>locale files"]
+  S --> B["Vite build"] --> N["Netlify"]
+```
+
 ## Screenshots
 
 | Desktop | Mobile |
 | :---: | :---: |
 | <img src="docs/preview.png" alt="Desktop view"> | <img src="docs/preview-mobile.png" alt="Mobile view" width="230"> |
 
-## Getting Started
+## Quick Start
 
 ```bash
 git clone https://github.com/Mister2314/Final_Project_2.git
@@ -72,6 +100,36 @@ src/language/i18n/ — translation setup and locale files
 src/context/ThemeContext.jsx — dark / light theme provider
 src/UseTitle/ — document title hook
 ```
+
+## FAQ
+
+<details>
+<summary><b>Do I need a Supabase account to run it?</b></summary>
+
+Yes — the app reads products, orders and users from Supabase. Create a free project and drop your URL and anon key into the env file. Everything else runs locally with `npm run dev`.
+
+</details>
+
+<details>
+<summary><b>Is the admin panel protected?</b></summary>
+
+It sits behind a protected route that checks the session role. A logged-in user without the admin role is redirected away from `/admin`.
+
+</details>
+
+<details>
+<summary><b>Why Redux Toolkit and not just Context?</b></summary>
+
+The cart, wishlist and auth session all need to be read from many unrelated components. Context would have re-rendered the whole tree on every cart change; Redux slices keep those updates scoped.
+
+</details>
+
+## Roadmap
+
+- [ ] Add unit tests around the cart and order totals
+- [ ] Move the data layer behind a typed API client
+- [ ] Replace EmailJS with a Supabase edge function
+- [ ] Add product image uploads to the admin panel
 
 ## Notes
 
