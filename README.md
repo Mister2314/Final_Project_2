@@ -1,12 +1,84 @@
-# React + Vite
+# Pawsoome — Pet Shop E-Commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**A full pet-supply storefront — catalogue, cart, wishlist, checkout, blog and an admin dashboard — built on React with Redux Toolkit and Supabase.**
 
-Currently, two official plugins are available:
+[![Live Demo](https://img.shields.io/badge/Live_Demo-pawsoome.netlify.app-2ea44f?style=flat-square&logo=vercel&logoColor=white)](https://pawsoome.netlify.app/)
+![React 19](https://img.shields.io/badge/React_19-61dafb?style=flat-square&logoColor=white)
+![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-764abc?style=flat-square&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ecf8e?style=flat-square&logoColor=white)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+  <a href="https://pawsoome.netlify.app/">
+    <img src="docs/preview.png" alt="Pawsoome — Pet Shop E-Commerce — desktop preview" width="100%">
+  </a>
+</p>
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Pawsoome is the largest app I have built end to end: a multi-page e-commerce front end for a pet-supply store, covering everything from browsing a two-level category tree to placing an order and managing the catalogue from an admin panel.
+
+The product side is split by animal (dogs / cats) and then by category — food, toys, beds, carriers, leashes, litter — so every listing route resolves through a nested router structure. Authenticated users get a persisted cart and wishlist, and an admin role unlocks a dashboard where products, orders, users and blog posts can be created, edited and deleted.
+
+State lives in Redux Toolkit, server data and authentication in Supabase, and the whole interface is translated through i18next.
+
+## Features
+
+- Two-level catalogue: dogs & cats → food, toys, beds, carriers, leashes, litter
+- Search, featured products, featured brands and featured categories on the home page
+- Cart and wishlist that survive a page reload (`react-use-cart`, `react-use-wishlist`)
+- Checkout flow with an order form
+- Email/password authentication — register, login, forgot password
+- Role-based admin panel with CRUD tables for products, orders, users and blogs
+- Order statistics dashboard
+- Blog with a details route, FAQ page and contact form wired to EmailJS
+- Full multi-language UI via `i18next` with automatic browser language detection
+- Dark / light theme through a `ThemeContext` provider
+- Protected routes, scroll-to-top on navigation and toast notifications
+
+## Tech Stack
+
+| Layer | Technology |
+| --- | --- |
+| UI | React 19, React Router 7 |
+| State | Redux Toolkit, React Context (theme) |
+| Backend | Supabase (data + auth), EmailJS (contact form) |
+| Commerce | react-use-cart, react-use-wishlist |
+| i18n | i18next, react-i18next, browser language detector |
+| Build | Vite, ESLint |
+
+## Screenshots
+
+| Desktop | Mobile |
+| :---: | :---: |
+| <img src="docs/preview.png" alt="Desktop view"> | <img src="docs/preview-mobile.png" alt="Mobile view" width="230"> |
+
+## Getting Started
+
+```bash
+git clone https://github.com/Mister2314/Final_Project_2.git
+cd Final_Project_2
+npm install
+npm run dev
+```
+
+## Project Structure
+
+```
+src/components/ — one folder per feature (Cart, Checkout, Blogs, FAQ, AdminPanel, …)
+src/components/AdminPanel/ — forms, tables and order statistics for the dashboard
+src/redux/ — store and slices (user session, auth bootstrap)
+src/routes/AppRouter.jsx — all routes, including protected admin routes
+src/language/i18n/ — translation setup and locale files
+src/context/ThemeContext.jsx — dark / light theme provider
+src/UseTitle/ — document title hook
+```
+
+## Notes
+
+This started as a bootcamp final project and grew into the app you see here. If I rebuilt it today I would move the data layer behind a typed API client and add tests around the cart maths — right now those are the two places where a regression would be easiest to miss.
+
+## Author
+
+**Xəyal Hüseynli** — Junior Front-End Developer
+
+[Portfolio](https://hypnosdev.vercel.app) · [GitHub](https://github.com/Mister2314) · [LinkedIn](https://www.linkedin.com/in/x%C9%99yal-h%C3%BCseynli-3487b91ba/) · [xeyalhuseynli06@gmail.com](mailto:xeyalhuseynli06@gmail.com)
