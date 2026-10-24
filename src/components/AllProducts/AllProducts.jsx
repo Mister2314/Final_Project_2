@@ -50,6 +50,7 @@ const AllProducts = () => {
         showCategoryFilter={true}
         showStockFilter={true}
         smartFilters={smartFilters}
+        syncUrl={true}
       />
     </div>
   );

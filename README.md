@@ -42,6 +42,15 @@ React 19 · Redux Toolkit · Supabase · i18next · Vite
 - Blog, FAQ and contact form wired to EmailJS
 - Full multi-language UI via i18next, dark / light theme via `ThemeContext`
 
+## Revamp (2026-10): motion, mobile & a11y pass
+
+- **Motion system** — staggered list reveals, card hover lift / press feedback, cart-badge pop; all `transform`/`opacity` only and fully disabled under `prefers-reduced-motion`
+- **Mobile composition** — thumb-reach bottom tab bar (Home / Shop / Cart / Wishlist) with safe-area insets on ≤768px
+- **Accessibility** — keyboard-navigable product cards, real `role="checkbox"` filter controls, labelled wishlist/cart actions, visible focus rings, focus-trapped modals
+- **Skeleton loading** — pulsing skeleton grid replaces full-page spinners on catalogue routes
+- **URL-synced filters** — search and sort on `/shop/all-products` persist to `?q=` / `?sort=` and survive refresh
+- **Illustrated empty states** — inline SVG paw illustration instead of emoji for "no results"
+
 ## Run locally
 
 ```bash
@@ -55,4 +64,4 @@ Requires a free Supabase project — the app reads products, orders and users fr
 
 ## What I learned
 
-Choosing Redux Toolkit over Context for the cart and auth session kept re-renders scoped to the slices that changed instead of the whole tree.
+Choosing Redux Toolkit over Context for the cart and auth session kept re-renders scoped to the slices that changed instead of the whole tree — and in the revamp, gating every new animation behind `useReducedMotion` + a global CSS kill-switch showed that "motion = hierarchy" only works when it can be switched off entirely.

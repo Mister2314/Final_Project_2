@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+﻿import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BsSun, BsMoon, BsHeart } from "react-icons/bs";
@@ -19,6 +19,7 @@ import { useCart } from 'react-use-cart';
 
 
 import styles from "./Navbar.module.css";
+import MobileTabBar from "./MobileTabBar";
 
 const Navbar = () => {
  const { items: wishlistItems } = useWishlist();
@@ -50,7 +51,7 @@ const cartCount = cartItems.length;
       return user.username;
     }
     
-    return "İstifadəçi";
+    return "Ä°stifadÉ™Ã§i";
   };
   
   const userDisplayName = getUserDisplayName();
@@ -293,7 +294,7 @@ const handleLogout = async () => {
     onClick={(e) => {
       if (!isAuthenticated) {
         e.preventDefault();
-        toast.error('Wishlist\'ə baxmaq üçün hesabınıza daxil olun!');
+        toast.error('Wishlist\'É™ baxmaq Ã¼Ã§Ã¼n hesabÄ±nÄ±za daxil olun!');
       }
     }}
   >
@@ -308,7 +309,7 @@ const handleLogout = async () => {
                       {theme === "light" ? <BsMoon /> : <BsSun />}
                     </button>
                  {user && (
-  <Link to="/cart" className={styles.actionButton}>
+  <Link to="/cart" className={styles.actionButton} aria-label="Cart">
     <div className={styles.iconWithBadge}>
       <IoBagHandleOutline />
       {cartCount > 0 && (
@@ -324,7 +325,7 @@ const handleLogout = async () => {
                   <div className={styles.languageSelector}>
                     <LanguageSelector />
                   </div>
-                  <Link to="/wishlist" className={styles.actionButton}>
+                  <Link to="/wishlist" className={styles.actionButton} aria-label="Wishlist">
                     <div className={styles.iconWithBadge}>
                       <BsHeart />
                       {wishlistCount > 0 && (
@@ -333,7 +334,7 @@ const handleLogout = async () => {
                     </div>
                   </Link>
                   {user && (
-                    <Link to="/cart" className={styles.actionButton}>
+                    <Link to="/cart" className={styles.actionButton} aria-label="Cart">
                       <div className={styles.iconWithBadge}>
                         <IoBagHandleOutline />
                         {cartCount > 0 && (
@@ -474,6 +475,7 @@ const handleLogout = async () => {
         
       
       </nav>
+      <MobileTabBar />
     </header>
   );
 };

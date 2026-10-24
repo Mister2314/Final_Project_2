@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo, useCallback, lazy, Suspense, useRef, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import { fetchProducts, clearError } from '../../redux/slices/productSlices';
 import Header from '../../layout/Header/Header';
 import Footer from '../../layout/Footer/Footer';
@@ -13,7 +13,7 @@ import { useCart } from 'react-use-cart';
 import ConfirmDialog from '../ConfirmDialog/ConfirmDialog';
 import { errorToast, successToast } from '../../utils/toast';
 import { debounce } from 'lodash';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Disclosure, Transition, Listbox, Switch } from '@headlessui/react';
 import { ChevronUpIcon, CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
 import Spinner from '../Spinner/Spinner';
@@ -206,7 +206,10 @@ const CustomCheckbox = React.memo(({
   count 
 }) => {
   return (
-    <div 
+    <button
+      type="button"
+      role="checkbox"
+      aria-checked={checked}
       className={styles.checkboxContainer}
       onClick={() => onChange(!checked)}
     >
@@ -219,9 +222,40 @@ const CustomCheckbox = React.memo(({
           <span className={styles.checkboxCount}>({count})</span>
         )}
       </div>
-    </div>
+    </button>
   );
 });
+
+// Skeleton grid shown while products load (perceived perf, pack directive #4.1)
+const SkeletonGrid = React.memo(({ count = 8 }) => (
+  <div className={styles.productsGrid} aria-hidden="true">
+    {Array.from({ length: count }).map((_, i) => (
+      <div key={i} className={styles.skeletonCard}>
+        <div className={`${styles.skeletonImage} skeleton`} />
+        <div className={`${styles.skeletonLine} skeleton`} style={{ width: '85%' }} />
+        <div className={`${styles.skeletonLine} skeleton`} style={{ width: '55%' }} />
+        <div className={`${styles.skeletonLine} skeleton`} style={{ width: '40%' }} />
+      </div>
+    ))}
+  </div>
+));
+
+// Illustrated empty state (inline SVG paw, no emoji — pack directive #4.4)
+const PawEmptyState = ({ title, text, action }) => (
+  <div className={styles.emptyState}>
+    <svg viewBox="0 0 120 120" width="96" height="96" aria-hidden="true" className={styles.emptyStateSvg}>
+      <ellipse cx="60" cy="78" rx="26" ry="22" fill="var(--button-bg)" opacity="0.15" />
+      <ellipse cx="60" cy="76" rx="20" ry="17" fill="var(--button-bg)" opacity="0.45" />
+      <ellipse cx="38" cy="48" rx="9" ry="12" fill="var(--button-bg)" opacity="0.45" transform="rotate(-15 38 48)" />
+      <ellipse cx="56" cy="38" rx="9" ry="12" fill="var(--button-bg)" opacity="0.45" />
+      <ellipse cx="74" cy="40" rx="9" ry="12" fill="var(--button-bg)" opacity="0.45" transform="rotate(12 74 40)" />
+      <ellipse cx="89" cy="52" rx="9" ry="12" fill="var(--button-bg)" opacity="0.45" transform="rotate(24 89 52)" />
+    </svg>
+    <h3 className={styles.emptyStateTitle}>{title}</h3>
+    {text && <p className={styles.emptyStateText}>{text}</p>}
+    {action}
+  </div>
+);
 
 const SmartFilters = React.memo(({ 
   showAllFilters,
@@ -311,7 +345,8 @@ const ProductsTemplate = ({
   mainCategoryFilters = [],
   showCategoryFilter = true,
   showStockFilter = true,
-  customStyles = null
+  customStyles = null,
+  syncUrl = false
 }) => {
   const { isAuthenticated } = useSelector((state) => state.user);
   const { addItem } = useCart();
@@ -325,6 +360,27 @@ const ProductsTemplate = ({
   const [sortBy, setSortBy] = useState('newest');
   const [filterBy, setFilterBy] = useState('all');
   const [categoryFilter, setCategoryFilter] = useState('all');
+
+  // URL-synced filters (ADR-2: only when the page opts in via syncUrl)
+  const [searchParams, setSearchParams] = useSearchParams();
+  const shouldReduceMotion = useReducedMotion();
+  useEffect(() => {
+    if (!syncUrl) return;
+    const q = searchParams.get('q') || '';
+    const sort = searchParams.get('sort');
+    if (q) setSearchTerm(q);
+    if (sort) setSortBy(sort);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (!syncUrl) return;
+    const next = new URLSearchParams();
+    if (searchTerm) next.set('q', searchTerm);
+    if (sortBy && sortBy !== 'newest') next.set('sort', sortBy);
+    setSearchParams(next, { replace: true });
+  }, [searchTerm, sortBy, syncUrl, setSearchParams]);
+
   const [allProducts, setAllProducts] = useState([]);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
   const [hasAttemptedLoad, setHasAttemptedLoad] = useState(false);
@@ -985,8 +1041,8 @@ const ProductsTemplate = ({
 
   if (loading || (!hasAttemptedLoad && isInitialLoad)) {
     return (
-      <div className={styles.productsLoadingContainer}>
-        <Spinner size="large" />
+      <div className={styles.productsLoadingContainer} role="status" aria-label={isAzerbaijani ? 'Yüklənir' : 'Loading'}>
+        <SkeletonGrid />
       </div>
     );
   }
@@ -1045,9 +1101,7 @@ const ProductsTemplate = ({
         </div>
 
           {loading ? (
-            <div className={styles.loadingContainer}>
-              <div className={styles.spinner} />
-            </div>
+            <SkeletonGrid />
           ) : (
             <div className={styles.productsSection}>
             <SmartFilters
@@ -1120,12 +1174,24 @@ const ProductsTemplate = ({
                 {error}
               </div>
             ) : sortedProducts.length > 0 ? (
-              <div className={styles.productsGrid}>
+              <motion.div
+                className={styles.productsGrid}
+                initial={shouldReduceMotion ? false : 'hidden'}
+                animate="visible"
+                variants={{ visible: { transition: { staggerChildren: 0.06 } } }}
+              >
                 {sortedProducts.map((product) => (
-                    <div 
+                    <motion.div
                     key={product.id}
+                    variants={shouldReduceMotion ? undefined : { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } } }}
                       className={styles.productCard}
                       onClick={() => handleProductClick(product)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && product.instock) handleProductClick(product);
+                      }}
+                      role="button"
+                      tabIndex={product.instock ? 0 : -1}
+                      aria-label={isAzerbaijani ? product.nameAz : product.nameEn}
                       style={{ cursor: product.instock ? 'pointer' : 'not-allowed' }}
                     >
                       <div className={styles.productImageContainer}>
@@ -1211,28 +1277,34 @@ const ProductsTemplate = ({
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                 ))}
-              </div>
+              </motion.div>
             ) : (
-              <div className={styles.noProducts}>
-                <div className={styles.noProductsIcon}>🔍</div>
-                <h3 className={styles.noProductsTitle}>
-                  {isAzerbaijani ? 'Məhsul tapılmadı' : 'No Products Found'}
-                </h3>
-                <p className={styles.noProductsText}>
-                  {searchTerm 
-                    ? (isAzerbaijani 
+              <PawEmptyState
+                title={isAzerbaijani ? 'Məhsul tapılmadı' : 'No Products Found'}
+                text={
+                  searchTerm
+                    ? (isAzerbaijani
                         ? `"${searchTerm}" axtarışına uyğun məhsul tapılmadı`
                         : `No products match your search "${searchTerm}"`
                       )
-                    : (isAzerbaijani 
-                        ? 'Hazırda məhsul mövcud deyil'
-                        : 'No products available at the moment'
+                    : (isAzerbaijani
+                        ? 'Filtrləri dəyişib yenidən cəhd edin'
+                        : 'Try adjusting the filters and searching again'
                       )
-                  }
-                </p>
-              </div>
+                }
+                action={
+                  activeFilters.length > 0 || searchTerm ? (
+                    <button
+                      className={styles.retryButton}
+                      onClick={clearAllFilters}
+                    >
+                      {isAzerbaijani ? 'Filtrləri təmizlə' : 'Clear filters'}
+                    </button>
+                  ) : null
+                }
+              />
             )}
             </div>
         )}

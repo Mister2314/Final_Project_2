@@ -64,6 +64,57 @@
   --scroll-to-top-shadow: rgba(108, 99, 255, 0.35);
 }
 
+/* ── Motion & a11y foundations (revamp/pawsoome) ── */
+
+:focus-visible {
+  outline: 2px solid var(--button-bg);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Skeleton loading */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+.skeleton {
+  background: linear-gradient(90deg, var(--border-color) 25%, var(--card-bg) 50%, var(--border-color) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+  border-radius: 8px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; opacity: 0.6; }
+}
+
+/* Mobile thumb bar: keep page content above the fixed bar */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Cart badge pop */
+@keyframes badge-pop {
+  0% { transform: scale(0.6); }
+  60% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+.badge-pop {
+  animation: badge-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
 body {
   margin: 0;
      font-family: 'Inter', system-ui, sans-serif;
