@@ -1,4 +1,4 @@
-﻿# Pawsoome — Pet Shop E-Commerce
+# Pawsoome — Pet Shop E-Commerce
 
 A multi-page pet-supply storefront with catalogue, cart, wishlist, checkout, blog and a role-based admin panel, backed by Supabase.
 
@@ -6,9 +6,20 @@ A multi-page pet-supply storefront with catalogue, cart, wishlist, checkout, blo
 
 <div align="center">
 
+<img src="docs/demo.gif" alt="Pawsoome — Pet Shop E-Commerce — animated demo" width="700">
+
 | Desktop | Mobile |
 |---|---|
 | <img src="docs/shot-desktop.png" alt="Desktop view" width="700"> | <img src="docs/shot-mobile.png" alt="Mobile view" width="290"> |
+
+<details>
+<summary>More screenshots</summary>
+
+| Desktop | Mobile |
+|---|---|
+| <img src="docs/preview.png" alt="Desktop, alternate view" width="700"> | <img src="docs/preview-mobile.png" alt="Mobile, alternate view" width="290"> |
+
+</details>
 
 </div>
 
@@ -21,6 +32,8 @@ The catalogue splits by animal (dogs / cats) into categories — food, toys, bed
 React 19 · Redux Toolkit · Supabase · i18next · Vite
 
 ## Features
+
+**Highlights:** nested catalogue · cart + wishlist + auth · role-based admin panel · full i18n.
 
 - Two-level catalogue via nested React Router 7 routes
 - Cart and wishlist persisted across reloads (`react-use-cart`, `react-use-wishlist`)
