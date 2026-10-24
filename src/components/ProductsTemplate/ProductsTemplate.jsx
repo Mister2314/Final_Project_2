@@ -16,6 +16,7 @@ import { debounce } from 'lodash';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Disclosure, Transition, Listbox, Switch } from '@headlessui/react';
 import { ChevronUpIcon, CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
+import { Search, SlidersHorizontal, Tag, FolderOpen, Wallet, Package, Eye, ShoppingCart } from 'lucide-react';
 import Spinner from '../Spinner/Spinner';
 
 const Slider = lazy(() => import('@mui/material/Slider'));
@@ -240,16 +241,26 @@ const SkeletonGrid = React.memo(({ count = 8 }) => (
   </div>
 ));
 
-// Illustrated empty state (inline SVG paw, no emoji — pack directive #4.4)
+// Illustrated empty state (hand-drawn inline paw — no emoji, no clip-art)
 const PawEmptyState = ({ title, text, action }) => (
   <div className={styles.emptyState}>
     <svg viewBox="0 0 120 120" width="96" height="96" aria-hidden="true" className={styles.emptyStateSvg}>
-      <ellipse cx="60" cy="78" rx="26" ry="22" fill="var(--button-bg)" opacity="0.15" />
-      <ellipse cx="60" cy="76" rx="20" ry="17" fill="var(--button-bg)" opacity="0.45" />
-      <ellipse cx="38" cy="48" rx="9" ry="12" fill="var(--button-bg)" opacity="0.45" transform="rotate(-15 38 48)" />
-      <ellipse cx="56" cy="38" rx="9" ry="12" fill="var(--button-bg)" opacity="0.45" />
-      <ellipse cx="74" cy="40" rx="9" ry="12" fill="var(--button-bg)" opacity="0.45" transform="rotate(12 74 40)" />
-      <ellipse cx="89" cy="52" rx="9" ry="12" fill="var(--button-bg)" opacity="0.45" transform="rotate(24 89 52)" />
+      {/* soft ground shadow */}
+      <ellipse cx="62" cy="104" rx="30" ry="6" fill="var(--text-color)" opacity="0.07" />
+      <g transform="rotate(-10 60 62)">
+        {/* main pad — two-lobed, slightly wider at the bottom */}
+        <path
+          d="M60 62c10.5 0 19 7.6 19 17.4 0 8.3-6.4 14.6-14.6 15.8-1.5.2-2.9.8-4.4.8s-2.9-.6-4.4-.8C47.4 94 41 87.7 41 79.4 41 69.6 49.5 62 60 62Z"
+          fill="var(--button-bg)"
+        />
+        {/* toes — four, varied size and splay, like a real print */}
+        <path d="M37.5 46.5c4.6-.9 8.6 3.2 9.3 9 .6 5.2-2 9.3-6 9.9-4.1.6-7.8-3.1-8.6-8.4-.7-5.2 1.4-9.6 5.3-10.5Z" fill="var(--button-bg)" />
+        <path d="M53 32.6c4.7-.3 8 4.1 8.3 10 .3 5.3-2.7 9.6-6.8 9.8-4.1.2-7.4-3.8-7.8-9.2-.4-5.3 1.9-10.2 6.3-10.6Z" fill="var(--button-bg)" />
+        <path d="M73.9 33.5c4.5 1 6.8 6 6.2 11.8-.6 5.4-3.9 9.4-8 9.1-4.1-.3-6.8-4.7-6.4-10 .4-5.4 3.7-11.7 8.2-10.9Z" fill="var(--button-bg)" />
+        <path d="M88.1 48.9c4.3 1.5 5.8 6.7 4.5 12.3-1.2 5.2-4.9 8.8-8.9 8.2-4-.6-6.1-5.2-5-10.4 1-5.2 5-11.4 9.4-10.1Z" fill="var(--button-bg)" />
+        {/* pad sheen — one quiet highlight, gives the print dimension */}
+        <path d="M52 74c1.8-3.4 5.4-5.6 9.4-5.6" stroke="var(--card-bg)" strokeWidth="3" strokeLinecap="round" opacity="0.45" fill="none" />
+      </g>
     </svg>
     <h3 className={styles.emptyStateTitle}>{title}</h3>
     {text && <p className={styles.emptyStateText}>{text}</p>}
@@ -268,7 +279,7 @@ const SmartFilters = React.memo(({
     <div className={styles.smartFilters}>
       <div className={styles.filtersHeader}>
         <div className={styles.filtersTitle}>
-          <span className={styles.filtersIcon}>⚡</span>
+          <span className={styles.filtersIcon}><SlidersHorizontal size={17} aria-hidden="true" /></span>
           <h3>{isAzerbaijani ? 'Ağıllı Filterlər' : 'Smart Filters'}</h3>
         </div>
         
@@ -284,8 +295,8 @@ const SmartFilters = React.memo(({
             className={`${styles.toggleButton} ${showAllFilters ? styles.active : ''}`}
             onClick={() => setShowAllFilters(!showAllFilters)}
           >
-            <span className={styles.toggleIcon}>
-              {showAllFilters ? '📤' : '📥'}
+            <span className={styles.toggleIcon} aria-hidden="true">
+              {showAllFilters ? <ChevronUpIcon /> : <ChevronDownIcon />}
             </span>
             {showAllFilters 
               ? (isAzerbaijani ? 'Filtrləri Bağla' : 'Close Filters')
@@ -1096,7 +1107,7 @@ const ProductsTemplate = ({
               onChange={(e) => setSearchTerm(e.target.value)}
               className={styles.searchInput}
             />
-            <span className={styles.searchIcon}>🔍</span>
+          <span className={styles.searchIcon}><Search size={16} aria-hidden="true" /></span>
           </div>
         </div>
 
@@ -1112,7 +1123,7 @@ const ProductsTemplate = ({
             >
               <FilterSection 
                 title={isAzerbaijani ? 'Sıralama & Tez Filterlər' : 'Sort & Quick Filters'}
-                icon="🎯"
+                icon={<Tag size={15} aria-hidden="true" />}
               >
                 {renderSortAndFilters()}
               </FilterSection>
@@ -1140,7 +1151,7 @@ const ProductsTemplate = ({
               {showCategoryFilter && categoryStats.length > 0 && (
                 <FilterSection
                   title={isAzerbaijani ? 'Kateqoriyalar' : 'Categories'}
-                  icon="📂"
+                  icon={<FolderOpen size={15} aria-hidden="true" />}
                 >
                   {renderCategoryFilters()}
                 </FilterSection>
@@ -1148,7 +1159,7 @@ const ProductsTemplate = ({
 
               <FilterSection
                 title={isAzerbaijani ? 'Qiymət Aralığı' : 'Price Range'}
-                icon="💰"
+                icon={<Wallet size={15} aria-hidden="true" />}
               >
                 <PriceRangeSlider
                   priceRange={priceRange}
@@ -1161,7 +1172,7 @@ const ProductsTemplate = ({
               {showStockFilter && (
                 <FilterSection
                   title={isAzerbaijani ? 'Stok Vəziyyəti' : 'Stock Status'}
-                  icon="📦"
+                  icon={<Package size={15} aria-hidden="true" />}
                 >
                   {renderStockFilters()}
                 </FilterSection>
@@ -1253,7 +1264,7 @@ const ProductsTemplate = ({
                             }}
                             disabled={!product.instock}
                           >
-                            <span className={styles.btnIcon}>👁️</span>
+                            <span className={styles.btnIcon}><Eye size={15} aria-hidden="true" /></span>
                             {isAzerbaijani ? 'Məhsula bax' : 'View Details'}
                           </button>
                           
@@ -1268,7 +1279,7 @@ const ProductsTemplate = ({
                               onTouchStart={(e) => e.preventDefault()}
                               disabled={!product.instock}
                             >
-                              <span className={styles.btnIcon}>🛒</span>
+                              <span className={styles.btnIcon}><ShoppingCart size={15} aria-hidden="true" /></span>
                               {!product.instock 
                                 ? (isAzerbaijani ? 'Stokda yoxdur' : 'Out of Stock')
                                 : (isAzerbaijani ? 'Səbətə əlavə et' : 'Add to Cart')

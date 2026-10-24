@@ -1,4 +1,4 @@
-.shopPageContainer {
+﻿.shopPageContainer {
   min-height: 100vh;
   background-color: var(--bg-color, #f9f9fb);
   transition: background-color 0.3s ease;
@@ -14,7 +14,7 @@
 }
 
 .heroSection {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2b8a68 0%, #175f48 100%);
   padding: 4rem 0 3rem;
   text-align: center;
   position: relative;

@@ -1,4 +1,4 @@
-.pageContainer {
+﻿.pageContainer {
   min-height: 100vh;
   background-color: var(--bg-color, #f9f9fb);
   transition: background-color 0.3s ease;
@@ -852,7 +852,7 @@
   left: 0;
   width: 6px;
   height: 100%;
-  background: linear-gradient(to bottom, #667eea, #764ba2);
+  background: linear-gradient(to bottom, #2b8a68, #175f48);
   opacity: 0.7;
   transition: opacity 0.3s ease;
 }
@@ -867,7 +867,7 @@
 }
 
 .myReview::before {
-  background: linear-gradient(to bottom, #667eea, #764ba2);
+  background: linear-gradient(to bottom, #2b8a68, #175f48);
   opacity: 1;
 }
 
@@ -889,7 +889,7 @@
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #2b8a68, #175f48);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1008,7 +1008,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: #667eea;
+  color: #2b8a68;
   font-size: 0.95rem;
   font-weight: 600;
   background: rgba(102, 126, 234, 0.1);
@@ -1047,7 +1047,7 @@
   width: 54px;
   height: 54px;
   border: 3px solid rgba(102, 126, 234, 0.1);
-  border-top-color: #667eea;
+  border-top-color: #2b8a68;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -1099,7 +1099,7 @@
 }
 
 .firstReviewButton {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #2b8a68, #175f48);
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -1584,7 +1584,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #2b8a68, #175f48);
   color: white;
   border: none;
   padding: 1rem 1.5rem;
@@ -1649,7 +1649,7 @@
 
 .reviewTextarea:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #2b8a68;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -1678,7 +1678,7 @@
 
 .submitButton {
   padding: 0.875rem 2rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #2b8a68, #175f48);
   color: white;
   border: none;
   border-radius: 12px;
@@ -1718,7 +1718,7 @@
 .alreadyReviewedMessage svg,
 .loginToReviewMessage svg {
   font-size: 1.5rem;
-  color: #667eea;
+  color: #2b8a68;
 }
 
 [data-theme="dark"] .reviewFormCard {
@@ -1733,7 +1733,7 @@
 }
 
 [data-theme="dark"] .reviewTextarea:focus {
-  border-color: #667eea;
+  border-color: #2b8a68;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
 }
 

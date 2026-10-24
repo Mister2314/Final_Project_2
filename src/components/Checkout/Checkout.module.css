@@ -1,4 +1,4 @@
-.checkout {
+﻿.checkout {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
@@ -36,7 +36,7 @@
 }
 
 .backButton:hover {
-  background-color: rgba(108, 99, 255, 0.1);
+  background-color: rgba(31, 122, 92, 0.1);
   transform: translateX(-2px);
 }
 
@@ -136,7 +136,7 @@
 .input:focus {
   outline: none;
   border-color: var(--link-color);
-  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(31, 122, 92, 0.1);
 }
 
 .input.error {
@@ -154,7 +154,7 @@
 }
 
 .errorText::before {
-  content: "⚠️";
+  content: "âš ï¸";
   font-size: 0.75rem;
 }
 
@@ -344,13 +344,13 @@
   gap: 0.75rem;
   transition: all 0.3s ease;
   font-family: inherit;
-  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(31, 122, 92, 0.3);
 }
 
 .submitButton:hover:not(:disabled) {
   background: linear-gradient(135deg, var(--button-hover) 0%, var(--button-bg) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(31, 122, 92, 0.4);
 }
 
 .submitButton:disabled {
@@ -482,15 +482,15 @@
 
 [data-theme="dark"] .input:focus {
   border-color: var(--link-color);
-  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(31, 122, 92, 0.2);
 }
 
 [data-theme="dark"] .submitButton {
-  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(31, 122, 92, 0.4);
 }
 
 [data-theme="dark"] .submitButton:hover:not(:disabled) {
-  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.5);
+  box-shadow: 0 6px 20px rgba(31, 122, 92, 0.5);
 }
 
 @keyframes shake {

@@ -1,4 +1,4 @@
-{
+﻿{
   "navbar": {
     "0": "Home",
     "1": "About Us",
@@ -436,24 +436,24 @@
   "heroSection": {
     "slides": {
       "0": {
-        "title": "Premium Accessories for\nYour Pets",
-        "description": "Show special care for your furry friends. Make them happy with quality and comfortable accessories!",
+        "title": "Toys, Beds & Food\nThey'll Love",
+        "description": "Collars, leads, cosy beds and honest food â€” picked by people who live with pets, not just sell to them.",
         "buttonText": "Shop Now"
       },
       "1": {
-        "title": "Comfortable Products\nfor Your Cats",
-        "description": "The most comfortable beds, toys, and other accessories for your cats are now in our store!",
+        "title": "Beds & Toys\nYour Cat Will Use",
+        "description": "Soft beds, sturdy scratchers and treats worth begging for â€” tested by some very picky cats.",
         "buttonText": "Cat Products"
       },
       "2": {
-        "title": "Make Your\nFriends Happy",
-        "description": "Specially designed products for dogs and cats are now at Woof!",
+        "title": "Make Tail Days\nBetter",
+        "description": "Gear for dogs and cats that survives real walks, real naps and real mud.",
         "buttonText": "Explore Products"
       }
     }
   },
   "footer": {
-    "about": "Pawsome is an online pet shop offering premium quality products for your animal friends. We provide the best products for your pets' health and happiness.",
+    "about": "Pawsome is a small pet shop run by pet people. Food, beds, toys and care that we'd give our own animals â€” no filler, no gimmicks.",
     "quickLinks": "Quick Links",
     "categories": {
       "title": "Categories",
@@ -747,8 +747,8 @@
     "description": "The page you're looking for doesn't exist. Maybe our friend ate it?",
     "goHome": "Go Back Home",
     "goShop": "Go to Shop",
-    "petInteraction": "Pet the cat! 🐾",
-    "speechBubbleHappy": "Meow! ♥",
+    "petInteraction": "Pet the cat! ðŸ¾",
+    "speechBubbleHappy": "Meow! â™¥",
     "speechBubblePlaying": "Purr~"
   },
   "validation": {
@@ -1105,7 +1105,7 @@
       "viewProducts": "View Products",
       "cats": {
         "subtitle": "Products for your cats",
-        "description": "High-quality and safe products for your beloved cats"
+        "description": "Everything a cat actually wants — food, beds, toys, litter"
       },
       "dogs": {
         "subtitle": "Products for your dogs",
@@ -1143,7 +1143,7 @@
       "all": {
         "name": "All Products",
         "subtitle": "Products for all pets",
-        "description": "Discover all products available in our store"
+        "description": "Browse the whole shop, aisle by aisle"
       }
     }
   },
@@ -1177,7 +1177,7 @@
   },
   "allProducts": {
     "title": "All Products",
-    "subtitle": "Premium quality products for your pets",
+    "subtitle": "Food, beds, toys and care — picked by people who own pets",
     "searchPlaceholder": "Search products...",
     "filters": {
       "petType": {
@@ -1230,7 +1230,7 @@
   },
   "dogs": {
     "title": "Dog Products",
-    "subtitle": "Quality and safe products for your beloved dogs",
+    "subtitle": "Leads, bowls, beds and food for good dogs of every size",
     "categories": {
       "title": "Categories",
       "all": "All Products",
@@ -1256,7 +1256,7 @@
   "products": {
     "title": "All Products",
     "allProducts": "All Products",
-    "subtitle": "Discover all products for your pets",
+    "subtitle": "Everything in the shop, in one place",
     "searchPlaceholder": "Search products...",
     "noProducts": {
       "title": "No Products Found",
@@ -1323,7 +1323,7 @@
   "featuredBrands": {
     "title": "Featured ",
     "titleAccent": "Brands",
-    "subtitle": "Discover premium pet care products from trusted brands with exclusive discounts",
+    "subtitle": "The brands our customers keep coming back for — with honest discounts",
     "shopNow": "Shop Now"
   },
   "petCareTips": {
@@ -1498,7 +1498,7 @@
   "cats": {
     "hero": {
       "title": "Products for Cats",
-      "subtitle": "Quality and safe products for your beloved cats"
+      "subtitle": "Food, beds and toys that survive picky cats"
     },
     "categories": {
       "title": "Categories",

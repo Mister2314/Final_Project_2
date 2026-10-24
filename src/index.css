@@ -5,9 +5,9 @@
   --text-secondary: #6c757d;
   --input-bg: #ffffff;
   --input-border: #ced4da;
-  --button-bg: #6c63ff;
-  --button-hover: #5a52d5;
-  --link-color: #6c63ff;
+  --button-bg: #1f7a5c;
+  --button-hover: #175f48;
+  --link-color: #1f7a5c;
   --error-bg: rgba(220, 53, 69, 0.1);
   --error-color: #dc3545;
   --input-placeholder: #6c757d;
@@ -16,9 +16,9 @@
   --header-shadow: rgba(0, 0, 0, 0.08);
   --badge-bg: #ff5a5f;
   --overlay-bg: rgba(0, 0, 0, 0.5);
-  --logo-color: #6c63ff;
+  --logo-color: #1f7a5c;
   --nav-link-color: #212529;
-  --nav-link-hover: #6c63ff;
+  --nav-link-hover: #1f7a5c;
   --footer-bg: #f8f9fa;
   --footer-text: #6c757d;
   --divider-color: #e9ecef;
@@ -26,9 +26,9 @@
   --success-color: #28a745;
   --warning-color: #ffc107;
   --info-color: #17a2b8;
-  --scroll-to-top-bg: #6c63ff;
-  --scroll-to-top-hover: #5a52d5;
-  --scroll-to-top-shadow: rgba(108, 99, 255, 0.25);
+  --scroll-to-top-bg: #1f7a5c;
+  --scroll-to-top-hover: #175f48;
+  --scroll-to-top-shadow: rgba(31, 122, 92, 0.25);
 }
 
 [data-theme="dark"] {
@@ -38,9 +38,9 @@
   --text-secondary: #adb5bd;
   --input-bg: #495057;
   --input-border: #6c757d;
-  --button-bg: #6c63ff;
-  --button-hover: #5a52d5;
-  --link-color: #6c63ff;
+  --button-bg: #1f7a5c;
+  --button-hover: #175f48;
+  --link-color: #1f7a5c;
   --error-bg: rgba(220, 53, 69, 0.1);
   --error-color: #ff6b6b;
   --input-placeholder: #adb5bd;
@@ -49,9 +49,9 @@
   --header-shadow: rgba(0, 0, 0, 0.2);
   --badge-bg: #ff5a5f;
   --overlay-bg: rgba(0, 0, 0, 0.7);
-  --logo-color: #6c63ff;
+  --logo-color: #1f7a5c;
   --nav-link-color: #f8f9fa;
-  --nav-link-hover: #6c63ff;
+  --nav-link-hover: #1f7a5c;
   --footer-bg: #343a40;
   --footer-text: #adb5bd;
   --divider-color: #495057;
@@ -59,12 +59,12 @@
   --success-color: #5cb85c;
   --warning-color: #f0ad4e;
   --info-color: #5bc0de;
-  --scroll-to-top-bg: #6c63ff;
-  --scroll-to-top-hover: #5a52d5;
-  --scroll-to-top-shadow: rgba(108, 99, 255, 0.35);
+  --scroll-to-top-bg: #1f7a5c;
+  --scroll-to-top-hover: #175f48;
+  --scroll-to-top-shadow: rgba(31, 122, 92, 0.35);
 }
 
-/* ── Motion & a11y foundations (revamp/pawsoome) ── */
+/* â”€â”€ Motion & a11y foundations (revamp/pawsoome) â”€â”€ */
 
 :focus-visible {
   outline: 2px solid var(--button-bg);
@@ -117,7 +117,7 @@
 
 body {
   margin: 0;
-     font-family: 'Inter', system-ui, sans-serif;
+     font-family: 'Nunito Sans', system-ui, sans-serif;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -294,4 +294,11 @@ input, textarea, select {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Display voice: warm serif headings — the shop should read like a pet brand,
+   not a SaaS template (anti-slop pass). */
+h1, h2, h3 {
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.01em;
 }

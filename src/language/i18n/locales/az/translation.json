@@ -1,298 +1,298 @@
-{
+﻿{
   "navbar": {
-    "0": "Ana səhifə",
-    "1": "Haqqımızda",
-    "2": "Əlaqə",
-    "3": "Məhsullar",
-    "store": "Mağaza",
+    "0": "Ana sÉ™hifÉ™",
+    "1": "HaqqÄ±mÄ±zda",
+    "2": "ÆlaqÉ™",
+    "3": "MÉ™hsullar",
+    "store": "MaÄŸaza",
     "4": "Bloq",
     "5": "FAQ",
     "profile": "Profil",
-    "orders": "Sifarişlər",
-    "settings": "Parametrlər",
-    "logout": "Çıxış",
-    "logoutSuccess": "Uğurla çıxış etdiniz!",
-    "logoutError": "Çıxış zamanı xəta baş verdi",
-    "searchPlaceholder": "Məhsulları axtar...",
+    "orders": "SifariÅŸlÉ™r",
+    "settings": "ParametrlÉ™r",
+    "logout": "Ã‡Ä±xÄ±ÅŸ",
+    "logoutSuccess": "UÄŸurla Ã§Ä±xÄ±ÅŸ etdiniz!",
+    "logoutError": "Ã‡Ä±xÄ±ÅŸ zamanÄ± xÉ™ta baÅŸ verdi",
+    "searchPlaceholder": "MÉ™hsullarÄ± axtar...",
     "categories": {
-      "dogs": "İtlər",
-      "cats": "Pişiklər",
-      "allProducts": "Bütün Məhsullar"
+      "dogs": "Ä°tlÉ™r",
+      "cats": "PiÅŸiklÉ™r",
+      "allProducts": "BÃ¼tÃ¼n MÉ™hsullar"
     }
   },
   "allProducts": {
-    "title": "Bütün Məhsullar",
-    "subtitle": "Heyvanlarınız üçün premium keyfiyyətli məhsullar",
-    "searchPlaceholder": "Məhsul axtar...",
+    "title": "BÃ¼tÃ¼n MÉ™hsullar",
+    "subtitle": "HeyvanlarÄ±nÄ±z Ã¼Ã§Ã¼n premium keyfiyyÉ™tli mÉ™hsullar",
+    "searchPlaceholder": "MÉ™hsul axtar...",
     "filters": {
       "petType": {
-        "title": "Heyvan Növü",
-        "all": "Bütün Heyvanlar",
-        "cats": "Yalnız Pişiklər",
-        "dogs": "Yalnız İtlər"
+        "title": "Heyvan NÃ¶vÃ¼",
+        "all": "BÃ¼tÃ¼n Heyvanlar",
+        "cats": "YalnÄ±z PiÅŸiklÉ™r",
+        "dogs": "YalnÄ±z Ä°tlÉ™r"
       },
       "categories": {
         "food": "Qida",
         "toys": "Oyuncaqlar",
-        "beds": "Yataq və Evlər",
-        "carriers": "Daşıma Çantaları",
-        "leashes": "Qayışlar"
+        "beds": "Yataq vÉ™ EvlÉ™r",
+        "carriers": "DaÅŸÄ±ma Ã‡antalarÄ±",
+        "leashes": "QayÄ±ÅŸlar"
       }
     }
   },
   "petCategories": {
-    "title": "Heyvan Kateqoriyaları",
-    "subtitle": "Bütün ev heyvanları üçün məhsullar",
+    "title": "Heyvan KateqoriyalarÄ±",
+    "subtitle": "BÃ¼tÃ¼n ev heyvanlarÄ± Ã¼Ã§Ã¼n mÉ™hsullar",
     "categories": {
       "dogs": {
-        "name": "İtlər",
+        "name": "Ä°tlÉ™r",
         "route": "/shop/dogs"
       },
       "cats": {
-        "name": "Pişiklər",
+        "name": "PiÅŸiklÉ™r",
         "route": "/shop/cats"
       },
       "all": {
-        "name": "Bütün Məhsullar",
-        "subtitle": "Bütün heyvanlar üçün məhsullar",
-        "description": "Mağazamızda olan bütün məhsulları kəşf edin"
+        "name": "BÃ¼tÃ¼n MÉ™hsullar",
+        "subtitle": "BÃ¼tÃ¼n heyvanlar Ã¼Ã§Ã¼n mÉ™hsullar",
+        "description": "MaÄŸazamÄ±zda olan bÃ¼tÃ¼n mÉ™hsullarÄ± kÉ™ÅŸf edin"
       }
     }
   },
   "whyChooseUs": {
     "features": {
       "delivery": {
-        "title": "Pulsuz Çatdırılma",
-        "description": "50₼-dən yuxarı sifarişlərdə pulsuz çatdırılma"
+        "title": "Pulsuz Ã‡atdÄ±rÄ±lma",
+        "description": "50â‚¼-dÉ™n yuxarÄ± sifariÅŸlÉ™rdÉ™ pulsuz Ã§atdÄ±rÄ±lma"
       },
       "quality": {
-        "title": "Premium Keyfiyyət",
-        "description": "Yalnız ən yaxşı və keyfiyyətli məhsullar"
+        "title": "Premium KeyfiyyÉ™t",
+        "description": "YalnÄ±z É™n yaxÅŸÄ± vÉ™ keyfiyyÉ™tli mÉ™hsullar"
       },
       "payment": {
-        "title": "Təhlükəsiz Ödəniş",
-        "description": "100% təhlükəsiz ödəniş sistemi"
+        "title": "TÉ™hlÃ¼kÉ™siz Ã–dÉ™niÅŸ",
+        "description": "100% tÉ™hlÃ¼kÉ™siz Ã¶dÉ™niÅŸ sistemi"
       },
       "offers": {
-        "title": "Xüsusi Təkliflər",
-        "description": "Müntəzəm endirimlər və xüsusi təkliflər"
+        "title": "XÃ¼susi TÉ™kliflÉ™r",
+        "description": "MÃ¼ntÉ™zÉ™m endirimlÉ™r vÉ™ xÃ¼susi tÉ™kliflÉ™r"
       },
       "satisfaction": {
-        "title": "Müştəri Məmnuniyyəti",
-        "description": "100% müştəri məmnuniyyəti zəmanəti"
+        "title": "MÃ¼ÅŸtÉ™ri MÉ™mnuniyyÉ™ti",
+        "description": "100% mÃ¼ÅŸtÉ™ri mÉ™mnuniyyÉ™ti zÉ™manÉ™ti"
       },
       "support": {
-        "title": "24/7 Dəstək",
-        "description": "Həftənin 7 günü müştəri dəstəyi"
+        "title": "24/7 DÉ™stÉ™k",
+        "description": "HÉ™ftÉ™nin 7 gÃ¼nÃ¼ mÃ¼ÅŸtÉ™ri dÉ™stÉ™yi"
       }
     }
   },
   "auth": {
-    "loginTitle": "Hesabınıza daxil olun",
-    "email": "E-poçt",
-    "emailPlaceholder": "E-poçt ünvanınızı daxil edin",
-    "password": "Şifrə",
-    "passwordPlaceholder": "Şifrənizi daxil edin",
-    "forgotPassword": "Şifrəni unutmusunuz?",
+    "loginTitle": "HesabÄ±nÄ±za daxil olun",
+    "email": "E-poÃ§t",
+    "emailPlaceholder": "E-poÃ§t Ã¼nvanÄ±nÄ±zÄ± daxil edin",
+    "password": "ÅžifrÉ™",
+    "passwordPlaceholder": "ÅžifrÉ™nizi daxil edin",
+    "forgotPassword": "ÅžifrÉ™ni unutmusunuz?",
     "login": "Daxil ol",
     "loggingIn": "Daxil olunur...",
-    "noAccount": "Hesabınız yoxdur?",
-    "signupNow": "İndi qeydiyyatdan keç",
-    "successMessage": "Uğurla daxil oldunuz!",
-    "welcomeMessage": "Xoş gəlmisiniz!",
-    "errorInvalid": "Email və ya parol yanlışdır",
-    "errorGeneral": "Giriş zamanı xəta baş verdi",
-    "errorFields": "Zəhmət olmasa bütün sahələri doldurun"
+    "noAccount": "HesabÄ±nÄ±z yoxdur?",
+    "signupNow": "Ä°ndi qeydiyyatdan keÃ§",
+    "successMessage": "UÄŸurla daxil oldunuz!",
+    "welcomeMessage": "XoÅŸ gÉ™lmisiniz!",
+    "errorInvalid": "Email vÉ™ ya parol yanlÄ±ÅŸdÄ±r",
+    "errorGeneral": "GiriÅŸ zamanÄ± xÉ™ta baÅŸ verdi",
+    "errorFields": "ZÉ™hmÉ™t olmasa bÃ¼tÃ¼n sahÉ™lÉ™ri doldurun"
   },
   "header": {
-    "title": "Woof - Ana səhifə"
+    "title": "Woof - Ana sÉ™hifÉ™"
   },
   "signup": {
     "title": "Qeydiyyat",
-    "username": "İstifadəçi Adı",
-    "usernamePlaceholder": "İstifadəçi adınızı daxil edin",
-    "email": "Email Ünvanı",
-    "emailPlaceholder": "Email ünvanınızı daxil edin",
+    "username": "Ä°stifadÉ™Ã§i AdÄ±",
+    "usernamePlaceholder": "Ä°stifadÉ™Ã§i adÄ±nÄ±zÄ± daxil edin",
+    "email": "Email ÃœnvanÄ±",
+    "emailPlaceholder": "Email Ã¼nvanÄ±nÄ±zÄ± daxil edin",
     "password": "Parol",
     "passwordPlaceholder": "Parolunuzu daxil edin",
-    "confirmPassword": "Parolu Təkrar Edin",
-    "confirmPasswordPlaceholder": "Parolunuzu təkrar daxil edin",
-    "signupButton": "Qeydiyyatdan keç",
-    "signingUp": "Qeydiyyat aparılır...",
-    "haveAccount": "Artıq hesabınız var?",
+    "confirmPassword": "Parolu TÉ™krar Edin",
+    "confirmPasswordPlaceholder": "Parolunuzu tÉ™krar daxil edin",
+    "signupButton": "Qeydiyyatdan keÃ§",
+    "signingUp": "Qeydiyyat aparÄ±lÄ±r...",
+    "haveAccount": "ArtÄ±q hesabÄ±nÄ±z var?",
     "loginLink": "Daxil ol",
     "back": "Geri",
-    "successMessage": "Qeydiyyat uğurla tamamlandı!",
-    "errorFields": "Zəhmət olmasa bütün sahələri doldurun",  
-    "errorGeneral": "Qeydiyyat zamanı xəta baş verdi",
-    "errorUserExists": "Bu email ünvanı ilə artıq hesab mövcuddur",
-    "errorPasswordMismatch": "Şifrələr uyğun gəlmir",
-    "errorPasswordLength": "Şifrə ən azı 6 simvoldan ibarət olmalıdır",
-    "errorEmailFormat": "Düzgün email ünvanı daxil edin",
-    "errorUsernameLength": "İstifadəçi adı ən azı 3 simvoldan ibarət olmalıdır"
+    "successMessage": "Qeydiyyat uÄŸurla tamamlandÄ±!",
+    "errorFields": "ZÉ™hmÉ™t olmasa bÃ¼tÃ¼n sahÉ™lÉ™ri doldurun",  
+    "errorGeneral": "Qeydiyyat zamanÄ± xÉ™ta baÅŸ verdi",
+    "errorUserExists": "Bu email Ã¼nvanÄ± ilÉ™ artÄ±q hesab mÃ¶vcuddur",
+    "errorPasswordMismatch": "ÅžifrÉ™lÉ™r uyÄŸun gÉ™lmir",
+    "errorPasswordLength": "ÅžifrÉ™ É™n azÄ± 6 simvoldan ibarÉ™t olmalÄ±dÄ±r",
+    "errorEmailFormat": "DÃ¼zgÃ¼n email Ã¼nvanÄ± daxil edin",
+    "errorUsernameLength": "Ä°stifadÉ™Ã§i adÄ± É™n azÄ± 3 simvoldan ibarÉ™t olmalÄ±dÄ±r"
   },
   "login": {
-    "title": "Giriş",
-    "email": "Email Ünvanı",
-    "emailPlaceholder": "Email ünvanınızı daxil edin",
+    "title": "GiriÅŸ",
+    "email": "Email ÃœnvanÄ±",
+    "emailPlaceholder": "Email Ã¼nvanÄ±nÄ±zÄ± daxil edin",
     "password": "Parol",
     "passwordPlaceholder": "Parolunuzu daxil edin",
-    "adminLogin": "Admin Girişi",
+    "adminLogin": "Admin GiriÅŸi",
     "forgotPassword": "Parolu unutmusunuz?",
     "loginButton": "Daxil ol",
     "loggingIn": "Daxil olunur...",
-    "noAccount": "Hesabınız yoxdur?",
-    "signupLink": "Qeydiyyatdan keç",
-    "errorFields": "Zəhmət olmasa bütün sahələri doldurun",
-    "successMessage": "Uğurla daxil oldunuz!",
-    "welcomeMessage": "Xoş gəlmisiniz, {{username}}!",
-    "errorInvalid": "Email və ya parol yanlışdır",
-    "errorGeneral": "Giriş zamanı xəta baş verdi"
+    "noAccount": "HesabÄ±nÄ±z yoxdur?",
+    "signupLink": "Qeydiyyatdan keÃ§",
+    "errorFields": "ZÉ™hmÉ™t olmasa bÃ¼tÃ¼n sahÉ™lÉ™ri doldurun",
+    "successMessage": "UÄŸurla daxil oldunuz!",
+    "welcomeMessage": "XoÅŸ gÉ™lmisiniz, {{username}}!",
+    "errorInvalid": "Email vÉ™ ya parol yanlÄ±ÅŸdÄ±r",
+    "errorGeneral": "GiriÅŸ zamanÄ± xÉ™ta baÅŸ verdi"
   },
   "forgotPassword": {
     "title": "Parolu Unutmusunuz?",
-    "description": "Email ünvanınızı daxil edin və sizə parol bərpası linki göndərəcəyik.",
-    "emailLabel": "Email Ünvanı",
-    "emailPlaceholder": "Email ünvanınızı daxil edin",
-    "sendButton": "Bərpa Linki Göndər",
-    "sending": "Göndərilir...",
+    "description": "Email Ã¼nvanÄ±nÄ±zÄ± daxil edin vÉ™ sizÉ™ parol bÉ™rpasÄ± linki gÃ¶ndÉ™rÉ™cÉ™yik.",
+    "emailLabel": "Email ÃœnvanÄ±",
+    "emailPlaceholder": "Email Ã¼nvanÄ±nÄ±zÄ± daxil edin",
+    "sendButton": "BÉ™rpa Linki GÃ¶ndÉ™r",
+    "sending": "GÃ¶ndÉ™rilir...",
     "back": "Geri",
-    "rememberPassword": "Parolunuzu xatırlayırsınız?",
+    "rememberPassword": "Parolunuzu xatÄ±rlayÄ±rsÄ±nÄ±z?",
     "loginLink": "Daxil ol",
-    "emailSentTitle": "Email-inizi yoxlayın",
-    "emailSentDescription": "Parol bərpası linki email ünvanınıza göndərildi. Zəhmət olmasa email-inizi yoxlayın və linki kliklə.",
-    "checkSpamNote": "E-poçtunuzu yoxlayın və spam qovluğuna da baxın.",
-    "resendButton": "Yenidən göndər",
-    "backToLogin": "Girişə qayıt",
-    "didntReceive": "Email almadınız?",
-    "tryAgain": "Yenidən cəhd edin",
-    "errorEmail": "Email ünvanınızı daxil edin",
-    "errorEmailFormat": "Düzgün email ünvanı daxil edin",
-    "errorEmailInvalid": "Zəhmət olmasa düzgün e-poçt ünvanı daxil edin",
-    "errorEmailNotFound": "Bu email ünvanı ilə hesab tapılmadı",
-    "successMessage": "Parol bərpası üçün email göndərildi!",
-    "resendSuccess": "E-poçt yenidən göndərildi!",
-    "errorGeneric": "Email göndərilməsində xəta baş verdi",
-    "errorNetworkError": "İnternet bağlantısı problemi. Yenidən cəhd edin",
-    "errorServerError": "Server xətası. Bir az sonra yenidən cəhd edin"
+    "emailSentTitle": "Email-inizi yoxlayÄ±n",
+    "emailSentDescription": "Parol bÉ™rpasÄ± linki email Ã¼nvanÄ±nÄ±za gÃ¶ndÉ™rildi. ZÉ™hmÉ™t olmasa email-inizi yoxlayÄ±n vÉ™ linki kliklÉ™.",
+    "checkSpamNote": "E-poÃ§tunuzu yoxlayÄ±n vÉ™ spam qovluÄŸuna da baxÄ±n.",
+    "resendButton": "YenidÉ™n gÃ¶ndÉ™r",
+    "backToLogin": "GiriÅŸÉ™ qayÄ±t",
+    "didntReceive": "Email almadÄ±nÄ±z?",
+    "tryAgain": "YenidÉ™n cÉ™hd edin",
+    "errorEmail": "Email Ã¼nvanÄ±nÄ±zÄ± daxil edin",
+    "errorEmailFormat": "DÃ¼zgÃ¼n email Ã¼nvanÄ± daxil edin",
+    "errorEmailInvalid": "ZÉ™hmÉ™t olmasa dÃ¼zgÃ¼n e-poÃ§t Ã¼nvanÄ± daxil edin",
+    "errorEmailNotFound": "Bu email Ã¼nvanÄ± ilÉ™ hesab tapÄ±lmadÄ±",
+    "successMessage": "Parol bÉ™rpasÄ± Ã¼Ã§Ã¼n email gÃ¶ndÉ™rildi!",
+    "resendSuccess": "E-poÃ§t yenidÉ™n gÃ¶ndÉ™rildi!",
+    "errorGeneric": "Email gÃ¶ndÉ™rilmÉ™sindÉ™ xÉ™ta baÅŸ verdi",
+    "errorNetworkError": "Ä°nternet baÄŸlantÄ±sÄ± problemi. YenidÉ™n cÉ™hd edin",
+    "errorServerError": "Server xÉ™tasÄ±. Bir az sonra yenidÉ™n cÉ™hd edin"
   },
   "resetPassword": {
-    "title": "Parolunuzu Yeniləyin",
-    "description": "Aşağıya yeni parolunuzu daxil edin.",
+    "title": "Parolunuzu YenilÉ™yin",
+    "description": "AÅŸaÄŸÄ±ya yeni parolunuzu daxil edin.",
     "newPassword": "Yeni Parol",
     "newPasswordPlaceholder": "Yeni parol daxil edin",
-    "confirmPassword": "Parol Təkrarı",
-    "confirmPasswordPlaceholder": "Yeni parolu təkrar edin",
-    "updateButton": "Parolu Yenilə",
-    "resetButton": "Şifrəni yenilə",
-    "updating": "Yenilənir...",
-    "backToLogin": "Giriş səhifəsinə qayıt",
-    "rememberPassword": "Parolunuzu xatırlayırsınız?",
+    "confirmPassword": "Parol TÉ™krarÄ±",
+    "confirmPasswordPlaceholder": "Yeni parolu tÉ™krar edin",
+    "updateButton": "Parolu YenilÉ™",
+    "resetButton": "ÅžifrÉ™ni yenilÉ™",
+    "updating": "YenilÉ™nir...",
+    "backToLogin": "GiriÅŸ sÉ™hifÉ™sinÉ™ qayÄ±t",
+    "rememberPassword": "Parolunuzu xatÄ±rlayÄ±rsÄ±nÄ±z?",
     "loginLink": "Daxil ol",
-    "verifying": "Bərpa linki yoxlanılır...",
-    "invalidTokenTitle": "Yanlış Bərpa Linki",
-    "invalidToken": "Bərpa linki yanlış və ya vaxtı keçib",
-    "invalidTokenDescription": "Bu parol bərpası linki yanlışdır və ya vaxtı keçib. Yeni link tələb edin.",
-    "requestNewLink": "Yeni Bərpa Linki Tələb Et",
-    "passwordMismatch": "Parollar uyğun gəlmir",
+    "verifying": "BÉ™rpa linki yoxlanÄ±lÄ±r...",
+    "invalidTokenTitle": "YanlÄ±ÅŸ BÉ™rpa Linki",
+    "invalidToken": "BÉ™rpa linki yanlÄ±ÅŸ vÉ™ ya vaxtÄ± keÃ§ib",
+    "invalidTokenDescription": "Bu parol bÉ™rpasÄ± linki yanlÄ±ÅŸdÄ±r vÉ™ ya vaxtÄ± keÃ§ib. Yeni link tÉ™lÉ™b edin.",
+    "requestNewLink": "Yeni BÉ™rpa Linki TÉ™lÉ™b Et",
+    "passwordMismatch": "Parollar uyÄŸun gÉ™lmir",
     "errorPassword": "Parol daxil edin",
-    "errorPasswordLength": "Parol ən az 8 simvoldan ibarət olmalıdır",
-    "errorPasswordMismatch": "Parollar uyğun gəlmir",
-    "errorPasswordTooWeak": "Parol çox sadədir. Ən azı bir böyük hərf, kiçik hərf və rəqəm istifadə edin",
-    "invalidLink": "Yanlış və ya vaxtı keçmiş yeniləmə linki. Zəhmət olmasa yeni şifrə yeniləməsi tələb edin.",
-    "successMessage": "Parol uğurla yeniləndi!",
-    "redirectMessage": "İndi giriş səhifəsinə yönləndirilirsiniz...",
-    "genericError": "Gözlənilməz xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.",
-    "errorGeneric": "Parol yenilənməsində xəta baş verdi",
-    "errorNetworkError": "İnternet bağlantısı problemi. Yenidən cəhd edin",
-    "errorServerError": "Server xətası. Bir az sonra yenidən cəhd edin",
-    "errorTokenExpired": "Bərpa linki vaxtı keçib. Yeni link tələb edin"
+    "errorPasswordLength": "Parol É™n az 8 simvoldan ibarÉ™t olmalÄ±dÄ±r",
+    "errorPasswordMismatch": "Parollar uyÄŸun gÉ™lmir",
+    "errorPasswordTooWeak": "Parol Ã§ox sadÉ™dir. Æn azÄ± bir bÃ¶yÃ¼k hÉ™rf, kiÃ§ik hÉ™rf vÉ™ rÉ™qÉ™m istifadÉ™ edin",
+    "invalidLink": "YanlÄ±ÅŸ vÉ™ ya vaxtÄ± keÃ§miÅŸ yenilÉ™mÉ™ linki. ZÉ™hmÉ™t olmasa yeni ÅŸifrÉ™ yenilÉ™mÉ™si tÉ™lÉ™b edin.",
+    "successMessage": "Parol uÄŸurla yenilÉ™ndi!",
+    "redirectMessage": "Ä°ndi giriÅŸ sÉ™hifÉ™sinÉ™ yÃ¶nlÉ™ndirilirsiniz...",
+    "genericError": "GÃ¶zlÉ™nilmÉ™z xÉ™ta baÅŸ verdi. ZÉ™hmÉ™t olmasa yenidÉ™n cÉ™hd edin.",
+    "errorGeneric": "Parol yenilÉ™nmÉ™sindÉ™ xÉ™ta baÅŸ verdi",
+    "errorNetworkError": "Ä°nternet baÄŸlantÄ±sÄ± problemi. YenidÉ™n cÉ™hd edin",
+    "errorServerError": "Server xÉ™tasÄ±. Bir az sonra yenidÉ™n cÉ™hd edin",
+    "errorTokenExpired": "BÉ™rpa linki vaxtÄ± keÃ§ib. Yeni link tÉ™lÉ™b edin"
   },
   "orders": {
-    "title": "Sifarişləriniz",
-    "orderNumber": "Sifariş #",
-    "loading": "Sifarişlər yüklənir...",
-    "emptyStateTitle": "Hələ Sifariş Yoxdur",
-    "emptyStateDescription": "Hələ heç bir sifariş verməmisiniz.",
-    "shopNow": "İndi Alış-Veriş Et",
+    "title": "SifariÅŸlÉ™riniz",
+    "orderNumber": "SifariÅŸ #",
+    "loading": "SifariÅŸlÉ™r yÃ¼klÉ™nir...",
+    "emptyStateTitle": "HÉ™lÉ™ SifariÅŸ Yoxdur",
+    "emptyStateDescription": "HÉ™lÉ™ heÃ§ bir sifariÅŸ vermÉ™misiniz.",
+    "shopNow": "Ä°ndi AlÄ±ÅŸ-VeriÅŸ Et",
     "quantity": "Miqdar",
-    "price": "Qiymət",
-    "total": "Cəmi",
-    "cancelOrderButton": "Sifarişi Ləğv Et",
-    "cancelConfirmTitle": "Sifarişi Ləğv Et",
-    "cancelConfirmMessage": "Bu sifarişi ləğv etmək istədiyinizə əminsiniz?",
-    "cancelSuccess": "Sifariş uğurla ləğv edildi",
-    "cancelError": "Sifariş ləğv edilə bilmədi",
-    "shippingAddress": "Çatdırılma Ünvanı",
+    "price": "QiymÉ™t",
+    "total": "CÉ™mi",
+    "cancelOrderButton": "SifariÅŸi LÉ™ÄŸv Et",
+    "cancelConfirmTitle": "SifariÅŸi LÉ™ÄŸv Et",
+    "cancelConfirmMessage": "Bu sifariÅŸi lÉ™ÄŸv etmÉ™k istÉ™diyinizÉ™ É™minsiniz?",
+    "cancelSuccess": "SifariÅŸ uÄŸurla lÉ™ÄŸv edildi",
+    "cancelError": "SifariÅŸ lÉ™ÄŸv edilÉ™ bilmÉ™di",
+    "shippingAddress": "Ã‡atdÄ±rÄ±lma ÃœnvanÄ±",
     "status": {
-      "preparing": "Sifarişiniz hazırlanır",
-      "confirmed": "Təsdiq edildi",
+      "preparing": "SifariÅŸiniz hazÄ±rlanÄ±r",
+      "confirmed": "TÉ™sdiq edildi",
       "inTransit": "Yolda",
-      "delivered": "Çatdırıldı",
-      "cancelled": "Ləğv edildi",
-      "returned": "Geri qaytarıldı",
-      "waitingPayment": "Ödəniş gözləyir"
+      "delivered": "Ã‡atdÄ±rÄ±ldÄ±",
+      "cancelled": "LÉ™ÄŸv edildi",
+      "returned": "Geri qaytarÄ±ldÄ±",
+      "waitingPayment": "Ã–dÉ™niÅŸ gÃ¶zlÉ™yir"
     },
     "filters": {
-      "allOrders": "Bütün Sifarişlər",
-      "activeOrders": "Aktiv Sifarişlər",
-      "completedOrders": "Tamamlanmış Sifarişlər",
-      "cancelledOrders": "Ləğv Edilmiş Sifarişlər"
+      "allOrders": "BÃ¼tÃ¼n SifariÅŸlÉ™r",
+      "activeOrders": "Aktiv SifariÅŸlÉ™r",
+      "completedOrders": "TamamlanmÄ±ÅŸ SifariÅŸlÉ™r",
+      "cancelledOrders": "LÉ™ÄŸv EdilmiÅŸ SifariÅŸlÉ™r"
     },
     "sort": {
-      "newest": "Ən Yeni",
-      "oldest": "Ən Köhnə",
-      "highestAmount": "Ən Yüksək Məbləğ",
-      "lowestAmount": "Ən Aşağı Məbləğ"
+      "newest": "Æn Yeni",
+      "oldest": "Æn KÃ¶hnÉ™",
+      "highestAmount": "Æn YÃ¼ksÉ™k MÉ™blÉ™ÄŸ",
+      "lowestAmount": "Æn AÅŸaÄŸÄ± MÉ™blÉ™ÄŸ"
     },
-    "searchPlaceholder": "Sifarişləri axtar..."
+    "searchPlaceholder": "SifariÅŸlÉ™ri axtar..."
   },
   "adminPanel": {
-    "addNew": "Yeni əlavə et",
-    "dashboard": "İdarə paneli",
+    "addNew": "Yeni É™lavÉ™ et",
+    "dashboard": "Ä°darÉ™ paneli",
     "title": "Admin Paneli",
-    "loading": "{{type}} yüklənir...",
-    "noData": "{{type}} tapılmadı",
+    "loading": "{{type}} yÃ¼klÉ™nir...",
+    "noData": "{{type}} tapÄ±lmadÄ±",
     "sections": {
       "statistics": "Statistika",
-      "products": "Məhsullar",
+      "products": "MÉ™hsullar",
       "blogs": "Bloqlar",
-      "users": "İstifadəçilər",
-      "orders": "Sifarişlər"
+      "users": "Ä°stifadÉ™Ã§ilÉ™r",
+      "orders": "SifariÅŸlÉ™r"
     },
     "management": {
-      "products": "Məhsul İdarəetməsi",
-      "blogs": "Bloq İdarəetməsi",
-      "users": "İstifadəçi İdarəetməsi",
-      "orders": "Sifariş İdarəetməsi"
+      "products": "MÉ™hsul Ä°darÉ™etmÉ™si",
+      "blogs": "Bloq Ä°darÉ™etmÉ™si",
+      "users": "Ä°stifadÉ™Ã§i Ä°darÉ™etmÉ™si",
+      "orders": "SifariÅŸ Ä°darÉ™etmÉ™si"
     },
     "actions": {
       "create": "Yarat",
-      "edit": "Düzəliş et",
-      "update": "Yenilə",
+      "edit": "DÃ¼zÉ™liÅŸ et",
+      "update": "YenilÉ™",
       "delete": "Sil",
-      "cancel": "Ləğv et",
-      "add": "Yeni əlavə et"
+      "cancel": "LÉ™ÄŸv et",
+      "add": "Yeni É™lavÉ™ et"
     },
     "delete": {
-      "title": "Silməyi təsdiq et",
-      "message": "Bu elementi silmək istədiyinizə əminsiniz? Bu əməliyyat geri alına bilməz.",
-      "confirmButton": "Bəli, sil",
-      "cancelButton": "Ləğv et"
+      "title": "SilmÉ™yi tÉ™sdiq et",
+      "message": "Bu elementi silmÉ™k istÉ™diyinizÉ™ É™minsiniz? Bu É™mÉ™liyyat geri alÄ±na bilmÉ™z.",
+      "confirmButton": "BÉ™li, sil",
+      "cancelButton": "LÉ™ÄŸv et"
     },
     "forms": {
       "product": {
-        "mainName": "Heyvan Növü",
-        "mainNameHint": "'cat' və ya 'dog' daxil edin",
+        "mainName": "Heyvan NÃ¶vÃ¼",
+        "mainNameHint": "'cat' vÉ™ ya 'dog' daxil edin",
         "nameAz": "Ad (AZ)",
         "nameEn": "Ad (EN)",
-        "descriptionAz": "Təsvir (AZ)",
-        "descriptionEn": "Təsvir (EN)",
-        "image": "Şəkil URL",
+        "descriptionAz": "TÉ™svir (AZ)",
+        "descriptionEn": "TÉ™svir (EN)",
+        "image": "ÅžÉ™kil URL",
         "category": "Kateqoriya",
-        "categoryHint": "Mövcud kateqoriyalar:",
-        "price": "Qiymət",
-        "priceHint": "Qiyməti AZN ilə daxil edin",
+        "categoryHint": "MÃ¶vcud kateqoriyalar:",
+        "price": "QiymÉ™t",
+        "priceHint": "QiymÉ™ti AZN ilÉ™ daxil edin",
         "hasDiscount": "Endirimi var",
         "discountPercentage": "Endirim %",
         "inStock": "Stokda var",
@@ -300,1270 +300,1270 @@
         "isDiscount": "Endirimi var",
         "discountLabel": "Endirim faizi",
         "discountPlaceholder": "Endirim faizini daxil edin",
-        "discountHelp": "0 ilə 100 arasında bir dəyər daxil edin",
+        "discountHelp": "0 ilÉ™ 100 arasÄ±nda bir dÉ™yÉ™r daxil edin",
         "instock": "Stokda var",
-        "instockHint": "Məhsulun stokda olub-olmadığını qeyd edin",
+        "instockHint": "MÉ™hsulun stokda olub-olmadÄ±ÄŸÄ±nÄ± qeyd edin",
         "inStockDefault": "(Standart: Stokda var)",
-        "isDiscountHint": "Məhsulun endirimi varsa aktiv edin",
+        "isDiscountHint": "MÉ™hsulun endirimi varsa aktiv edin",
         "validation": {
-          "mainNameRequired": "Heyvan növü tələb olunur",
-          "nameAzRequired": "Ad (AZ) tələb olunur",
-          "nameEnRequired": "Ad (EN) tələb olunur",
-          "categoryRequired": "Kateqoriya tələb olunur",
-          "priceRequired": "Qiymət 0-dan böyük olmalıdır",
-          "discountRequired": "Endirim aktiv olduqda endirim faizi tələb olunur",
-          "discountInvalid": "Endirim 0 ilə 100 arasında bir rəqəm olmalıdır"
+          "mainNameRequired": "Heyvan nÃ¶vÃ¼ tÉ™lÉ™b olunur",
+          "nameAzRequired": "Ad (AZ) tÉ™lÉ™b olunur",
+          "nameEnRequired": "Ad (EN) tÉ™lÉ™b olunur",
+          "categoryRequired": "Kateqoriya tÉ™lÉ™b olunur",
+          "priceRequired": "QiymÉ™t 0-dan bÃ¶yÃ¼k olmalÄ±dÄ±r",
+          "discountRequired": "Endirim aktiv olduqda endirim faizi tÉ™lÉ™b olunur",
+          "discountInvalid": "Endirim 0 ilÉ™ 100 arasÄ±nda bir rÉ™qÉ™m olmalÄ±dÄ±r"
         }
       },
       "blog": {
-        "titleAz": "Başlıq (AZ)",
-        "titleEn": "Başlıq (EN)",
-        "descriptionAz": "Təsvir (AZ)",
-        "descriptionEn": "Təsvir (EN)",
+        "titleAz": "BaÅŸlÄ±q (AZ)",
+        "titleEn": "BaÅŸlÄ±q (EN)",
+        "descriptionAz": "TÉ™svir (AZ)",
+        "descriptionEn": "TÉ™svir (EN)",
         "category": "Kateqoriya",
-        "categoryHint": "Mövcud kateqoriyalar:",
-        "image": "Şəkil URL",
+        "categoryHint": "MÃ¶vcud kateqoriyalar:",
+        "image": "ÅžÉ™kil URL",
         "validation": {
-          "titleAzRequired": "Başlıq (AZ) tələb olunur",
-          "titleEnRequired": "Başlıq (EN) tələb olunur",
-          "descriptionAzRequired": "Təsvir (AZ) tələb olunur",
-          "descriptionEnRequired": "Təsvir (EN) tələb olunur",
-          "categoryRequired": "Kateqoriya tələb olunur"
+          "titleAzRequired": "BaÅŸlÄ±q (AZ) tÉ™lÉ™b olunur",
+          "titleEnRequired": "BaÅŸlÄ±q (EN) tÉ™lÉ™b olunur",
+          "descriptionAzRequired": "TÉ™svir (AZ) tÉ™lÉ™b olunur",
+          "descriptionEnRequired": "TÉ™svir (EN) tÉ™lÉ™b olunur",
+          "categoryRequired": "Kateqoriya tÉ™lÉ™b olunur"
         }
       },
       "user": {
-        "username": "İstifadəçi adı",
-        "email": "E-poçt",
-        "password": "Şifrə",
-        "passwordHint": "Cari şifrəni saxlamaq üçün boş buraxın",
+        "username": "Ä°stifadÉ™Ã§i adÄ±",
+        "email": "E-poÃ§t",
+        "password": "ÅžifrÉ™",
+        "passwordHint": "Cari ÅŸifrÉ™ni saxlamaq Ã¼Ã§Ã¼n boÅŸ buraxÄ±n",
         "role": "Rol",
-        "default": "Sadə İstifadəçi",
+        "default": "SadÉ™ Ä°stifadÉ™Ã§i",
         "admin": "Administrator",
         "validation": {
-          "usernameRequired": "İstifadəçi adı tələb olunur",
-          "emailRequired": "E-poçt tələb olunur",
-          "passwordRequired": "Şifrə tələb olunur",
-          "passwordMinLength": "Şifrə ən azı 6 simvol olmalıdır",
-          "userIdMissing": "İstifadəçi ID-si yoxdur"
+          "usernameRequired": "Ä°stifadÉ™Ã§i adÄ± tÉ™lÉ™b olunur",
+          "emailRequired": "E-poÃ§t tÉ™lÉ™b olunur",
+          "passwordRequired": "ÅžifrÉ™ tÉ™lÉ™b olunur",
+          "passwordMinLength": "ÅžifrÉ™ É™n azÄ± 6 simvol olmalÄ±dÄ±r",
+          "userIdMissing": "Ä°stifadÉ™Ã§i ID-si yoxdur"
         },
         "messages": {
-          "createSuccess": "İstifadəçi uğurla yaradıldı",
-          "updateSuccess": "İstifadəçi uğurla yeniləndi"
+          "createSuccess": "Ä°stifadÉ™Ã§i uÄŸurla yaradÄ±ldÄ±",
+          "updateSuccess": "Ä°stifadÉ™Ã§i uÄŸurla yenilÉ™ndi"
         },
         "roles": {
-          "regular": "Sadə İstifadəçi",
+          "regular": "SadÉ™ Ä°stifadÉ™Ã§i",
           "admin": "Administrator",
-          "label": "İstifadəçi Rolu",
-          "hint": "İstifadəçi rolunu seçin"
+          "label": "Ä°stifadÉ™Ã§i Rolu",
+          "hint": "Ä°stifadÉ™Ã§i rolunu seÃ§in"
         }
       },
       "order": {
-        "customerInfo": "Müştəri Məlumatları",
-        "customer": "Müştəri",
-        "selectCustomer": "Müştəri seçin",
+        "customerInfo": "MÃ¼ÅŸtÉ™ri MÉ™lumatlarÄ±",
+        "customer": "MÃ¼ÅŸtÉ™ri",
+        "selectCustomer": "MÃ¼ÅŸtÉ™ri seÃ§in",
         "fullName": "Tam Ad",
-        "dates": "Tarixlər",
-        "orderDate": "Sifariş Tarixi",
-        "selectOrderDate": "Sifariş tarixini seçin",
-        "expectedDeliveryDate": "Gözlənilən Çatdırılma Tarixi",
-        "selectExpectedDate": "Gözlənilən çatdırılma tarixini seçin",
-        "actualDeliveryDate": "Faktiki Çatdırılma Tarixi",
-        "selectActualDate": "Faktiki çatdırılma tarixini seçin",
-        "shippingDetails": "Çatdırılma Məlumatları",
-        "shippingAddress": "Çatdırılma Ünvanı",
-        "city": "Şəhər",
-        "zipCode": "Poçt İndeksi",
-        "products": "Məhsullar",
-        "searchProducts": "Məhsulları Axtar",
-        "allCategories": "Bütün Kateqoriyalar",
-        "allStock": "Bütün Stok",
+        "dates": "TarixlÉ™r",
+        "orderDate": "SifariÅŸ Tarixi",
+        "selectOrderDate": "SifariÅŸ tarixini seÃ§in",
+        "expectedDeliveryDate": "GÃ¶zlÉ™nilÉ™n Ã‡atdÄ±rÄ±lma Tarixi",
+        "selectExpectedDate": "GÃ¶zlÉ™nilÉ™n Ã§atdÄ±rÄ±lma tarixini seÃ§in",
+        "actualDeliveryDate": "Faktiki Ã‡atdÄ±rÄ±lma Tarixi",
+        "selectActualDate": "Faktiki Ã§atdÄ±rÄ±lma tarixini seÃ§in",
+        "shippingDetails": "Ã‡atdÄ±rÄ±lma MÉ™lumatlarÄ±",
+        "shippingAddress": "Ã‡atdÄ±rÄ±lma ÃœnvanÄ±",
+        "city": "ÅžÉ™hÉ™r",
+        "zipCode": "PoÃ§t Ä°ndeksi",
+        "products": "MÉ™hsullar",
+        "searchProducts": "MÉ™hsullarÄ± Axtar",
+        "allCategories": "BÃ¼tÃ¼n Kateqoriyalar",
+        "allStock": "BÃ¼tÃ¼n Stok",
         "outOfStock": "Stokda Yoxdur",
         "sortNameAsc": "Ad (A-Z)",
-        "minPrice": "Min Qiymət",
-        "maxPrice": "Max Qiymət",
-        "orderStatus": "Sifariş Statusu",
-        "selectedProducts": "Seçilmiş Məhsullar",
-        "noProductsSelected": "Məhsul seçilməyib",
-        "orderTotal": "Sifariş Cəmi",
+        "minPrice": "Min QiymÉ™t",
+        "maxPrice": "Max QiymÉ™t",
+        "orderStatus": "SifariÅŸ Statusu",
+        "selectedProducts": "SeÃ§ilmiÅŸ MÉ™hsullar",
+        "noProductsSelected": "MÉ™hsul seÃ§ilmÉ™yib",
+        "orderTotal": "SifariÅŸ CÉ™mi",
         "productFilters": {
-          "title": "Məhsulları Filterlə",
+          "title": "MÉ™hsullarÄ± FilterlÉ™",
           "category": {
             "label": "Kateqoriya",
-            "all": "Bütün Kateqoriyalar",
+            "all": "BÃ¼tÃ¼n Kateqoriyalar",
             "food": "Qida",
             "toys": "Oyuncaqlar",
             "beds": "Yataqlar",
-            "carriers": "Daşıyıcılar",
-            "leashes": "Qayışlar",
+            "carriers": "DaÅŸÄ±yÄ±cÄ±lar",
+            "leashes": "QayÄ±ÅŸlar",
             "litter": "Qum"
           },
           "stock": {
-            "label": "Stok Vəziyyəti",
-            "all": "Bütün Stok",
+            "label": "Stok VÉ™ziyyÉ™ti",
+            "all": "BÃ¼tÃ¼n Stok",
             "inStock": "Stokda Var",
             "outOfStock": "Stokda Yoxdur"
           },
           "sort": {
-            "label": "Sırala",
+            "label": "SÄ±rala",
             "nameAsc": "Ad (A-Z)",
             "nameDesc": "Ad (Z-A)",
-            "priceAsc": "Qiymət (Aşağıdan Yuxarı)",
-            "priceDesc": "Qiymət (Yuxarıdan Aşağı)"
+            "priceAsc": "QiymÉ™t (AÅŸaÄŸÄ±dan YuxarÄ±)",
+            "priceDesc": "QiymÉ™t (YuxarÄ±dan AÅŸaÄŸÄ±)"
           },
           "price": {
-            "label": "Qiymət Aralığı",
-            "min": "Min Qiymət",
-            "max": "Max Qiymət"
+            "label": "QiymÉ™t AralÄ±ÄŸÄ±",
+            "min": "Min QiymÉ™t",
+            "max": "Max QiymÉ™t"
           }
         }
       }
     },
     "orderStatus": {
-      "preparing": "Sifarişiniz hazırlanır",
-      "confirmed": "Təsdiq edildi",
+      "preparing": "SifariÅŸiniz hazÄ±rlanÄ±r",
+      "confirmed": "TÉ™sdiq edildi",
       "inTransit": "Yolda",
-      "delivered": "Çatdırıldı",
-      "cancelled": "Ləğv edildi",
-      "returned": "Geri qaytarıldı",
-      "waitingPayment": "Ödəniş gözləyir"
+      "delivered": "Ã‡atdÄ±rÄ±ldÄ±",
+      "cancelled": "LÉ™ÄŸv edildi",
+      "returned": "Geri qaytarÄ±ldÄ±",
+      "waitingPayment": "Ã–dÉ™niÅŸ gÃ¶zlÉ™yir"
     }
   },
   "navigation": {
-    "home": "Ana səhifə",
-    "shop": "Mağaza",
-    "dogs": "İtlər",
-    "cats": "Pişiklər",
-    "allProducts": "Bütün məhsullar",
-    "newArrivals": "Yeni gələnlər",
+    "home": "Ana sÉ™hifÉ™",
+    "shop": "MaÄŸaza",
+    "dogs": "Ä°tlÉ™r",
+    "cats": "PiÅŸiklÉ™r",
+    "allProducts": "BÃ¼tÃ¼n mÉ™hsullar",
+    "newArrivals": "Yeni gÉ™lÉ™nlÉ™r",
     "blog": "Bloq",
-    "aboutUs": "Haqqımızda",
-    "contact": "Əlaqə",
-    "search": "Məhsulları axtar...",
+    "aboutUs": "HaqqÄ±mÄ±zda",
+    "contact": "ÆlaqÉ™",
+    "search": "MÉ™hsullarÄ± axtar...",
     "profile": "Profil",
-    "orders": "Sifarişlər",
-    "settings": "Parametrlər",
-    "help": "Kömək",
-    "logout": "Çıxış",
+    "orders": "SifariÅŸlÉ™r",
+    "settings": "ParametrlÉ™r",
+    "help": "KÃ¶mÉ™k",
+    "logout": "Ã‡Ä±xÄ±ÅŸ",
     "faq": "FAQ"
   },
   "heroSection": {
     "slides": {
       "0": {
-        "title": "Ev heyvanlarınız üçün\nPremium Aksessuarlar",
-        "description": "Tüklü dostlarınıza xüsusi qayğı göstərin. Keyfiyyətli və rahat aksessuarlarla onları sevindirin!",
-        "buttonText": "İndi alış-veriş et"
+        "title": "Ev heyvanlarÄ±nÄ±z Ã¼Ã§Ã¼n\nPremium Aksessuarlar",
+        "description": "TÃ¼klÃ¼ dostlarÄ±nÄ±za xÃ¼susi qayÄŸÄ± gÃ¶stÉ™rin. KeyfiyyÉ™tli vÉ™ rahat aksessuarlarla onlarÄ± sevindirin!",
+        "buttonText": "Ä°ndi alÄ±ÅŸ-veriÅŸ et"
       },
       "1": {
-        "title": "Pişikləriniz üçün\nRahat məhsullar",
-        "description": "Pişikləriniz üçün ən rahat yataqlar, oyuncaqlar və digər aksessuarlar indi mağazamızda!",
-        "buttonText": "Pişik məhsulları"
+        "title": "PiÅŸiklÉ™riniz Ã¼Ã§Ã¼n\nRahat mÉ™hsullar",
+        "description": "PiÅŸiklÉ™riniz Ã¼Ã§Ã¼n É™n rahat yataqlar, oyuncaqlar vÉ™ digÉ™r aksessuarlar indi maÄŸazamÄ±zda!",
+        "buttonText": "PiÅŸik mÉ™hsullarÄ±"
       },
       "2": {
-        "title": "Dostlarınızı\nSevindirin",
-        "description": "İt və pişiklər üçün xüsusi hazırlanmış məhsullar indi Woof-da!",
-        "buttonText": "Məhsulları kəşf et"
+        "title": "DostlarÄ±nÄ±zÄ±\nSevindirin",
+        "description": "Ä°t vÉ™ piÅŸiklÉ™r Ã¼Ã§Ã¼n xÃ¼susi hazÄ±rlanmÄ±ÅŸ mÉ™hsullar indi Woof-da!",
+        "buttonText": "MÉ™hsullarÄ± kÉ™ÅŸf et"
       }
     }
   },
   "footer": {
-    "about": "Pawsome heyvanlarınız üçün premium keyfiyyətli məhsullar təklif edən onlayn pet-şopdur. Biz heyvanlarınızın sağlamlığı və xoşbəxtliyi üçün ən yaxşı məhsulları təqdim edirik.",
-    "quickLinks": "Sürətli Keçidlər",
+    "about": "Pawsome heyvanlarÄ±nÄ±z Ã¼Ã§Ã¼n premium keyfiyyÉ™tli mÉ™hsullar tÉ™klif edÉ™n onlayn pet-ÅŸopdur. Biz heyvanlarÄ±nÄ±zÄ±n saÄŸlamlÄ±ÄŸÄ± vÉ™ xoÅŸbÉ™xtliyi Ã¼Ã§Ã¼n É™n yaxÅŸÄ± mÉ™hsullarÄ± tÉ™qdim edirik.",
+    "quickLinks": "SÃ¼rÉ™tli KeÃ§idlÉ™r",
     "categories": {
       "title": "Kateqoriyalar",
       "items": {
         "dogFood": {
-          "name": "İt Yemləri",
+          "name": "Ä°t YemlÉ™ri",
           "route": "/shop/dogs/foods"
         },
         "dogToys": {
-          "name": "İt Oyuncaqları",
+          "name": "Ä°t OyuncaqlarÄ±",
           "route": "/shop/dogs/toys"
         },
         "dogBeds": {
-          "name": "İt Yataqları",
+          "name": "Ä°t YataqlarÄ±",
           "route": "/shop/dogs/beds-and-home"
         },
         "catFood": {
-          "name": "Pişik Yemləri",
+          "name": "PiÅŸik YemlÉ™ri",
           "route": "/shop/cats/foods"
         },
         "catLitter": {
-          "name": "Pişik Qumu",
+          "name": "PiÅŸik Qumu",
           "route": "/shop/cats/litter"
         },
         "catBeds": {
-          "name": "Pişik Yataqları",
+          "name": "PiÅŸik YataqlarÄ±",
           "route": "/shop/cats/beds-and-home"
         }
       }
     },
-    "contactInfo": "Əlaqə Məlumatları",
-    "address": "Heydər Əliyev prospekti 123, Bakı, Azərbaycan",
+    "contactInfo": "ÆlaqÉ™ MÉ™lumatlarÄ±",
+    "address": "HeydÉ™r Æliyev prospekti 123, BakÄ±, AzÉ™rbaycan",
     "phone": "+994 50 123 45 67",
     "email": "xeyalhuseynli06@gmail.com",
-    "newsletter": "Bülleten",
-    "newsletterText": "Yeni məhsullar və xüsusi təkliflər haqqında məlumat almaq üçün abunə olun.",
-    "emailPlaceholder": "E-poçt ünvanınız",
-    "subscribe": "Abunə ol",
-    "subscribing": "Abunə olunur...",
-    "subscribeSuccess": "Uğurla abunə oldunuz!",
-    "subscribeError": "Abunə zamanı xəta baş verdi",
-    "subscriptionMessage": "Woof-un bülletenine abunə olduğunuz üçün təşəkkür edirik!",
-    "copyright": "Bütün hüquqlar qorunur.",
-    "privacyPolicy": "Məxfilik Siyasəti",
-    "termsOfService": "İstifadə Şərtləri",
-    "shippingPolicy": "Çatdırılma Siyasəti",
-    "termsOfService": "İstifadə Şərtləri",
-    "shippingPolicy": "Çatdırılma Siyasəti",
-    "returnsPolicy": "Qaytarılma Siyasəti",
+    "newsletter": "BÃ¼lleten",
+    "newsletterText": "Yeni mÉ™hsullar vÉ™ xÃ¼susi tÉ™kliflÉ™r haqqÄ±nda mÉ™lumat almaq Ã¼Ã§Ã¼n abunÉ™ olun.",
+    "emailPlaceholder": "E-poÃ§t Ã¼nvanÄ±nÄ±z",
+    "subscribe": "AbunÉ™ ol",
+    "subscribing": "AbunÉ™ olunur...",
+    "subscribeSuccess": "UÄŸurla abunÉ™ oldunuz!",
+    "subscribeError": "AbunÉ™ zamanÄ± xÉ™ta baÅŸ verdi",
+    "subscriptionMessage": "Woof-un bÃ¼lletenine abunÉ™ olduÄŸunuz Ã¼Ã§Ã¼n tÉ™ÅŸÉ™kkÃ¼r edirik!",
+    "copyright": "BÃ¼tÃ¼n hÃ¼quqlar qorunur.",
+    "privacyPolicy": "MÉ™xfilik SiyasÉ™ti",
+    "termsOfService": "Ä°stifadÉ™ ÅžÉ™rtlÉ™ri",
+    "shippingPolicy": "Ã‡atdÄ±rÄ±lma SiyasÉ™ti",
+    "termsOfService": "Ä°stifadÉ™ ÅžÉ™rtlÉ™ri",
+    "shippingPolicy": "Ã‡atdÄ±rÄ±lma SiyasÉ™ti",
+    "returnsPolicy": "QaytarÄ±lma SiyasÉ™ti",
     "paymentMethods": {
-      "title": "Ödəmə üsulları",
+      "title": "Ã–dÉ™mÉ™ Ã¼sullarÄ±",
       "methods": {
-        "creditCard": "Kredit Kartı",
+        "creditCard": "Kredit KartÄ±",
         "payPal": "PayPal",
         "bankTransfer": "Bank Transfer",
-        "cashOnDelivery": "Ödəniş Əsasında"
+        "cashOnDelivery": "Ã–dÉ™niÅŸ ÆsasÄ±nda"
       }
     },
     "contact": {
       "info": {
-        "address": "Heydər Əliyev prospekti 123, Bakı, Azərbaycan",
+        "address": "HeydÉ™r Æliyev prospekti 123, BakÄ±, AzÉ™rbaycan",
         "phone": "+994 50 123 45 67",
         "email": "xeyalhuseynli06@gmail.com"
       }
     }
   },
   "common": {
-    "loading": "Yüklənir...",
-    "error": "Xəta baş verdi",
-    "success": "Uğurlu əməliyyat",
+    "loading": "YÃ¼klÉ™nir...",
+    "error": "XÉ™ta baÅŸ verdi",
+    "success": "UÄŸurlu É™mÉ™liyyat",
     "save": "Yadda saxla",
-    "cancel": "Ləğv et",
-    "confirm": "Təsdiq et",
+    "cancel": "LÉ™ÄŸv et",
+    "confirm": "TÉ™sdiq et",
     "delete": "Sil",
-    "edit": "Redaktə et",
-    "add": "Əlavə et",
+    "edit": "RedaktÉ™ et",
+    "add": "ÆlavÉ™ et",
     "remove": "Sil",
-    "update": "Yenilə",
+    "update": "YenilÉ™",
     "create": "Yarat",
-    "submit": "Təsdiq et",
+    "submit": "TÉ™sdiq et",
     "search": "Axtar",
-    "filter": "Süz",
-    "sort": "Sırala",
-    "close": "Bağla",
+    "filter": "SÃ¼z",
+    "sort": "SÄ±rala",
+    "close": "BaÄŸla",
     "back": "Geri",
-    "next": "Növbəti",
-    "previous": "Əvvəlki",
-    "yes": "Bəli",
+    "next": "NÃ¶vbÉ™ti",
+    "previous": "ÆvvÉ™lki",
+    "yes": "BÉ™li",
     "no": "Xeyr",
     "ok": "Tamam",
-    "tryAgain": "Yenidən cəhd edin",
-    "networkError": "İnternet bağlantısı problemi",
-    "serverError": "Server xətası",
-    "unexpectedError": "Gözlənilməz xəta baş verdi",
-    "noProductName": "Məhsul adı yoxdur",
-    "user": "İstifadəçi",
-    "unknownCustomer": "Naməlum müştəri",
-    "noCity": "Şəhər yoxdur",
-    "unknownProduct": "Naməlum məhsul",
-    "noTitle": "Başlıq yoxdur",
+    "tryAgain": "YenidÉ™n cÉ™hd edin",
+    "networkError": "Ä°nternet baÄŸlantÄ±sÄ± problemi",
+    "serverError": "Server xÉ™tasÄ±",
+    "unexpectedError": "GÃ¶zlÉ™nilmÉ™z xÉ™ta baÅŸ verdi",
+    "noProductName": "MÉ™hsul adÄ± yoxdur",
+    "user": "Ä°stifadÉ™Ã§i",
+    "unknownCustomer": "NamÉ™lum mÃ¼ÅŸtÉ™ri",
+    "noCity": "ÅžÉ™hÉ™r yoxdur",
+    "unknownProduct": "NamÉ™lum mÉ™hsul",
+    "noTitle": "BaÅŸlÄ±q yoxdur",
     "noCategory": "Kateqoriya yoxdur",
-    "unknownStatus": "Naməlum status",
-    "home": "Ana səhifə",
+    "unknownStatus": "NamÉ™lum status",
+    "home": "Ana sÉ™hifÉ™",
     "blogs": "Bloqlar",
-    "anonymousUser": "Anonim İstifadəçi",
-    "submitting": "Göndərilir...",
+    "anonymousUser": "Anonim Ä°stifadÉ™Ã§i",
+    "submitting": "GÃ¶ndÉ™rilir...",
     "back": "Geri"
   },
   "faq": {
-    "title": "Tez-tez soruşulan suallar",
-    "subtitle": "Məhsullarımız, xidmətlərimiz və siyasətlərimizlə bağlı ümumi suallara cavablar tapın.",
-    "searchPlaceholder": "Cavabları axtar...",
-    "noResults": "Heç bir nəticə tapılmadı",
-    "noResultsTitle": "Heç bir nəticə tapılmadı",
-    "noResultsText": "Fərqli axtarış sözü yoxlayın və ya aşağıdakı kateqoriyalara baxın.",
-    "tryDifferent": "Fərqli axtarış sözü yoxlayın və ya aşağıdakı kateqoriyalara baxın.",
-    "contactTitle": "Hələ də suallarınız var?",
-    "contactText": "Axtardığınız cavabı tapa bilmirsiniz? Zəhmət olmasa müştəri dəstək komandamızla əlaqə saxlayın.",
-    "contactUs": "Bizimlə əlaqə saxlayın",
-    "contactButton": "Dəstəklə əlaqə saxlayın",
+    "title": "Tez-tez soruÅŸulan suallar",
+    "subtitle": "MÉ™hsullarÄ±mÄ±z, xidmÉ™tlÉ™rimiz vÉ™ siyasÉ™tlÉ™rimizlÉ™ baÄŸlÄ± Ã¼mumi suallara cavablar tapÄ±n.",
+    "searchPlaceholder": "CavablarÄ± axtar...",
+    "noResults": "HeÃ§ bir nÉ™ticÉ™ tapÄ±lmadÄ±",
+    "noResultsTitle": "HeÃ§ bir nÉ™ticÉ™ tapÄ±lmadÄ±",
+    "noResultsText": "FÉ™rqli axtarÄ±ÅŸ sÃ¶zÃ¼ yoxlayÄ±n vÉ™ ya aÅŸaÄŸÄ±dakÄ± kateqoriyalara baxÄ±n.",
+    "tryDifferent": "FÉ™rqli axtarÄ±ÅŸ sÃ¶zÃ¼ yoxlayÄ±n vÉ™ ya aÅŸaÄŸÄ±dakÄ± kateqoriyalara baxÄ±n.",
+    "contactTitle": "HÉ™lÉ™ dÉ™ suallarÄ±nÄ±z var?",
+    "contactText": "AxtardÄ±ÄŸÄ±nÄ±z cavabÄ± tapa bilmirsiniz? ZÉ™hmÉ™t olmasa mÃ¼ÅŸtÉ™ri dÉ™stÉ™k komandamÄ±zla É™laqÉ™ saxlayÄ±n.",
+    "contactUs": "BizimlÉ™ É™laqÉ™ saxlayÄ±n",
+    "contactButton": "DÉ™stÉ™klÉ™ É™laqÉ™ saxlayÄ±n",
     "categories": {
-      "all": "Hamısı",
-      "orders": "Sifarişlər",
-      "shipping": "Çatdırılma",
-      "products": "Məhsullar",
+      "all": "HamÄ±sÄ±",
+      "orders": "SifariÅŸlÉ™r",
+      "shipping": "Ã‡atdÄ±rÄ±lma",
+      "products": "MÉ™hsullar",
       "returns": "Qaytarmalar",
       "account": "Hesab",
-      "general": "Ümumi"
+      "general": "Ãœmumi"
     },
     "questions": {
-      "orderTracking": "Sifarişimi necə izləyə bilərəm?",
-      "deliveryTime": "Çatdırılma nə qədər vaxt aparır?",
-      "productQuality": "Heyvan məhsullarınızın keyfiyyəti necədir?",
-      "returnPolicy": "Qaytarma siyasətiniz necədir?",
-      "passwordReset": "Şifrəmi necə sıfırlaya bilərəm?",
-      "orderCancellation": "Sifarişimi ləğv edə bilərəm?",
-      "internationalShipping": "Beynəlxalq çatdırılma təklif edirsiniz?",
-      "petFoodIngredients": "Heyvan yemlərinizin tərkibində nələr var?",
-      "damagedProducts": "Zədələnmiş məhsul gələrsə nə etməliyəm?"
+      "orderTracking": "SifariÅŸimi necÉ™ izlÉ™yÉ™ bilÉ™rÉ™m?",
+      "deliveryTime": "Ã‡atdÄ±rÄ±lma nÉ™ qÉ™dÉ™r vaxt aparÄ±r?",
+      "productQuality": "Heyvan mÉ™hsullarÄ±nÄ±zÄ±n keyfiyyÉ™ti necÉ™dir?",
+      "returnPolicy": "Qaytarma siyasÉ™tiniz necÉ™dir?",
+      "passwordReset": "ÅžifrÉ™mi necÉ™ sÄ±fÄ±rlaya bilÉ™rÉ™m?",
+      "orderCancellation": "SifariÅŸimi lÉ™ÄŸv edÉ™ bilÉ™rÉ™m?",
+      "internationalShipping": "BeynÉ™lxalq Ã§atdÄ±rÄ±lma tÉ™klif edirsiniz?",
+      "petFoodIngredients": "Heyvan yemlÉ™rinizin tÉ™rkibindÉ™ nÉ™lÉ™r var?",
+      "damagedProducts": "ZÉ™dÉ™lÉ™nmiÅŸ mÉ™hsul gÉ™lÉ™rsÉ™ nÉ™ etmÉ™liyÉ™m?"
     },
     "answers": {
-      "orderTracking": "Sifarişinizi izləmək üçün hesabınıza daxil olun və 'Sifarişlər' bölməsinə keçin. Burada son alış-verişləriniz üçün izləmə məlumatlarını tapa bilərsiniz. Alternativ olaraq, göndərmə təsdiq e-poçtunuzda təqdim olunan izləmə nömrəsindən istifadə edə bilərsiniz.",
-      "deliveryTime": "Çatdırılma müddəti yerinizə görə dəyişir. Standart yerli çatdırılma adətən 3-5 iş günü çəkir. Ekspress çatdırılma 1-2 iş günü ərzində baş tutur. Beynəlxalq göndərmə təyinat ölkəsindən və gömrük prosedurlarından asılı olaraq 7-14 iş günü çəkə bilər.",
-      "productQuality": "Biz yalnız yüksək keyfiyyətli heyvan məhsulları təklif etməkdən qürur duyuruq. Bütün məhsullarımız ciddi keyfiyyət nəzarətindən keçir və etibarlı istehsalçılardan tədarük edilir. Biz davamlı, heyvanlar üçün təhlükəsiz materiallar seçirik və məhsullarımızı keyfiyyət, təhlükəsizlik və davamlılıq standartlarına uyğunluğunu təmin etmək üçün müntəzəm olaraq test edirik.",
-      "returnPolicy": "İstifadə edilməmiş məhsullar orijinal qablaşdırmada alındıqdan sonra 30 gün ərzində qaytarıla bilər. Əgər alışınızdan məmnun deyilsinizsə, tam geri ödəniş və ya dəyişdirmə üçün qaytara bilərsiniz. Nəzərə alın ki, qaytarılan məhsullar üçün çatdırılma xərcləri məhsul qüsurlu olmadığı və ya səhv göndərilmədiyi halda geri ödənilmir.",
-      "passwordReset": "Şifrənizi sıfırlamaq üçün giriş səhifəsindəki 'Şifrəni unutmusunuz?' linkinə klikləyin. Hesabınıza əlaqəli e-poçt ünvanını daxil edin və sizə şifrə sıfırlama linki göndərəcəyik. Yeni şifrə yaratmaq üçün e-poçtdakı təlimatlara əməl edin.",
-      "orderCancellation": "Bəli, sifarişiniz hələ göndərilməyibsə, ləğv edə bilərsiniz. Bunu etmək üçün hesabınıza daxil olun, 'Sifarişlər' bölməsində müvafiq sifarişi tapın və 'Sifarişi ləğv et' düyməsini klikləyin. Əgər sifariş artıq göndərilibsə, gəlməsini gözləməli və sonra qaytarma prosesini başlatmalı olacaqsınız.",
-      "internationalShipping": "Bəli, əksər ölkələrə beynəlxalq çatdırılma təklif edirik. Beynəlxalq göndərmə tarifleri təyinat, çəki və bağlama ölçülərinə əsasən hesablanır. Nəzərə alın ki, əlavə rüsumlar, vergilər və ya haqlar ölkənizin gömrük tələblərinə uyğun olaraq tətbiq edilə bilər və bunlar müştərinin məsuliyyətindədir.",
-      "petFoodIngredients": "Heyvan yemlərimiz yüksək keyfiyyətli, təbii inqrediyentlərlə hazırlanır və süni konservantlar, rənqlər və ya dadlar ehtiva etmir. Biz yüksək keyfiyyətli zülallar, tam taxıllar və təzə tərəvəzlərdən istifadə edirik. Hər məhsul səhifəsində ətraflı tərkib məlumatı təqdim edilir. Əgər heyvanınızın allergiyası və ya xüsusi pəhriz ehtiyacları varsa, zəhmət olmasa tərkibi diqqətlə yoxlayın və ya bizimlə əlaqə saxlayın.",
-      "damagedProducts": "Əgər məhsulunuz zədələnmiş şəkildə gələrsə, zədənin şəkillərini çəkin və bağlamanı aldıqdan sonra 48 saat ərzində müştəri xidmətimizlə əlaqə saxlayın. Ən qısa zamanda sizə əvəzedici göndərəcəyik və ya geri ödəniş edəcəyik. Problem həll olunana qədər orijinal qablaşdırmanı saxlayın."
+      "orderTracking": "SifariÅŸinizi izlÉ™mÉ™k Ã¼Ã§Ã¼n hesabÄ±nÄ±za daxil olun vÉ™ 'SifariÅŸlÉ™r' bÃ¶lmÉ™sinÉ™ keÃ§in. Burada son alÄ±ÅŸ-veriÅŸlÉ™riniz Ã¼Ã§Ã¼n izlÉ™mÉ™ mÉ™lumatlarÄ±nÄ± tapa bilÉ™rsiniz. Alternativ olaraq, gÃ¶ndÉ™rmÉ™ tÉ™sdiq e-poÃ§tunuzda tÉ™qdim olunan izlÉ™mÉ™ nÃ¶mrÉ™sindÉ™n istifadÉ™ edÉ™ bilÉ™rsiniz.",
+      "deliveryTime": "Ã‡atdÄ±rÄ±lma mÃ¼ddÉ™ti yerinizÉ™ gÃ¶rÉ™ dÉ™yiÅŸir. Standart yerli Ã§atdÄ±rÄ±lma adÉ™tÉ™n 3-5 iÅŸ gÃ¼nÃ¼ Ã§É™kir. Ekspress Ã§atdÄ±rÄ±lma 1-2 iÅŸ gÃ¼nÃ¼ É™rzindÉ™ baÅŸ tutur. BeynÉ™lxalq gÃ¶ndÉ™rmÉ™ tÉ™yinat Ã¶lkÉ™sindÉ™n vÉ™ gÃ¶mrÃ¼k prosedurlarÄ±ndan asÄ±lÄ± olaraq 7-14 iÅŸ gÃ¼nÃ¼ Ã§É™kÉ™ bilÉ™r.",
+      "productQuality": "Biz yalnÄ±z yÃ¼ksÉ™k keyfiyyÉ™tli heyvan mÉ™hsullarÄ± tÉ™klif etmÉ™kdÉ™n qÃ¼rur duyuruq. BÃ¼tÃ¼n mÉ™hsullarÄ±mÄ±z ciddi keyfiyyÉ™t nÉ™zarÉ™tindÉ™n keÃ§ir vÉ™ etibarlÄ± istehsalÃ§Ä±lardan tÉ™darÃ¼k edilir. Biz davamlÄ±, heyvanlar Ã¼Ã§Ã¼n tÉ™hlÃ¼kÉ™siz materiallar seÃ§irik vÉ™ mÉ™hsullarÄ±mÄ±zÄ± keyfiyyÉ™t, tÉ™hlÃ¼kÉ™sizlik vÉ™ davamlÄ±lÄ±q standartlarÄ±na uyÄŸunluÄŸunu tÉ™min etmÉ™k Ã¼Ã§Ã¼n mÃ¼ntÉ™zÉ™m olaraq test edirik.",
+      "returnPolicy": "Ä°stifadÉ™ edilmÉ™miÅŸ mÉ™hsullar orijinal qablaÅŸdÄ±rmada alÄ±ndÄ±qdan sonra 30 gÃ¼n É™rzindÉ™ qaytarÄ±la bilÉ™r. ÆgÉ™r alÄ±ÅŸÄ±nÄ±zdan mÉ™mnun deyilsinizsÉ™, tam geri Ã¶dÉ™niÅŸ vÉ™ ya dÉ™yiÅŸdirmÉ™ Ã¼Ã§Ã¼n qaytara bilÉ™rsiniz. NÉ™zÉ™rÉ™ alÄ±n ki, qaytarÄ±lan mÉ™hsullar Ã¼Ã§Ã¼n Ã§atdÄ±rÄ±lma xÉ™rclÉ™ri mÉ™hsul qÃ¼surlu olmadÄ±ÄŸÄ± vÉ™ ya sÉ™hv gÃ¶ndÉ™rilmÉ™diyi halda geri Ã¶dÉ™nilmir.",
+      "passwordReset": "ÅžifrÉ™nizi sÄ±fÄ±rlamaq Ã¼Ã§Ã¼n giriÅŸ sÉ™hifÉ™sindÉ™ki 'ÅžifrÉ™ni unutmusunuz?' linkinÉ™ kliklÉ™yin. HesabÄ±nÄ±za É™laqÉ™li e-poÃ§t Ã¼nvanÄ±nÄ± daxil edin vÉ™ sizÉ™ ÅŸifrÉ™ sÄ±fÄ±rlama linki gÃ¶ndÉ™rÉ™cÉ™yik. Yeni ÅŸifrÉ™ yaratmaq Ã¼Ã§Ã¼n e-poÃ§tdakÄ± tÉ™limatlara É™mÉ™l edin.",
+      "orderCancellation": "BÉ™li, sifariÅŸiniz hÉ™lÉ™ gÃ¶ndÉ™rilmÉ™yibsÉ™, lÉ™ÄŸv edÉ™ bilÉ™rsiniz. Bunu etmÉ™k Ã¼Ã§Ã¼n hesabÄ±nÄ±za daxil olun, 'SifariÅŸlÉ™r' bÃ¶lmÉ™sindÉ™ mÃ¼vafiq sifariÅŸi tapÄ±n vÉ™ 'SifariÅŸi lÉ™ÄŸv et' dÃ¼ymÉ™sini kliklÉ™yin. ÆgÉ™r sifariÅŸ artÄ±q gÃ¶ndÉ™rilibsÉ™, gÉ™lmÉ™sini gÃ¶zlÉ™mÉ™li vÉ™ sonra qaytarma prosesini baÅŸlatmalÄ± olacaqsÄ±nÄ±z.",
+      "internationalShipping": "BÉ™li, É™ksÉ™r Ã¶lkÉ™lÉ™rÉ™ beynÉ™lxalq Ã§atdÄ±rÄ±lma tÉ™klif edirik. BeynÉ™lxalq gÃ¶ndÉ™rmÉ™ tarifleri tÉ™yinat, Ã§É™ki vÉ™ baÄŸlama Ã¶lÃ§Ã¼lÉ™rinÉ™ É™sasÉ™n hesablanÄ±r. NÉ™zÉ™rÉ™ alÄ±n ki, É™lavÉ™ rÃ¼sumlar, vergilÉ™r vÉ™ ya haqlar Ã¶lkÉ™nizin gÃ¶mrÃ¼k tÉ™lÉ™blÉ™rinÉ™ uyÄŸun olaraq tÉ™tbiq edilÉ™ bilÉ™r vÉ™ bunlar mÃ¼ÅŸtÉ™rinin mÉ™suliyyÉ™tindÉ™dir.",
+      "petFoodIngredients": "Heyvan yemlÉ™rimiz yÃ¼ksÉ™k keyfiyyÉ™tli, tÉ™bii inqrediyentlÉ™rlÉ™ hazÄ±rlanÄ±r vÉ™ sÃ¼ni konservantlar, rÉ™nqlÉ™r vÉ™ ya dadlar ehtiva etmir. Biz yÃ¼ksÉ™k keyfiyyÉ™tli zÃ¼lallar, tam taxÄ±llar vÉ™ tÉ™zÉ™ tÉ™rÉ™vÉ™zlÉ™rdÉ™n istifadÉ™ edirik. HÉ™r mÉ™hsul sÉ™hifÉ™sindÉ™ É™traflÄ± tÉ™rkib mÉ™lumatÄ± tÉ™qdim edilir. ÆgÉ™r heyvanÄ±nÄ±zÄ±n allergiyasÄ± vÉ™ ya xÃ¼susi pÉ™hriz ehtiyaclarÄ± varsa, zÉ™hmÉ™t olmasa tÉ™rkibi diqqÉ™tlÉ™ yoxlayÄ±n vÉ™ ya bizimlÉ™ É™laqÉ™ saxlayÄ±n.",
+      "damagedProducts": "ÆgÉ™r mÉ™hsulunuz zÉ™dÉ™lÉ™nmiÅŸ ÅŸÉ™kildÉ™ gÉ™lÉ™rsÉ™, zÉ™dÉ™nin ÅŸÉ™killÉ™rini Ã§É™kin vÉ™ baÄŸlamanÄ± aldÄ±qdan sonra 48 saat É™rzindÉ™ mÃ¼ÅŸtÉ™ri xidmÉ™timizlÉ™ É™laqÉ™ saxlayÄ±n. Æn qÄ±sa zamanda sizÉ™ É™vÉ™zedici gÃ¶ndÉ™rÉ™cÉ™yik vÉ™ ya geri Ã¶dÉ™niÅŸ edÉ™cÉ™yik. Problem hÉ™ll olunana qÉ™dÉ™r orijinal qablaÅŸdÄ±rmanÄ± saxlayÄ±n."
     }
   },
   "contact": {
-    "title": "Bizimlə Əlaqə",
-    "subtitle": "Sizinlə əlaqə saxlamaqdan məmnun olarıq",
-    "getInTouch": "Bizimlə Əlaqə Saxlayın",
-    "getInTouchSubtitle": "Fikirlərinizi bizimlə bölüşməkdən məmnun olarıq",
+    "title": "BizimlÉ™ ÆlaqÉ™",
+    "subtitle": "SizinlÉ™ É™laqÉ™ saxlamaqdan mÉ™mnun olarÄ±q",
+    "getInTouch": "BizimlÉ™ ÆlaqÉ™ SaxlayÄ±n",
+    "getInTouchSubtitle": "FikirlÉ™rinizi bizimlÉ™ bÃ¶lÃ¼ÅŸmÉ™kdÉ™n mÉ™mnun olarÄ±q",
     "phoneTitle": "Telefon",
     "phonenumber": "+994 50 123 45 67",
-    "emailTitle": "E-poçt",
+    "emailTitle": "E-poÃ§t",
     "emailaddres1": "xeyalhuseynli06@gmail.com",
     "emailaddres2": "xeyalhuseynli07@gmail.com",
-    "addressTitle": "Ünvan",
-    "address": "Heydər Əliyev prospekti 123, Bakı, Azərbaycan",
-    "hoursTitle": "İş saatları",
+    "addressTitle": "Ãœnvan",
+    "address": "HeydÉ™r Æliyev prospekti 123, BakÄ±, AzÉ™rbaycan",
+    "hoursTitle": "Ä°ÅŸ saatlarÄ±",
     "workHours": {
-      "weekdays": "Bazar ertəsi - Cümə: 09:00 - 18:00",
-      "saturday": "Şənbə: 10:00 - 16:00"
+      "weekdays": "Bazar ertÉ™si - CÃ¼mÉ™: 09:00 - 18:00",
+      "saturday": "ÅžÉ™nbÉ™: 10:00 - 16:00"
     },
-    "findUs": "Bizi Tapın",
-    "visitTitle": "Bizi Ziyarət Edin",
-    "visitSubtitle": "Mağazamıza gəlin və məhsullarımızla tanış olun",
-    "faqTitle": "Tez-tez verilən suallar",
-    "faqHeading": "Sualınız var?",
-    "faqSubtitle": "Tez-tez verilən sualları nəzərdən keçirin",
-    "viewAllFaq": "Bütün sualları göstər",
+    "findUs": "Bizi TapÄ±n",
+    "visitTitle": "Bizi ZiyarÉ™t Edin",
+    "visitSubtitle": "MaÄŸazamÄ±za gÉ™lin vÉ™ mÉ™hsullarÄ±mÄ±zla tanÄ±ÅŸ olun",
+    "faqTitle": "Tez-tez verilÉ™n suallar",
+    "faqHeading": "SualÄ±nÄ±z var?",
+    "faqSubtitle": "Tez-tez verilÉ™n suallarÄ± nÉ™zÉ™rdÉ™n keÃ§irin",
+    "viewAllFaq": "BÃ¼tÃ¼n suallarÄ± gÃ¶stÉ™r",
     "storeName": "Woof Pet Shop",
-    "formTitle": "Mesaj Göndərin",
-    "formSubtitle": "Suallarınız və ya təklifləriniz üçün bizə mesaj yazın",
-    "getDirections": "Xəritədə göstər",
+    "formTitle": "Mesaj GÃ¶ndÉ™rin",
+    "formSubtitle": "SuallarÄ±nÄ±z vÉ™ ya tÉ™kliflÉ™riniz Ã¼Ã§Ã¼n bizÉ™ mesaj yazÄ±n",
+    "getDirections": "XÉ™ritÉ™dÉ™ gÃ¶stÉ™r",
     "form": {
       "name": "Ad",
-      "namePlaceholder": "Adınızı daxil edin",
-      "email": "E-poçt",
-      "emailPlaceholder": "E-poçt ünvanınızı daxil edin",
-      "subject": "Mövzu",
-      "subjectPlaceholder": "Nə haqqındadır?",
+      "namePlaceholder": "AdÄ±nÄ±zÄ± daxil edin",
+      "email": "E-poÃ§t",
+      "emailPlaceholder": "E-poÃ§t Ã¼nvanÄ±nÄ±zÄ± daxil edin",
+      "subject": "MÃ¶vzu",
+      "subjectPlaceholder": "NÉ™ haqqÄ±ndadÄ±r?",
       "message": "Mesaj",
-      "messagePlaceholder": "Mesajınızı buraya yazın...",
-      "send": "Göndər",
-      "sending": "Göndərilir...",
-      "success": "Mesaj uğurla göndərildi!",
-      "error": "Mesaj göndərilə bilmədi. Zəhmət olmasa yenidən cəhd edin.",
+      "messagePlaceholder": "MesajÄ±nÄ±zÄ± buraya yazÄ±n...",
+      "send": "GÃ¶ndÉ™r",
+      "sending": "GÃ¶ndÉ™rilir...",
+      "success": "Mesaj uÄŸurla gÃ¶ndÉ™rildi!",
+      "error": "Mesaj gÃ¶ndÉ™rilÉ™ bilmÉ™di. ZÉ™hmÉ™t olmasa yenidÉ™n cÉ™hd edin.",
       "validation": {
-        "nameRequired": "Ad tələb olunur",
-        "emailRequired": "E-poçt tələb olunur",
-        "emailInvalid": "Düzgün e-poçt ünvanı daxil edin",
-        "messageRequired": "Mesaj tələb olunur",
-        "messageMinLength": "Mesaj ən azı 10 simvoldan ibarət olmalıdır"
+        "nameRequired": "Ad tÉ™lÉ™b olunur",
+        "emailRequired": "E-poÃ§t tÉ™lÉ™b olunur",
+        "emailInvalid": "DÃ¼zgÃ¼n e-poÃ§t Ã¼nvanÄ± daxil edin",
+        "messageRequired": "Mesaj tÉ™lÉ™b olunur",
+        "messageMinLength": "Mesaj É™n azÄ± 10 simvoldan ibarÉ™t olmalÄ±dÄ±r"
       },
-      "successMessage": "Mesajınız uğurla göndərildi! Tezliklə sizinlə əlaqə saxlayacağıq."
+      "successMessage": "MesajÄ±nÄ±z uÄŸurla gÃ¶ndÉ™rildi! TezliklÉ™ sizinlÉ™ É™laqÉ™ saxlayacaÄŸÄ±q."
     }
   },
   "profileSettings": {
-    "title": "Profil parametrləri",
-    "usernameSection": "İstifadəçi adı",
-    "emailSection": "E-poçt ünvanı",
-    "passwordSection": "Şifrə",
-    "personalInfo": "Şəxsi məlumatlar",
-    "accountSettings": "Hesab parametrləri",
-    "securitySettings": "Təhlükəsizlik parametrləri",
-    "currentPassword": "Cari şifrə",
-    "currentPasswordPlaceholder": "Cari şifrənizi daxil edin",
-    "newPassword": "Yeni şifrə",
-    "newPasswordPlaceholder": "Yeni şifrənizi daxil edin",
-    "confirmPassword": "Şifrəni təsdiq edin",
-    "confirmPasswordPlaceholder": "Yeni şifrənizi təsdiq edin",
-    "changePassword": "Şifrəni dəyiş",
-    "save": "Dəyişiklikləri yadda saxla",
-    "saving": "Yadda saxlanılır...",
-    "cancel": "Ləğv et",
+    "title": "Profil parametrlÉ™ri",
+    "usernameSection": "Ä°stifadÉ™Ã§i adÄ±",
+    "emailSection": "E-poÃ§t Ã¼nvanÄ±",
+    "passwordSection": "ÅžifrÉ™",
+    "personalInfo": "ÅžÉ™xsi mÉ™lumatlar",
+    "accountSettings": "Hesab parametrlÉ™ri",
+    "securitySettings": "TÉ™hlÃ¼kÉ™sizlik parametrlÉ™ri",
+    "currentPassword": "Cari ÅŸifrÉ™",
+    "currentPasswordPlaceholder": "Cari ÅŸifrÉ™nizi daxil edin",
+    "newPassword": "Yeni ÅŸifrÉ™",
+    "newPasswordPlaceholder": "Yeni ÅŸifrÉ™nizi daxil edin",
+    "confirmPassword": "ÅžifrÉ™ni tÉ™sdiq edin",
+    "confirmPasswordPlaceholder": "Yeni ÅŸifrÉ™nizi tÉ™sdiq edin",
+    "changePassword": "ÅžifrÉ™ni dÉ™yiÅŸ",
+    "save": "DÉ™yiÅŸikliklÉ™ri yadda saxla",
+    "saving": "Yadda saxlanÄ±lÄ±r...",
+    "cancel": "LÉ™ÄŸv et",
     "back": "Geri",
-    "readOnly": "Yalnız oxuna bilən",
-    "noUsername": "İstifadəçi adı təyin edilməyib",
-    "updated": "Uğurla yeniləndi",
-    "passwordUpdateSuccess": "Şifrə uğurla yeniləndi",
-    "profileUpdateSuccess": "Profil məlumatları uğurla yeniləndi",
+    "readOnly": "YalnÄ±z oxuna bilÉ™n",
+    "noUsername": "Ä°stifadÉ™Ã§i adÄ± tÉ™yin edilmÉ™yib",
+    "updated": "UÄŸurla yenilÉ™ndi",
+    "passwordUpdateSuccess": "ÅžifrÉ™ uÄŸurla yenilÉ™ndi",
+    "profileUpdateSuccess": "Profil mÉ™lumatlarÄ± uÄŸurla yenilÉ™ndi",
     "errors": {
-      "fetchFailed": "Profil məlumatları əldə edilə bilmədi",
-      "currentPasswordRequired": "Cari şifrə tələb olunur",
-      "newPasswordRequired": "Yeni şifrə tələb olunur",
-      "passwordMinLength": "Şifrə ən azı 6 simvol olmalıdır",
-      "passwordMaxLength": "Şifrə 50 simvoldan çox ola bilməz",
-      "confirmPasswordRequired": "Zəhmət olmasa şifrənizi təsdiq edin",
-      "passwordMismatch": "Şifrələr uyğun gəlmir",
-      "incorrectPassword": "Cari şifrə yanlışdır",
-      "passwordUpdateFailed": "Şifrə yenilənməsi uğursuz oldu",
-      "profileUpdateFailed": "Profil yenilənməsi uğursuz oldu",
-      "usernameRequired": "İstifadəçi adı tələb olunur",
-      "usernameMinLength": "İstifadəçi adı ən azı 3 simvol olmalıdır",
-      "usernameMaxLength": "İstifadəçi adı 30 simvoldan çox ola bilməz",
-      "emailRequired": "E-poçt ünvanı tələb olunur",
-      "emailInvalid": "Düzgün e-poçt ünvanı daxil edin",
-      "networkError": "İnternet bağlantısı problemi. Yenidən cəhd edin",
-      "serverError": "Server xətası. Bir az sonra yenidən cəhd edin",
-      "unauthorizedError": "Yetki xətası. Yenidən daxil olun",
-      "validationError": "Məlumatları yoxlayın və yenidən cəhd edin"
+      "fetchFailed": "Profil mÉ™lumatlarÄ± É™ldÉ™ edilÉ™ bilmÉ™di",
+      "currentPasswordRequired": "Cari ÅŸifrÉ™ tÉ™lÉ™b olunur",
+      "newPasswordRequired": "Yeni ÅŸifrÉ™ tÉ™lÉ™b olunur",
+      "passwordMinLength": "ÅžifrÉ™ É™n azÄ± 6 simvol olmalÄ±dÄ±r",
+      "passwordMaxLength": "ÅžifrÉ™ 50 simvoldan Ã§ox ola bilmÉ™z",
+      "confirmPasswordRequired": "ZÉ™hmÉ™t olmasa ÅŸifrÉ™nizi tÉ™sdiq edin",
+      "passwordMismatch": "ÅžifrÉ™lÉ™r uyÄŸun gÉ™lmir",
+      "incorrectPassword": "Cari ÅŸifrÉ™ yanlÄ±ÅŸdÄ±r",
+      "passwordUpdateFailed": "ÅžifrÉ™ yenilÉ™nmÉ™si uÄŸursuz oldu",
+      "profileUpdateFailed": "Profil yenilÉ™nmÉ™si uÄŸursuz oldu",
+      "usernameRequired": "Ä°stifadÉ™Ã§i adÄ± tÉ™lÉ™b olunur",
+      "usernameMinLength": "Ä°stifadÉ™Ã§i adÄ± É™n azÄ± 3 simvol olmalÄ±dÄ±r",
+      "usernameMaxLength": "Ä°stifadÉ™Ã§i adÄ± 30 simvoldan Ã§ox ola bilmÉ™z",
+      "emailRequired": "E-poÃ§t Ã¼nvanÄ± tÉ™lÉ™b olunur",
+      "emailInvalid": "DÃ¼zgÃ¼n e-poÃ§t Ã¼nvanÄ± daxil edin",
+      "networkError": "Ä°nternet baÄŸlantÄ±sÄ± problemi. YenidÉ™n cÉ™hd edin",
+      "serverError": "Server xÉ™tasÄ±. Bir az sonra yenidÉ™n cÉ™hd edin",
+      "unauthorizedError": "Yetki xÉ™tasÄ±. YenidÉ™n daxil olun",
+      "validationError": "MÉ™lumatlarÄ± yoxlayÄ±n vÉ™ yenidÉ™n cÉ™hd edin"
     }
   },
   "popularProducts": {
-  "title": "Ən Çox Satılan Məhsullar",
-  "subtitle": "Müştərilərimizin ən çox sevdiyi məhsullar",
-  "addToCart": "Səbətə əlavə et",
-  "viewAllProducts": "Bütün Məhsullara Bax",
-  "loginRequired": "Zəhmət olmasa, əvvəlcə daxil olun",
-  "addToCartSuccess": "Səbətə əlavə edildi!",
-  "addToCartError": "Xəta baş verdi",
-  "addToWishlistSuccess": "İstək siyahısına əlavə edildi!",
-  "removeFromWishlistSuccess": "İstək siyahısından silindi!",
-  "wishlistError": "Xəta baş verdi"
+  "title": "Æn Ã‡ox SatÄ±lan MÉ™hsullar",
+  "subtitle": "MÃ¼ÅŸtÉ™rilÉ™rimizin É™n Ã§ox sevdiyi mÉ™hsullar",
+  "addToCart": "SÉ™bÉ™tÉ™ É™lavÉ™ et",
+  "viewAllProducts": "BÃ¼tÃ¼n MÉ™hsullara Bax",
+  "loginRequired": "ZÉ™hmÉ™t olmasa, É™vvÉ™lcÉ™ daxil olun",
+  "addToCartSuccess": "SÉ™bÉ™tÉ™ É™lavÉ™ edildi!",
+  "addToCartError": "XÉ™ta baÅŸ verdi",
+  "addToWishlistSuccess": "Ä°stÉ™k siyahÄ±sÄ±na É™lavÉ™ edildi!",
+  "removeFromWishlistSuccess": "Ä°stÉ™k siyahÄ±sÄ±ndan silindi!",
+  "wishlistError": "XÉ™ta baÅŸ verdi"
   },
   "notFound": {
-    "title": "Oops! Deyəsən yolunuzu azmısınız",
-    "description": "Axradığınız səhifə mövcud deyil. Bəlkə dostumuz onu yeyib?",
-    "goHome": "Ana Səhifəyə Qayıt",
-    "goShop": "Mağazaya Keç",
-    "petInteraction": "Pişiyi sığalla! 🐾",
-    "speechBubbleHappy": "Meow! ♥",
+    "title": "Oops! DeyÉ™sÉ™n yolunuzu azmÄ±sÄ±nÄ±z",
+    "description": "AxradÄ±ÄŸÄ±nÄ±z sÉ™hifÉ™ mÃ¶vcud deyil. BÉ™lkÉ™ dostumuz onu yeyib?",
+    "goHome": "Ana SÉ™hifÉ™yÉ™ QayÄ±t",
+    "goShop": "MaÄŸazaya KeÃ§",
+    "petInteraction": "PiÅŸiyi sÄ±ÄŸalla! ðŸ¾",
+    "speechBubbleHappy": "Meow! â™¥",
     "speechBubblePlaying": "Purr~"
   },
   "validation": {
-    "required": "Bu sahə tələb olunur",
-    "email": "Düzgün e-poçt ünvanı daxil edin",
-    "minLength": "Ən azı {{min}} simvol olmalıdır",
-    "maxLength": "Maksimum {{max}} simvol ola bilər",
-    "passwordMatch": "Şifrələr uyğun gəlmir",
-    "phoneNumber": "Düzgün telefon nömrəsi daxil edin",
-    "alphanumeric": "Yalnız hərf və rəqəm istifadə edin",
-    "numeric": "Yalnız rəqəm daxil edin",
-    "url": "Düzgün URL daxil edin"
+    "required": "Bu sahÉ™ tÉ™lÉ™b olunur",
+    "email": "DÃ¼zgÃ¼n e-poÃ§t Ã¼nvanÄ± daxil edin",
+    "minLength": "Æn azÄ± {{min}} simvol olmalÄ±dÄ±r",
+    "maxLength": "Maksimum {{max}} simvol ola bilÉ™r",
+    "passwordMatch": "ÅžifrÉ™lÉ™r uyÄŸun gÉ™lmir",
+    "phoneNumber": "DÃ¼zgÃ¼n telefon nÃ¶mrÉ™si daxil edin",
+    "alphanumeric": "YalnÄ±z hÉ™rf vÉ™ rÉ™qÉ™m istifadÉ™ edin",
+    "numeric": "YalnÄ±z rÉ™qÉ™m daxil edin",
+    "url": "DÃ¼zgÃ¼n URL daxil edin"
   },
   "toast": {
     "success": {
-      "login": "Uğurla daxil oldunuz!",
-      "signup": "Hesab uğurla yaradıldı!",
+      "login": "UÄŸurla daxil oldunuz!",
+      "signup": "Hesab uÄŸurla yaradÄ±ldÄ±!",
       "admin": {
-        "login": "Admin panelinə uğurla daxil oldunuz!",
-        "createProduct": "Məhsul uğurla yaradıldı",
-        "updateProduct": "Məhsul uğurla yeniləndi",
-        "deleteProduct": "Məhsul uğurla silindi",
-        "createBlog": "Bloq uğurla yaradıldı",
-        "updateBlog": "Bloq uğurla yeniləndi",
-        "deleteBlog": "Bloq uğurla silindi",
-        "createUser": "İstifadəçi uğurla yaradıldı",
-        "updateUser": "İstifadəçi uğurla yeniləndi",
-        "deleteUser": "İstifadəçi uğurla silindi"
+        "login": "Admin panelinÉ™ uÄŸurla daxil oldunuz!",
+        "createProduct": "MÉ™hsul uÄŸurla yaradÄ±ldÄ±",
+        "updateProduct": "MÉ™hsul uÄŸurla yenilÉ™ndi",
+        "deleteProduct": "MÉ™hsul uÄŸurla silindi",
+        "createBlog": "Bloq uÄŸurla yaradÄ±ldÄ±",
+        "updateBlog": "Bloq uÄŸurla yenilÉ™ndi",
+        "deleteBlog": "Bloq uÄŸurla silindi",
+        "createUser": "Ä°stifadÉ™Ã§i uÄŸurla yaradÄ±ldÄ±",
+        "updateUser": "Ä°stifadÉ™Ã§i uÄŸurla yenilÉ™ndi",
+        "deleteUser": "Ä°stifadÉ™Ã§i uÄŸurla silindi"
       },
       "forgotPassword": {
-        "emailSent": "Şifrə yeniləmə linki göndərildi!"
+        "emailSent": "ÅžifrÉ™ yenilÉ™mÉ™ linki gÃ¶ndÉ™rildi!"
       },
-      "resetPassword": "Şifrə uğurla yeniləndi!",
+      "resetPassword": "ÅžifrÉ™ uÄŸurla yenilÉ™ndi!",
       "profile": {
-        "update": "Profil uğurla yeniləndi!",
-        "passwordChange": "Şifrə uğurla dəyişdirildi!"
+        "update": "Profil uÄŸurla yenilÉ™ndi!",
+        "passwordChange": "ÅžifrÉ™ uÄŸurla dÉ™yiÅŸdirildi!"
       },
       "order": {
-        "create": "Sifariş uğurla yaradıldı!",
-        "update": "Sifariş uğurla yeniləndi!",
-        "delete": "Sifariş uğurla silindi!",
-        "status": "Sifariş statusu yeniləndi!"
+        "create": "SifariÅŸ uÄŸurla yaradÄ±ldÄ±!",
+        "update": "SifariÅŸ uÄŸurla yenilÉ™ndi!",
+        "delete": "SifariÅŸ uÄŸurla silindi!",
+        "status": "SifariÅŸ statusu yenilÉ™ndi!"
       },
       "cart": {
-        "add": "Məhsul səbətə əlavə edildi!",
-        "remove": "Məhsul səbətdən silindi!",
-        "update": "Səbət yeniləndi!",
-        "clear": "Səbət təmizləndi!"
+        "add": "MÉ™hsul sÉ™bÉ™tÉ™ É™lavÉ™ edildi!",
+        "remove": "MÉ™hsul sÉ™bÉ™tdÉ™n silindi!",
+        "update": "SÉ™bÉ™t yenilÉ™ndi!",
+        "clear": "SÉ™bÉ™t tÉ™mizlÉ™ndi!"
       },
       "wishlist": {
-        "add": "Məhsul istək siyahısına əlavə edildi!",
-        "remove": "Məhsul istək siyahısından silindi!",
-        "clear": "İstək siyahısı təmizləndi!",
-        "moveToCart": "Məhsul səbətə əlavə edildi!",
+        "add": "MÉ™hsul istÉ™k siyahÄ±sÄ±na É™lavÉ™ edildi!",
+        "remove": "MÉ™hsul istÉ™k siyahÄ±sÄ±ndan silindi!",
+        "clear": "Ä°stÉ™k siyahÄ±sÄ± tÉ™mizlÉ™ndi!",
+        "moveToCart": "MÉ™hsul sÉ™bÉ™tÉ™ É™lavÉ™ edildi!",
         "cart": {
-          "addSuccess": "Məhsul səbətə əlavə edildi!",
-          "alreadyExists": "Məhsul artıq səbətdədir!"
+          "addSuccess": "MÉ™hsul sÉ™bÉ™tÉ™ É™lavÉ™ edildi!",
+          "alreadyExists": "MÉ™hsul artÄ±q sÉ™bÉ™tdÉ™dir!"
         }
       },
       "contact": {
-        "sent": "Mesajınız uğurla göndərildi!"
+        "sent": "MesajÄ±nÄ±z uÄŸurla gÃ¶ndÉ™rildi!"
       },
       "link": {
-        "copied": "Link kopyalandı!"
+        "copied": "Link kopyalandÄ±!"
       },
       "review": {
-        "addSuccess": "Rəyiniz uğurla əlavə edildi!",
-        "deleteSuccess": "Rəy uğurla silindi!"
+        "addSuccess": "RÉ™yiniz uÄŸurla É™lavÉ™ edildi!",
+        "deleteSuccess": "RÉ™y uÄŸurla silindi!"
       }
     },
     "error": {
       "auth": {
-        "loginRequired": "Bu əməliyyat üçün daxil olmalısınız",
-        "unauthorized": "Bu əməliyyata icazəniz yoxdur",
-        "invalidCredentials": "Email və ya parol yanlışdır"
+        "loginRequired": "Bu É™mÉ™liyyat Ã¼Ã§Ã¼n daxil olmalÄ±sÄ±nÄ±z",
+        "unauthorized": "Bu É™mÉ™liyyata icazÉ™niz yoxdur",
+        "invalidCredentials": "Email vÉ™ ya parol yanlÄ±ÅŸdÄ±r"
       },
       "admin": {
-        "createProduct": "Məhsul yaradılarkən xəta baş verdi",
-        "updateProduct": "Məhsul yenilənərkən xəta baş verdi",
-        "deleteProduct": "Məhsul silinərkən xəta baş verdi",
-        "createBlog": "Bloq yaradılarkən xəta baş verdi",
-        "updateBlog": "Bloq yenilənərkən xəta baş verdi",
-        "deleteBlog": "Bloq silinərkən xəta baş verdi",
-        "createUser": "İstifadəçi yaradılarkən xəta baş verdi",
-        "updateUser": "İstifadəçi yenilənərkən xəta baş verdi",
-        "deleteUser": "İstifadəçi silinərkən xəta baş verdi"
+        "createProduct": "MÉ™hsul yaradÄ±larkÉ™n xÉ™ta baÅŸ verdi",
+        "updateProduct": "MÉ™hsul yenilÉ™nÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+        "deleteProduct": "MÉ™hsul silinÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+        "createBlog": "Bloq yaradÄ±larkÉ™n xÉ™ta baÅŸ verdi",
+        "updateBlog": "Bloq yenilÉ™nÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+        "deleteBlog": "Bloq silinÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+        "createUser": "Ä°stifadÉ™Ã§i yaradÄ±larkÉ™n xÉ™ta baÅŸ verdi",
+        "updateUser": "Ä°stifadÉ™Ã§i yenilÉ™nÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+        "deleteUser": "Ä°stifadÉ™Ã§i silinÉ™rkÉ™n xÉ™ta baÅŸ verdi"
       },
       "validation": {
-        "required": "Bütün sahələri doldurun",
-        "email": "Düzgün email ünvanı daxil edin",
-        "password": "Şifrə ən azı 6 simvoldan ibarət olmalıdır",
-        "passwordMatch": "Şifrələr uyğun gəlmir"
+        "required": "BÃ¼tÃ¼n sahÉ™lÉ™ri doldurun",
+        "email": "DÃ¼zgÃ¼n email Ã¼nvanÄ± daxil edin",
+        "password": "ÅžifrÉ™ É™n azÄ± 6 simvoldan ibarÉ™t olmalÄ±dÄ±r",
+        "passwordMatch": "ÅžifrÉ™lÉ™r uyÄŸun gÉ™lmir"
       },
       "order": {
-        "create": "Sifariş yaradılarkən xəta baş verdi",
-        "update": "Sifariş yenilənərkən xəta baş verdi",
-        "delete": "Sifariş silinərkən xəta baş verdi",
-        "fetch": "Sifarişlər yüklənərkən xəta baş verdi"
+        "create": "SifariÅŸ yaradÄ±larkÉ™n xÉ™ta baÅŸ verdi",
+        "update": "SifariÅŸ yenilÉ™nÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+        "delete": "SifariÅŸ silinÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+        "fetch": "SifariÅŸlÉ™r yÃ¼klÉ™nÉ™rkÉ™n xÉ™ta baÅŸ verdi"
       },
       "cart": {
-        "add": "Məhsul səbətə əlavə edilərkən xəta baş verdi",
-        "remove": "Məhsul səbətdən silinərkən xəta baş verdi",
-        "update": "Səbət yenilənərkən xəta baş verdi"
+        "add": "MÉ™hsul sÉ™bÉ™tÉ™ É™lavÉ™ edilÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+        "remove": "MÉ™hsul sÉ™bÉ™tdÉ™n silinÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+        "update": "SÉ™bÉ™t yenilÉ™nÉ™rkÉ™n xÉ™ta baÅŸ verdi"
       },
       "wishlist": {
-        "add": "Məhsul istək siyahısına əlavə edilərkən xəta baş verdi",
-        "remove": "Məhsul istək siyahısından silinərkən xəta baş verdi",
-        "moveToCart": "Məhsul səbətə əlavə edilərkən xəta baş verdi",
-        "alreadyExists": "Bu məhsul artıq istək siyahısındadır"
+        "add": "MÉ™hsul istÉ™k siyahÄ±sÄ±na É™lavÉ™ edilÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+        "remove": "MÉ™hsul istÉ™k siyahÄ±sÄ±ndan silinÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+        "moveToCart": "MÉ™hsul sÉ™bÉ™tÉ™ É™lavÉ™ edilÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+        "alreadyExists": "Bu mÉ™hsul artÄ±q istÉ™k siyahÄ±sÄ±ndadÄ±r"
       },
       "contact": {
-        "send": "Mesaj göndərilməsində xəta baş verdi"
+        "send": "Mesaj gÃ¶ndÉ™rilmÉ™sindÉ™ xÉ™ta baÅŸ verdi"
       },
       "product": {
-        "notFound": "Məhsul tapılmadı"
+        "notFound": "MÉ™hsul tapÄ±lmadÄ±"
       },
       "review": {
-        "addError": "Rəy əlavə edilərkən xəta baş verdi",
-        "deleteError": "Rəy silinərkən xəta baş verdi",
-        "fetchError": "Rəylər yüklənərkən xəta baş verdi"
+        "addError": "RÉ™y É™lavÉ™ edilÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+        "deleteError": "RÉ™y silinÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+        "fetchError": "RÉ™ylÉ™r yÃ¼klÉ™nÉ™rkÉ™n xÉ™ta baÅŸ verdi"
       }
     },
     "info": {
-      "loading": "Yüklənir...",
-      "processing": "Əməliyyat icra olunur..."
+      "loading": "YÃ¼klÉ™nir...",
+      "processing": "ÆmÉ™liyyat icra olunur..."
     }
   },
   "pagination": {
-    "previous": "Əvvəlki",
-    "next": "Növbəti",
-    "first": "İlk",
+    "previous": "ÆvvÉ™lki",
+    "next": "NÃ¶vbÉ™ti",
+    "first": "Ä°lk",
     "last": "Son",
-    "page": "Səhifə",
-    "of": "dən",
-    "showing": "Göstərilir",
+    "page": "SÉ™hifÉ™",
+    "of": "dÉ™n",
+    "showing": "GÃ¶stÉ™rilir",
     "to": "dan",
-    "results": "nəticə",
-    "noResults": "Nəticə tapılmadı"
+    "results": "nÉ™ticÉ™",
+    "noResults": "NÉ™ticÉ™ tapÄ±lmadÄ±"
   },
   "buttons": {
     "save": "Yadda saxla",
-    "cancel": "Ləğv et",
+    "cancel": "LÉ™ÄŸv et",
     "delete": "Sil",
-    "edit": "Redaktə et",
+    "edit": "RedaktÉ™ et",
     "view": "Bax",
-    "add": "Əlavə et",
+    "add": "ÆlavÉ™ et",
     "remove": "Sil",
-    "update": "Yenilə",
+    "update": "YenilÉ™",
     "create": "Yarat",
-    "submit": "Təsdiq et",
-    "confirm": "Təsdiq et",
-    "close": "Bağla",
+    "submit": "TÉ™sdiq et",
+    "confirm": "TÉ™sdiq et",
+    "close": "BaÄŸla",
     "back": "Geri",
     "continue": "Davam et",
     "finish": "Bitir",
-    "retry": "Yenidən cəhd et",
-    "refresh": "Yenilə",
-    "download": "Yüklə",
-    "upload": "Yüklə",
+    "retry": "YenidÉ™n cÉ™hd et",
+    "refresh": "YenilÉ™",
+    "download": "YÃ¼klÉ™",
+    "upload": "YÃ¼klÉ™",
     "search": "Axtar",
-    "filter": "Süz",
-    "clear": "Təmizlə",
-    "reset": "Sıfırla",
-    "apply": "Tətbiq et"
+    "filter": "SÃ¼z",
+    "clear": "TÉ™mizlÉ™",
+    "reset": "SÄ±fÄ±rla",
+    "apply": "TÉ™tbiq et"
   },
   "modals": {
     "confirm": {
-      "title": "Təsdiq et",
-      "message": "Bu əməliyyatı həyata keçirmək istədiyinizə əminsiniz?",
-      "confirmButton": "Bəli, təsdiq et",
-      "cancelButton": "Xeyr, ləğv et"
+      "title": "TÉ™sdiq et",
+      "message": "Bu É™mÉ™liyyatÄ± hÉ™yata keÃ§irmÉ™k istÉ™diyinizÉ™ É™minsiniz?",
+      "confirmButton": "BÉ™li, tÉ™sdiq et",
+      "cancelButton": "Xeyr, lÉ™ÄŸv et"
     },
     "delete": {
-      "title": "Silməyi təsdiq et",
-      "message": "Bu elementi silmək istədiyinizə əminsiniz? Bu əməliyyat geri alına bilməz.",
-      "confirmButton": "Bəli, sil",
-      "cancelButton": "Ləğv et"
+      "title": "SilmÉ™yi tÉ™sdiq et",
+      "message": "Bu elementi silmÉ™k istÉ™diyinizÉ™ É™minsiniz? Bu É™mÉ™liyyat geri alÄ±na bilmÉ™z.",
+      "confirmButton": "BÉ™li, sil",
+      "cancelButton": "LÉ™ÄŸv et"
     },
     "unsavedChanges": {
-      "title": "Yadda saxlanmamış dəyişikliklər",
-      "message": "Dəyişiklikləriniz yadda saxlanmayıb. Həqiqətən çıxmaq istəyirsiniz?",
+      "title": "Yadda saxlanmamÄ±ÅŸ dÉ™yiÅŸikliklÉ™r",
+      "message": "DÉ™yiÅŸikliklÉ™riniz yadda saxlanmayÄ±b. HÉ™qiqÉ™tÉ™n Ã§Ä±xmaq istÉ™yirsiniz?",
       "saveButton": "Yadda saxla",
       "discardButton": "Yadda saxlama",
-      "cancelButton": "Ləğv et"
+      "cancelButton": "LÉ™ÄŸv et"
     }
   },
   "states": {
-    "loading": "Yüklənir...",
-    "saving": "Yadda saxlanılır...",
-    "processing": "İşlənir...",
-    "sending": "Göndərilir...",
-    "updating": "Yenilənir...",
+    "loading": "YÃ¼klÉ™nir...",
+    "saving": "Yadda saxlanÄ±lÄ±r...",
+    "processing": "Ä°ÅŸlÉ™nir...",
+    "sending": "GÃ¶ndÉ™rilir...",
+    "updating": "YenilÉ™nir...",
     "deleting": "Silinir...",
-    "uploading": "Yüklənir...",
-    "downloading": "Yüklənir...",
-    "empty": "Məlumat yoxdur",
-    "noData": "Məlumat tapılmadı",
-    "offline": "İnternet bağlantısı yoxdur",
-    "connecting": "Bağlanılır...",
-    "retrying": "Yenidən cəhd edilir..."
+    "uploading": "YÃ¼klÉ™nir...",
+    "downloading": "YÃ¼klÉ™nir...",
+    "empty": "MÉ™lumat yoxdur",
+    "noData": "MÉ™lumat tapÄ±lmadÄ±",
+    "offline": "Ä°nternet baÄŸlantÄ±sÄ± yoxdur",
+    "connecting": "BaÄŸlanÄ±lÄ±r...",
+    "retrying": "YenidÉ™n cÉ™hd edilir..."
   },
   "dateTime": {
-    "now": "İndi",
-    "today": "Bu gün",
-    "yesterday": "Dünən",
+    "now": "Ä°ndi",
+    "today": "Bu gÃ¼n",
+    "yesterday": "DÃ¼nÉ™n",
     "tomorrow": "Sabah",
-    "thisWeek": "Bu həftə",
-    "lastWeek": "Keçən həftə",
+    "thisWeek": "Bu hÉ™ftÉ™",
+    "lastWeek": "KeÃ§É™n hÉ™ftÉ™",
     "thisMonth": "Bu ay",
-    "lastMonth": "Keçən ay",
+    "lastMonth": "KeÃ§É™n ay",
     "thisYear": "Bu il",
-    "lastYear": "Keçən il",
-    "minutes": "dəqiqə",
+    "lastYear": "KeÃ§É™n il",
+    "minutes": "dÉ™qiqÉ™",
     "hours": "saat",
-    "days": "gün",
-    "weeks": "həftə",
+    "days": "gÃ¼n",
+    "weeks": "hÉ™ftÉ™",
     "months": "ay",
     "years": "il",
-    "ago": "əvvəl",
+    "ago": "É™vvÉ™l",
     "in": "sonra"
   },
   "user": {
     "profile": "Profil",
     "account": "Hesab",
-    "settings": "Parametrlər",
-    "preferences": "Seçimlər",
-    "notifications": "Bildirişlər",
-    "privacy": "Məxfilik",
-    "security": "Təhlükəsizlik",
-    "billing": "Ödəmələr",
-    "subscription": "Abunəlik",
-    "activity": "Fəaliyyət",
-    "history": "Tarixçə",
-    "favorites": "Sevimlilər",
-    "wishlist": "İstək siyahısı",
-    "cart": "Səbət",
-    "orders": "Sifarişlər",
-    "addresses": "Ünvanlar",
-    "paymentMethods": "Ödəmə üsulları"
+    "settings": "ParametrlÉ™r",
+    "preferences": "SeÃ§imlÉ™r",
+    "notifications": "BildiriÅŸlÉ™r",
+    "privacy": "MÉ™xfilik",
+    "security": "TÉ™hlÃ¼kÉ™sizlik",
+    "billing": "Ã–dÉ™mÉ™lÉ™r",
+    "subscription": "AbunÉ™lik",
+    "activity": "FÉ™aliyyÉ™t",
+    "history": "TarixÃ§É™",
+    "favorites": "SevimlilÉ™r",
+    "wishlist": "Ä°stÉ™k siyahÄ±sÄ±",
+    "cart": "SÉ™bÉ™t",
+    "orders": "SifariÅŸlÉ™r",
+    "addresses": "Ãœnvanlar",
+    "paymentMethods": "Ã–dÉ™mÉ™ Ã¼sullarÄ±"
   },
   "system": {
-    "maintenance": "Sistem baxımı",
-    "maintenanceMessage": "Sistem hal-hazırda baxım işləri aparılır. Qısa müddət sonra yenidən yoxlayın.",
-    "updateAvailable": "Yeni versiya mövcuddur",
-    "updateMessage": "Yeni versiya mövcuddur. Yeniləmək istəyirsiniz?",
-    "sessionExpired": "Sessiya vaxtı bitib",
-    "sessionExpiredMessage": "Sessiyanızın vaxtı bitib. Yenidən daxil olmağınız lazımdır.",
-    "browserNotSupported": "Brauzer dəstəklənmir",
-    "browserNotSupportedMessage": "Bu brauzer dəstəklənmir. Zəhmət olmasa yeni versiyaya yeniləyin.",
-    "cookiesRequired": "Çərəzlər tələb olunur",
-    "cookiesRequiredMessage": "Bu sayt düzgün işləməsi üçün çərəzlər tələb edir."
+    "maintenance": "Sistem baxÄ±mÄ±",
+    "maintenanceMessage": "Sistem hal-hazÄ±rda baxÄ±m iÅŸlÉ™ri aparÄ±lÄ±r. QÄ±sa mÃ¼ddÉ™t sonra yenidÉ™n yoxlayÄ±n.",
+    "updateAvailable": "Yeni versiya mÃ¶vcuddur",
+    "updateMessage": "Yeni versiya mÃ¶vcuddur. YenilÉ™mÉ™k istÉ™yirsiniz?",
+    "sessionExpired": "Sessiya vaxtÄ± bitib",
+    "sessionExpiredMessage": "SessiyanÄ±zÄ±n vaxtÄ± bitib. YenidÉ™n daxil olmaÄŸÄ±nÄ±z lazÄ±mdÄ±r.",
+    "browserNotSupported": "Brauzer dÉ™stÉ™klÉ™nmir",
+    "browserNotSupportedMessage": "Bu brauzer dÉ™stÉ™klÉ™nmir. ZÉ™hmÉ™t olmasa yeni versiyaya yenilÉ™yin.",
+    "cookiesRequired": "Ã‡É™rÉ™zlÉ™r tÉ™lÉ™b olunur",
+    "cookiesRequiredMessage": "Bu sayt dÃ¼zgÃ¼n iÅŸlÉ™mÉ™si Ã¼Ã§Ã¼n Ã§É™rÉ™zlÉ™r tÉ™lÉ™b edir."
   },
   "statistics": {
-    "orderStats": "Sifariş Statistikaları",
-    "totalOrders": "Ümumi Sifarişlər",
-    "totalRevenue": "Ümumi Gəlir",
-    "averageOrderValue": "Orta Sifariş Dəyəri",
-    "recentCustomers": "Ən Son Sifariş Verən Müştərilər",
-    "lastOrder": "Son sifariş",
-    "orders": "sifariş",
-    "products": "məhsul",
-    "noCustomerData": "Müştəri məlumatı tapılmadı",
-    "salesByCategory": "Kateqoriya üzrə Satışlar",
-    "count": "Sayı",
-    "monthlySalesTrend": "Aylıq Satış Tendensiyası",
-    "revenue": "Gəlir",
-    "orderStatusDistribution": "Sifariş Statusu üzrə Bölgü",
-    "topSellingCategories": "Ən Çox Satılan Məhsul Kateqoriyaları",
-    "items": "ədəd",
-    "topSellingProducts": "Ən Çox Satılan Məhsullar"
+    "orderStats": "SifariÅŸ StatistikalarÄ±",
+    "totalOrders": "Ãœmumi SifariÅŸlÉ™r",
+    "totalRevenue": "Ãœmumi GÉ™lir",
+    "averageOrderValue": "Orta SifariÅŸ DÉ™yÉ™ri",
+    "recentCustomers": "Æn Son SifariÅŸ VerÉ™n MÃ¼ÅŸtÉ™rilÉ™r",
+    "lastOrder": "Son sifariÅŸ",
+    "orders": "sifariÅŸ",
+    "products": "mÉ™hsul",
+    "noCustomerData": "MÃ¼ÅŸtÉ™ri mÉ™lumatÄ± tapÄ±lmadÄ±",
+    "salesByCategory": "Kateqoriya Ã¼zrÉ™ SatÄ±ÅŸlar",
+    "count": "SayÄ±",
+    "monthlySalesTrend": "AylÄ±q SatÄ±ÅŸ TendensiyasÄ±",
+    "revenue": "GÉ™lir",
+    "orderStatusDistribution": "SifariÅŸ Statusu Ã¼zrÉ™ BÃ¶lgÃ¼",
+    "topSellingCategories": "Æn Ã‡ox SatÄ±lan MÉ™hsul KateqoriyalarÄ±",
+    "items": "É™dÉ™d",
+    "topSellingProducts": "Æn Ã‡ox SatÄ±lan MÉ™hsullar"
   },
   "orders": {
-    "title": "Sifarişlərim",
-    "noOrders": "Hələ heç bir sifarişiniz yoxdur",
-    "startShopping": "Alış-verişə başlayın və sifarişlərinizi burada izləyin",
-    "startShoppingButton": "Alış-verişə başla",
-    "loading": "Sifarişlər yüklənir...",
-    "error": "Sifarişlərin yüklənməsində xəta baş verdi",
-    "orderNumber": "Sifariş #{{number}}",
-    "orderedOn": "{{date}} tarixində",
+    "title": "SifariÅŸlÉ™rim",
+    "noOrders": "HÉ™lÉ™ heÃ§ bir sifariÅŸiniz yoxdur",
+    "startShopping": "AlÄ±ÅŸ-veriÅŸÉ™ baÅŸlayÄ±n vÉ™ sifariÅŸlÉ™rinizi burada izlÉ™yin",
+    "startShoppingButton": "AlÄ±ÅŸ-veriÅŸÉ™ baÅŸla",
+    "loading": "SifariÅŸlÉ™r yÃ¼klÉ™nir...",
+    "error": "SifariÅŸlÉ™rin yÃ¼klÉ™nmÉ™sindÉ™ xÉ™ta baÅŸ verdi",
+    "orderNumber": "SifariÅŸ #{{number}}",
+    "orderedOn": "{{date}} tarixindÉ™",
     "status": {
-      "pending": "Gözləyir",
-      "processing": "Hazırlanır",
-      "shipped": "Göndərilib",
-      "delivered": "Çatdırılıb",
-      "cancelled": "Ləğv edilib"
+      "pending": "GÃ¶zlÉ™yir",
+      "processing": "HazÄ±rlanÄ±r",
+      "shipped": "GÃ¶ndÉ™rilib",
+      "delivered": "Ã‡atdÄ±rÄ±lÄ±b",
+      "cancelled": "LÉ™ÄŸv edilib"
     },
     "quantity": "Miqdar",
-    "price": "Qiymət",
-    "subtotal": "Ara cəm",
+    "price": "QiymÉ™t",
+    "subtotal": "Ara cÉ™m",
     "discount": "Endirim",
-    "total": "Ümumi məbləğ",
-    "shippingAddress": "Çatdırılma Ünvanı",
+    "total": "Ãœmumi mÉ™blÉ™ÄŸ",
+    "shippingAddress": "Ã‡atdÄ±rÄ±lma ÃœnvanÄ±",
     "cancelOrder": {
-      "button": "Sifarişi ləğv et",
-      "title": "Sifarişi ləğv etmək istədiyinizə əminsiniz?",
-      "message": "Bu əməliyyat geri qaytarıla bilməz.",
-      "success": "Sifariş uğurla ləğv edildi",
-      "error": "Sifariş ləğv edilərkən xəta baş verdi"
+      "button": "SifariÅŸi lÉ™ÄŸv et",
+      "title": "SifariÅŸi lÉ™ÄŸv etmÉ™k istÉ™diyinizÉ™ É™minsiniz?",
+      "message": "Bu É™mÉ™liyyat geri qaytarÄ±la bilmÉ™z.",
+      "success": "SifariÅŸ uÄŸurla lÉ™ÄŸv edildi",
+      "error": "SifariÅŸ lÉ™ÄŸv edilÉ™rkÉ™n xÉ™ta baÅŸ verdi"
     },
-    "reorder": "Yenidən sifariş et",
-    "reorderSuccess": "Məhsullar səbətə əlavə edildi",
+    "reorder": "YenidÉ™n sifariÅŸ et",
+    "reorderSuccess": "MÉ™hsullar sÉ™bÉ™tÉ™ É™lavÉ™ edildi",
     "filterStatus": {
-      "all": "Bütün sifarişlər",
-      "active": "Aktiv sifarişlər",
-      "completed": "Tamamlanmış",
-      "cancelled": "Ləğv edilmiş"
+      "all": "BÃ¼tÃ¼n sifariÅŸlÉ™r",
+      "active": "Aktiv sifariÅŸlÉ™r",
+      "completed": "TamamlanmÄ±ÅŸ",
+      "cancelled": "LÉ™ÄŸv edilmiÅŸ"
     },
     "sortOptions": {
-      "newest": "Ən yeni",
-      "oldest": "Ən köhnə",
-      "highestAmount": "Ən yüksək məbləğ",
-      "lowestAmount": "Ən aşağı məbləğ"
+      "newest": "Æn yeni",
+      "oldest": "Æn kÃ¶hnÉ™",
+      "highestAmount": "Æn yÃ¼ksÉ™k mÉ™blÉ™ÄŸ",
+      "lowestAmount": "Æn aÅŸaÄŸÄ± mÉ™blÉ™ÄŸ"
     },
-    "emptyStateTitle": "Sifarişiniz yoxdur",
-    "emptyStateDescription": "Hələ heç bir sifariş verməmisiniz. Mağazamıza baxın və sevdiyiniz məhsulları sifariş edin!",
-    "shopNow": "İndi alış-veriş et",
-    "fetchError": "Sifarişləri yükləyərkən xəta baş verdi"
+    "emptyStateTitle": "SifariÅŸiniz yoxdur",
+    "emptyStateDescription": "HÉ™lÉ™ heÃ§ bir sifariÅŸ vermÉ™misiniz. MaÄŸazamÄ±za baxÄ±n vÉ™ sevdiyiniz mÉ™hsullarÄ± sifariÅŸ edin!",
+    "shopNow": "Ä°ndi alÄ±ÅŸ-veriÅŸ et",
+    "fetchError": "SifariÅŸlÉ™ri yÃ¼klÉ™yÉ™rkÉ™n xÉ™ta baÅŸ verdi"
   },
   "cart": {
     "empty": {
-      "title": "Səbətiniz boşdur",
-      "description": "Hələ səbətinizə heç nə əlavə etməmisiniz",
-      "shopButton": "Alış-verişə başlayın"
+      "title": "SÉ™bÉ™tiniz boÅŸdur",
+      "description": "HÉ™lÉ™ sÉ™bÉ™tinizÉ™ heÃ§ nÉ™ É™lavÉ™ etmÉ™misiniz",
+      "shopButton": "AlÄ±ÅŸ-veriÅŸÉ™ baÅŸlayÄ±n"
     },
-    "title": "Alış-veriş səbəti",
-    "summary": "Səbət xülasəsi",
-    "subtotal": "Ara cəm",
-    "shipping": "Çatdırılma",
-    "total": "Ümumi",
-    "checkout": "Sifarişi tamamla",
-    "continue": "Alış-verişə davam et",
+    "title": "AlÄ±ÅŸ-veriÅŸ sÉ™bÉ™ti",
+    "summary": "SÉ™bÉ™t xÃ¼lasÉ™si",
+    "subtotal": "Ara cÉ™m",
+    "shipping": "Ã‡atdÄ±rÄ±lma",
+    "total": "Ãœmumi",
+    "checkout": "SifariÅŸi tamamla",
+    "continue": "AlÄ±ÅŸ-veriÅŸÉ™ davam et",
     "remove": "Sil",
-    "moveToWishlist": "İstək siyahısına əlavə et",
+    "moveToWishlist": "Ä°stÉ™k siyahÄ±sÄ±na É™lavÉ™ et",
     "outOfStock": "Stokda yoxdur",
-    "priceNotAvailable": "Qiymət mövcud deyil",
+    "priceNotAvailable": "QiymÉ™t mÃ¶vcud deyil",
     "quantity": "Miqdar",
-    "freeShipping": "Pulsuz çatdırılma",
-    "shippingNote": "$50-dan yuxarı sifarişlərdə pulsuz çatdırılma",
-    "invalidProduct": "Yanlış məhsul",
-    "loginToCheckout": "Sifarişi tamamlamaq üçün daxil olun",
-    "viewOrders": "Sifarişlərə baxın"
+    "freeShipping": "Pulsuz Ã§atdÄ±rÄ±lma",
+    "shippingNote": "$50-dan yuxarÄ± sifariÅŸlÉ™rdÉ™ pulsuz Ã§atdÄ±rÄ±lma",
+    "invalidProduct": "YanlÄ±ÅŸ mÉ™hsul",
+    "loginToCheckout": "SifariÅŸi tamamlamaq Ã¼Ã§Ã¼n daxil olun",
+    "viewOrders": "SifariÅŸlÉ™rÉ™ baxÄ±n"
   },
   "checkout": {
-    "title": "Sifarişi Tamamla",
-    "back": "Səbətə Qayıt",
+    "title": "SifariÅŸi Tamamla",
+    "back": "SÉ™bÉ™tÉ™ QayÄ±t",
     "shippingAddress": {
-      "title": "Çatdırılma Ünvanı",
-      "fullName": "Ad və Soyad",
-      "fullNamePlaceholder": "Ad və soyadınızı daxil edin",
-      "address": "Ünvan",
-      "addressPlaceholder": "Ünvanınızı daxil edin",
-      "city": "Şəhər",
-      "cityPlaceholder": "Şəhərinizi daxil edin",
-      "zipCode": "Poçt Kodu",
-      "zipCodePlaceholder": "Poçt kodunu daxil edin"
+      "title": "Ã‡atdÄ±rÄ±lma ÃœnvanÄ±",
+      "fullName": "Ad vÉ™ Soyad",
+      "fullNamePlaceholder": "Ad vÉ™ soyadÄ±nÄ±zÄ± daxil edin",
+      "address": "Ãœnvan",
+      "addressPlaceholder": "ÃœnvanÄ±nÄ±zÄ± daxil edin",
+      "city": "ÅžÉ™hÉ™r",
+      "cityPlaceholder": "ÅžÉ™hÉ™rinizi daxil edin",
+      "zipCode": "PoÃ§t Kodu",
+      "zipCodePlaceholder": "PoÃ§t kodunu daxil edin"
     },
     "payment": {
-      "title": "Ödəniş Məlumatları",
-      "cardNumber": "Kart Nömrəsi",
-      "cardNumberPlaceholder": "Kart nömrəsini daxil edin",
-      "expiryDate": "Son İstifadə Tarixi",
-      "expiryDatePlaceholder": "AA/İİ",
+      "title": "Ã–dÉ™niÅŸ MÉ™lumatlarÄ±",
+      "cardNumber": "Kart NÃ¶mrÉ™si",
+      "cardNumberPlaceholder": "Kart nÃ¶mrÉ™sini daxil edin",
+      "expiryDate": "Son Ä°stifadÉ™ Tarixi",
+      "expiryDatePlaceholder": "AA/Ä°Ä°",
       "cvv": "CVV",
       "cvvPlaceholder": "CVV daxil edin",
-      "cardHolderName": "Kart Sahibinin Adı",
-      "cardHolderNamePlaceholder": "Kart sahibinin adını daxil edin"
+      "cardHolderName": "Kart Sahibinin AdÄ±",
+      "cardHolderNamePlaceholder": "Kart sahibinin adÄ±nÄ± daxil edin"
     },
     "coupon": {
       "title": "Endirim Kodu",
       "placeholder": "Endirim kodunu daxil edin",
-      "apply": "Tətbiq Et",
+      "apply": "TÉ™tbiq Et",
       "remove": "Sil",
-      "discountApplied": "Endirim Tətbiq Edildi",
-      "welcomeDiscount": "Xoş gəldiniz endirimi (10% endirim)",
-      "invalid": "Yanlış endirim kodu",
-      "expired": "Endirim kodunun müddəti bitib",
-      "alreadyUsed": "Endirim kodu artıq istifadə edilib"
+      "discountApplied": "Endirim TÉ™tbiq Edildi",
+      "welcomeDiscount": "XoÅŸ gÉ™ldiniz endirimi (10% endirim)",
+      "invalid": "YanlÄ±ÅŸ endirim kodu",
+      "expired": "Endirim kodunun mÃ¼ddÉ™ti bitib",
+      "alreadyUsed": "Endirim kodu artÄ±q istifadÉ™ edilib"
     },
     "summary": {
-      "title": "Sifariş Xülasəsi",
+      "title": "SifariÅŸ XÃ¼lasÉ™si",
       "quantity": "Miqdar",
-      "subtotal": "Ara Cəm",
+      "subtotal": "Ara CÉ™m",
       "discount": "Endirim",
-      "shipping": "Çatdırılma",
+      "shipping": "Ã‡atdÄ±rÄ±lma",
       "free": "Pulsuz",
-      "total": "Ümumi Məbləğ",
-      "terms": "Sifarişi yerləşdirməklə Xidmət Şərtləri və Məxfilik Siyasəti ilə razılaşırsınız",
-      "completeOrder": "Sifarişi Tamamla",
-      "securityNote": "Ödəniş məlumatlarınız təhlükəsiz şəkildə emal olunur. Biz kredit kartı məlumatlarını saxlamırıq."
+      "total": "Ãœmumi MÉ™blÉ™ÄŸ",
+      "terms": "SifariÅŸi yerlÉ™ÅŸdirmÉ™klÉ™ XidmÉ™t ÅžÉ™rtlÉ™ri vÉ™ MÉ™xfilik SiyasÉ™ti ilÉ™ razÄ±laÅŸÄ±rsÄ±nÄ±z",
+      "completeOrder": "SifariÅŸi Tamamla",
+      "securityNote": "Ã–dÉ™niÅŸ mÉ™lumatlarÄ±nÄ±z tÉ™hlÃ¼kÉ™siz ÅŸÉ™kildÉ™ emal olunur. Biz kredit kartÄ± mÉ™lumatlarÄ±nÄ± saxlamÄ±rÄ±q."
     },
     "validation": {
-      "fullNameRequired": "Ad və soyad tələb olunur",
-      "addressRequired": "Ünvan tələb olunur",
-      "cityRequired": "Şəhər tələb olunur",
-      "zipRequired": "Poçt kodu tələb olunur",
-      "cardNumberRequired": "Kart nömrəsi tələb olunur",
-      "cardNumberInvalid": "Yanlış kart nömrəsi",
-      "expiryRequired": "Son istifadə tarixi tələb olunur",
-      "expiryInvalid": "Yanlış son istifadə tarixi",
-      "cvvRequired": "CVV tələb olunur",
-      "cvvInvalid": "Yanlış CVV",
-      "cardHolderRequired": "Kart sahibinin adı tələb olunur"
+      "fullNameRequired": "Ad vÉ™ soyad tÉ™lÉ™b olunur",
+      "addressRequired": "Ãœnvan tÉ™lÉ™b olunur",
+      "cityRequired": "ÅžÉ™hÉ™r tÉ™lÉ™b olunur",
+      "zipRequired": "PoÃ§t kodu tÉ™lÉ™b olunur",
+      "cardNumberRequired": "Kart nÃ¶mrÉ™si tÉ™lÉ™b olunur",
+      "cardNumberInvalid": "YanlÄ±ÅŸ kart nÃ¶mrÉ™si",
+      "expiryRequired": "Son istifadÉ™ tarixi tÉ™lÉ™b olunur",
+      "expiryInvalid": "YanlÄ±ÅŸ son istifadÉ™ tarixi",
+      "cvvRequired": "CVV tÉ™lÉ™b olunur",
+      "cvvInvalid": "YanlÄ±ÅŸ CVV",
+      "cardHolderRequired": "Kart sahibinin adÄ± tÉ™lÉ™b olunur"
     }
   },
   "aboutUs": {
     "hero": {
-      "tag": "Haqqımızda",
-      "title": "Heyvanlarınıza Ailə Kimi Baxırıq",
-      "description": "Hekayəmizi və sevimli heyvanlarınız üçün ən yaxşı qulluq və məhsulları təmin etmək öhdəliyimizi kəşf edin."
+      "tag": "HaqqÄ±mÄ±zda",
+      "title": "HeyvanlarÄ±nÄ±za AilÉ™ Kimi BaxÄ±rÄ±q",
+      "description": "HekayÉ™mizi vÉ™ sevimli heyvanlarÄ±nÄ±z Ã¼Ã§Ã¼n É™n yaxÅŸÄ± qulluq vÉ™ mÉ™hsullarÄ± tÉ™min etmÉ™k Ã¶hdÉ™liyimizi kÉ™ÅŸf edin."
     },
     "stats": {
       "happyCustomers": {
         "number": "10,000+",
-        "label": "Məmnun Müştəri"
+        "label": "MÉ™mnun MÃ¼ÅŸtÉ™ri"
       },
       "products": {
         "number": "1,000+",
-        "label": "Məhsul"
+        "label": "MÉ™hsul"
       },
       "satisfaction": {
         "number": "98%",
-        "label": "Məmnuniyyət Dərəcəsi"
+        "label": "MÉ™mnuniyyÉ™t DÉ™rÉ™cÉ™si"
       },
       "support": {
         "number": "24/7",
-        "label": "Müştəri Dəstəyi"
+        "label": "MÃ¼ÅŸtÉ™ri DÉ™stÉ™yi"
       }
     },
     "values": {
-      "sectionTag": "Dəyərlərimiz",
-      "title": "Bizi Fərqləndirən Nədir",
+      "sectionTag": "DÉ™yÉ™rlÉ™rimiz",
+      "title": "Bizi FÉ™rqlÉ™ndirÉ™n NÉ™dir",
       "items": {
         "petLove": {
           "title": "Heyvanlara Sevgi",
-          "description": "Hər bir heyvana öz ailə üzvümüz kimi sevgi və qayğı ilə yanaşırıq."
+          "description": "HÉ™r bir heyvana Ã¶z ailÉ™ Ã¼zvÃ¼mÃ¼z kimi sevgi vÉ™ qayÄŸÄ± ilÉ™ yanaÅŸÄ±rÄ±q."
         },
         "quality": {
-          "title": "Premium Keyfiyyət",
-          "description": "Heyvanlarınızın sağlamlığı və xoşbəxtliyi üçün yalnız ən yüksək keyfiyyətli məhsullar təklif edirik."
+          "title": "Premium KeyfiyyÉ™t",
+          "description": "HeyvanlarÄ±nÄ±zÄ±n saÄŸlamlÄ±ÄŸÄ± vÉ™ xoÅŸbÉ™xtliyi Ã¼Ã§Ã¼n yalnÄ±z É™n yÃ¼ksÉ™k keyfiyyÉ™tli mÉ™hsullar tÉ™klif edirik."
         },
         "satisfaction": {
-          "title": "Müştəri Məmnuniyyəti",
-          "description": "Sizin məmnuniyyətiniz bizim əsas prioritetimizdir və gözləntilərinizi aşmağa çalışırıq."
+          "title": "MÃ¼ÅŸtÉ™ri MÉ™mnuniyyÉ™ti",
+          "description": "Sizin mÉ™mnuniyyÉ™tiniz bizim É™sas prioritetimizdir vÉ™ gÃ¶zlÉ™ntilÉ™rinizi aÅŸmaÄŸa Ã§alÄ±ÅŸÄ±rÄ±q."
         }
       }
     },
     "team": {
-      "sectionTag": "Komandamız",
-      "title": "Peşəkar Komandamızla Tanış Olun",
+      "sectionTag": "KomandamÄ±z",
+      "title": "PeÅŸÉ™kar KomandamÄ±zla TanÄ±ÅŸ Olun",
       "members": {
         "director": {
-          "name": "Leyla Əliyeva",
-          "role": "Baş İcraçı Direktor",
-          "description": "Heyvanlara sevgi və biznes bacarıqlarının mükəmməl birləşməsi",
+          "name": "Leyla Æliyeva",
+          "role": "BaÅŸ Ä°craÃ§Ä± Direktor",
+          "description": "Heyvanlara sevgi vÉ™ biznes bacarÄ±qlarÄ±nÄ±n mÃ¼kÉ™mmÉ™l birlÉ™ÅŸmÉ™si",
           "imageUrl": "https://dt-petty.myshopify.com/cdn/shop/files/team03_800x.jpg?v=1653391389"
         },
         "veterinary": {
-          "name": "Rəşad Məmmədov",
-          "role": "Baytarlıq Məsləhətçisi",
-          "description": "Heyvan sağlamlığında 15 illik təcrübə",
+          "name": "RÉ™ÅŸad MÉ™mmÉ™dov",
+          "role": "BaytarlÄ±q MÉ™slÉ™hÉ™tÃ§isi",
+          "description": "Heyvan saÄŸlamlÄ±ÄŸÄ±nda 15 illik tÉ™crÃ¼bÉ™",
           "imageUrl": "https://dt-petty.myshopify.com/cdn/shop/files/team01_800x.jpg?v=1653391363"
         },
         "customerService": {
-          "name": "Günəl Həsənova",
-          "role": "Müştəri Xidmətləri",
-          "description": "Müştəri məmnuniyyəti bizim prioritetimizdir",
+          "name": "GÃ¼nÉ™l HÉ™sÉ™nova",
+          "role": "MÃ¼ÅŸtÉ™ri XidmÉ™tlÉ™ri",
+          "description": "MÃ¼ÅŸtÉ™ri mÉ™mnuniyyÉ™ti bizim prioritetimizdir",
           "imageUrl": "https://dt-petty.myshopify.com/cdn/shop/files/team02_800x.jpg?v=1653391375"
         }
       }
     },
     "contact": {
-      "title": "Bizimlə Əlaqə Saxlayın",
-      "description": "Suallarınız var? Komandamız sizə kömək etməyə hazırdır",
+      "title": "BizimlÉ™ ÆlaqÉ™ SaxlayÄ±n",
+      "description": "SuallarÄ±nÄ±z var? KomandamÄ±z sizÉ™ kÃ¶mÉ™k etmÉ™yÉ™ hazÄ±rdÄ±r",
       "buttons": {
-        "contact": "Əlaqə",
-        "moreInfo": "Ətraflı Məlumat"
+        "contact": "ÆlaqÉ™",
+        "moreInfo": "ÆtraflÄ± MÉ™lumat"
       }
     }
   },
   "shop": {
     "hero": {
-      "title": "Heyvan Mağazası",
-      "subtitle": "Sevimli dostlarınız üçün ən yaxşı məhsulları seçin"
+      "title": "Heyvan MaÄŸazasÄ±",
+      "subtitle": "Sevimli dostlarÄ±nÄ±z Ã¼Ã§Ã¼n É™n yaxÅŸÄ± mÉ™hsullarÄ± seÃ§in"
     },
     "categories": {
-      "title": "Heyvan Növləri",
-      "viewProducts": "Məhsullara bax",
+      "title": "Heyvan NÃ¶vlÉ™ri",
+      "viewProducts": "MÉ™hsullara bax",
       "cats": {
-        "subtitle": "Pişikləriniz üçün məhsullar",
-        "description": "Sevimli pişikləriniz üçün keyfiyyətli və təhlükəsiz məhsullar"
+        "subtitle": "PiÅŸiklÉ™riniz Ã¼Ã§Ã¼n mÉ™hsullar",
+        "description": "Sevimli piÅŸiklÉ™riniz Ã¼Ã§Ã¼n keyfiyyÉ™tli vÉ™ tÉ™hlÃ¼kÉ™siz mÉ™hsullar"
       },
       "dogs": {
-        "subtitle": "İtləriniz üçün məhsullar",
-        "description": "Sevimli itləriniz üçün keyfiyyətli və təhlükəsiz məhsullar"
+        "subtitle": "Ä°tlÉ™riniz Ã¼Ã§Ã¼n mÉ™hsullar",
+        "description": "Sevimli itlÉ™riniz Ã¼Ã§Ã¼n keyfiyyÉ™tli vÉ™ tÉ™hlÃ¼kÉ™siz mÉ™hsullar"
       }
     },
     "features": {
-      "title": "Niyə Bizi Seçməlisiniz?",
+      "title": "NiyÉ™ Bizi SeÃ§mÉ™lisiniz?",
       "quality": {
-        "title": "Keyfiyyətli Məhsullar",
-        "description": "Yalnız ən yaxşı brendlərdən keyfiyyətli məhsullar"
+        "title": "KeyfiyyÉ™tli MÉ™hsullar",
+        "description": "YalnÄ±z É™n yaxÅŸÄ± brendlÉ™rdÉ™n keyfiyyÉ™tli mÉ™hsullar"
       },
       "delivery": {
-        "title": "Sürətli Çatdırılma",
-        "description": "Şəhər daxili sifarişlər üçün eyni gün çatdırılma"
+        "title": "SÃ¼rÉ™tli Ã‡atdÄ±rÄ±lma",
+        "description": "ÅžÉ™hÉ™r daxili sifariÅŸlÉ™r Ã¼Ã§Ã¼n eyni gÃ¼n Ã§atdÄ±rÄ±lma"
       },
       "prices": {
-        "title": "Sərfəli Qiymətlər",
-        "description": "Bazarda ən münasib qiymətlər və xüsusi endirimlər"
+        "title": "SÉ™rfÉ™li QiymÉ™tlÉ™r",
+        "description": "Bazarda É™n mÃ¼nasib qiymÉ™tlÉ™r vÉ™ xÃ¼susi endirimlÉ™r"
       }
     }
   },
   "blogs": {
     "title": "Bloqlar",
-    "readMore": "Daha çox",
+    "readMore": "Daha Ã§ox",
     "searchPlaceholder": "Bloqlarda axtar...",
     "sort": {
-      "latest": "Ən yeni",
-      "oldest": "Ən köhnə",
-      "az": "A-dan Z-yə",
-      "za": "Z-dən A-ya"
+      "latest": "Æn yeni",
+      "oldest": "Æn kÃ¶hnÉ™",
+      "az": "A-dan Z-yÉ™",
+      "za": "Z-dÉ™n A-ya"
     },
     "noResults": {
-      "title": "Blog tapılmadı",
-      "description": "Axtarış kriteriyalarınıza uyğun blog tapılmadı. Zəhmət olmasa başqa açar sözlərlə yenidən cəhd edin."
+      "title": "Blog tapÄ±lmadÄ±",
+      "description": "AxtarÄ±ÅŸ kriteriyalarÄ±nÄ±za uyÄŸun blog tapÄ±lmadÄ±. ZÉ™hmÉ™t olmasa baÅŸqa aÃ§ar sÃ¶zlÉ™rlÉ™ yenidÉ™n cÉ™hd edin."
     },
     "categories": {
-      "health": "Sağlamlıq",
+      "health": "SaÄŸlamlÄ±q",
       "nutrition": "Qidalanma",
-      "training": "Təlim",
+      "training": "TÉ™lim",
       "grooming": "Qulluq",
-      "behavior": "Davranış",
-      "lifestyle": "Həyat tərzi",
-      "uncategorized": "Kateqoriyasız"
+      "behavior": "DavranÄ±ÅŸ",
+      "lifestyle": "HÉ™yat tÉ™rzi",
+      "uncategorized": "KateqoriyasÄ±z"
     }
   },
   "productDetail": {
-    "loading": "Məhsul yüklənir...",
-    "productNotFound": "Məhsul tapılmadı",
-    "goBack": "Geri qayıt",
-    "noProductName": "Məhsul adı mövcud deyil",
-    "noCategory": "Kateqoriya mövcud deyil",
+    "loading": "MÉ™hsul yÃ¼klÉ™nir...",
+    "productNotFound": "MÉ™hsul tapÄ±lmadÄ±",
+    "goBack": "Geri qayÄ±t",
+    "noProductName": "MÉ™hsul adÄ± mÃ¶vcud deyil",
+    "noCategory": "Kateqoriya mÃ¶vcud deyil",
     "inStock": "Stokda var",
     "outOfStock": "Stokda yoxdur",
     "discount": "Endirim",
-    "save": "Qənaət edin:",
-    "addToCart": "Səbətə əlavə et",
-    "buyNow": "İndi al",
-    "guarantee": "Zəmanət",
-    "guaranteeText": "12 ay rəsmi zəmanət",
-    "delivery": "Çatdırılma",
-    "deliveryText": "1-3 iş günü ərzində çatdırılma",
+    "save": "QÉ™naÉ™t edin:",
+    "addToCart": "SÉ™bÉ™tÉ™ É™lavÉ™ et",
+    "buyNow": "Ä°ndi al",
+    "guarantee": "ZÉ™manÉ™t",
+    "guaranteeText": "12 ay rÉ™smi zÉ™manÉ™t",
+    "delivery": "Ã‡atdÄ±rÄ±lma",
+    "deliveryText": "1-3 iÅŸ gÃ¼nÃ¼ É™rzindÉ™ Ã§atdÄ±rÄ±lma",
     "returnPolicy": "Qaytarma",
-    "returnPolicyText": "14 gün ərzində pulsuz qaytarma",
-    "loginRequired": "Giriş tələb olunur",
-    "loginMessage": "Məhsulu səbətə əlavə etmək üçün daxil olmalısınız",
-    "pleaseLoginFirst": "Zəhmət olmasa əvvəlcə daxil olun",
-    "addedToCart": "Məhsul səbətə əlavə edildi",
-    "errorOccurred": "Xəta baş verdi",
-    "removedFromWishlist": "Məhsul istək siyahısından silindi",
-    "addedToWishlist": "Məhsul istək siyahısına əlavə edildi",
+    "returnPolicyText": "14 gÃ¼n É™rzindÉ™ pulsuz qaytarma",
+    "loginRequired": "GiriÅŸ tÉ™lÉ™b olunur",
+    "loginMessage": "MÉ™hsulu sÉ™bÉ™tÉ™ É™lavÉ™ etmÉ™k Ã¼Ã§Ã¼n daxil olmalÄ±sÄ±nÄ±z",
+    "pleaseLoginFirst": "ZÉ™hmÉ™t olmasa É™vvÉ™lcÉ™ daxil olun",
+    "addedToCart": "MÉ™hsul sÉ™bÉ™tÉ™ É™lavÉ™ edildi",
+    "errorOccurred": "XÉ™ta baÅŸ verdi",
+    "removedFromWishlist": "MÉ™hsul istÉ™k siyahÄ±sÄ±ndan silindi",
+    "addedToWishlist": "MÉ™hsul istÉ™k siyahÄ±sÄ±na É™lavÉ™ edildi",
     "deleteReview": {
-      "title": "Rəyi sil",
-      "message": "Bu rəyi silmək istədiyinizə əminsiniz?",
-      "success": "Rəy silindi!",
-      "error": "Rəyi silmək mümkün olmadı"
+      "title": "RÉ™yi sil",
+      "message": "Bu rÉ™yi silmÉ™k istÉ™diyinizÉ™ É™minsiniz?",
+      "success": "RÉ™y silindi!",
+      "error": "RÉ™yi silmÉ™k mÃ¼mkÃ¼n olmadÄ±"
     }
   },
   "reviews": {
-    "title": "Rəylər",
-    "writeReview": "Rəy yazın",
-    "noReviews": "Bu məhsula hələ rəy yazılmayıb",
-    "beFirst": "İlk rəy yazan siz olun!",
+    "title": "RÉ™ylÉ™r",
+    "writeReview": "RÉ™y yazÄ±n",
+    "noReviews": "Bu mÉ™hsula hÉ™lÉ™ rÉ™y yazÄ±lmayÄ±b",
+    "beFirst": "Ä°lk rÉ™y yazan siz olun!",
     "rating": "Reytinq",
-    "comment": "Rəyiniz",
-    "commentPlaceholder": "Bu məhsul haqqında fikirlərinizi yazın...",
-    "submit": "Rəyi göndər",
-    "submitting": "Göndərilir...",
-    "addSuccess": "Rəyiniz uğurla əlavə edildi!",
-    "thankYou": "Rəyiniz üçün təşəkkür edirik!",
-    "deleteConfirm": "Bu rəyi silmək istədiyinizə əminsiniz?",
-    "deleteSuccess": "Rəy uğurla silindi",
-    "deleteError": "Rəy silinərkən xəta baş verdi",
-    "loginRequired": "Rəy yazmaq üçün daxil olmalısınız",
-    "verifiedPurchase": "Təsdiqlənmiş alış",
-    "helpful": "Faydalı",
-    "reportAbuse": "Şikayət et",
-    "edited": "Redaktə edilib",
+    "comment": "RÉ™yiniz",
+    "commentPlaceholder": "Bu mÉ™hsul haqqÄ±nda fikirlÉ™rinizi yazÄ±n...",
+    "submit": "RÉ™yi gÃ¶ndÉ™r",
+    "submitting": "GÃ¶ndÉ™rilir...",
+    "addSuccess": "RÉ™yiniz uÄŸurla É™lavÉ™ edildi!",
+    "thankYou": "RÉ™yiniz Ã¼Ã§Ã¼n tÉ™ÅŸÉ™kkÃ¼r edirik!",
+    "deleteConfirm": "Bu rÉ™yi silmÉ™k istÉ™diyinizÉ™ É™minsiniz?",
+    "deleteSuccess": "RÉ™y uÄŸurla silindi",
+    "deleteError": "RÉ™y silinÉ™rkÉ™n xÉ™ta baÅŸ verdi",
+    "loginRequired": "RÉ™y yazmaq Ã¼Ã§Ã¼n daxil olmalÄ±sÄ±nÄ±z",
+    "verifiedPurchase": "TÉ™sdiqlÉ™nmiÅŸ alÄ±ÅŸ",
+    "helpful": "FaydalÄ±",
+    "reportAbuse": "ÅžikayÉ™t et",
+    "edited": "RedaktÉ™ edilib",
     "by": "Yazan",
     "on": "Tarix",
-    "loadMore": "Daha çox rəy yüklə",
+    "loadMore": "Daha Ã§ox rÉ™y yÃ¼klÉ™",
     "filter": {
-      "all": "Bütün rəylər",
-      "positive": "Müsbət rəylər",
-      "negative": "Mənfi rəylər",
-      "verified": "Təsdiqlənmiş alışlar"
+      "all": "BÃ¼tÃ¼n rÉ™ylÉ™r",
+      "positive": "MÃ¼sbÉ™t rÉ™ylÉ™r",
+      "negative": "MÉ™nfi rÉ™ylÉ™r",
+      "verified": "TÉ™sdiqlÉ™nmiÅŸ alÄ±ÅŸlar"
     },
     "sort": {
-      "newest": "Ən yeni",
-      "oldest": "Ən köhnə",
-      "highestRated": "Ən yüksək reytinq",
-      "lowestRated": "Ən aşağı reytinq",
-      "mostHelpful": "Ən faydalı"
+      "newest": "Æn yeni",
+      "oldest": "Æn kÃ¶hnÉ™",
+      "highestRated": "Æn yÃ¼ksÉ™k reytinq",
+      "lowestRated": "Æn aÅŸaÄŸÄ± reytinq",
+      "mostHelpful": "Æn faydalÄ±"
     },
-    "alreadyReviewed": "Bu məhsul üçün artıq rəy yazmısınız",
-    "myReview": "Mənim rəyim"
+    "alreadyReviewed": "Bu mÉ™hsul Ã¼Ã§Ã¼n artÄ±q rÉ™y yazmÄ±sÄ±nÄ±z",
+    "myReview": "MÉ™nim rÉ™yim"
   },
   "adminLogin": {
-    "title": "Admin Panelə Giriş",
-    "email": "E-poçt",
-    "emailPlaceholder": "Admin e-poçt ünvanınızı daxil edin",
-    "password": "Şifrə",
-    "passwordPlaceholder": "Admin şifrənizi daxil edin",
+    "title": "Admin PanelÉ™ GiriÅŸ",
+    "email": "E-poÃ§t",
+    "emailPlaceholder": "Admin e-poÃ§t Ã¼nvanÄ±nÄ±zÄ± daxil edin",
+    "password": "ÅžifrÉ™",
+    "passwordPlaceholder": "Admin ÅŸifrÉ™nizi daxil edin",
     "loginButton": "Daxil ol",
     "loggingIn": "Daxil olunur...",
-    "backToRegularLogin": "Normal girişə qayıt",
-    "errorInvalid": "E-poçt və ya şifrə yanlışdır",
-    "errorGeneral": "Giriş zamanı xəta baş verdi",
-    "errorFields": "Bütün sahələri doldurun",
-    "successMessage": "Admin panelə uğurla daxil oldunuz!",
-    "welcomeMessage": "Xoş gəlmisiniz, {{username}}!",
-    "notAuthorized": "Bu səhifəyə giriş icazəniz yoxdur"
+    "backToRegularLogin": "Normal giriÅŸÉ™ qayÄ±t",
+    "errorInvalid": "E-poÃ§t vÉ™ ya ÅŸifrÉ™ yanlÄ±ÅŸdÄ±r",
+    "errorGeneral": "GiriÅŸ zamanÄ± xÉ™ta baÅŸ verdi",
+    "errorFields": "BÃ¼tÃ¼n sahÉ™lÉ™ri doldurun",
+    "successMessage": "Admin panelÉ™ uÄŸurla daxil oldunuz!",
+    "welcomeMessage": "XoÅŸ gÉ™lmisiniz, {{username}}!",
+    "notAuthorized": "Bu sÉ™hifÉ™yÉ™ giriÅŸ icazÉ™niz yoxdur"
   },
   "dogs": {
-    "title": "İtlər üçün Məhsullar",
-    "subtitle": "Sevimli itləriniz üçün keyfiyyətli və təhlükəsiz məhsullar",
+    "title": "Ä°tlÉ™r Ã¼Ã§Ã¼n MÉ™hsullar",
+    "subtitle": "Sevimli itlÉ™riniz Ã¼Ã§Ã¼n keyfiyyÉ™tli vÉ™ tÉ™hlÃ¼kÉ™siz mÉ™hsullar",
     "categories": {
       "title": "Kateqoriyalar",
-      "all": "Bütün Məhsullar",
-      "food": "İt Yemləri",
-      "foodDescription": "İtiniz üçün keyfiyyətli və sağlam qidalar",
+      "all": "BÃ¼tÃ¼n MÉ™hsullar",
+      "food": "Ä°t YemlÉ™ri",
+      "foodDescription": "Ä°tiniz Ã¼Ã§Ã¼n keyfiyyÉ™tli vÉ™ saÄŸlam qidalar",
       "toys": "Oyuncaqlar",
-      "toysDescription": "İtiniz üçün əyləncəli və təhlükəsiz oyuncaqlar",
-      "beds": "Ev və Yataqlar",
-      "bedsDescription": "Sevimli itiniz üçün rahat yataq və evlər",
-      "carriers": "Daşıma Çantaları",
-      "carriersDescription": "İtiniz üçün rahat və təhlükəsiz daşıma çantaları",
-      "leashes": "Qayışlar və Boyunduruqlar",
-      "leashesDescription": "İtiniz üçün rahat və davamlı qayışlar"
+      "toysDescription": "Ä°tiniz Ã¼Ã§Ã¼n É™ylÉ™ncÉ™li vÉ™ tÉ™hlÃ¼kÉ™siz oyuncaqlar",
+      "beds": "Ev vÉ™ Yataqlar",
+      "bedsDescription": "Sevimli itiniz Ã¼Ã§Ã¼n rahat yataq vÉ™ evlÉ™r",
+      "carriers": "DaÅŸÄ±ma Ã‡antalarÄ±",
+      "carriersDescription": "Ä°tiniz Ã¼Ã§Ã¼n rahat vÉ™ tÉ™hlÃ¼kÉ™siz daÅŸÄ±ma Ã§antalarÄ±",
+      "leashes": "QayÄ±ÅŸlar vÉ™ Boyunduruqlar",
+      "leashesDescription": "Ä°tiniz Ã¼Ã§Ã¼n rahat vÉ™ davamlÄ± qayÄ±ÅŸlar"
     },
     "categoryBadge": {
-      "selected": "Seçildi",
-      "select": "Seçin"
+      "selected": "SeÃ§ildi",
+      "select": "SeÃ§in"
     },
-    "loading": "Məhsullar yüklənir...",
-    "noProducts": "Bu kateqoriyada məhsul tapılmadı",
-    "searchPlaceholder": "İt məhsulları axtar..."
+    "loading": "MÉ™hsullar yÃ¼klÉ™nir...",
+    "noProducts": "Bu kateqoriyada mÉ™hsul tapÄ±lmadÄ±",
+    "searchPlaceholder": "Ä°t mÉ™hsullarÄ± axtar..."
   },
   "checkout": {
-    "title": "Sifarişi Tamamla",
-    "back": "Səbətə Qayıt",
+    "title": "SifariÅŸi Tamamla",
+    "back": "SÉ™bÉ™tÉ™ QayÄ±t",
     "shippingAddress": {
-      "title": "Çatdırılma Ünvanı",
-      "fullName": "Ad və Soyad",
-      "fullNamePlaceholder": "Ad və soyadınızı daxil edin",
-      "address": "Ünvan",
-      "addressPlaceholder": "Ünvanınızı daxil edin",
-      "city": "Şəhər",
-      "cityPlaceholder": "Şəhərinizi daxil edin",
-      "zipCode": "Poçt Kodu",
-      "zipCodePlaceholder": "Poçt kodunu daxil edin"
+      "title": "Ã‡atdÄ±rÄ±lma ÃœnvanÄ±",
+      "fullName": "Ad vÉ™ Soyad",
+      "fullNamePlaceholder": "Ad vÉ™ soyadÄ±nÄ±zÄ± daxil edin",
+      "address": "Ãœnvan",
+      "addressPlaceholder": "ÃœnvanÄ±nÄ±zÄ± daxil edin",
+      "city": "ÅžÉ™hÉ™r",
+      "cityPlaceholder": "ÅžÉ™hÉ™rinizi daxil edin",
+      "zipCode": "PoÃ§t Kodu",
+      "zipCodePlaceholder": "PoÃ§t kodunu daxil edin"
     },
     "payment": {
-      "title": "Ödəniş Məlumatları",
-      "cardNumber": "Kart Nömrəsi",
-      "cardNumberPlaceholder": "Kart nömrəsini daxil edin",
-      "expiryDate": "Son İstifadə Tarixi",
-      "expiryDatePlaceholder": "AA/İİ",
+      "title": "Ã–dÉ™niÅŸ MÉ™lumatlarÄ±",
+      "cardNumber": "Kart NÃ¶mrÉ™si",
+      "cardNumberPlaceholder": "Kart nÃ¶mrÉ™sini daxil edin",
+      "expiryDate": "Son Ä°stifadÉ™ Tarixi",
+      "expiryDatePlaceholder": "AA/Ä°Ä°",
       "cvv": "CVV",
       "cvvPlaceholder": "CVV daxil edin",
-      "cardHolderName": "Kart Sahibinin Adı",
-      "cardHolderNamePlaceholder": "Kart sahibinin adını daxil edin"
+      "cardHolderName": "Kart Sahibinin AdÄ±",
+      "cardHolderNamePlaceholder": "Kart sahibinin adÄ±nÄ± daxil edin"
     },
     "coupon": {
       "title": "Endirim Kodu",
       "placeholder": "Endirim kodunu daxil edin",
-      "apply": "Tətbiq Et",
+      "apply": "TÉ™tbiq Et",
       "remove": "Sil",
-      "discountApplied": "Endirim Tətbiq Edildi",
-      "welcomeDiscount": "Xoş gəldiniz endirimi (10% endirim)",
-      "invalid": "Yanlış endirim kodu",
-      "expired": "Endirim kodunun müddəti bitib",
-      "alreadyUsed": "Endirim kodu artıq istifadə edilib"
+      "discountApplied": "Endirim TÉ™tbiq Edildi",
+      "welcomeDiscount": "XoÅŸ gÉ™ldiniz endirimi (10% endirim)",
+      "invalid": "YanlÄ±ÅŸ endirim kodu",
+      "expired": "Endirim kodunun mÃ¼ddÉ™ti bitib",
+      "alreadyUsed": "Endirim kodu artÄ±q istifadÉ™ edilib"
     },
     "summary": {
-      "title": "Sifariş Xülasəsi",
+      "title": "SifariÅŸ XÃ¼lasÉ™si",
       "quantity": "Miqdar",
-      "subtotal": "Ara Cəm",
+      "subtotal": "Ara CÉ™m",
       "discount": "Endirim",
-      "shipping": "Çatdırılma",
+      "shipping": "Ã‡atdÄ±rÄ±lma",
       "free": "Pulsuz",
-      "total": "Ümumi Məbləğ",
-      "terms": "Sifarişi yerləşdirməklə Xidmət Şərtləri və Məxfilik Siyasəti ilə razılaşırsınız",
-      "completeOrder": "Sifarişi Tamamla",
-      "securityNote": "Ödəniş məlumatlarınız təhlükəsiz şəkildə emal olunur. Biz kredit kartı məlumatlarını saxlamırıq."
+      "total": "Ãœmumi MÉ™blÉ™ÄŸ",
+      "terms": "SifariÅŸi yerlÉ™ÅŸdirmÉ™klÉ™ XidmÉ™t ÅžÉ™rtlÉ™ri vÉ™ MÉ™xfilik SiyasÉ™ti ilÉ™ razÄ±laÅŸÄ±rsÄ±nÄ±z",
+      "completeOrder": "SifariÅŸi Tamamla",
+      "securityNote": "Ã–dÉ™niÅŸ mÉ™lumatlarÄ±nÄ±z tÉ™hlÃ¼kÉ™siz ÅŸÉ™kildÉ™ emal olunur. Biz kredit kartÄ± mÉ™lumatlarÄ±nÄ± saxlamÄ±rÄ±q."
     },
     "validation": {
-      "fullNameRequired": "Ad və soyad tələb olunur",
-      "addressRequired": "Ünvan tələb olunur",
-      "cityRequired": "Şəhər tələb olunur",
-      "zipRequired": "Poçt kodu tələb olunur",
-      "cardNumberRequired": "Kart nömrəsi tələb olunur",
-      "cardNumberInvalid": "Yanlış kart nömrəsi",
-      "expiryRequired": "Son istifadə tarixi tələb olunur",
-      "expiryInvalid": "Yanlış son istifadə tarixi",
-      "cvvRequired": "CVV tələb olunur",
-      "cvvInvalid": "Yanlış CVV",
-      "cardHolderRequired": "Kart sahibinin adı tələb olunur"
+      "fullNameRequired": "Ad vÉ™ soyad tÉ™lÉ™b olunur",
+      "addressRequired": "Ãœnvan tÉ™lÉ™b olunur",
+      "cityRequired": "ÅžÉ™hÉ™r tÉ™lÉ™b olunur",
+      "zipRequired": "PoÃ§t kodu tÉ™lÉ™b olunur",
+      "cardNumberRequired": "Kart nÃ¶mrÉ™si tÉ™lÉ™b olunur",
+      "cardNumberInvalid": "YanlÄ±ÅŸ kart nÃ¶mrÉ™si",
+      "expiryRequired": "Son istifadÉ™ tarixi tÉ™lÉ™b olunur",
+      "expiryInvalid": "YanlÄ±ÅŸ son istifadÉ™ tarixi",
+      "cvvRequired": "CVV tÉ™lÉ™b olunur",
+      "cvvInvalid": "YanlÄ±ÅŸ CVV",
+      "cardHolderRequired": "Kart sahibinin adÄ± tÉ™lÉ™b olunur"
     }
   },
   "blog": {
-    "minuteRead": "dəqiqəlik oxuma",
+    "minuteRead": "dÉ™qiqÉ™lik oxuma",
     "error": {
-      "title": "Xəta baş verdi",
-      "message": "Bloq məzmunu yüklənərkən xəta baş verdi."
+      "title": "XÉ™ta baÅŸ verdi",
+      "message": "Bloq mÉ™zmunu yÃ¼klÉ™nÉ™rkÉ™n xÉ™ta baÅŸ verdi."
     }
   },
   "products": {
-    "title": "Bütün Məhsullar",
-    "allProducts": "Bütün Məhsullar",
-    "subtitle": "Heyvanlarınız üçün bütün məhsulları kəşf edin",
-    "searchPlaceholder": "Məhsulları axtar...",
+    "title": "BÃ¼tÃ¼n MÉ™hsullar",
+    "allProducts": "BÃ¼tÃ¼n MÉ™hsullar",
+    "subtitle": "HeyvanlarÄ±nÄ±z Ã¼Ã§Ã¼n bÃ¼tÃ¼n mÉ™hsullarÄ± kÉ™ÅŸf edin",
+    "searchPlaceholder": "MÉ™hsullarÄ± axtar...",
     "noProducts": {
-      "title": "Məhsul Tapılmadı",
-      "description": "Axtarış kriteriyalarınıza uyğun məhsul tapılmadı."
+      "title": "MÉ™hsul TapÄ±lmadÄ±",
+      "description": "AxtarÄ±ÅŸ kriteriyalarÄ±nÄ±za uyÄŸun mÉ™hsul tapÄ±lmadÄ±."
     },
     "filters": {
-      "all": "Hamısı",
+      "all": "HamÄ±sÄ±",
       "inStock": "Stokda var",
       "outOfStock": "Stokda yoxdur"
     },
     "sort": {
-      "newest": "Ən yeni",
-      "oldest": "Ən köhnə",
-      "priceHighToLow": "Qiymət: Yüksəkdən aşağıya",
-      "priceLowToHigh": "Qiymət: Aşağıdan yuxarıya",
-      "nameAZ": "Ad: A-dan Z-yə",
-      "nameZA": "Ad: Z-dən A-ya"
+      "newest": "Æn yeni",
+      "oldest": "Æn kÃ¶hnÉ™",
+      "priceHighToLow": "QiymÉ™t: YÃ¼ksÉ™kdÉ™n aÅŸaÄŸÄ±ya",
+      "priceLowToHigh": "QiymÉ™t: AÅŸaÄŸÄ±dan yuxarÄ±ya",
+      "nameAZ": "Ad: A-dan Z-yÉ™",
+      "nameZA": "Ad: Z-dÉ™n A-ya"
     }
   },
   "petCareTips": {
-    "title": "Mövsümi Ev Heyvanı ",
-    "titleAccent": "Qulluq Məsləhətləri",
-    "subtitle": "İl boyu ev heyvanlarınızı sağlam və xoşbəxt saxlamaq üçün ekspert məsləhətləri",
-    "readMore": "Daha Ətraflı",
+    "title": "MÃ¶vsÃ¼mi Ev HeyvanÄ± ",
+    "titleAccent": "Qulluq MÉ™slÉ™hÉ™tlÉ™ri",
+    "subtitle": "Ä°l boyu ev heyvanlarÄ±nÄ±zÄ± saÄŸlam vÉ™ xoÅŸbÉ™xt saxlamaq Ã¼Ã§Ã¼n ekspert mÉ™slÉ™hÉ™tlÉ™ri",
+    "readMore": "Daha ÆtraflÄ±",
     "seasons": {
       "summer": "Yay",
-      "winter": "Qış",
+      "winter": "QÄ±ÅŸ",
       "spring": "Yaz",
-      "autumn": "Payız"
+      "autumn": "PayÄ±z"
     },
     "summer": {
       "tip1": {
-        "title": "İstidən Qorunma",
-        "description": "İsti yay günlərində heyvanlarınızı sərin və su ilə təmin edin"
+        "title": "Ä°stidÉ™n Qorunma",
+        "description": "Ä°sti yay gÃ¼nlÉ™rindÉ™ heyvanlarÄ±nÄ±zÄ± sÉ™rin vÉ™ su ilÉ™ tÉ™min edin"
       },
       "tip2": {
-        "title": "Yay Aktivlikləri",
-        "description": "Siz və heyvanınız üçün əyləncəli və təhlükəsiz açıq hava fəaliyyətləri"
+        "title": "Yay AktivliklÉ™ri",
+        "description": "Siz vÉ™ heyvanÄ±nÄ±z Ã¼Ã§Ã¼n É™ylÉ™ncÉ™li vÉ™ tÉ™hlÃ¼kÉ™siz aÃ§Ä±q hava fÉ™aliyyÉ™tlÉ™ri"
       },
       "tip3": {
-        "title": "Yay Qidalanması",
-        "description": "Optimal sağlamlıq üçün mövsümi qidalanma məsləhətləri"
+        "title": "Yay QidalanmasÄ±",
+        "description": "Optimal saÄŸlamlÄ±q Ã¼Ã§Ã¼n mÃ¶vsÃ¼mi qidalanma mÉ™slÉ™hÉ™tlÉ™ri"
       }
     },
     "winter": {
       "tip1": {
         "title": "Soyuqdan Qorunma",
-        "description": "Soyuq havada heyvanlarınızı isti və rahat saxlayın"
+        "description": "Soyuq havada heyvanlarÄ±nÄ±zÄ± isti vÉ™ rahat saxlayÄ±n"
       },
       "tip2": {
-        "title": "Qış Məşqləri",
-        "description": "Heyvanınızı aktiv saxlamaq üçün qapalı məkan aktivlikləri"
+        "title": "QÄ±ÅŸ MÉ™ÅŸqlÉ™ri",
+        "description": "HeyvanÄ±nÄ±zÄ± aktiv saxlamaq Ã¼Ã§Ã¼n qapalÄ± mÉ™kan aktivliklÉ™ri"
       },
       "tip3": {
-        "title": "Qış Qulluğu",
-        "description": "Soyuq mövsüm üçün xüsusi qulluq tövsiyələri"
+        "title": "QÄ±ÅŸ QulluÄŸu",
+        "description": "Soyuq mÃ¶vsÃ¼m Ã¼Ã§Ã¼n xÃ¼susi qulluq tÃ¶vsiyÉ™lÉ™ri"
       }
     },
     "spring": {
       "tip1": {
         "title": "Allergiyadan Qorunma",
-        "description": "Heyvanlarınızı mövsümi allergiyalardan qoruyun"
+        "description": "HeyvanlarÄ±nÄ±zÄ± mÃ¶vsÃ¼mi allergiyalardan qoruyun"
       },
       "tip2": {
-        "title": "Yaz Aktivlikləri",
-        "description": "Hava istiləşdikcə açıq hava fəaliyyətləri"
+        "title": "Yaz AktivliklÉ™ri",
+        "description": "Hava istilÉ™ÅŸdikcÉ™ aÃ§Ä±q hava fÉ™aliyyÉ™tlÉ™ri"
       },
       "tip3": {
-        "title": "Yaz Baxımı",
-        "description": "Mövsüm üçün vacib qulluq məsləhətləri"
+        "title": "Yaz BaxÄ±mÄ±",
+        "description": "MÃ¶vsÃ¼m Ã¼Ã§Ã¼n vacib qulluq mÉ™slÉ™hÉ™tlÉ™ri"
       }
     },
     "autumn": {
       "tip1": {
-        "title": "Payız Təhlükəsizliyi",
-        "description": "Payız dəyişiklikləri zamanı heyvanlarınızı qoruyun"
+        "title": "PayÄ±z TÉ™hlÃ¼kÉ™sizliyi",
+        "description": "PayÄ±z dÉ™yiÅŸikliklÉ™ri zamanÄ± heyvanlarÄ±nÄ±zÄ± qoruyun"
       },
       "tip2": {
-        "title": "Payız Qidalanması",
-        "description": "Heyvanlarınız üçün mövsümi qida tənzimləmələri"
+        "title": "PayÄ±z QidalanmasÄ±",
+        "description": "HeyvanlarÄ±nÄ±z Ã¼Ã§Ã¼n mÃ¶vsÃ¼mi qida tÉ™nzimlÉ™mÉ™lÉ™ri"
       },
       "tip3": {
-        "title": "Payız Aktivlikləri",
-        "description": "Sərin hava üçün əyləncəli fəaliyyətlər"
+        "title": "PayÄ±z AktivliklÉ™ri",
+        "description": "SÉ™rin hava Ã¼Ã§Ã¼n É™ylÉ™ncÉ™li fÉ™aliyyÉ™tlÉ™r"
       }
     }
   },
   "cats": {
     "hero": {
-      "title": "Pişiklər üçün Məhsullar",
-      "subtitle": "Sevimli pişikləriniz üçün keyfiyyətli və təhlükəsiz məhsullar"
+      "title": "PiÅŸiklÉ™r Ã¼Ã§Ã¼n MÉ™hsullar",
+      "subtitle": "Sevimli piÅŸiklÉ™riniz Ã¼Ã§Ã¼n keyfiyyÉ™tli vÉ™ tÉ™hlÃ¼kÉ™siz mÉ™hsullar"
     },
     "categories": {
       "title": "Kateqoriyalar",
-      "all": "Bütün Məhsullar",
-      "food": "Pişik Yemləri",
-      "litter": "Pişik Qumları",
-      "beds": "Ev və Yataqlar",
-      "carriers": "Daşıma Çantaları",
-      "leashes": "Qayışlar",
+      "all": "BÃ¼tÃ¼n MÉ™hsullar",
+      "food": "PiÅŸik YemlÉ™ri",
+      "litter": "PiÅŸik QumlarÄ±",
+      "beds": "Ev vÉ™ Yataqlar",
+      "carriers": "DaÅŸÄ±ma Ã‡antalarÄ±",
+      "leashes": "QayÄ±ÅŸlar",
       "badge": {
-        "select": "Seçin",
-        "products": "{{count}} məhsul"
+        "select": "SeÃ§in",
+        "products": "{{count}} mÉ™hsul"
       }
     },
-    "loading": "Pişik məhsulları yüklənir...",
-    "error": "Məhsulları yükləmək mümkün olmadı",
-    "noProducts": "Bu kateqoriyada məhsul tapılmadı"
+    "loading": "PiÅŸik mÉ™hsullarÄ± yÃ¼klÉ™nir...",
+    "error": "MÉ™hsullarÄ± yÃ¼klÉ™mÉ™k mÃ¼mkÃ¼n olmadÄ±",
+    "noProducts": "Bu kateqoriyada mÉ™hsul tapÄ±lmadÄ±"
   }
 }

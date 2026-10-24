@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, useCallback } from 'react';
+﻿import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { getAllOrders, calculateOrderStatistics } from '../../../../redux/slices/ordersSlice';
@@ -45,15 +45,15 @@ const OrderStatistics = () => {
 
   // Memoize status colors
   const statusColors = useMemo(() => ({
-    'Gözləyir': '#ffc107',
-    'Təsdiq edildi': '#17a2b8',
-    'Sifarişiniz hazırlanır': '#fd7e14',
+    'GÃ¶zlÉ™yir': '#ffc107',
+    'TÉ™sdiq edildi': '#17a2b8',
+    'SifariÅŸiniz hazÄ±rlanÄ±r': '#fd7e14',
     'Yolda': '#6f42c1',
-    'Çatdırıldı': '#28a745',
-    'Ləğv edildi': '#dc3545',
-    'Geri qaytarıldı': '#6c757d',
-    'Ödəniş gözləyir': '#e83e8c',
-    'default': '#6c63ff'
+    'Ã‡atdÄ±rÄ±ldÄ±': '#28a745',
+    'LÉ™ÄŸv edildi': '#dc3545',
+    'Geri qaytarÄ±ldÄ±': '#6c757d',
+    'Ã–dÉ™niÅŸ gÃ¶zlÉ™yir': '#e83e8c',
+    'default': '#1f7a5c'
   }), []);
 
   const getStatusColor = useCallback((status) => {
@@ -142,7 +142,7 @@ const OrderStatistics = () => {
     setRefreshKey(prev => prev + 1);
   }, []);
 
-  const COLORS = useMemo(() => ['#6c63ff', '#28a745', '#ffc107', '#17a2b8', '#ff5a5f', '#e83e8c', '#fd7e14', '#20c997'], []);
+  const COLORS = useMemo(() => ['#1f7a5c', '#28a745', '#ffc107', '#17a2b8', '#ff5a5f', '#e83e8c', '#fd7e14', '#20c997'], []);
 
   if (loading) {
     return (
@@ -159,10 +159,10 @@ const OrderStatistics = () => {
     return (
       <div className={styles.container}>
         <div className={styles.loadingState}>
-          <div className={styles.emptyStateIcon}>📊</div>
+          <div className={styles.emptyStateIcon}>ðŸ“Š</div>
           <div>{t('states.noData')}</div>
           <button className={styles.button} onClick={refreshData}>
-            🔄 {t('buttons.refresh')}
+            ðŸ”„ {t('buttons.refresh')}
           </button>
         </div>
       </div>
@@ -173,19 +173,19 @@ const OrderStatistics = () => {
     <div className={styles.container}>
       <div className={styles.maxWidth}>
         <div className={styles.title}>
-          📊 {t('statistics.orderStats')}
+          ðŸ“Š {t('statistics.orderStats')}
         </div>
 
         <div className={styles.headerActions}>
           <button className={styles.button} onClick={refreshData}>
-            🔄 {t('buttons.refresh')}
+            ðŸ”„ {t('buttons.refresh')}
           </button>
         </div>
 
         <div className={styles.summaryGrid}>
           <div className={styles.card}>
             <div className={styles.statCard}>
-              <div className={styles.statIcon}>📦</div>
+              <div className={styles.statIcon}>ðŸ“¦</div>
               <div className={styles.statValue}>{statistics.totalOrders || 0}</div>
               <div className={styles.statLabel}>{t('statistics.totalOrders')}</div>
             </div>
@@ -193,7 +193,7 @@ const OrderStatistics = () => {
 
           <div className={styles.card}>
             <div className={styles.statCard}>
-              <div className={styles.statIcon}>💰</div>
+              <div className={styles.statIcon}>ðŸ’°</div>
               <div className={styles.statValue}>{formatPrice(statistics.totalRevenue || 0)}</div>
               <div className={styles.statLabel}>{t('statistics.totalRevenue')}</div>
             </div>
@@ -201,7 +201,7 @@ const OrderStatistics = () => {
 
           <div className={styles.card}>
             <div className={styles.statCard}>
-              <div className={styles.statIcon}>📈</div>
+              <div className={styles.statIcon}>ðŸ“ˆ</div>
               <div className={styles.statValue}>
                 {statistics.totalOrders > 0 ? formatPrice(statistics.totalRevenue / statistics.totalOrders) : formatPrice(0)}
               </div>
@@ -211,7 +211,7 @@ const OrderStatistics = () => {
         </div>
 
         <div className={styles.card}>
-          <h3 className={styles.sectionTitle}>👥 {t('statistics.recentCustomers')}</h3>
+          <h3 className={styles.sectionTitle}>ðŸ‘¥ {t('statistics.recentCustomers')}</h3>
           {statistics.recentCustomers && statistics.recentCustomers.length > 0 ? (
             <div className={styles.customersGrid}>
               {statistics.recentCustomers.map((customer, index) => (
@@ -220,7 +220,7 @@ const OrderStatistics = () => {
                     #{index + 1}
                   </div>
                   <div className={styles.customerAvatar}>
-                    👤
+                    ðŸ‘¤
                   </div>
                   <div className={styles.customerInfo}>
                     <div 
@@ -256,7 +256,7 @@ const OrderStatistics = () => {
 
         <div className={styles.chartsGrid}>
           <div className={styles.card}>
-            <h3 className={styles.sectionTitle}>🏷️ {t('statistics.salesByCategory')}</h3>
+            <h3 className={styles.sectionTitle}>ðŸ·ï¸ {t('statistics.salesByCategory')}</h3>
             {formattedCategoryStats.length > 0 ? (
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
@@ -295,7 +295,7 @@ const OrderStatistics = () => {
           </div>
 
           <div className={styles.card}>
-            <h3 className={styles.sectionTitle}>📅 {t('statistics.monthlySalesTrend')}</h3>
+            <h3 className={styles.sectionTitle}>ðŸ“… {t('statistics.monthlySalesTrend')}</h3>
             {statistics.monthlyStats && statistics.monthlyStats.length > 0 ? (
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={statistics.monthlyStats}>
@@ -334,7 +334,7 @@ const OrderStatistics = () => {
         </div>
 
         <div className={styles.card}>
-          <h3 className={styles.sectionTitle}>📊 {t('statistics.orderStatusDistribution')}</h3>
+          <h3 className={styles.sectionTitle}>ðŸ“Š {t('statistics.orderStatusDistribution')}</h3>
           {formattedStatusStats.length > 0 ? (
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={formattedStatusStats}>
@@ -365,7 +365,7 @@ const OrderStatistics = () => {
         </div>
 
         <div className={styles.card}>
-          <h3 className={styles.sectionTitle}>🏆 {t('statistics.topSellingCategories')}</h3>
+          <h3 className={styles.sectionTitle}>ðŸ† {t('statistics.topSellingCategories')}</h3>
           {statistics.categoryStats && statistics.categoryStats.length > 0 ? (
             <div className={styles.categoriesGrid}>
               {statistics.categoryStats.slice(0, 8).map((category, index) => (
@@ -400,7 +400,7 @@ const OrderStatistics = () => {
         </div>
 
         <div className={styles.card}>
-          <h3 className={styles.sectionTitle}>🥇 {t('statistics.topSellingProducts')}</h3>
+          <h3 className={styles.sectionTitle}>ðŸ¥‡ {t('statistics.topSellingProducts')}</h3>
           {actualProducts.length > 0 ? (
             <div className={styles.productsGrid}>
               {actualProducts.map((product, index) => (
@@ -424,7 +424,7 @@ const OrderStatistics = () => {
                       className={styles.productImagePlaceholder}
                       style={{ display: product.image ? 'none' : 'flex' }}
                     >
-                      📦
+                      ðŸ“¦
                     </div>
                   </div>
                   <div className={styles.productInfo}>

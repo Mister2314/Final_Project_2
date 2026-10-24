@@ -1,4 +1,4 @@
-.paginationContainer {
+﻿.paginationContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,16 +42,16 @@
 }
 
 .paginationButton:hover:not(.disabled) {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-color: #667eea;
+  background: linear-gradient(135deg, #2b8a68 0%, #175f48 100%);
+  border-color: #2b8a68;
   color: #ffffff;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .paginationButton.activePage {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-color: #667eea;
+  background: linear-gradient(135deg, #2b8a68 0%, #175f48 100%);
+  border-color: #2b8a68;
   color: #ffffff;
   box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
   font-weight: 600;
@@ -72,7 +72,7 @@
 }
 .adminContainer {
   min-height: 100vh;
-  background: #667eea;
+  background: #2b8a68;
   padding: 0;
     margin-left: 240px;
   transition: margin-left 0.2s ease;
@@ -118,7 +118,7 @@
 
 .sidebarIcon {
   font-size: 1.8rem;
-  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(45deg, #2b8a68 0%, #175f48 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -157,7 +157,7 @@
 }
 
 .tabButton.activeTab {
-  background: #667eea;
+  background: #2b8a68;
   color: #ffffff;
 }
 
@@ -169,7 +169,7 @@
   transform: translateY(-50%);
   width: 4px;
   height: 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2b8a68 0%, #175f48 100%);
   border-radius: 2px;
 }
 
@@ -184,7 +184,7 @@
     top: 48px;
     left: 5px;
   z-index: 1001;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2b8a68 0%, #175f48 100%);
   color: white;
   border: none;
   padding: 12px;
@@ -232,7 +232,7 @@
 }
 
 [data-theme="dark"] .tabButton.activeTab {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2b8a68 0%, #175f48 100%);
   color: #ffffff;
 }
 
@@ -242,7 +242,7 @@
 }
 
 [data-theme="dark"] .adminTitle h1 {
-  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(45deg, #2b8a68 0%, #175f48 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -263,7 +263,7 @@
 }
 
 [data-theme="dark"] .addButton {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2b8a68 0%, #175f48 100%);
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
@@ -333,7 +333,7 @@
 
 [data-theme="dark"] .loadingSpinner {
   border: 4px solid rgba(255, 255, 255, 0.1);
-  border-top: 4px solid #667eea;
+  border-top: 4px solid #2b8a68;
 }
 
 [data-theme="dark"] .modalOverlay {
@@ -383,7 +383,7 @@
 }
 
 [data-theme="dark"] .formInput:focus {
-  border-color: #667eea;
+  border-color: #2b8a68;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
 }
 
@@ -394,7 +394,7 @@
 }
 
 [data-theme="dark"] .formSelect:focus {
-  border-color: #667eea;
+  border-color: #2b8a68;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
 }
 
@@ -434,7 +434,7 @@
 }
 
 [data-theme="dark"] .submitButton {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2b8a68 0%, #175f48 100%);
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
@@ -443,7 +443,7 @@
 }
 
 [data-theme="dark"] .mobileMenuButton {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2b8a68 0%, #175f48 100%);
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
@@ -481,7 +481,7 @@
   margin: 0;
   font-size: 2rem;
   font-weight: 700;
-  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(45deg, #2b8a68 0%, #175f48 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -522,14 +522,14 @@
 
 .sectionIcon {
   font-size: 1.8rem;
-  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(45deg, #2b8a68 0%, #175f48 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .addButton {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2b8a68 0%, #175f48 100%);
   color: white;
   border: none;
   padding: 12px 24px;
@@ -681,7 +681,7 @@
 }
 
 .roleAdmin {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #2b8a68, #175f48);
   color: white;
 }
 
@@ -748,7 +748,7 @@
   width: 40px;
   height: 40px;
   border: 4px solid #e2e8f0;
-  border-top: 4px solid #667eea;
+  border-top: 4px solid #2b8a68;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 16px;
@@ -874,7 +874,7 @@
 
 .formInput:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #2b8a68;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -898,7 +898,7 @@
 
 .formSelect:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #2b8a68;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -917,7 +917,7 @@
 .formCheckbox {
   width: 18px;
   height: 18px;
-  accent-color: #667eea;
+  accent-color: #2b8a68;
   cursor: pointer;
 }
 
@@ -985,7 +985,7 @@
 }
 
 .submitButton {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2b8a68 0%, #175f48 100%);
   color: white;
   border: none;
   padding: 12px 24px;
@@ -1257,7 +1257,7 @@
 }
 
 .roleAdmin {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #2b8a68, #175f48);
   color: white;
 }
 
@@ -1277,7 +1277,7 @@
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.85rem;
-  background: linear-gradient(135deg, #8d87f5, #6c63ff);
+  background: linear-gradient(135deg, #3b9a78, #1f7a5c);
   color: white;
 }
 
@@ -2312,12 +2312,12 @@
 }
 
 [data-theme="dark"] :global(.react-datepicker__day:hover) {
-  background: #667eea;
+  background: #2b8a68;
 }
 
 [data-theme="dark"] :global(.react-datepicker__day--selected),
 [data-theme="dark"] :global(.react-datepicker__day--keyboard-selected) {
-  background: #667eea;
+  background: #2b8a68;
 }
 
 [data-theme="dark"] :global(.react-datepicker__time-container) {
@@ -2333,11 +2333,11 @@
 }
 
 [data-theme="dark"] :global(.react-datepicker__time-list-item:hover) {
-  background: #667eea;
+  background: #2b8a68;
 }
 
 [data-theme="dark"] :global(.react-datepicker__time-list-item--selected) {
-  background: #667eea !important;
+  background: #2b8a68 !important;
 }
 
 .imageColumn {

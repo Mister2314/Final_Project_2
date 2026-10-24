@@ -1,4 +1,4 @@
-.profileSettingsContainer {
+﻿.profileSettingsContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -456,7 +456,7 @@
   }
   
   .backButton:hover {
-    background-color: rgba(108, 99, 255, 0.1);
+    background-color: rgba(31, 122, 92, 0.1);
     transform: translateX(-2px);
   }
   

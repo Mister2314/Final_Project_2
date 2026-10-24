@@ -6,6 +6,7 @@ import { validateCoupon, clearCurrentCoupon } from '../../redux/slices/couponsSl
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
+import { Lock } from 'lucide-react';
 import styles from './Checkout.module.css';
 
 const Checkout = () => {
@@ -718,7 +719,7 @@ const Checkout = () => {
               disabled={isProcessing || orderLoading || !isAuthenticated}
               className={styles.submitButton}
             >
-              🔒 {isProcessing || orderLoading ? t('checkout.summary.processing') : t('checkout.summary.completeOrder')}
+              <Lock size={14} style={{ verticalAlign: '-2px' }} aria-hidden="true" /> {isProcessing || orderLoading ? t('checkout.summary.processing') : t('checkout.summary.completeOrder')}
             </button>
 
             <div className={styles.securityNote}>

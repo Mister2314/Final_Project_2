@@ -1,4 +1,4 @@
-.reviewFormCard {
+﻿.reviewFormCard {
   background: var(--card-bg);
   border-radius: 16px;
   padding: 2rem;
@@ -45,7 +45,7 @@
 
 .reviewTextarea:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #2b8a68;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -74,7 +74,7 @@
 
 .submitButton {
   padding: 0.875rem 2rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #2b8a68, #175f48);
   color: white;
   border: none;
   border-radius: 12px;
@@ -147,7 +147,7 @@
 }
 
 [data-theme="dark"] .reviewTextarea:focus {
-  border-color: #667eea;
+  border-color: #2b8a68;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
 }
 
